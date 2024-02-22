@@ -1,0 +1,243 @@
+
+@font-face {
+    font-family: 'globalFont';
+    src: url('../src/fonts/OpenSans-VariableFont_wdth-wght.ttf') format('truetype');
+  }
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'globalFont'
+}
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+img{
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+}
+ul,ol{
+    list-style: none;
+}
+
+
+:root {
+    --main_font_color: white;
+    --second_font_color: #cea670;
+  }
+
+  @font-face {
+    font-family: 'AnimFont';
+    src: url('../src/fonts/BigShouldersInlineText-ExtraBold.ttf') format('truetype');
+   
+  }
+
+
+
+
+.App.medium h1{
+ font-size: 50px ;
+}
+
+.App.large h1{
+    font-size: 60px ;
+}
+
+.App.small h1{
+    font-size: 40px ;
+}
+
+/* =================== */
+
+.App.medium h2{
+    font-size: 40px ;
+   }
+   
+   .App.large h2{
+       font-size: 50px ;
+   }
+   
+   .App.small h2{
+       font-size: 30px ;
+   }
+
+/* ============================= */
+
+
+.App.medium h3{
+    font-size: 35px ;
+   }
+   
+   .App.large h3{
+       font-size: 40px ;
+   }
+   
+   .App.small h3{
+       font-size: 30px ;
+   }
+
+
+   /* ================================= */
+
+
+   .App.medium p{
+    font-size: 18px ;
+   }
+   
+   .App.large p{
+       font-size: 20px ;
+   }
+   
+   .App.small p{
+       font-size: 16px ;
+   }
+
+
+   /* ======================= */
+
+   .App.medium span{
+    font-size: 15px ;
+   }
+   
+   .App.large span{
+       font-size: 18px ;
+   }
+   
+   .App.small span{
+       font-size: 14px ;
+   }
+
+   /* ========================== */
+
+   .App.medium a{
+    font-size: 18px ;
+   }
+   
+   .App.large a{
+       font-size: 22px ;
+   }
+   
+   .App.small a{
+       font-size: 16px ;
+   }
+
+   .App.medium button{
+    font-size: 18px ;
+   }
+   
+   .App.large button{
+       font-size: 22px ;
+   }
+   
+   .App.small button{
+       font-size: 16px ;
+   }
+
+
+   .App.medium label{
+    font-size: 18px ;
+   }
+   
+   .App.large label{
+       font-size: 22px ;
+   }
+   
+   .App.small label{
+       font-size: 16px ;
+   }
+
+   /* =================================== */
+
+   @media(max-width: 720px){
+
+    .App.medium h1{
+        font-size: 37px ;
+       }
+       
+       .App.large h1{
+           font-size: 40px ;
+       }
+       
+       .App.small h1{
+           font-size: 35px ;
+       }
+       
+       /* =================== */
+       
+       .App.medium h2{
+           font-size: 33px ;
+          }
+          
+          .App.large h2{
+              font-size: 33px ;
+          }
+          
+          .App.small h2{
+              font-size: 30px ;
+          }
+       
+       /* ============================= */
+       
+       
+       .App.medium h3{
+           font-size: 30px ;
+          }
+          
+          .App.large h3{
+              font-size: 35px ;
+          }
+          
+          .App.small h3{
+              font-size: 25px ;
+          }
+       
+       
+          /* ================================= */
+       
+       
+          .App.medium p{
+           font-size: 18px ;
+          }
+          
+          .App.large p{
+              font-size: 22px ;
+          }
+          
+          .App.small p{
+              font-size: 14px ;
+          }
+       
+       
+          /* ======================= */
+       
+          .App.medium span{
+           font-size: 16px ;
+          }
+          
+          .App.large span{
+              font-size: 20px ;
+          }
+          
+          .App.small span{
+              font-size: 14px ;
+          }
+       
+          /* ========================== */
+       
+          .App.medium a{
+           font-size: 18px ;
+          }
+          
+          .App.large a{
+              font-size: 22px ;
+          }
+          
+          .App.small a{
+              font-size: 16px ;
+          }
+       
+   }
