@@ -38,9 +38,9 @@ const loginSlice = createSlice({
              if(action.payload){
                 state.data.error = action.payload
                 state.data.isAuth = false
-                state.loading = false
+                
                }
-              
+               state.loading = false
                state.status = 'failed'; 
           });
     },

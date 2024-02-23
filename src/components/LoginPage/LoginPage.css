@@ -65,6 +65,7 @@
 }
 .remember_me input{
     width: 15px;
+    accent-color: #D5AA72;
 }
 
 .login_btn{

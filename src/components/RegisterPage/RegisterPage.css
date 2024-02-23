@@ -129,3 +129,16 @@ color: black;
 .country-inp input:focus +div{
     transform: rotateX(0);
 }
+
+.register_btn{
+    width: 100%;
+    height: 44px;
+    background-color: #D5AA72;
+    border: none;
+    outline: none;
+    color: var(--main_font_color);
+}
+
+.register_btn:hover{
+    background-color: #B28851;
+}

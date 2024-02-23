@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './RegisterPage.css'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Formik } from "formik";
 import * as yup from 'yup';
 import { selectIcon } from '../../iconFolder/icon';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { postRegister } from '../../store/slices/RegisterSlice/RegisterApi';
+import VerificationComponent from '../VerificationComponent/VerificationComponent';
 
 function RegisterPage() {
     const leng = localStorage.getItem('lang')
     const {t, i18n} = useTranslation()
+    const [openVerifyModal, setOpenVerifyModal] = useState(false)
     const [countryVal, setCountryVal] = useState('')
     const [countryType, setCountryType] = useState('')
+    const emailRef = useRef(null)
 
     const dispatch = useDispatch()
 
@@ -84,11 +87,13 @@ function RegisterPage() {
                 confirmPassword: confirmPassword.value,
                 phone: phone.value,
                 country: countryType,
-                age: age.value,
+                birth_date: age.value,
                 gender: gender.value
             }
 
-            dispatch(postRegister(registerObj))
+             dispatch(postRegister(registerObj))
+                 setOpenVerifyModal(true)
+            
         }
     }
 
@@ -120,7 +125,7 @@ function RegisterPage() {
 
                             onSubmit={(values, { resetForm }) => {
 
-                                resetForm()
+                                // resetForm()
                             }}
 
                             validateOnBlur
@@ -148,7 +153,7 @@ function RegisterPage() {
                                             <div className='pasword_and_email_div'>
                                                 <span>{t('register_text.2')}</span>
                                                 <div className="email-inp">
-                                                    <input type="email" name="email" placeholder={t('placeholder.5')} value={values.email} onChange={handleChange} onBlur={handleBlur} />
+                                                    <input ref={emailRef} type="email" name="email" placeholder={t('placeholder.5')} value={values.email} onChange={handleChange} onBlur={handleBlur} />
                                                     {touched.email && errors.email && <p className="error">{errors.email}</p>}
                                                 </div>
 
@@ -216,14 +221,14 @@ function RegisterPage() {
                                             </div>
 
 
-                                        <button type='submit' className='login_btn'>{t('register_btn')}</button>
+                                        <button type='submit' className='register_btn'>{t('register_btn')}</button>
 
                                     </form>
                                 )
                             }
                         </Formik>
 
-
+                    {openVerifyModal && <VerificationComponent email={emailRef} {...{setOpenVerifyModal}}/>}
             </div>
         </div>
     </div>

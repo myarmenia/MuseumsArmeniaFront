@@ -92,7 +92,18 @@ function LoginPage() {
                                         <GoogleLogin
                                             onSuccess={credentialResponse => {
                                                 const decodedHeader = jwtDecode(credentialResponse.credential);
-                                                console.log(decodedHeader);
+
+                                                const loginWithGoogleObj = {
+                                                   email: decodedHeader.email,
+                                                   given_name: decodedHeader.given_name,
+                                                   family_name: decodedHeader.family_name,
+                                                   google_id: decodedHeader.sub,
+                                                   email_verified: decodedHeader.email_verified
+                                                }
+
+                                                console.log(loginWithGoogleObj,'ffffffff');
+
+                                                console.log(decodedHeader,'gggggggg');
                                             }}
                                             onError={() => {
                                                 console.log('Login Failed');
