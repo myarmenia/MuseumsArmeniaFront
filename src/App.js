@@ -5,6 +5,9 @@ import HomePage from './components/HomePage/HomePage';
 import { useEffect, useState } from 'react';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
+import PrivateRouteForRegAndLog from './privateRoute/PrivateRouteForRegAndLog';
+import PrivateRoute from './privateRoute/PrivateRoute';
+import PrivateRouteForOutSider from './privateRoute/PrivateRouteForOutSider';
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('medium')
@@ -29,10 +32,10 @@ function App() {
           <Routes>
               <Route path='/' element={<HomeWraper {...{changeFonSize, changeFont}}/>}>
                 <Route path=":leng">
-                    <Route path="login" element={<LoginPage />} />
-                    <Route path="register" element={<RegisterPage/>} />
+                    <Route path="login" element={<PrivateRouteForRegAndLog><LoginPage /></PrivateRouteForRegAndLog>} />
+                    <Route path="register" element={<PrivateRouteForRegAndLog><RegisterPage/></PrivateRouteForRegAndLog>} />
 
-                    <Route index element={<HomePage {...{changeFonSize, changeFont}}/>}/>
+                    <Route index element={<PrivateRouteForOutSider><HomePage {...{changeFonSize, changeFont}}/></PrivateRouteForOutSider>}/>
                     <Route path='museum' element={<h1 style={{height: '20000px'}}>fd</h1>}/>
                 </Route>
               </Route>

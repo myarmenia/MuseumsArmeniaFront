@@ -8,6 +8,7 @@ import { selectIcon } from '../../iconFolder/icon';
 import { useDispatch, useSelector } from 'react-redux';
 import { postRegister } from '../../store/slices/RegisterSlice/RegisterApi';
 import VerificationComponent from '../VerificationComponent/VerificationComponent';
+import { selectRegisterData } from '../../store/slices/RegisterSlice/RegisterSlice';
 
 function RegisterPage() {
     const leng = localStorage.getItem('lang')
@@ -92,7 +93,7 @@ function RegisterPage() {
             }
 
              dispatch(postRegister(registerObj))
-                 setOpenVerifyModal(true)
+               setOpenVerifyModal(true)
             
         }
     }

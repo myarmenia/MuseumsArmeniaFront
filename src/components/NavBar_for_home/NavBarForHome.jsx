@@ -6,9 +6,14 @@ import ChangeFontSize from '../ChangeFontSize/ChangeFontSize'
 import SelectLng from '../SelectLng/SelectLng'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
+import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
+import { userIcon } from '../../iconFolder/icon'
 
 function NavBarForHome({homeNavColor, changeFonSize, changeFont}) {
-  const {t, i18n} = useTranslation()
+    const isAuth = useSelector(getIsAuth)
+    console.log(isAuth,'ddd');
+    const {t, i18n} = useTranslation()
   const leng = localStorage.getItem('lang')
   return (
     <div className='nav_bar_for_home' style={{background: homeNavColor ? 'black' : 'transparent', opacity : homeNavColor ? '.7' : '1'}}>
@@ -18,9 +23,10 @@ function NavBarForHome({homeNavColor, changeFonSize, changeFont}) {
               <NavMenu/>
             </div>
             <div className='nav_bar_for_home_right_div'>
+              {isAuth && <div>{userIcon}</div>}
               <ChangeFontSize {...{changeFonSize, changeFont}}/>
               <SelectLng/>
-              <NavLink to={`/${leng}/login`}>{t('login_btn')}</NavLink>
+              {!isAuth && <NavLink to={`/${leng}/login`}>{t('login_btn')}</NavLink>}
             </div>
         </div>
     </div>

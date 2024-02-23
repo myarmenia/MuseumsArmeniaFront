@@ -5,6 +5,7 @@ import LoadSpinner from '../LoadSpinner/LoadSpinner'
 import './VerificationComponent.css'
 import { postVerifyAccount } from '../../store/slices/VerifyAccountSlice/VerifyAccountApi'
 import { getData, selectVerifyAccount } from '../../store/slices/VerifyAccountSlice/VerifyAccountSlice'
+import Timer from '../Timer/Timer'
 
  function VerificationComponent({email, setOpenVerifyModal}) {
     console.log(email.current.value,'ffss');
@@ -59,7 +60,8 @@ import { getData, selectVerifyAccount } from '../../store/slices/VerifyAccountSl
                         })
                     }
                 </div>
-                    <span>{errMessage?.message}</span>
+                    <Timer email={email}/>
+                    {<span>{errMessage?.message}</span>}
 
 
                 <button type='submit' className='verification_btn'>Send</button>

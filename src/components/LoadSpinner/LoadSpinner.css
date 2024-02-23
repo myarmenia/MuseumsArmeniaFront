@@ -5,7 +5,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.885);
+    background-color: #e7e7e79f;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,8 +14,8 @@
 .loader {
     width: 48px;
     height: 48px;
-    border: 5px solid white;
-    border-bottom-color: transparent;
+    border: 5px solid #FFF;
+    border-bottom-color: var(--second_font_color);
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;

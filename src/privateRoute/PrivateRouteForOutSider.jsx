@@ -8,12 +8,13 @@ const PrivateRouteForOutSider = ({ children }) => {
     const dispatch = useDispatch();
     const isAuth = useSelector(getIsAuth);
     const [loading, setLoading] = useState(true);
-    const sesionIsAuth  = sessionStorage.getItem('isAuth')
+    const localIsAuth  = localStorage.getItem('isAuth')
+
+    console.log(localIsAuth,6666, !isAuth);
  
-    console.log(isAuth, sesionIsAuth, 999999999999999999999999999)
     useEffect(() => {
       const fetchData = async () => {
-        if (!isAuth && sesionIsAuth) {
+        if (!isAuth && localIsAuth) {
           await dispatch(getCurrentUser());
         }
         setLoading(false); 
@@ -25,7 +26,7 @@ const PrivateRouteForOutSider = ({ children }) => {
     }, [dispatch, isAuth]);
   
     if (loading) {
-      return <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+      return <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
     }
 
     return children;

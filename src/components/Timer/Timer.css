@@ -1,0 +1,12 @@
+.repeat_code{
+    display: flex;
+    gap: 10px;
+}
+
+.repeat_code span{
+ color:gray
+}
+
+.repeat_code span:nth-of-type(2){
+    text-decoration-line: underline;
+}

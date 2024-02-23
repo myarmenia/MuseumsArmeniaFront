@@ -50,4 +50,13 @@ export const selectIcon = <svg xmlns="http://www.w3.org/2000/svg" width={16} hei
 
 
 
+export const  userIcon = <svg width={41} height={40} viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="20.5" cy={20} r={20} fill="#D5AA72" fillOpacity="0.8" />
+  <path d="M20.5 22.5C23.2614 22.5 25.5 20.2614 25.5 17.5C25.5 14.7386 23.2614 12.5 20.5 12.5C17.7386 12.5 15.5 14.7386 15.5 17.5C15.5 20.2614 17.7386 22.5 20.5 22.5Z" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+  <path d="M12.9219 26.8747C13.6898 25.5444 14.7944 24.4396 16.1247 23.6715C17.4549 22.9034 18.9639 22.499 20.5 22.499C22.0361 22.499 23.5451 22.9034 24.8753 23.6715C26.2056 24.4396 27.3102 25.5444 28.0781 26.8747" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+</svg>
+
+
+
+
 
