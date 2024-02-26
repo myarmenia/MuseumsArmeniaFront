@@ -17,7 +17,7 @@ function RegisterPage() {
     const [countryVal, setCountryVal] = useState('')
     const [countryType, setCountryType] = useState('')
     const emailRef = useRef(null)
-
+    const {message, success} = useSelector(selectRegisterData)
     const dispatch = useDispatch()
 
     const handleChangeCountry =(val, type) => {
@@ -98,6 +98,7 @@ function RegisterPage() {
         }
     }
 
+
     const countries = t('country', {returnObjects: true})
 
   return (
@@ -159,13 +160,15 @@ function RegisterPage() {
                                                 </div>
 
                                                 <div className="password">
-                                                    <input type="password" name="password" placeholder={t('placeholder.1')} value={values.password} onChange={handleChange} onBlur={handleBlur} />
+                                                    <input type="password" name="password" placeholder={t('placeholder.1')} value={values.password} onChange={handleChange} onBlur={handleBlur}/>
                                                     {touched.password && errors.password && <p className="error">{errors.password}</p>}
+
                                                 </div>
 
                                                 <div className="confirmPassword">
-                                                    <input type="password" name="confirmPassword" placeholder={t('placeholder.6')} value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur} />
+                                                    <input type="password" name="confirmPassword" placeholder={t('placeholder.6')} value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur}/>
                                                     {touched.confirmPassword && errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
+                                                    
                                                 </div>
                                             </div>
 
@@ -221,12 +224,15 @@ function RegisterPage() {
                                                 </div>
                                             </div>
 
-
+                                            {
+                                             !success && <span style={{color: 'red'}}>{message}</span>
+                                            }
                                         <button type='submit' className='register_btn'>{t('register_btn')}</button>
 
                                     </form>
                                 )
                             }
+
                         </Formik>
 
                     {openVerifyModal && <VerificationComponent email={emailRef} {...{setOpenVerifyModal}}/>}

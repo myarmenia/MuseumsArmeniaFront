@@ -6,9 +6,11 @@ import './VerificationComponent.css'
 import { postVerifyAccount } from '../../store/slices/VerifyAccountSlice/VerifyAccountApi'
 import { getData, selectVerifyAccount } from '../../store/slices/VerifyAccountSlice/VerifyAccountSlice'
 import Timer from '../Timer/Timer'
+import { useTranslation } from 'react-i18next'
 
  function VerificationComponent({email, setOpenVerifyModal}) {
-    console.log(email.current.value,'ffss');
+
+    const {t, i18n} = useTranslation()
     
     const [otp, setOtp] = useState(new Array(5).fill(""))
     const dispatch = useDispatch()
@@ -16,9 +18,6 @@ import Timer from '../Timer/Timer'
     const registerLoading = useSelector(selectRegisterLoading)
     const errMessage = useSelector(getData)
 
-    console.log(errMessage,'dhchbhjhj');
-
-    console.log(respRegiterData,'ggggggg');
     const handleChange = (e, index) => {
         if (isNaN(e.target.value)) return false
             
@@ -48,11 +47,15 @@ import Timer from '../Timer/Timer'
 
   return (
     <>
-    {registerLoading === 'pending' ? <LoadSpinner/> : <div className='verification_modal' onClick={() => setOpenVerifyModal(false)}>
+    {registerLoading === 'pending' ? <LoadSpinner/> : registerLoading === 'fulfilled' && respRegiterData.success  ? (<div className='verification_modal' onClick={() => setOpenVerifyModal(false)}>
         <form className='verification_modal_block' onSubmit={handleSubmitVerificationForm} onClick={(e) => e.stopPropagation()}>
-        <p>{respRegiterData?.message}</p>
+        <div className='verification_modal_block_title'>
+            <p>{t('verifyAccount.0')}</p>
+            <p>{respRegiterData?.message}</p>
+        </div>
 
             {registerLoading === 'fulfilled' && <div className='opt_div_verify'>
+                <span>{email.current.value}</span>
                 <div className='verify_inputs_div'>
                     {
                       otp.map((data, i) => {
@@ -68,7 +71,7 @@ import Timer from '../Timer/Timer'
             </div>}
         </form>
 
-    </div>}
+    </div>) : ''}
     
     </>
   )

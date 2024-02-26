@@ -94,11 +94,7 @@ function LoginPage() {
                                                 const decodedHeader = jwtDecode(credentialResponse.credential);
 
                                                 const loginWithGoogleObj = {
-                                                   email: decodedHeader.email,
-                                                   given_name: decodedHeader.given_name,
-                                                   family_name: decodedHeader.family_name,
-                                                   google_id: decodedHeader.sub,
-                                                   email_verified: decodedHeader.email_verified
+                                                   token: credentialResponse.credential
                                                 }
 
                                                 console.log(loginWithGoogleObj,'ffffffff');

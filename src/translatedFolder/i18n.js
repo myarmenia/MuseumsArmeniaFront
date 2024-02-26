@@ -113,6 +113,14 @@ i18n
           'Գրել միայն թվանշան'
           ],
 
+          verifyAccount: [
+            'Ստուգման Էլ․ հասցե',
+            'Ստացեք նոր կոդ',
+            'Եթե ​​կոդ չե՞ք ստացել',
+            'Կրկին ուղարկել՝',
+            'վայրկյան հետո'
+          ],
+
         
 
           country:[
@@ -234,6 +242,15 @@ i18n
           ],
 
 
+          verifyAccount: [
+            'Проверить электронную почту адрес',
+            'Получить новый код',
+            'Если вы не получили код',
+            'Отправить:',
+            "секунду спустя"
+          ],
+
+
           country:[
             {
              "hy": "ффффф"
@@ -352,6 +369,16 @@ i18n
           'Password mismatch',
           'Write only digit'
           ],
+
+
+          verifyAccount: [
+            'Check Email address',
+            'Get a new code',
+            'If you havent received a code',
+            'Resend:',
+            "second later"
+          ],
+
           country:[
             {
              "hy": "Armenia"

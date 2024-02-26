@@ -6,15 +6,20 @@ import ChangeFontSize from '../ChangeFontSize/ChangeFontSize'
 import SelectLng from '../SelectLng/SelectLng'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
-import { userIcon } from '../../iconFolder/icon'
+import { logOutIcon, userIcon } from '../../iconFolder/icon'
+import { getLogOut } from '../../store/slices/LogOutSlice/LogOutApi'
 
 function NavBarForHome({homeNavColor, changeFonSize, changeFont}) {
     const isAuth = useSelector(getIsAuth)
     console.log(isAuth,'ddd');
     const {t, i18n} = useTranslation()
-  const leng = localStorage.getItem('lang')
+    const leng = localStorage.getItem('lang')
+    const dispatch = useDispatch()
+  const handleLogOut = () =>{
+    dispatch(getLogOut())
+  }
   return (
     <div className='nav_bar_for_home' style={{background: homeNavColor ? 'black' : 'transparent', opacity : homeNavColor ? '.7' : '1'}}>
        <div className='container'>
@@ -27,6 +32,7 @@ function NavBarForHome({homeNavColor, changeFonSize, changeFont}) {
               <ChangeFontSize {...{changeFonSize, changeFont}}/>
               <SelectLng/>
               {!isAuth && <NavLink to={`/${leng}/login`}>{t('login_btn')}</NavLink>}
+              {isAuth && <span onClick={handleLogOut}>{logOutIcon}</span>}
             </div>
         </div>
     </div>

@@ -4,6 +4,7 @@ import { registerReducer } from "./slices/RegisterSlice/RegisterSlice";
 import { verifyAccountReducer } from "./slices/VerifyAccountSlice/VerifyAccountSlice";
 import { authReduser } from "./slices/Auth/AuthSlice";
 import { repeatVerifyCodeReducer } from "./slices/RepeatVerifyCodeSlice/RepeatVerifyCodeSlice";
+import { logOutReducer } from "./slices/LogOutSlice/LogOutSlice";
 
 
 
@@ -14,6 +15,7 @@ const store = configureStore({
         verifyAccount: verifyAccountReducer,
         auth: authReduser,
         resendVerify: repeatVerifyCodeReducer,
+        logOut: logOutReducer,
     },
     // middleware: (getDefaultMiddlware)=>[
     //     ...getDefaultMiddlware(),

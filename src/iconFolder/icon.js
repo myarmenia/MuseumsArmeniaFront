@@ -58,5 +58,20 @@ export const  userIcon = <svg width={41} height={40} viewBox="0 0 41 40" fill="n
 
 
 
+export const changeFontIcon = <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.3125 15.625C6.8658 15.625 8.125 14.3658 8.125 12.8125C8.125 11.2592 6.8658 10 5.3125 10C3.7592 10 2.5 11.2592 2.5 12.8125C2.5 14.3658 3.7592 15.625 5.3125 15.625Z" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+<path d="M14.6875 15.625C16.2408 15.625 17.5 14.3658 17.5 12.8125C17.5 11.2592 16.2408 10 14.6875 10C13.1342 10 11.875 11.2592 11.875 12.8125C11.875 14.3658 13.1342 15.625 14.6875 15.625Z" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+<path d="M8.125 12.5H11.875" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+<path d="M2.50002 12.8125V5.62502C2.49898 5.3785 2.54678 5.13422 2.64064 4.90626C2.7345 4.67831 2.87257 4.4712 3.04689 4.29689C3.2212 4.12257 3.42831 3.9845 3.65626 3.89064C3.88422 3.79678 4.1285 3.74898 4.37502 3.75002" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+<path d="M15.625 3.75002C15.8715 3.74898 16.1158 3.79678 16.3438 3.89064C16.5717 3.9845 16.7788 4.12257 16.9531 4.29689C17.1274 4.4712 17.2655 4.67831 17.3594 4.90626C17.4532 5.13422 17.501 5.3785 17.5 5.62502V12.8125" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+</svg>
+
+
+export const logOutIcon = <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.34375 13.2812L10.625 10L7.34375 6.71875" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+<path d="M1.875 10H10.625" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+<path d="M10.625 3.125H15C15.1658 3.125 15.3247 3.19085 15.4419 3.30806C15.5592 3.42527 15.625 3.58424 15.625 3.75V16.25C15.625 16.4158 15.5592 16.5747 15.4419 16.6919C15.3247 16.8092 15.1658 16.875 15 16.875H10.625" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+</svg>
+
 
 

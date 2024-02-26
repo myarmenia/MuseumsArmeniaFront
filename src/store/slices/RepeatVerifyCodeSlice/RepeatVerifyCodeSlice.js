@@ -8,6 +8,7 @@ const initialState = {
    },
    status: 'idle',
    error: null,
+   loading: 'pending'
    };
 
 const repeatVerifyCodeSlice = createSlice({
@@ -27,18 +28,19 @@ const repeatVerifyCodeSlice = createSlice({
           .addCase(postRepeatVerifyCode.fulfilled, (state, action) => {
             state.data = action.payload
              state.status = 'succes';
+             state.loading = 'fulfilled'
           })
           .addCase(postRepeatVerifyCode.rejected, (state, action) => {
             state.status = 'failed';
             state.error = action.error.message;
-            // state.data = action.payload
-            // console.log(state.data, 'eeeeeee');
+            state.loading = 'rejected'
           });
     },
  });
  
 
 export const selectRepeatVerifyAccount = (state) => state.resendVerify
+export const selectRepeatVerifyLoading = (state) => state.resendVerify.loading
 export const getRepeatVerifyData = (state) => state.resendVerify.data
 
  export const {} = repeatVerifyCodeSlice.actions
