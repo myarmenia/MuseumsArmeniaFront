@@ -5,6 +5,8 @@ import HomePage from './components/HomePage/HomePage';
 import { useEffect, useState } from 'react';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
+import Newses from './components/Newses/Newses';
+import SingleNews from './components/SingleNews/SingleNews';
 import PrivateRouteForRegAndLog from './privateRoute/PrivateRouteForRegAndLog';
 import PrivateRoute from './privateRoute/PrivateRoute';
 import PrivateRouteForOutSider from './privateRoute/PrivateRouteForOutSider';
@@ -91,6 +93,8 @@ function App() {
                         }
                      />
                   </Route>
+                    <Route path="news" element={<Newses {...{changeFonSize}}/>} />
+                    <Route path="news/:id" element={<SingleNews/>} />
                </Route>
             </Route>
          </Routes>
