@@ -1,0 +1,38 @@
+.museumPageHeader {
+   height: 600px;
+}
+.parHeader_img {
+   position: fixed;
+   z-index: -100;
+   width: 100%;
+}
+
+.parHeader_img::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-color: #373433;
+   opacity: 0.6;
+}
+
+.par_pageHeader-txt {
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.par_txt > h1 {
+   /* color: #ffffff; */
+   color: var(--main_font_color);
+   letter-spacing: 10px;
+   font-weight: 100;
+}
+
+.museumPage_section {
+   height: 3000px;
+   background-color: aliceblue;
+}
