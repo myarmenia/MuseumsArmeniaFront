@@ -6,14 +6,16 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { postLogin } from '../../store/slices/LoginSlice/LoginApi';
+import { postGoogleLogin } from '../../store/slices/GoogleLoginSlice/GoogleLoginApi';
+import { selectLogin } from '../../store/slices/LoginSlice/LoginSlice';
 
 function LoginPage() {
     const leng = localStorage.getItem('lang')
     const {t, i18n} = useTranslation()
-
-    const checkRef = useRef(null)
+    const respLogin = useSelector(selectLogin)
+    
 
     const dispatch = useDispatch()
 
@@ -31,7 +33,6 @@ function LoginPage() {
             const loginObj = {
                 email: email.value,
                 password: password.value,
-                remember_me: checkRef.current.checked
             }
 
             dispatch(postLogin(loginObj))
@@ -51,7 +52,6 @@ function LoginPage() {
                             initialValues={{
                                 email: '',
                                 password: '',
-                                remember: ''
                             }}
 
                             onSubmit={(values, { resetForm }) => {
@@ -79,20 +79,22 @@ function LoginPage() {
                                                 {touched.password && errors.password && <p className="error">{errors.password}</p>}
                                             </div>
 
-                                            <div className='remember_me'>
-                                                <span>{t('placeholder.2')}</span>
-                                                <input ref={checkRef} type="checkbox" name='remember_me' />
-                                            </div>
+                                            <p className='login_error_message'>{respLogin?.data?.error}</p>
 
                                         <button className='login_btn'>{t('login_btn')}</button>
 
-                                        <p>{t('reset_password_btn.0')}  <NavLink className="reset_password" to={`/${leng}/reset-password`}>{t('reset_password_btn.1')}</NavLink></p>
+                                        <p>{t('reset_password_btn.0')}  <NavLink className="reset-password-send-email" to={`/${leng}/reset-password-send-email`}>{t('reset_password_btn.1')}</NavLink></p>
                                         <p>{t('redirect_register.0')}  <NavLink className="redirect_register" to={`/${leng}/register`}>{t('redirect_register.1')}</NavLink></p>
 
                                         <GoogleLogin
                                             onSuccess={credentialResponse => {
                                                 const decodedHeader = jwtDecode(credentialResponse.credential);
-                                                console.log(decodedHeader);
+
+                                                const loginWithGoogleObj = {
+                                                   token: credentialResponse.credential
+                                                }
+
+                                                dispatch(postGoogleLogin(loginWithGoogleObj))
                                             }}
                                             onError={() => {
                                                 console.log('Login Failed');

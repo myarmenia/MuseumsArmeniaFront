@@ -11,7 +11,7 @@ const initialState = {
    status: 'idle',
    error: null,
    authUser:false,
-   loading: true,
+   loading: 'pending',
    };
 
 const loginSlice = createSlice({
@@ -31,16 +31,16 @@ const loginSlice = createSlice({
           .addCase(postLogin.fulfilled, (state, action) => {
             state.data = action.payload
             state.data.isAuth = true
-            state.loading = false
+            state.loading = 'fulfilled'
              state.status = 'succes';
           })
           .addCase(postLogin.rejected, (state, action) => {
              if(action.payload){
                 state.data.error = action.payload
                 state.data.isAuth = false
-                state.loading = false
+                
                }
-              
+               state.loading = 'rejected'
                state.status = 'failed'; 
           });
     },

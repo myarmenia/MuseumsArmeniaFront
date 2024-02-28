@@ -7,42 +7,99 @@ import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import Newses from './components/Newses/Newses';
 import SingleNews from './components/SingleNews/SingleNews';
+import PrivateRouteForRegAndLog from './privateRoute/PrivateRouteForRegAndLog';
+import PrivateRoute from './privateRoute/PrivateRoute';
+import PrivateRouteForOutSider from './privateRoute/PrivateRouteForOutSider';
+import ResetSendEmailPage from './components/ResetSendEmailPage/ResetSendEmailPage';
+import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage';
+import { MuseumLayouts, MuseumPage } from '../src/components/MuseumPage/index';
 
 function App() {
-  const [changeFonSize, setChangeFonSize] = useState('medium')
+   const [changeFonSize, setChangeFonSize] = useState('medium');
 
-  const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang')  : 'am';
+   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
 
-  const navigate = useNavigate();
+   const navigate = useNavigate();
 
-  const { pathname } = useLocation();
+   const { pathname } = useLocation();
 
+   useEffect(() => {
+      pathname == '/' && navigate(`/${leng}/`);
+   }, []);
 
-  useEffect(() => {
-    pathname == '/' && navigate(`/${leng}/`);
-  }, []);
+   const changeFont = (type) => {
+      setChangeFonSize(type);
+   };
 
-  const changeFont = (type) =>{
-    setChangeFonSize(type)
-  }
+   return (
+      <div className={`App  ${changeFonSize}`}>
+         <Routes>
+            <Route path="/" element={<HomeWraper {...{ changeFonSize, changeFont }} />}>
+               <Route path=":leng">
+                  <Route
+                     path="login"
+                     element={
+                        <PrivateRouteForRegAndLog>
+                           <LoginPage />
+                        </PrivateRouteForRegAndLog>
+                     }
+                  />
+                  <Route
+                     path="register"
+                     element={
+                        <PrivateRouteForRegAndLog>
+                           <RegisterPage />
+                        </PrivateRouteForRegAndLog>
+                     }
+                  />
+                  <Route
+                     path="reset-password-send-email"
+                     element={
+                        <PrivateRouteForRegAndLog>
+                           <ResetSendEmailPage />
+                        </PrivateRouteForRegAndLog>
+                     }
+                  />
+                  <Route
+                     path="reset-password"
+                     element={
+                        <PrivateRouteForRegAndLog>
+                           <ResetPasswordPage />
+                        </PrivateRouteForRegAndLog>
+                     }
+                  />
 
-  return (
-    <div className={`App  ${changeFonSize}`} >
-          <Routes>
-              <Route path='/' element={<HomeWraper {...{changeFonSize, changeFont}}/>}>
-                <Route path=":leng">
-                    <Route path="login" element={<LoginPage />} />
-                    <Route path="register" element={<RegisterPage/>} />
-
-                    <Route index element={<HomePage {...{changeFonSize, changeFont}}/>}/>
-                    <Route path='museum' element={<h1 style={{height: '20000px'}}>fd</h1>}/>
+                  <Route
+                     index
+                     element={
+                        <PrivateRouteForOutSider>
+                           <HomePage {...{ changeFonSize, changeFont }} />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+                  <Route
+                     path="museum"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <MuseumLayouts />
+                        </PrivateRouteForOutSider>
+                     }>
+                     <Route
+                        index
+                        element={
+                           <PrivateRouteForOutSider>
+                              <MuseumPage />
+                           </PrivateRouteForOutSider>
+                        }
+                     />
+                  </Route>
                     <Route path="news" element={<Newses {...{changeFonSize}}/>} />
                     <Route path="news/:id" element={<SingleNews/>} />
-                </Route>
-              </Route>
-          </Routes>
-    </div>
-  );
+               </Route>
+            </Route>
+         </Routes>
+      </div>
+   );
 }
 
 export default App;

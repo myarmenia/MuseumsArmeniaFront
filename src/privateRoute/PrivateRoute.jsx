@@ -10,11 +10,11 @@ const PrivateRoute = ({ children }) => {
     const dispatch = useDispatch();
     const isAuth = useSelector(getIsAuth);
     const [loading, setLoading] = useState(true);
-    const sesionIsAuth  = sessionStorage.getItem('isAuth')
+    const localIsAuth  = localStorage.getItem('isAuth')
  
     useEffect(() => {
       const fetchData = async () => {
-        if (!isAuth && sesionIsAuth) {
+        if (!isAuth && localIsAuth) {
           await dispatch(getCurrentUser());
         }
         setLoading(false); 

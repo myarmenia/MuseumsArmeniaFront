@@ -14,7 +14,7 @@ function FooterComponent() {
     const {pathname} = useLocation()
     const leng = localStorage.getItem('lang')
 
-    console.log(document.body.scrollHeight,'ddd');
+    
 
     useEffect(() => {
 

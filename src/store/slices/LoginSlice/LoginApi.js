@@ -5,11 +5,11 @@ export const postLogin = createAsyncThunk(
     'login/postLogin',
 
     async (body, thunkAPI) => {
+      const leng = localStorage.getItem('lang')
         try {
           const signInData = {
             email: body.email,
             password: body.password,
-            remember_me: body.remember_me
           };
 
           const config = {
@@ -19,9 +19,8 @@ export const postLogin = createAsyncThunk(
           };
     
           const response = await instance(config);
-          sessionStorage.setItem("token", response.data.access_token);
-          sessionStorage.setItem("isAuth", true);
-          
+          localStorage.setItem("token", response.data.access_token);
+          localStorage.setItem("isAuth", true);
           return response?.data
         } catch (error) {
           return thunkAPI.rejectWithValue(error.response.data.error);

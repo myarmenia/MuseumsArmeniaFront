@@ -28,6 +28,7 @@
 
 .souvenir_item_img_div img{
     height: 100%;
+    width: 100%;
 }
 
 .souvenir_item_img_div .souvenir_item_add_cart_div{
