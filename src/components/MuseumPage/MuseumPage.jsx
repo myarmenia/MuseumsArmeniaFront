@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { MuseumPageHeader, SearchBlockMuseumPage } from './index';
-import { postMuseumPages } from '../store/slices/MuseumPagesSlice/MuseumPagesApi';
+import { postMuseumPages } from '../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import { UseDispatch, useDispatch, useSelector } from 'react-redux';
 
 import './museumPage.css';

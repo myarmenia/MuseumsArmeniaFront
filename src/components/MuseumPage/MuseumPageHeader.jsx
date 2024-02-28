@@ -1,5 +1,5 @@
 import React from 'react';
-import headerImg from '../images/museumheaderBacground.jpeg';
+import headerImg from '../../images/museumheaderBacground.jpeg';
 
 import './museumPage.css';
 
