@@ -10,7 +10,9 @@
     margin-left: -70px;
 }
 
-
+.souvinirs_title_div{
+    padding-bottom: 50px;
+}
 .souvenirss_section .react-multi-carousel-dot-list{
     bottom: -70px;
 }
