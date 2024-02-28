@@ -29,6 +29,10 @@
     width: 100%;
 }
 
+.login >div p{
+    color: red;
+}
+
 .login_block_navigation{
  display: flex;
  width: 100%;
@@ -81,7 +85,7 @@
     background-color: #B28851;
 }
 
-.reset_password{
+.reset-password-send-email{
     color: black;
     text-decoration-line: underline;
 }
@@ -89,6 +93,10 @@
 .redirect_register{
     color: black;
     text-decoration-line: underline;
+}
+
+.login_error_message{
+    color: red;
 }
 
 

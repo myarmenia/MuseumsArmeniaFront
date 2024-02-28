@@ -8,6 +8,8 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import PrivateRouteForRegAndLog from './privateRoute/PrivateRouteForRegAndLog';
 import PrivateRoute from './privateRoute/PrivateRoute';
 import PrivateRouteForOutSider from './privateRoute/PrivateRouteForOutSider';
+import ResetSendEmailPage from './components/ResetSendEmailPage/ResetSendEmailPage';
+import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage';
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('medium')
@@ -34,6 +36,8 @@ function App() {
                 <Route path=":leng">
                     <Route path="login" element={<PrivateRouteForRegAndLog><LoginPage /></PrivateRouteForRegAndLog>} />
                     <Route path="register" element={<PrivateRouteForRegAndLog><RegisterPage/></PrivateRouteForRegAndLog>} />
+                    <Route path="reset-password-send-email" element={<PrivateRouteForRegAndLog><ResetSendEmailPage/></PrivateRouteForRegAndLog>} />
+                    <Route path="reset-password" element={<PrivateRouteForRegAndLog><ResetPasswordPage/></PrivateRouteForRegAndLog>} />
 
                     <Route index element={<PrivateRouteForOutSider><HomePage {...{changeFonSize, changeFont}}/></PrivateRouteForOutSider>}/>
                     <Route path='museum' element={<h1 style={{height: '20000px'}}>fd</h1>}/>

@@ -121,6 +121,12 @@ i18n
             'վայրկյան հետո'
           ],
 
+          reset_password: [
+            'Վերականգնել Գատնաբառը',
+            'Դուք կստանաք նամակ՝ ձեր գաղտնաբառը վերականգնելու համար',
+            'Գրել նոր գաղտնաբառ'
+          ],
+
         
 
           country:[
@@ -250,6 +256,12 @@ i18n
             "секунду спустя"
           ],
 
+          reset_password: [
+            'Сброс пароля',
+            'Вы получите электронное письмо для сброса пароля',
+            'Напишите новый пароль'
+          ],
+
 
           country:[
             {
@@ -377,6 +389,12 @@ i18n
             'If you havent received a code',
             'Resend:',
             "second later"
+          ],
+
+          reset_password: [
+            'Reset Password',
+            'You will receive an email to reset your password',
+            'Write a new password'
           ],
 
           country:[

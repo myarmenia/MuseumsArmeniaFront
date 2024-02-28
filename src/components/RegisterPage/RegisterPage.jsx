@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postRegister } from '../../store/slices/RegisterSlice/RegisterApi';
 import VerificationComponent from '../VerificationComponent/VerificationComponent';
 import { selectRegisterData } from '../../store/slices/RegisterSlice/RegisterSlice';
+import { postRepeatVerifyCode } from '../../store/slices/RepeatVerifyCodeSlice/RepeatVerifyCodeApi';
 
 function RegisterPage() {
     const leng = localStorage.getItem('lang')

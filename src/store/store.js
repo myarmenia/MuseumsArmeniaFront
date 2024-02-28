@@ -5,6 +5,11 @@ import { verifyAccountReducer } from "./slices/VerifyAccountSlice/VerifyAccountS
 import { authReduser } from "./slices/Auth/AuthSlice";
 import { repeatVerifyCodeReducer } from "./slices/RepeatVerifyCodeSlice/RepeatVerifyCodeSlice";
 import { logOutReducer } from "./slices/LogOutSlice/LogOutSlice";
+import { googleLoginReducer } from "./slices/GoogleLoginSlice/GoogleLoginSlice";
+import { ResetPasswordWithEmailReducer } from "./slices/ResetPasswordWithEmailSlice/ResetPasswordWithEmailSlice";
+import { checkForgotTokenReducer } from "./slices/CheckForgotTokenSlice/CheckForgotTokenSlice";
+import { newPasswordReducer } from "./slices/NewPasswordeSlise/NewPasswordeSlise";
+import { resendForgotReducer } from "./slices/ResendForgotSlice/ResendForgotSlice";
 
 
 
@@ -16,6 +21,12 @@ const store = configureStore({
         auth: authReduser,
         resendVerify: repeatVerifyCodeReducer,
         logOut: logOutReducer,
+        googleLogin: googleLoginReducer,
+        resetWithEmail: ResetPasswordWithEmailReducer,
+        checkForgotToken: checkForgotTokenReducer,
+        newPassword: newPasswordReducer,
+        resendForgot: resendForgotReducer
+
     },
     // middleware: (getDefaultMiddlware)=>[
     //     ...getDefaultMiddlware(),

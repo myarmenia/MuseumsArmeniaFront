@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Timer.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { postRepeatVerifyCode } from '../../store/slices/RepeatVerifyCodeSlice/RepeatVerifyCodeApi';
 import { selectRepeatVerifyLoading } from '../../store/slices/RepeatVerifyCodeSlice/RepeatVerifyCodeSlice';
 import { useTranslation } from 'react-i18next';
 
-const Timer = ({email}) => {
-  const [timeRemaining, setTimeRemaining] = useState(60);
+const Timer = ({email, axios}) => {
+  const [timeRemaining, setTimeRemaining] = useState(2);
   const [timerFinished, setTimerFinished] = useState(false);
   const {t, i18n} = useTranslation()
   const dispatch = useDispatch()
@@ -28,7 +27,7 @@ const Timer = ({email}) => {
     if (timerFinished) {
         setTimeRemaining(5);
     setTimerFinished(false);
-        dispatch(postRepeatVerifyCode({email: email.current.value}))
+        dispatch(axios({email: email.current.value}))
     }
   };
 

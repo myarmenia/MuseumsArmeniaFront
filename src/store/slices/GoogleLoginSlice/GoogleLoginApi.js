@@ -1,21 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../../../axios";
 
-export const postLogin = createAsyncThunk(
-    'login/postLogin',
+export const postGoogleLogin = createAsyncThunk(
+    'googleLogin/postGoogleLogin',
 
     async (body, thunkAPI) => {
-      const leng = localStorage.getItem('lang')
         try {
-          const signInData = {
-            email: body.email,
-            password: body.password,
-          };
-
+         
           const config = {
             method: "post",
-            url: "auth/login",
-            data: signInData,
+            url: "auth/signup-google",
+            data: body,
           };
     
           const response = await instance(config);

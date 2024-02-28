@@ -7,6 +7,7 @@ import { postVerifyAccount } from '../../store/slices/VerifyAccountSlice/VerifyA
 import { getData, selectVerifyAccount } from '../../store/slices/VerifyAccountSlice/VerifyAccountSlice'
 import Timer from '../Timer/Timer'
 import { useTranslation } from 'react-i18next'
+import { postRepeatVerifyCode } from '../../store/slices/RepeatVerifyCodeSlice/RepeatVerifyCodeApi'
 
  function VerificationComponent({email, setOpenVerifyModal}) {
 
@@ -63,7 +64,7 @@ import { useTranslation } from 'react-i18next'
                         })
                     }
                 </div>
-                    <Timer email={email}/>
+                    <Timer email={email} axios={postRepeatVerifyCode}/>
                     {<span>{errMessage?.message}</span>}
 
 

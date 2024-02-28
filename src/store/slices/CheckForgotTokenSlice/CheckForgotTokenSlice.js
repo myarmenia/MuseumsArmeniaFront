@@ -1,12 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { postLogin } from "./LoginApi";
+import { postCheckForgotToken } from "./CheckForgotTokenApi";
 
 const initialState = {
    data: {
-      authUser: {},
-      access_token: '',
-      isAuth: null,
-      error: null
+      message: '',
+      success: null
    },
    status: 'idle',
    error: null,
@@ -14,8 +12,8 @@ const initialState = {
    loading: 'pending',
    };
 
-const loginSlice = createSlice({
-    name: 'login',
+const checkForgotTokenSlice = createSlice({
+    name: 'checkForgotToken',
     initialState,
     reducers: {
       
@@ -25,16 +23,16 @@ const loginSlice = createSlice({
  
     extraReducers: (builder) => {
        builder
-          .addCase(postLogin.pending, (state) => {
+          .addCase(postCheckForgotToken.pending, (state) => {
              state.status = 'loading';
           })
-          .addCase(postLogin.fulfilled, (state, action) => {
+          .addCase(postCheckForgotToken.fulfilled, (state, action) => {
             state.data = action.payload
             state.data.isAuth = true
             state.loading = 'fulfilled'
              state.status = 'succes';
           })
-          .addCase(postLogin.rejected, (state, action) => {
+          .addCase(postCheckForgotToken.rejected, (state, action) => {
              if(action.payload){
                 state.data.error = action.payload
                 state.data.isAuth = false
@@ -47,12 +45,12 @@ const loginSlice = createSlice({
  });
  
 
-export const selectLogin = (state) => state.login
+export const selectCheckForgotToken = (state) => state.checkForgotToken
 
-export const selectLoginLoading = (state) => state.login.loading
-
-
- export const {} = loginSlice.actions
+export const selectCheckForgotTokenLoading = (state) => state.checkForgotToken.loading
 
 
-export const loginReducer =  loginSlice.reducer
+ export const {} = checkForgotTokenSlice.actions
+
+
+export const checkForgotTokenReducer =  checkForgotTokenSlice.reducer

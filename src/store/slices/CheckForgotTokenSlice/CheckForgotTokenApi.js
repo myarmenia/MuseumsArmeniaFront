@@ -1,26 +1,21 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../../../axios";
 
-export const postLogin = createAsyncThunk(
-    'login/postLogin',
+export const postCheckForgotToken = createAsyncThunk(
+    'checkForgotToken/postCheckForgotToken',
 
     async (body, thunkAPI) => {
-      const leng = localStorage.getItem('lang')
+        const leng = localStorage.getItem('lang')
         try {
-          const signInData = {
-            email: body.email,
-            password: body.password,
-          };
-
           const config = {
             method: "post",
-            url: "auth/login",
-            data: signInData,
+            url: "check-forgot-token",
+            data: body,
           };
     
           const response = await instance(config);
-          localStorage.setItem("token", response.data.access_token);
-          localStorage.setItem("isAuth", true);
+          console.log(response.data);
+         
           return response?.data
         } catch (error) {
           return thunkAPI.rejectWithValue(error.response.data.error);

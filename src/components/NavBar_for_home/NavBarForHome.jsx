@@ -4,7 +4,7 @@ import { logo } from '../../images/images'
 import './NavBarForHome.css'
 import ChangeFontSize from '../ChangeFontSize/ChangeFontSize'
 import SelectLng from '../SelectLng/SelectLng'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
@@ -13,11 +13,10 @@ import { getLogOut } from '../../store/slices/LogOutSlice/LogOutApi'
 
 function NavBarForHome({homeNavColor, changeFonSize, changeFont}) {
     const isAuth = useSelector(getIsAuth)
-    console.log(isAuth,'ddd');
     const {t, i18n} = useTranslation()
     const leng = localStorage.getItem('lang')
     const dispatch = useDispatch()
-  const handleLogOut = () =>{
+  const handleLogOut = async() =>{
     dispatch(getLogOut())
   }
   return (
