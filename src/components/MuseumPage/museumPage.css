@@ -34,5 +34,42 @@
 
 .museumPage_section {
    height: 3000px;
-   background-color: aliceblue;
+   padding: 20px 0;
+   background-color: rgb(32, 95, 151);
+}
+
+.parent_searchBlock {
+   height: 110px;
+   background-color: #ffffff;
+   box-shadow: 0px 0px 6px -5px;
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   padding: 0 20px;
+}
+.searchBlock {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 10px;
+   border: 1px solid #706969;
+   flex-basis: 240px;
+   padding: 5px 19px 5px 10px;
+   border-radius: 4px;
+}
+
+.parent_listRegion {
+   position: absolute;
+   top: 40px;
+   max-width: 340px;
+   background-color: #ffffff;
+   box-shadow: 0px 0px 6px -5px;
+   border-radius: 10px;
+   padding: 10px;
+   transition: 0.4s;
+}
+.listRegion {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
 }

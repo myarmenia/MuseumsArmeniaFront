@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { MuseumPageHeader, SearchBlockMuseumPage } from './index';
-import { postMuseumPages } from '../store/slices/MuseumPagesSlice/MuseumPagesApi';
+import { postMuseumPages } from '../../store/slices/MuseumPagesSlice/MuseumPagesApi';
+import LoadSpinner from '../LoadSpinner/LoadSpinner';
 import { UseDispatch, useDispatch, useSelector } from 'react-redux';
 
 import './museumPage.css';
@@ -12,20 +13,32 @@ const MuseumPage = () => {
    useEffect(() => {
       dispatch(postMuseumPages());
    }, []);
+
+   console.log(dataMuseum);
+
    return (
-      <div>
-         <MuseumPageHeader />
-         <div
-            className="museumPage_section"
-            style={{
-               height: '3000px',
-               backgroundColor: '#FDFDFD',
-            }}>
-            <div className="container">
-               <SearchBlockMuseumPage regions={regions} />
+      <>
+         {loadingStatus === 'loading' ? (
+            <LoadSpinner />
+         ) : loadingStatus === 'fulfilled' ? (
+            <div>
+               <MuseumPageHeader />
+               <div
+                  className="museumPage_section"
+                  style={{
+                     height: '3000px',
+                     backgroundColor: '#F8F8F8',
+                  }}>
+                  <div className="container section">
+                     <SearchBlockMuseumPage regions={regions} />
+                     
+                  </div>
+               </div>
             </div>
-         </div>
-      </div>
+         ) : (
+            <div>ինչվոր մի բան այն չի</div>
+         )}
+      </>
    );
 };
 

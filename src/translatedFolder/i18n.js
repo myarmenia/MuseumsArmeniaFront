@@ -136,8 +136,20 @@ i18n
             {
               "aa": "լիւհւիօհյ"
             }
-          ]
+          ],
 
+          // ==============Regions===================
+          aragatsotn: 'Արագածոտն',
+          ararat: 'Արարատ',
+          armavir: 'Արմավիր',
+          gegharkunik: 'Գեղարքունիք',
+          kotayq: 'Կոտայք',
+          lori: 'Լոռի',
+          shirak: 'Շիրակ',
+          syuniq: 'Սյունիք',
+          tavush: 'Տավուշ',
+          vayoczor: 'Վայոց ձոր',
+          yerevan: 'Երևան',
 
         },
       },
@@ -270,7 +282,20 @@ i18n
             {
               "aa": "дддддд"
             }
-          ]
+          ],
+
+          // ==============Regions===================
+          aragatsotn: 'Арагацотн',
+          ararat: 'Арарат',
+          armavir: 'Армавир',
+          gegharkunik: 'Гегаркуник',
+          kotayq: 'Котайк',
+          lori: 'Лори',
+          shirak: 'Ширак',
+          syuniq: 'Сюник',
+          tavush: 'Тавуш',
+          vayoczor: 'Вайоцдзор',
+          yerevan: 'Ереван',
 
         },
       },
@@ -404,7 +429,20 @@ i18n
             {
               "aa": "Afar"
             }
-          ]
+          ],
+
+          // ==============Regions===================
+          aragatsotn: 'Aragatsotn',
+          ararat: 'Ararat',
+          armavir: 'Armavir',
+          gegharkunik: 'Gegharkunik',
+          kotayq: 'Kotayk',
+          lori: 'Lori',
+          shirak: 'Shirak',
+          syuniq: 'Syunik',
+          tavush: 'Tavush',
+          vayoczor: 'Vayots Dzor',
+          yerevan: 'Yerevan',
 
         },
       },

@@ -13,15 +13,15 @@ const MuseumPagesSlice = createSlice({
    extraReducers: (builder) => {
       builder
          .addCase(postMuseumPages.pending, (state) => {
-            state.status = 'loading';
+            state.loadingStatus = 'loading';
          })
          .addCase(postMuseumPages.fulfilled, (state, { payload }) => {
-            state.status = 'fulfilled';
+            state.loadingStatus = 'fulfilled';
             state.dataMuseum = payload.data.museums;
             state.regions = payload.data.regions;
          })
          .addCase(postMuseumPages.rejected, (state, action) => {
-            state.status = 'rejected';
+            state.loadingStatus = 'rejected';
          });
    },
 });
