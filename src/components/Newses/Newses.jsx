@@ -29,6 +29,7 @@ function Newses() {
     // console.log(changeFonSize, 777777);
     // dispatch(getAllNewses());
     dispatch(getPaginatePages());
+    window.scrollTo(0, 0);
     // setSizes(changeFonSize === 'large' ? 45 : changeFonSize === 'medium' ? 30 : 20);
   }, []);
 
@@ -36,13 +37,14 @@ function Newses() {
     e.preventDefault();
     dispatch(getSearchesNewses(textInputRef.current.value));
     textInputRef.current.value = '';
-    if (DataAllNews.length > 5) {
-      console.log('aaaaaaaaaa');
-      setNewsSearch(true);
-    }
+    // if (DataAllNews.length > 5) {
+    console.log('aaaaaaaaaa');
+    setNewsSearch(true);
+    // }
   };
 
   const handlePageClick = (data) => {
+    window.scrollTo(0, 300);
     // console.log(data.selected);
     let currentPage = data.selected + 1;
     dispatch(getPaginatePages(currentPage));
