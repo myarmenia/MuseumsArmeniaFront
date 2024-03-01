@@ -12,12 +12,14 @@ import PrivateRoute from './privateRoute/PrivateRoute';
 import PrivateRouteForOutSider from './privateRoute/PrivateRouteForOutSider';
 import ResetSendEmailPage from './components/ResetSendEmailPage/ResetSendEmailPage';
 import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage';
+import AbouteUsPage from './components/AbouteUsPage/AbouteUsPage';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import { MuseumLayouts, MuseumPage, MuseumOne } from '../src/components/MuseumPage/index';
 
 
+
 function App() {
-   const [changeFonSize, setChangeFonSize] = useState('medium');
+   const [changeFonSize, setChangeFonSize] = useState('');
 
    const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
 
@@ -106,6 +108,7 @@ function App() {
                   </Route>
                     <Route path="news" element={<Newses {...{changeFonSize}}/>} />
                     <Route path="news/:id" element={<SingleNews/>} />
+                    <Route path='aboute-us' element={<PrivateRouteForOutSider><AbouteUsPage/></PrivateRouteForOutSider>}/>
                     <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
                </Route>
             </Route>

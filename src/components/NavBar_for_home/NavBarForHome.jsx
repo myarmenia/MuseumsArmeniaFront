@@ -16,8 +16,13 @@ function NavBarForHome({homeNavColor, changeFonSize, changeFont}) {
     const {t, i18n} = useTranslation()
     const leng = localStorage.getItem('lang')
     const dispatch = useDispatch()
-  const handleLogOut = async() =>{
-    dispatch(getLogOut())
+    const navigate = useNavigate()
+  const handleLogOut = async() => {
+   await dispatch(getLogOut())
+        localStorage.removeItem("token");
+        localStorage.removeItem("isAuth");
+
+      window.location.pathname = `/${leng}/login`
   }
   return (
     <div className='nav_bar_for_home' style={{background: homeNavColor ? 'black' : 'transparent', opacity : homeNavColor ? '.7' : '1'}}>
@@ -30,8 +35,7 @@ function NavBarForHome({homeNavColor, changeFonSize, changeFont}) {
               {isAuth && <div>{userIcon}</div>}
               <ChangeFontSize {...{changeFonSize, changeFont}}/>
               <SelectLng/>
-              {!isAuth && <NavLink to={`/${leng}/login`}>{t('login_btn')}</NavLink>}
-              {isAuth && <span onClick={handleLogOut}>{logOutIcon}</span>}
+              {!isAuth ? <NavLink to={`/${leng}/login`}>{t('login_btn')}</NavLink> : <span onClick={handleLogOut}>{logOutIcon}</span>}
             </div>
         </div>
     </div>

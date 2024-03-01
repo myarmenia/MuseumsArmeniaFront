@@ -91,6 +91,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
   }
 
   .slide_h1{
@@ -101,6 +103,18 @@
 
   .slider .each-slide.active .slide_h1 {
     animation: animTxt 2s linear;
+  }
+
+  .each-slide img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 900px;
+    z-index: -3;
+    animation: animImg 20s linear infinite;
+    object-fit: cover;
+    
   }
 
 
@@ -115,7 +129,19 @@
     }
   }
 
+ @keyframes animImg{
+  0%{
+    transform: scale(1);
+  }
 
+  50%{
+    transform: scale(1.2);
+  }
+
+  100%{
+    transform: scale(1);
+  }
+ }
  /* @media(max-width: 720px){
   .slide_h1{
     font-size: 30px;

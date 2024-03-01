@@ -37,6 +37,45 @@ ul,ol{
   }
 
 
+.App h1{
+    font-size: 40px ;
+}
+
+.App h2{
+    font-size: 30px ;
+}
+
+.App h3{
+    font-size: 30px ;
+}
+
+.App p{
+    font-size: 16px ;
+}
+
+.App  span{
+    font-size: 14px ;
+}
+
+.App a{
+    font-size: 16px ;
+}
+
+.App button{
+    font-size: 16px ;
+}
+
+
+.App label{
+    font-size: 16px ;
+}
+
+.App input{
+    font-size: 16px ;
+}
+  /* ============================================================================= */
+
+
 
 
 .App.medium h1{
@@ -48,7 +87,7 @@ ul,ol{
 }
 
 .App.small h1{
-    font-size: 40px ;
+    font-size: 45px ;
 }
 
 /* =================== */
@@ -62,8 +101,10 @@ ul,ol{
    }
    
    .App.small h2{
-       font-size: 30px ;
+       font-size: 35px ;
    }
+
+
 
 /* ============================= */
 
@@ -81,40 +122,42 @@ ul,ol{
    }
 
 
+
+
    /* ================================= */
 
 
    .App.medium p{
-    font-size: 18px ;
+    font-size: 20px ;
    }
    
    .App.large p{
-       font-size: 20px ;
+       font-size: 25px ;
    }
    
    .App.small p{
-       font-size: 16px ;
+       font-size: 18px ;
    }
 
 
    /* ======================= */
 
    .App.medium span{
-    font-size: 15px ;
+    font-size: 18px ;
    }
    
    .App.large span{
-       font-size: 18px ;
+       font-size: 20px ;
    }
    
    .App.small span{
-       font-size: 14px ;
+       font-size: 16px ;
    }
 
    /* ========================== */
 
    .App.medium a{
-    font-size: 18px ;
+    font-size: 20px ;
    }
    
    .App.large a{
@@ -122,122 +165,128 @@ ul,ol{
    }
    
    .App.small a{
-       font-size: 16px ;
+       font-size: 18px ;
    }
 
    .App.medium button{
-    font-size: 18px ;
+    font-size: 20px ;
    }
    
    .App.large button{
-       font-size: 22px ;
+       font-size: 25px ;
    }
    
    .App.small button{
-       font-size: 16px ;
+       font-size: 18px ;
    }
 
 
    .App.medium label{
-    font-size: 18px ;
+    font-size: 20px ;
    }
    
    .App.large label{
-       font-size: 22px ;
+       font-size: 25px ;
    }
    
    .App.small label{
-       font-size: 16px ;
+       font-size: 18px ;
    }
 
+
+   .App.medium input{
+    font-size: 20px ;
+   }
+   
+   .App.large input{
+       font-size: 25px ;
+   }
+   
+   .App.small input{
+       font-size: 18px ;
+   }
    /* =================================== */
 
-   @media(max-width: 720px){
 
-    .App.medium h1{
-        font-size: 37px ;
+
+   @media(max-width: 1440px){
+    .App.medium a{
+        font-size: 18px ;
        }
        
-       .App.large h1{
-           font-size: 40px ;
+       .App.large a{
+           font-size: 20px ;
        }
        
-       .App.small h1{
-           font-size: 35px ;
-       }
-       
-       /* =================== */
-       
-       .App.medium h2{
-           font-size: 33px ;
-          }
-          
-          .App.large h2{
-              font-size: 33px ;
-          }
-          
-          .App.small h2{
-              font-size: 30px ;
-          }
-       
-       /* ============================= */
-       
-       
-       .App.medium h3{
-           font-size: 30px ;
-          }
-          
-          .App.large h3{
-              font-size: 35px ;
-          }
-          
-          .App.small h3{
-              font-size: 25px ;
-          }
-       
-       
-          /* ================================= */
-       
-       
-          .App.medium p{
+       .App.small a{
            font-size: 18px ;
-          }
-          
-          .App.large p{
-              font-size: 22px ;
-          }
-          
-          .App.small p{
-              font-size: 14px ;
-          }
+       }
+   }
+
+
+   @media(max-width: 1280px){
+    .App.medium a{
+        font-size: 18px ;
+       }
        
-       
-          /* ======================= */
-       
-          .App.medium span{
-           font-size: 16px ;
-          }
-          
-          .App.large span{
-              font-size: 20px ;
-          }
-          
-          .App.small span{
-              font-size: 14px ;
-          }
-       
-          /* ========================== */
-       
-          .App.medium a{
+       .App.large a{
            font-size: 18px ;
-          }
-          
-          .App.large a{
-              font-size: 22px ;
-          }
-          
-          .App.small a{
-              font-size: 16px ;
-          }
+       }
        
+       .App.small a{
+           font-size: 18px ;
+       }
+   }
+
+   @media(max-width: 1180px){
+    .App.medium a{
+        font-size: 15px ;
+       }
+       
+       .App.large a{
+           font-size: 15px ;
+       }
+       
+       .App.small a{
+           font-size: 15px ;
+       }
+   }
+
+   @media(max-width: 1024px){
+    .App.small h1, .App.medium h1, .App.large h1{
+        font-size: 40px ;
+    }
+    
+    .App.small h2, .App.medium h2, .App.large h2{
+        font-size: 30px ;
+    }
+    
+    .App.small h3, .App.medium h3, .App.large h3{
+        font-size: 30px ;
+    }
+    
+    .App.small p, .App.medium p, .App.large p{
+        font-size: 16px ;
+    }
+    
+    .App.small span, .App.medium span, .App.large span{
+        font-size: 14px ;
+    }
+    
+    .App.small a, .App.medium a, .App.large a{
+        font-size: 16px ;
+    }
+    
+    .App.small button, .App.medium button, .App.large button{
+        font-size: 16px ;
+    }
+    
+    
+    .App.small label, .App.medium label, .App.large label{
+        font-size: 16px ;
+    }
+    
+    .App.small input, .App.medium input, .App.large input{
+        font-size: 16px ;
+    }
    }
