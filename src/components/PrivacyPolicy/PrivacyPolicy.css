@@ -1,0 +1,27 @@
+.all_privacypolicy {
+  min-height: 100vh;
+}
+
+.backImage_privacypolicy {
+  background-image: url('./../../images/privacypolicy.jpg');
+  filter: brightness(90%);
+  background-repeat: no-repeat;
+  height: 70vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-bottom: 80px;
+}
+.container-privacypolicy {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.textss_privacy {
+  margin-bottom: 20px;
+}
+.textss_privacy_last {
+  margin-bottom: 140px;
+}

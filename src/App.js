@@ -12,7 +12,9 @@ import PrivateRoute from './privateRoute/PrivateRoute';
 import PrivateRouteForOutSider from './privateRoute/PrivateRouteForOutSider';
 import ResetSendEmailPage from './components/ResetSendEmailPage/ResetSendEmailPage';
 import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage';
-import { MuseumLayouts, MuseumPage, MuseumOne } from './components/MuseumPage/';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
+import { MuseumLayouts, MuseumPage, MuseumOne } from '../src/components/MuseumPage/index';
+
 
 function App() {
    const [changeFonSize, setChangeFonSize] = useState('medium');
@@ -104,6 +106,7 @@ function App() {
                   </Route>
                     <Route path="news" element={<Newses {...{changeFonSize}}/>} />
                     <Route path="news/:id" element={<SingleNews/>} />
+                    <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
                </Route>
             </Route>
          </Routes>
