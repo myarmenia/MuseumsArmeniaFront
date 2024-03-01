@@ -11,6 +11,16 @@
    z-index: 4444;
 }
 
+.footerComponentStatic {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  position: static;
+  bottom: 0;
+  height: 300px;
+  transition: all 0.6s;
+}
 /* App.css */
 
 .footerComponent .container {
@@ -19,8 +29,14 @@
    align-items: center;
    justify-content: center;
 }
+.footerComponentStatic .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-.footerComponent .container .footer_menu {
+.footer_menu {
    width: 50%;
 }
 
@@ -75,15 +91,26 @@
       flex-direction: column;
       gap: 30px;
    }
+   .footerComponentStatic .container {
+    flex-direction: column;
+    gap: 30px;
+ }
 
    .footerComponent {
       height: 400px;
    }
+   .footerComponentStatic{
+    height: 400px;
+ }
 
    .footerComponent .container .footer_menu {
       width: 90%;
       justify-content: center;
    }
+   .footerComponentStatic .container .footer_menu {
+    width: 90%;
+    justify-content: center;
+ }
 
    .footerComponent_img_div {
       width: 80%;
@@ -95,17 +122,27 @@
       flex-direction: column;
       gap: 10px;
    }
+   .footerComponentStatic .container {
+    flex-direction: column;
+    gap: 10px;
+ }
 
    .footerComponent {
       height: 800px;
    }
-
+   .footerComponentStatic {
+    height: 400px;
+ }
    .footerComponent .container .footer_menu {
       width: 98%;
       justify-content: center;
       flex-direction: column;
       align-items: flex-start;
    }
+   .footerComponentStatic .container .footer_menu {
+    width: 98%;
+    justify-content: center;
+ }
 
    .footerComponent_img_div {
       width: 80%;
@@ -121,11 +158,28 @@
       flex-direction: column;
       gap: 10px;
    }
+   .footerComponentStatic .container {
+    flex-direction: column;
+    gap: 10px;
+ }
+
+
+   .footerComponent {
+      height: 500px;
+   }
+
+   .footerComponentStatic {
+    height: 500px;
+ }
 
    .footerComponent .container .footer_menu {
       width: 98%;
       justify-content: center;
    }
+   .footerComponentStatic .container .footer_menu {
+    width: 98%;
+    justify-content: center;
+ }
 
    .footerComponent_img_div {
       width: 80%;

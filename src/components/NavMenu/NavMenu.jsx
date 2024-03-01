@@ -5,7 +5,7 @@ function NavMenu() {
   return (
     <ul className='nav_menu'>
         <NavMenuItem  txt="0" path = "/"/> 
-        <NavMenuItem  txt="1" path = "/museum"/> 
+        <NavMenuItem  txt="1" path = "/museums"/> 
         <NavMenuItem  txt="2" path = "/events"/> 
         <NavMenuItem  txt="3" path = "/store"/>
         <NavMenuItem  txt="4" path = "/news"/>

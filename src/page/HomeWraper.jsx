@@ -13,7 +13,7 @@ function HomeWraper({ changeFonSize, changeFont }) {
       {pathname !== `/${leng}/` && <NavBar {...{ changeFonSize, changeFont }} />}
       <BurgerMenu />
       <Outlet />
-      {/* <FooterComponent/> */}
+      <FooterComponent/>
     </div>
   );
 }
