@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 const MuseumLayouts = () => {
    return (
-      <div className="">
+      <div>
          <Outlet />
       </div>
    );
