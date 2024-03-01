@@ -67,6 +67,10 @@ function ResetPasswordPage() {
             
             if(password.value && confirmPassword.value && (password.value === confirmPassword.value) && isValid){
                await dispatch(postNewPassword(newPasswordeObj))
+
+               if (respNewPassword.data.success === true) {
+                    window.location.pathname = `/${leng}/login`
+               }
             }
 
     }

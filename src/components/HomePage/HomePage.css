@@ -5,3 +5,14 @@ top: -100px;
 width: 100%;
 min-height: 100vh;
 }
+
+
+
+@media(max-width: 1024px){
+    .home_page{
+    
+        position: static;
+        top: 0;
+        left: 0;
+    }
+}

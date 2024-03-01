@@ -8,6 +8,7 @@
    bottom: 0;
    height: 300px;
    transition: all 0.6s;
+   z-index: 4444;
 }
 
 /* App.css */
@@ -67,6 +68,9 @@
 }
 
 @media (max-width: 1024px) {
+   .footerComponent{
+      position: static;
+   }
    .footerComponent .container {
       flex-direction: column;
       gap: 30px;
@@ -93,12 +97,14 @@
    }
 
    .footerComponent {
-      height: 400px;
+      height: 800px;
    }
 
    .footerComponent .container .footer_menu {
       width: 98%;
       justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
    }
 
    .footerComponent_img_div {
@@ -114,10 +120,6 @@
    .footerComponent .container {
       flex-direction: column;
       gap: 10px;
-   }
-
-   .footerComponent {
-      height: 500px;
    }
 
    .footerComponent .container .footer_menu {
