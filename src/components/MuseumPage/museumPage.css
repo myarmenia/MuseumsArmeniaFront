@@ -1,5 +1,5 @@
 .museumPageHeader {
-   height: 600px;
+   height: 500px;
 }
 .parHeader_img {
    position: fixed;
@@ -33,9 +33,9 @@
 }
 
 .museumPage_section {
-   height: 3000px;
-   padding: 20px 0;
+   padding: 20px 20px 340px;
    background-color: rgb(32, 95, 151);
+   padding-bottom: 340px;
 }
 
 .parent_searchBlock {
@@ -67,9 +67,107 @@
    border-radius: 10px;
    padding: 10px;
    transition: 0.4s;
+   z-index: 3;
 }
 .listRegion {
    display: flex;
    flex-wrap: wrap;
    gap: 10px;
+}
+.listRegion_p:hover{
+   color: #D5AA72 !important;
+   cursor: pointer;
+}
+
+
+.par_museumList {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 50px 20px;
+   margin: 30px 0;
+   align-items: center;
+}
+
+.searchOll {
+   max-width: 200px;
+   background-color: #f6f3f3;
+   margin-bottom: 10px;
+   padding: 0 0 3px 0px;
+   border-radius: 5px;
+}
+.searchOll:hover{
+   color: #D5AA72 !important;
+   cursor: pointer;
+}
+
+.par_MuseumMinBlock {
+   width: 32%;
+}
+
+.MuseumMinBlock {
+   min-height: 300px;
+   position: relative;
+}
+
+.MuseumMinBlock_img {
+   height: 270px;
+   background-position: center;
+   background-size: cover;
+}
+.par_MuseumMinBlock-description {
+   position: absolute;
+   background-color: #121313;
+   bottom: -5px;
+   left: 0;
+   width: 90%;
+   opacity: 0.7;
+   padding: 13px;
+   color: aliceblue;
+}
+
+.museum_name,
+.museum_region {
+   color: #ffffff;
+}
+
+.par_museum_pagButton {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
+.museum_pagButton {
+   background-color: #ffffff;
+   border: none;
+   width: 40px;
+   box-shadow: 0 0 5px -3px;
+   border-radius: 4px;
+}
+
+@media (max-width: 1400px) {
+   .museumPageHeader {
+      height: 430px;
+   }
+}
+@media (max-width: 1040px) {
+   .par_MuseumMinBlock {
+      width: 45%;
+   }
+   .museumPage_section {
+      padding: 20px 20px 440px;
+   }
+}
+@media (max-width: 800px) {
+   .museumPageHeader {
+      height: 300px;
+   }
+}
+@media (max-width: 650px) {
+   .par_MuseumMinBlock {
+      width: 100%;
+   }
+   .museumPage_section {
+      padding: 20px 20px 600px;
+   }
 }

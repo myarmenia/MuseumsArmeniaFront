@@ -200,8 +200,8 @@ export const CaretDown = () => {
          <path
             d="M26 12L16 22L6 12"
             stroke="#49536E"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
          />
       </svg>
    );
@@ -217,8 +217,8 @@ export const CaretUp = () => {
          <path
             d="M6 20L16 10L26 20"
             stroke="#49536E"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
          />
       </svg>
    );

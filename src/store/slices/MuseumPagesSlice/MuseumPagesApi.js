@@ -14,3 +14,15 @@ export const postMuseumPages = createAsyncThunk(
       }
    },
 );
+export const postMuseumOnePages = createAsyncThunk(
+   'MuseumPagesOne/postMuseumPagesOne',
+   async (body, thunkAPI) => {
+      const id = body?.id ? `/${body.id}` : ''
+      try {
+         const { data } = await instance(`museum/get-museum${id}`);
+         return thunkAPI.fulfillWithValue(data);
+      } catch (error) {
+         return thunkAPI.rejectWithValue(error.response.data.error);
+      }
+   },
+);
