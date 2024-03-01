@@ -4,17 +4,16 @@ import './FooterComponent.css';
 import NavMenuItem from '../NavMenuItem/NavMenuItem';
 import { locationIcon, mailIcon, telIcon } from '../../iconFolder/icon';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 function FooterComponent() {
     const [openFooter, setOpenFooter] = useState(false);
-
     const {t, i18n} = useTranslation()
 
     const {pathname} = useLocation()
     const leng = localStorage.getItem('lang')
 
-    
+    console.log("pathname",pathname);
 
     useEffect(() => {
 
@@ -49,7 +48,7 @@ function FooterComponent() {
     }, [document.body.scrollHeight, pathname]); // No dependencies
 
     return (
-        <footer className='footerComponent' style={{ transform: openFooter ? 'translateY(0)' : 'translateY(100%)' }}>
+        <footer className={pathname === `/${leng}/` ? "footerComponent" : "footerComponentStatic"} style={{ transform: openFooter ? 'translateY(0)' : 'translateY(100%)' }}>
             <div className='container'>
                 <div className="footerComponent_img_div">
                     <img src={require('../../images/hh.png')} alt="Zinanshan" />
