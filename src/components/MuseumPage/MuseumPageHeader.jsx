@@ -1,9 +1,9 @@
 import React from 'react';
-import headerImg from '../../images/museumheaderBacground.jpeg';
+
 
 import './museumPage.css';
 
-const MuseumPageHeader = () => {
+const MuseumPageHeader = ({headerImg = '', title= ''}) => {
    return (
       <div className="museumPageHeader">
          <div
@@ -21,7 +21,7 @@ const MuseumPageHeader = () => {
          </div>
          <div className="par_pageHeader-txt">
             <div className="par_txt">
-               <h1>Թանգարաններ</h1>
+               <h1>{title}</h1>
             </div>
          </div>
       </div>
