@@ -164,6 +164,7 @@
  }
 
 
+
    /* .footerComponent {
       height: 900px;
    }
@@ -171,6 +172,15 @@
    .footerComponentStatic {
     height: 900px;
  } */
+
+   .footerComponent {
+      height: 500px;
+   }
+
+   .footerComponentStatic {
+    height: 500px;
+ }
+
 
    .footerComponent .container .footer_menu {
       width: 98%;

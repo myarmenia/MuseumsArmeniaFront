@@ -12,7 +12,6 @@ import PrivateRoute from './privateRoute/PrivateRoute';
 import PrivateRouteForOutSider from './privateRoute/PrivateRouteForOutSider';
 import ResetSendEmailPage from './components/ResetSendEmailPage/ResetSendEmailPage';
 import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage';
-
 import AbouteUsPage from './components/AbouteUsPage/AbouteUsPage';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import { MuseumLayouts, MuseumPage, MuseumOne } from '../src/components/MuseumPage/index';
