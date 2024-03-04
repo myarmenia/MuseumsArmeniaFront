@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { postMuseumOnePages } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
+import { MuseumOneDescription, OurEvents, MuseumOnecontact } from '../index';
 
 import MuseumPageHeader from '../MuseumPageHeader';
 
@@ -41,13 +42,13 @@ const MuseumOne = () => {
                      backgroundColor: '#F8F8F8',
                   }}>
                   <div className="container">
-                     <div className="museumOne_parent"
-                     style={{height: '1000px'}}>
+                     <div className="museumOne_parent" style={{}}>
                         <div className="museumOne-blockLeft">
-
+                           <MuseumOneDescription description={description} photos={photos} />
+                           <OurEvents/>
                         </div>
-                        <div className="museumOne-blockRigth">
-
+                        <div className="museumOne-blockRigth ">
+                           <MuseumOnecontact {...{working_days,region, director, address, phones}}/>
                         </div>
                      </div>
                   </div>

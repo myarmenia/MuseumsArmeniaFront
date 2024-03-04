@@ -1,3 +1,4 @@
+/*  headers start ****************** */
 .museumPageHeader {
    height: 500px;
 }
@@ -25,6 +26,11 @@
    align-items: center;
 }
 
+.par_txt {
+   max-width: 1400px;
+   text-align: center;
+}
+
 .par_txt > h1 {
    /* color: #ffffff; */
    color: var(--main_font_color);
@@ -32,11 +38,14 @@
    font-weight: 100;
 }
 
+/*  headers end ****************** */
 .museumPage_section {
    padding: 20px 20px 340px;
    background-color: rgb(32, 95, 151);
    padding-bottom: 340px;
 }
+
+/*  searchBlock start ****************** */
 
 .parent_searchBlock {
    height: 110px;
@@ -74,11 +83,12 @@
    flex-wrap: wrap;
    gap: 10px;
 }
-.listRegion_p:hover{
-   color: #D5AA72 !important;
+.listRegion_p:hover {
+   color: #d5aa72 !important;
    cursor: pointer;
 }
 
+/*  museumList start ****************** */
 
 .par_museumList {
    display: flex;
@@ -96,8 +106,8 @@
    padding: 0 0 3px 0px;
    border-radius: 5px;
 }
-.searchOll:hover{
-   color: #D5AA72 !important;
+.searchOll:hover {
+   color: #d5aa72 !important;
    cursor: pointer;
 }
 
@@ -144,6 +154,40 @@
    box-shadow: 0 0 5px -3px;
    border-radius: 4px;
 }
+
+/*  museumList end ****************** */
+
+/*  museumOne start ****************** */
+.museumOne_parent {
+   display: flex;
+   gap: 15px;
+}
+
+.museumOne-blockLeft {
+   flex-grow: 5;
+   max-width: 76%;
+}
+.museumOne-blockRigth {
+   flex-grow: 2;
+}
+
+.museumOne_pageStyle {
+   border-radius: 10px;
+   box-shadow: 0 0 4px -2px;
+   background-color: #ffffff;
+   padding: 25px;
+   margin-bottom: 20px;
+}
+
+.MuseumOne_parent-imgList {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+   padding-top: 20px;
+}
+
+/*  museumOne end ****************** */
 
 @media (max-width: 1400px) {
    .museumPageHeader {
