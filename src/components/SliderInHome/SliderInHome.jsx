@@ -17,7 +17,6 @@ const SliderInHome = () => {
      dispatch(getBanner())
   },[])
 
-  console.log(bannerResp,'ffffffffff');
 
   const intervalBetweenSlides = () => {
     if (autoplay) {

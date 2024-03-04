@@ -330,8 +330,21 @@ i18n
             {"za": "Հարավաֆրիկայի հարավ"},
             {"zm": "Զամբիա"},
             {"zw": "Զիմբաբվե"},
-          ]
+          ],
 
+
+          // ==============Regions===================
+          aragatsotn: 'Արագածոտն',
+          ararat: 'Արարատ',
+          armavir: 'Արմավիր',
+          gegharkunik: 'Գեղարքունիք',
+          kotayk: 'Կոտայք',
+          lori: 'Լոռի',
+          shirak: 'Շիրակ',
+          syunik: 'Սյունիք',
+          tavush: 'Տավուշ',
+          vayots_dzor: 'Վայոց ձոր',
+          yerevan: 'Երևան',
 
         },
       },
@@ -666,7 +679,20 @@ i18n
               {"zw": "Зимбабве"}
 
 
-          ]
+          ],
+
+          // ==============Regions===================
+          aragatsotn: 'Арагацотн',
+          ararat: 'Арарат',
+          armavir: 'Армавир',
+          gegharkunik: 'Гегаркуник',
+          kotayk: 'Котайк',
+          lori: 'Лори',
+          shirak: 'Ширак',
+          syunik: 'Сюник',
+          tavush: 'Тавуш',
+          vayots_dzor: 'Вайоцдзор',
+          yerevan: 'Ереван',
 
         },
       },
@@ -993,7 +1019,20 @@ i18n
             {"zm":"Zambia"},
             {"zw":"Zimbabwe"}
 
-          ]
+          ],
+
+          // ==============Regions===================
+          aragatsotn: 'Aragatsotn',
+          ararat: 'Ararat',
+          armavir: 'Armavir',
+          gegharkunik: 'Gegharkunik',
+          kotayk: 'Kotayk',
+          lori: 'Lori',
+          shirak: 'Shirak',
+          syunik: 'Syunik',
+          tavush: 'Tavush',
+          vayots_dzor: 'Vayots Dzor',
+          yerevan: 'Yerevan',
 
         },
       },

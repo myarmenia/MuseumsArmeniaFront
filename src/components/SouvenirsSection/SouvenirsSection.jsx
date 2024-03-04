@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import {responsive2, souvenirsData  } from '../../data/data'
 import "react-multi-carousel/lib/styles.css";
 import './SouvenirsSection.css'
@@ -8,8 +8,9 @@ import { starIcon } from '../../iconFolder/icon';
 import { useTranslation } from 'react-i18next';
 
 function SouvenirsSection() {
-
     const {t, i18n} = useTranslation()
+
+    
 
     const product = 
     souvenirsData.map(el => {
@@ -40,26 +41,21 @@ function SouvenirsSection() {
             <h3>{t('souvenirs_title.0')}</h3>
             <h2>{t('souvenirs_title.1')}</h2>
         </div>
-        <div className='souvenir_items'>
-        <Carousel
-            showDots={true}
-            responsive={responsive2}
-            infinite={true}
-            autoPlay={true}
-            autoPlaySpeed={4000}
-            keyBoardControl={true}
-            containerClass='carousel-container'
-            dotListClass='custom-dot-list-style'
-            itemClass='carousel-item-padding-40-px'
-            beforeChange={(currentSlide, nextSlide) => {
-                // if (currentSlide === 7) {
-                    console.log(nextSlide);
-                // }
-            }}
-            >
-            {product}
-    </Carousel>
-
+        <div className='souvenir_items' >
+            
+                <Carousel showDots= {true}
+                
+                responsive={responsive2}
+                infinite = {true}
+                autoPlay={true}
+                autoPlaySpeed={4000}
+                keyBoardControl = {true}
+                containerClass='carousel-container'
+                dotListClass='custom-dot-list-style'
+                itemClass='carousel-item-padding-40-px'
+                >
+                {product}
+                </Carousel>
             </div>
 
             <ButtonSecond txt="1"/>

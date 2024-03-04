@@ -31,6 +31,10 @@ form {
   padding: 7px;
   min-width: 25%;
 }
+.form_input:focus {
+  outline: none;
+  /* border: none; */
+}
 /* //////////////////////////////// */
 
 .newsess {
@@ -41,9 +45,9 @@ form {
   column-gap: 30px;
   row-gap: 130px;
   margin-bottom: 180px;
+  padding: 10px;
 }
 .newsess_start {
-  width: 100%;
   display: flex;
   justify-content: start;
   flex-wrap: wrap;
