@@ -18,6 +18,7 @@ const SliderInHome = () => {
   },[])
 
 
+
   const intervalBetweenSlides = () => {
     if (autoplay) {
       setActive((prevActive) => (prevActive === max - 1 ? 0 : prevActive + 1));

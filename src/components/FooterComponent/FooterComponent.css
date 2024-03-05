@@ -133,7 +133,7 @@
    .footerComponentStatic {
     height: 800px;
  }
-   .footerComponent .container .footer_menu {
+  .footer_menu {
       width: 98%;
       justify-content: center;
       flex-direction: column;
@@ -174,11 +174,11 @@
  } */
 
    .footerComponent {
-      height: 500px;
+      height: 900px;
    }
 
    .footerComponentStatic {
-    height: 500px;
+    height: 900px;
  }
 
 

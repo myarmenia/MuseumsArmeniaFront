@@ -127,6 +127,29 @@ i18n
             'Գրել նոր գաղտնաբառ'
           ],
 
+              // ==============Museum Page start===================
+            // ==============Regions===================
+            aragatsotn: 'Արագածոտն',
+            ararat: 'Արարատ',
+            armavir: 'Արմավիր',
+            gegharkunik: 'Գեղարքունիք',
+            kotayk: 'Կոտայք',
+            lori: 'Լոռի',
+            shirak: 'Շիրակ',
+            syunik: 'Սյունիք',
+            tavush: 'Տավուշ',
+            vayots_dzor: 'Վայոց ձոր',
+            yerevan: 'Երևան',
+            description_museum: 'Պատմություն',
+            ourEvents: 'ՄԵՐ ՄԻՋՈՑԱՌՈՒՄՆԵՐԸ',
+            our_address: 'Մեր հասցեն',
+            working_hours: 'Աշխատանքային Ժամեր',
+            director: 'Տնօրեն',
+            phone: 'Հեռախոսահամարներ',
+            educationalPrograms: 'ՄՇՏԱԿԱՆ ՑՈՒՑԱԴՐՈՒԹՅՈՒՆՆԵՐ ԿԱՄ ՈՒՍՈՒՄՆԱԿԱՆ ԾՐԱԳՐԵՐ',
+
+            // ==============Museum Page end===================
+
           abouteUsPage_title: [
             'ՄԵՐ ՄԱՍԻՆ',
             'Հայաստանի մշակույթի նախարարության պատմություն',
@@ -335,18 +358,13 @@ i18n
 
 
 
-          // ==============Regions===================
-          aragatsotn: 'Արագածոտն',
-          ararat: 'Արարատ',
-          armavir: 'Արմավիր',
-          gegharkunik: 'Գեղարքունիք',
-          kotayk: 'Կոտայք',
-          lori: 'Լոռի',
-          shirak: 'Շիրակ',
-          syunik: 'Սյունիք',
-          tavush: 'Տավուշ',
-          vayots_dzor: 'Վայոց ձոր',
-          yerevan: 'Երևան',
+       
+
+          abouteUs_page_data: [
+            'Հայաստանի մշակույթի նախարարության պատմությունը սկսվում է Հայաստանի առաջին հանրապետության ժամանակներից: Հայաստանի առաջին հանրապետության կառավարության կազմում 1918թ. դեռևս չկար մշակույթի հարցերով զբաղվող ոչ մի կառույց: 1918 - 2019 թթ. գործում էր Հանրային կրթության մինիստրությունը: 1919թ. մայիսի 21-ին հանրային կրթության մինիստր Մելիք Ղարագյոզյանը դիմում է Մինիստրների խորհրդին՝ առաջարկելով այսուհետ Հանրային կրթության մինիստրությունն անվանել Կրթության և գեղարվեստի մինիստրություն: 1919թ. հուլիսի 1-ին կազմավորվում է Հանրային կրթության և արվեստի մինիստրությունը՝ միջնակարգ դպրոցների, տարրական դպրոցների, արվեստի և հնությունների, բժշկական-սանիտարական բաժիններով:1919թ. հուլիսի 17-ի նիստում ՀՀ մինիստրների խորհուրդը հաստատում է օրենք. «Հնության հուշարձանների և արվեստի բաժինը վերակազմակերպելու մասին. ա) հնության հուշարձանների և արվեստի բաժինը վերակազմակերպել երկու բաժինների՝ ա. հնության հուշարձանների պահպանման, բ. արվեստի հովանավորության.',
+            'բ) բանալ Հանրային կրթության և արվեստի մինիստրության 1919 թ. հուլիս-դեկտեմբեր ամիսների համար քսաներկու հազար երկու հարյուր ռուբլու լրացուցիչ վարկ: Մինիստրների խորհրդի գործերի կառավարիչ՝ Գ. Խօջամիրյան»: Սույն օրենքով Հանրային կրթության և արվեստի մինիստրության կառուցվածքում ավելանում է հնությունների պահպանության բաժինը: Մինիստրության մշտական ուշադրության կենտրոնում էր հնությունների պահպանությունը, որի մասին են վկայում մի շարք փաստաթղթեր: Հնության պահպանության բաժինը գործում է մինչև 1920 թվականը և լուծարվում գործառույթները հնությունների պահպանության կոմիտեին անցնելու պատճառով: Մինիստրության ուշադրության կենտրոնում էր նաև Ապագա ազգային թանգարանի հարցը, ինչպես նաև թատերական գործունեությունը:  1920 թ. հունվարի 1-ից մինչև հունիսի 1-ը Կրթության և արվեստի մինիստրության հատուկ հանձնարարությունների կոմիսարի պաշտոնը վարել է Եղիշե Սողոմոնյանը (Չարենց): ',
+            ' Հայաստանի պատմության թանգարանը մշակութային կազմակերպություն է ազգ կարևորությունը, որն ավելի քան մեկ դար ձեռք է բերել, հավաքել, հայտնաբերել, հաշվառել, պահպանել, ուսումնասիրել, մեկնաբանել և ցուցադրել Հայաստանին և հայությանը առնչվող շոշափելի և ոչ նյութական  մշակութային արժեքներ մարդիկ՝ նպաստելով գիտությանը,  կրթությանը, զբոսաշրջությանը։ զարգացում. Հիմնվելով մոտ չորս հարյուր հազար հնագիտական, ազգագրական, դրամագիտական և այլ հավաքածուներ, թանգարանը փորձում է կամրջել անցյալը և ապագան: Թանգարանի հավաքածուն արտացոլում է մշակույթի ամբողջական պատկերը և Հայաստանի պատմությունը նախապատմական ժամանակներից (մեկ միլիոն ութ հարյուր հազար տարի առաջ) մինչև մեր օրերը։ Թանգարանը հիմնադրվել է Հայաստանի Առաջին Հանրապետության խորհրդարանի 439 օրենք (09.09.1919 թ.). Այն կոչվել է Ազգագրական-մարդաբանական թանգարան-գրադարան։ Դա եղել է այցելուների համար բացվել է 1921թ. օգոստոսի 20-ին: Անվանափոխության ենթարկվել: Հայաստանի պետական կենտրոնական (1922), Մշակութային-պատմական (1931), պատմական (1935), Հայաստանի պատմության պետական թանգարան (1962) և Պատմության թանգարան Հայաստանի (2003 թ.):'
+          ]
 
         },
       },
@@ -470,6 +488,29 @@ i18n
             'Вы получите электронное письмо для сброса пароля',
             'Напишите новый пароль'
           ],
+
+           // ==============Museum Page start===================
+            // ==============Regions===================
+            aragatsotn: 'Арагацотн',
+            ararat: 'Арарат',
+            armavir: 'Армавир',
+            gegharkunik: 'Гегаркуник',
+            kotayk: 'Котайк',
+            lori: 'Лори',
+            shirak: 'Ширак',
+            syunik: 'Сюник',
+            tavush: 'Тавуш',
+            vayots_dzor: 'Вайоцдзор',
+            yerevan: 'Ереван',
+            description_museum: 'История',
+            ourEvents: 'НАШИ СОБЫТИЯ',
+            our_address: 'Наш адрес',
+            working_hours: 'Рабочее время',
+            director: 'Директор',
+            phone: 'телефоны',
+            educationalPrograms: 'ПОСТОЯННЫЕ ВЫСТАВКИ ИЛИ ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ',
+
+            // ==============Museum Page end===================
 
           abouteUsPage_title: [
             'О НАС',
@@ -709,6 +750,11 @@ i18n
           yerevan: 'Ереван',
 
 
+          abouteUs_page_data: [
+            'История Министерства культуры Армении начинается со времен первой Республики Армения. В составе правительства первой республики Армения в 1918 г. еще не существовало учреждения, занимающегося культурными вопросами. 1918 - 2019 г. действовало Министерство народного просвещения. 1919 год 21 мая министр народного образования Мелик Карагезян обратился к Совету министров с предложением впредь называть Министерство народного образования Министерством образования и изобразительных искусств. 1919 год 1 июля было создано Министерство народного образования и искусств с отделами средних школ, начальных школ, искусства и древностей, а также медико-санитарным отделами. На заседании 17 июля Совет Министров РА утвердил закон. «О реорганизации отдела памятников старины и искусства. а) реорганизовать отдел памятников старины и искусства на два отдела: а. сохранение древних памятников, б. меценатство.',
+            'б) ключ Министерства народного просвещения и искусств 1919 года. дополнительный кредит в размере двадцати двух тысяч двухсот рублей за июль-декабрь. Управляющий делами Совета Министров: Г. Ходжамирян». Этим законом в структуру Министерства народного образования и искусств добавлен Департамент охраны древностей. Постоянное внимание министерства уделялось сохранению древностей, о чем свидетельствует ряд документов. Отдел древностей действовал до 1920 года и был распущен в связи с передачей функций Комитету древностей. Вопрос будущего Национального музея, а также театральная деятельность также находились в центре внимания министерства. В 1920 году С 1 января по 1 июня Егише Согомян (Чаренц) занимал должность уполномоченного по особым поручениям Министерства образования и искусства.',
+            'Музей истории Армении – культурная организация национального значения, которая на протяжении более века приобретала, собирала, открывала, записывала, сохраняла, изучала, интерпретировала и экспонировала материальные и нематериальные культурные ценности, связанные с Арменией и армянским народом. , вклад в науку, образование, туризм. разработка. Основываясь на почти четырехстах тысячах археологических, этнографических, нумизматических и других коллекций, музей пытается соединить прошлое и будущее. Коллекция музея отражает полную картину культуры и истории Армении с доисторических времен (миллион восемьсот тысяч лет назад) до наших дней. Музей был основан Законом 439 Парламента Первой Республики Армения (09.09.1919). Он назывался Этнографо-антропологический музей-библиотека. Он был открыт для посетителей в 1921 году. 20 августа. Пройти смену имени. Государственный центр Армении (1922 г.), Культурно-исторический (1931 г.), Исторический (1935 г.), Государственный исторический музей Армении (1962 г.) и Музей истории Армении (2003 г.).'
+          ]
         },
       },
 
@@ -833,6 +879,28 @@ i18n
             'You will receive an email to reset your password',
             'Write a new password'
           ],
+
+           // ==============Museum Page start===================
+            // ==============Regions===================
+            aragatsotn: 'Aragatsotn',
+            ararat: 'Ararat',
+            armavir: 'Armavir',
+            gegharkunik: 'Gegharkunik',
+            kotayk: 'Kotayk',
+            lori: 'Lori',
+            shirak: 'Shirak',
+            syunik: 'Syunik',
+            tavush: 'Tavush',
+            vayots_dzor: 'Vayots Dzor',
+            yerevan: 'Yerevan',
+            description_museum: 'Story',
+            ourEvents: 'OUR EVENTS',
+            our_address: 'Our address',
+            working_hours: 'Working hours',
+            director: 'Director',
+            phone: 'phones',
+            educationalPrograms: 'PERMANENT EXHIBITIONS OR EDUCATIONAL PROGRAMS',
+            // ==============Museum Page end===================
 
           abouteUsPage_title: [
             'ABOUT US',
@@ -1036,18 +1104,34 @@ i18n
 
           ],
 
-          // ==============Regions===================
-          aragatsotn: 'Aragatsotn',
-          ararat: 'Ararat',
-          armavir: 'Armavir',
-          gegharkunik: 'Gegharkunik',
-          kotayk: 'Kotayk',
-          lori: 'Lori',
-          shirak: 'Shirak',
-          syunik: 'Syunik',
-          tavush: 'Tavush',
-          vayots_dzor: 'Vayots Dzor',
-          yerevan: 'Yerevan',
+           // ==============Museum Page start===================
+            // ==============Regions===================
+            aragatsotn: 'Արագածոտն',
+            ararat: 'Արարատ',
+            armavir: 'Արմավիր',
+            gegharkunik: 'Գեղարքունիք',
+            kotayk: 'Կոտայք',
+            lori: 'Լոռի',
+            shirak: 'Շիրակ',
+            syunik: 'Սյունիք',
+            tavush: 'Տավուշ',
+            vayots_dzor: 'Վայոց ձոր',
+            yerevan: 'Երևան',
+            description_museum: 'Պատմություն',
+            ourEvents: 'ՄԵՐ ՄԻՋՈՑԱՌՈՒՄՆԵՐԸ',
+            our_address: 'Մեր հասցեն',
+            working_hours: 'Աշխատանքային Ժամեր',
+            director: 'Տնօրեն',
+            phone: 'Հեռախոսահամարներ',
+            educationalPrograms: 'ՄՇՏԱԿԱՆ ՑՈՒՑԱԴՐՈՒԹՅՈՒՆՆԵՐ ԿԱՄ ՈՒՍՈՒՄՆԱԿԱՆ ԾՐԱԳՐԵՐ',
+
+            // ==============Museum Page end===================
+
+          abouteUs_page_data: [
+            'The history of the Ministry of Culture of Armenia begins with the times of the first Republic of Armenia. As part of the government of the first republic of Armenia in 1918. there was still no institution dealing with cultural matters. 1918 - 2019 the Ministry of Public Education was functioning. 1919 On May 21, Minister of Public Education Melik Gharagyozyan addressed the Council of Ministers, proposing to name the Ministry of Public Education the Ministry of Education and Fine Arts from now on. 1919 On July 1, the Ministry of Public Education and Arts was established with the departments of secondary schools, elementary schools, art and antiquities, and medical-sanitary departments. At the session of July 17, the RA Council of Ministers approves a law. "On reorganizing the department of ancient monuments and art. a) to reorganize the department of ancient monuments and art into two departments: a. preservation of ancient monuments, b. art patronage.',
+            'b) key of the Ministry of Public Education and Arts in 1919. additional credit of twenty two thousand two hundred rubles for the months of July-December. Manager of affairs of the Council of Ministers: G. Khojamiryan". By this law, the Department of Antiquities Protection is added to the structure of the Ministry of Public Education and Arts. The ministry s constant focus was the preservation of antiquities, as evidenced by a number of documents. The Antiquities Department functioned until 1920 and was dissolved due to the transfer of functions to the Antiquities Committee. The issue of the Future National Museum, as well as theater activities, were also in the center of attention of the Ministry. In 1920 From January 1 to June 1, Yeghishe Soghomyan (Charents) held the position of Commissioner for Special Assignments of the Ministry of Education and Arts.',
+            'The Museum of the History of Armenia is a cultural organization of national importance, which for more than a century has acquired, collected, discovered, recorded, preserved, studied, interpreted and exhibited tangible and intangible cultural values related to Armenia and Armenian people, contributing to science, education, tourism. development. Based on nearly four hundred thousand archaeological, ethnographic, numismatic and other collections, the museum tries to bridge the past and the future. The museums collection reflects the full picture of culture and history of Armenia from prehistoric times (one million eight hundred thousand years ago) to the present day. The museum was established by Law 439 of the Parliament of the First Republic of Armenia (09.09.1919). It was called the Ethnographic-Anthropological Museum-Library. It was opened for visitors in 1921. on August 20. Undergo a name change. State Central of Armenia (1922), Cultural-Historical (1931), Historical (1935), State History Museum of Armenia (1962) and History Museum of Armenia (2003).'
+          ] 
 
         },
       },
@@ -1060,4 +1144,4 @@ i18n
     },
   });
 
-export default i18n;
+export default i18n; 

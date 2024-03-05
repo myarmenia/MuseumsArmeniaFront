@@ -3,7 +3,8 @@ import ButtonSecond from '../ButtonSecond/ButtonSecond'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 import './ContactUsSection.css'
-import { locationIcon, mailIcon, telIcon } from '../../iconFolder/icon';
+import {MailIcon, TelIcon, LocationIcon} from '../../iconFolder/icon';
+
 import { useTranslation } from 'react-i18next';
 
 function ContactUsSection() {
@@ -31,17 +32,17 @@ function ContactUsSection() {
                     <div className='contact_us_section_block_contact_div'>
                         <h3>{t('contact_us_section.0')}</h3>
                         <a href="tel:+374(10)25-08-25">
-                            <span>{telIcon}</span>
+                            <span><TelIcon/></span>
                             <span htmlFor="phone">+374(10)25-08-25</span>
                         </a>
 
                         <a href="mailto:Tangaran@gmail.com">
-                            <span>{mailIcon}</span>
+                            <span><MailIcon/></span>
                             <span htmlFor="mail">Tangaran@gmail.com</span>
                         </a>
 
                         <a href="https://maps.app.goo.gl/kuVGfv1rwsNptG5C8" target='_blanc'>
-                            <span>{locationIcon}</span>
+                            <span><LocationIcon/></span>
                             <span htmlFor="location">0057 Yerevan</span>
                         </a>
 
