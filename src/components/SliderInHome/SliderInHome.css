@@ -1,6 +1,6 @@
 .slider {
     width: 100%;
-    height: 900px;
+    height: 740px;
     overflow: hidden;
     position: relative;
   }
@@ -81,7 +81,7 @@
   }
   .slider .each-slide {
     width: 100vw;
-    height: 900px;
+    height: 740px;
     float: left;
     font-size: 40vh;
     text-align: center;

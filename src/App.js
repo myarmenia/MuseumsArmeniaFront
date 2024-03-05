@@ -16,8 +16,6 @@ import AbouteUsPage from './components/AbouteUsPage/AbouteUsPage';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import { MuseumLayouts, MuseumPage, MuseumOne } from '../src/components/MuseumPage/index';
 
-
-
 function App() {
    const [changeFonSize, setChangeFonSize] = useState('');
 
@@ -110,6 +108,7 @@ function App() {
                     <Route path="news/:id" element={<SingleNews/>} />
                     <Route path='aboute-us' element={<PrivateRouteForOutSider><AbouteUsPage/></PrivateRouteForOutSider>}/>
                     <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
+
                </Route>
             </Route>
          </Routes>
