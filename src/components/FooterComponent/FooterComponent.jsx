@@ -16,28 +16,27 @@ function FooterComponent() {
     const {pathname} = useLocation()
     const leng = localStorage.getItem('lang')
 
-    
 
     useEffect(() => {
 
         const handleScroll = () => {
             if (pathname === `/${leng}/`) {
-                if (window.scrollY >= 5700) {
+                if (window.scrollY >= 5300) {
                     setOpenFooter(true);
-                   
+
                 } else {
                     setOpenFooter(false);
-                    
+
                 }
             }
             else{
 
-                if (window.scrollY >= document.body.scrollHeight-1000) {
+                if (window.scrollY >= document.body.scrollHeight-1900) {
                     setOpenFooter(true);
-                   
+
                 } else {
                     setOpenFooter(false);
-                    
+
                 }
             }
         };
@@ -51,7 +50,7 @@ function FooterComponent() {
     }, [document.body.scrollHeight, pathname]); // No dependencies
 
     return (
-        <footer className={pathname === `/${leng}/` ? "footerComponent" : "footerComponentStatic"} style={{ transform: openFooter ? 'translateY(0)' : 'translateY(100%)' }}>
+        <footer className={pathname === `/${leng}/` ? "footerComponent" : "footerComponentStatic"} style={{ transform: openFooter  ? 'translateY(0)' : 'translateY(100%)' }}>
             <div className='container'>
                 <div className="footerComponent_img_div">
                     <img src={require('../../images/hh.png')} alt="Zinanshan" />
