@@ -13,7 +13,9 @@ export const getLogOut = createAsyncThunk(
         };
         
         const response = await instance(config);
-        // window.location.pathname = `/${leng}/login`  
+        localStorage.removeItem("token");
+        localStorage.removeItem("isAuth");
+        window.location.pathname = `/${leng}/login`
         return response?.data;
       } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data.error.both);
