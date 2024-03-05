@@ -41,18 +41,25 @@ function SouvenirsSection() {
             <h2>{t('souvenirs_title.1')}</h2>
         </div>
         <div className='souvenir_items'>
-                <Carousel showDots= {true}
-                responsive={responsive2}
-                infinite = {true}
-                autoPlay={true}
-                autoPlaySpeed={4000}
-                keyBoardControl = {true}
-                containerClass='carousel-container'
-                dotListClass='custom-dot-list-style'
-                itemClass='carousel-item-padding-40-px'
-                >
-                {product}
-                </Carousel>
+        <Carousel
+            showDots={true}
+            responsive={responsive2}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={4000}
+            keyBoardControl={true}
+            containerClass='carousel-container'
+            dotListClass='custom-dot-list-style'
+            itemClass='carousel-item-padding-40-px'
+            beforeChange={(currentSlide, nextSlide) => {
+                // if (currentSlide === 7) {
+                    console.log(nextSlide);
+                // }
+            }}
+            >
+            {product}
+    </Carousel>
+
             </div>
 
             <ButtonSecond txt="1"/>

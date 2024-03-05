@@ -15,8 +15,6 @@ const PrivateRouteForRegAndLog = ({ children }) => {
     const localIsAuth  = localStorage.getItem('isAuth')
     const token  = localStorage.getItem('token')
 
-
-
     useEffect(() => {
       const fetchData = async () => {
         if (localIsAuth && token) {

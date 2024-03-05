@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { postMuseumOnePages } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
+import {
+   postMuseumOnePages,
+   educationalPrograms,
+} from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
-import { MuseumOneDescription, OurEvents, MuseumOnecontact } from '../index';
+import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
 
 import MuseumPageHeader from '../MuseumPageHeader';
 
 const MuseumOne = () => {
    const { id } = useParams();
    const dispatch = useDispatch();
+
    const { loadingStatus, dataMuseumOne } = useSelector((state) => state.museumPages);
 
    const {
@@ -20,13 +24,15 @@ const MuseumOne = () => {
       director,
       links,
       phones,
-      photos,
+      photos = [],
       region,
       working_days,
    } = dataMuseumOne;
+
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
-   }, [id]);
+      dispatch(educationalPrograms({ id }));
+   }, []);
 
    return (
       <>
@@ -45,10 +51,15 @@ const MuseumOne = () => {
                      <div className="museumOne_parent" style={{}}>
                         <div className="museumOne-blockLeft">
                            <MuseumOneDescription description={description} photos={photos} />
-                           <OurEvents/>
+                           <OurEvents />
+                           <EducationalPrograms />
                         </div>
                         <div className="museumOne-blockRigth ">
-                           <MuseumOnecontact {...{working_days,region, director, address, phones}}/>
+                           {loadingStatus === 'fulfilled' && (
+                              <MuseumOnecontact
+                                 {...{ working_days, region, director, address, phones }}
+                              />
+                           )}
                         </div>
                      </div>
                   </div>
