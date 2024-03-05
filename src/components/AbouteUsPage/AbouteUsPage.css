@@ -3,6 +3,7 @@
     background-position: top;
     background-size: cover;
     padding: 100px 0;
+    min-height: 100vh;
 }
 
 .abote_us_page p {
@@ -31,7 +32,7 @@
 
 .abote_us_page_block_info_top_div{
     display: flex;
-    height: 450px;
+    height: 500px;
     position: relative;
 }
 
@@ -85,7 +86,7 @@
  .abote_us_page_block_info_midle_div{
     display: flex;
     flex-direction: row-reverse;
-    height: 450px;
+    height: 500px;
     position: relative;
  }
 
@@ -137,7 +138,7 @@
 
 .abote_us_page_block_info_botom_div{
     display: flex;
-    height: 450px;
+    height: 500px;
     position: relative;
 }
 
@@ -186,6 +187,13 @@
  }
 
 
+ .lines_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+ }
+
 
 
 
@@ -233,15 +241,15 @@
     }
 
     .abote_us_page_block_info_top_div{
-        height: 550px;
+        height: 500px;
     }
 
     .abote_us_page_block_info_midle_div{
-        height: 550px;
+        height: 500px;
     }
 
     .abote_us_page_block_info_botom_div{
-        height: 550px;
+        height: 500px;
     }
  }
 
@@ -357,6 +365,10 @@
 
     .abote_us_page_block_info_botom_div div{
         padding: 30px 10px !important;
+    }
+
+    .lines_div img{
+        display: none;
     }
  }
 

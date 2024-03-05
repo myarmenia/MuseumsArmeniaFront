@@ -8,7 +8,7 @@ const SliderInHome = () => {
   const [active, setActive] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const bannerResp = useSelector(selectBanner)
-  const max = bannerResp.data.length;
+  const max = bannerResp?.data.length;
   const dispatch = useDispatch()
 
   

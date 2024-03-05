@@ -5,10 +5,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    padding-bottom: 1100px;
+    min-height: 100vh;
+    /* padding-bottom: 1100px; */
 
-    padding-top: 700px;
+    padding-top: 100px; 
 }
 
 .register_block{
