@@ -20,6 +20,7 @@
   bottom: 0;
   height: 300px;
   transition: all 0.6s;
+  transform: translateY(0) !important;
 }
 /* App.css */
 
