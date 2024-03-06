@@ -98,38 +98,6 @@ export const homePage_museum_section_data = [
         name: 'Հայ և ռուս ժողովուրդների բարեկամության թանգարան',
         img: require('../images/home_slide_img_4.jpg')
     },
-
-    {
-        id: '5',
-        time: '11.00 - 14.15',
-        location: ' гбгф ббв',
-        name: 'гфннбгд',
-        img: require('../images/home_slide_img_4.jpg')
-    },
-
-    {
-        id: '6',
-        time: '11.00 - 14.15',
-        location: ' гбгф ббв',
-        name: 'гфннбгд',
-        img: require('../images/home_slide_img_4.jpg')
-    },
-
-    {
-        id: '7',
-        time: '11.00 - 14.15',
-        location: ' гбгф ббв',
-        name: 'гфннбгд',
-        img: require('../images/home_slide_img_4.jpg')
-    },
-
-    {
-        id: '8',
-        time: '11.00 - 14.15',
-        location: ' гбгф ббв',
-        name: 'гфннбгд',
-        img: require('../images/home_slide_img_4.jpg')
-    },
 ]
 
 

@@ -24,7 +24,7 @@ const AnimScroll = () => {
    const dataLength = +(dataMuseum.length * 300);
    useEffect(() => {
       setStopLeft(animParentText >= 300);
-      setStopRigth(animParentBlock >= -dataLength);
+      setStopRigth(animParentBlock >= -dataLength - 100);
    }, [animParentText]);
 
    useEffect(() => {
@@ -33,47 +33,23 @@ const AnimScroll = () => {
       } else {
          document.body.style.overflow = 'visible';
       }
-   }, [startAnimation, windowScol]);
+   }, [startAnimation]);
 
-   // const scrolling = useCallback(() => {
-   //   const rect = scrollRef.current?.getBoundingClientRect()?.top;
-   //   if (rect > -50 && rect < 150) {
-   //     setWindowScol(true);
-   //   } else {
-   //     setWindowScol(false);
-   //   }
-   // });
-   // useEffect(() => {
-   //   window.addEventListener('scroll', scrolling);
-
-   //   return () => window.removeEventListener('scroll', scrolling);
-   // }, []);
-
-   useEffect(() => {
-      function handleScroll() {
-         const divRect = scrollRef.current.getBoundingClientRect();
-         const windowHeight = window.innerHeight;
-         const divCenterY = divRect.top + divRect.height / 2;
-      
-
-         if (divCenterY > 360 && divCenterY < 420) {
-            // Вызываем вашу функцию здесь
-            setWindowScol(true);
-            // console.log('Div в центре экрана');
-         } else {
-            setWindowScol(false);
-            document.body.style.overflow = 'visible';
-         }
+   const scrolling = useCallback(() => {
+      const rect = scrollRef.current?.getBoundingClientRect()?.top;
+      if (rect > -50 && rect < 150) {
+         setWindowScol(true);
+      } else {
+         setWindowScol(false);
       }
+   });
+   useEffect(() => {
+      window.addEventListener('scroll', scrolling);
 
-      window.addEventListener('scroll', handleScroll);
-      return () => {
-         window.removeEventListener('scroll', handleScroll);
-      };
+      return () => window.removeEventListener('scroll', scrolling);
    }, []);
 
    const handleWheel = (event) => {
-      // console.log(windowScol, 'windowScol');
       if (windowScol) {
          if (event.deltaY > 0) {
             if (stopRigth) {
@@ -105,15 +81,11 @@ const AnimScroll = () => {
    };
 
    return (
-      <div className="scrollAnim">
+      <div ref={scrollRef} className="scrollAnim">
          {/* <div className="header"></div> */}
 
-         <div className="">
-            <div
-               ref={scrollRef}
-               onWheel={handleWheel}
-               className="animBlock"
-               style={{ overflow: 'hidden' }}>
+         <div className="container">
+            <div onWheel={handleWheel} className="animBlock" style={{ overflow: 'hidden' }}>
                <div
                   className="animBlock_parent"
                   // onMouseOver={() => setStartAnimation(true)}
