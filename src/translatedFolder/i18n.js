@@ -29,6 +29,7 @@ i18n
             'Տեսնել Բոլորը',
             'Ուղարկել',
             'Ավելացնել',
+            'Դիմել',
           ],
 
           footer_title: 'Հայաստանի Հանրապետության Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
@@ -147,7 +148,7 @@ i18n
             director: 'Տնօրեն',
             phone: 'Հեռախոսահամարներ',
             educationalPrograms: 'ՄՇՏԱԿԱՆ ՑՈՒՑԱԴՐՈՒԹՅՈՒՆՆԵՐ ԿԱՄ ՈՒՍՈՒՄՆԱԿԱՆ ԾՐԱԳՐԵՐ',
-
+            haveQuestions: 'Հարցեր ունե՞ք',
             // ==============Museum Page end===================
 
           abouteUsPage_title: [
@@ -509,6 +510,7 @@ i18n
             director: 'Директор',
             phone: 'телефоны',
             educationalPrograms: 'ПОСТОЯННЫЕ ВЫСТАВКИ ИЛИ ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ',
+            haveQuestions: 'У тебя есть вопросы?',
 
             // ==============Museum Page end===================
 
@@ -723,32 +725,6 @@ i18n
               {"zw": "Зимбабве"}
           ],
 
-          // ==============Regions===================
-          aragatsotn: 'Арагацотн',
-          ararat: 'Арарат',
-          armavir: 'Армавир',
-          gegharkunik: 'Гегаркуник',
-          kotayk: 'Котайк',
-          lori: 'Лори',
-          shirak: 'Ширак',
-          syunik: 'Сюник',
-          tavush: 'Тавуш',
-          vayots_dzor: 'Вайоцдзор',
-          yerevan: 'Ереван',
-
-          // ==============Regions===================
-          aragatsotn: 'Арагацотн',
-          ararat: 'Арарат',
-          armavir: 'Армавир',
-          gegharkunik: 'Гегаркуник',
-          kotayk: 'Котайк',
-          lori: 'Лори',
-          shirak: 'Ширак',
-          syunik: 'Сюник',
-          tavush: 'Тавуш',
-          vayots_dzor: 'Вайоцдзор',
-          yerevan: 'Ереван',
-
 
           abouteUs_page_data: [
             'История Министерства культуры Армении начинается со времен первой Республики Армения. В составе правительства первой республики Армения в 1918 г. еще не существовало учреждения, занимающегося культурными вопросами. 1918 - 2019 г. действовало Министерство народного просвещения. 1919 год 21 мая министр народного образования Мелик Карагезян обратился к Совету министров с предложением впредь называть Министерство народного образования Министерством образования и изобразительных искусств. 1919 год 1 июля было создано Министерство народного образования и искусств с отделами средних школ, начальных школ, искусства и древностей, а также медико-санитарным отделами. На заседании 17 июля Совет Министров РА утвердил закон. «О реорганизации отдела памятников старины и искусства. а) реорганизовать отдел памятников старины и искусства на два отдела: а. сохранение древних памятников, б. меценатство.',
@@ -900,6 +876,7 @@ i18n
             director: 'Director',
             phone: 'phones',
             educationalPrograms: 'PERMANENT EXHIBITIONS OR EDUCATIONAL PROGRAMS',
+            haveQuestions: 'Do you have questions?',
             // ==============Museum Page end===================
 
           abouteUsPage_title: [
@@ -1104,28 +1081,7 @@ i18n
 
           ],
 
-           // ==============Museum Page start===================
-            // ==============Regions===================
-            aragatsotn: 'Արագածոտն',
-            ararat: 'Արարատ',
-            armavir: 'Արմավիր',
-            gegharkunik: 'Գեղարքունիք',
-            kotayk: 'Կոտայք',
-            lori: 'Լոռի',
-            shirak: 'Շիրակ',
-            syunik: 'Սյունիք',
-            tavush: 'Տավուշ',
-            vayots_dzor: 'Վայոց ձոր',
-            yerevan: 'Երևան',
-            description_museum: 'Պատմություն',
-            ourEvents: 'ՄԵՐ ՄԻՋՈՑԱՌՈՒՄՆԵՐԸ',
-            our_address: 'Մեր հասցեն',
-            working_hours: 'Աշխատանքային Ժամեր',
-            director: 'Տնօրեն',
-            phone: 'Հեռախոսահամարներ',
-            educationalPrograms: 'ՄՇՏԱԿԱՆ ՑՈՒՑԱԴՐՈՒԹՅՈՒՆՆԵՐ ԿԱՄ ՈՒՍՈՒՄՆԱԿԱՆ ԾՐԱԳՐԵՐ',
-
-            // ==============Museum Page end===================
+           
 
           abouteUs_page_data: [
             'The history of the Ministry of Culture of Armenia begins with the times of the first Republic of Armenia. As part of the government of the first republic of Armenia in 1918. there was still no institution dealing with cultural matters. 1918 - 2019 the Ministry of Public Education was functioning. 1919 On May 21, Minister of Public Education Melik Gharagyozyan addressed the Council of Ministers, proposing to name the Ministry of Public Education the Ministry of Education and Fine Arts from now on. 1919 On July 1, the Ministry of Public Education and Arts was established with the departments of secondary schools, elementary schools, art and antiquities, and medical-sanitary departments. At the session of July 17, the RA Council of Ministers approves a law. "On reorganizing the department of ancient monuments and art. a) to reorganize the department of ancient monuments and art into two departments: a. preservation of ancient monuments, b. art patronage.',
