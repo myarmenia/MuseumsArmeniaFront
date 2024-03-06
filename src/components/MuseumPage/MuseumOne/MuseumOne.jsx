@@ -7,10 +7,13 @@ import {
 } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
-
+import { useTranslation } from 'react-i18next';
 import MuseumPageHeader from '../MuseumPageHeader';
+import Button from '../../Button/Button';
+
 
 const MuseumOne = () => {
+   const { t, i18n } = useTranslation();
    const { id } = useParams();
    const dispatch = useDispatch();
 
@@ -55,11 +58,13 @@ const MuseumOne = () => {
                            <EducationalPrograms />
                         </div>
                         <div className="museumOne-blockRigth ">
-                           {loadingStatus === 'fulfilled' && (
-                              <MuseumOnecontact
-                                 {...{ working_days, region, director, address, phones }}
-                              />
-                           )}
+                           <MuseumOnecontact
+                              {...{ working_days, region, director, address, phones }}
+                           />
+                           <div className="museumOne_pageStyle">
+                              <h4>{t(`haveQuestions`)}</h4>
+                              <Button txt='4'/>
+                           </div>
                         </div>
                      </div>
                   </div>
