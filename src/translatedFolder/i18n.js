@@ -764,6 +764,8 @@ i18n.use(initReactI18next).init({
             our_address: 'Our address',
             working_hours: 'Working hours',
             director: 'Director',
+            phone: 'phone',
+            educationalPrograms: 'PERMANENT EXHIBITIONS OR EDUCATIONAL PROGRAMS',
             // ==============Museum Page end===================
 
             abouteUsPage_title: ['ABOUT US', 'History of the Ministry of Culture of Armenia'],
