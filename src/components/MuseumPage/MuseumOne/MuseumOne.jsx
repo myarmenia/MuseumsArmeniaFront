@@ -7,10 +7,14 @@ import {
 } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
-
+import { useTranslation } from 'react-i18next';
 import MuseumPageHeader from '../MuseumPageHeader';
+import Button from '../../Button/Button';
+import ButtonSecond from '../../ButtonSecond/ButtonSecond';
+import MessagesModal from '../../NewMessages/MessagesModal';
 
 const MuseumOne = () => {
+   const { t, i18n } = useTranslation();
    const { id } = useParams();
    const dispatch = useDispatch();
 
@@ -34,6 +38,10 @@ const MuseumOne = () => {
       // dispatch(educationalPrograms({ id }));
    }, []);
 
+   const [modalIsOpen, setIsOpen] = React.useState(false);
+   function openModal() {
+      setIsOpen(true);
+   }
    return (
       <>
          {loadingStatus === 'loading' ? (
@@ -47,7 +55,7 @@ const MuseumOne = () => {
                      height: 'auto',
                      backgroundColor: '#F8F8F8',
                   }}>
-                  <div className="container">
+                  <div className="container" id="yourAppElement">
                      <div className="museumOne_parent" style={{}}>
                         <div className="museumOne-blockLeft">
                            <MuseumOneDescription description={description} photos={photos} />
@@ -55,13 +63,25 @@ const MuseumOne = () => {
                            <EducationalPrograms />
                         </div>
                         <div className="museumOne-blockRigth ">
-                           {loadingStatus === 'fulfilled' && (
-                              <MuseumOnecontact
-                                 {...{ working_days, region, director, address, phones }}
-                              />
-                           )}
+                           <MuseumOnecontact
+                              {...{ working_days, region, director, address, phones }}
+                           />
+                           <div className="museumOne_pageStyle">
+                              <h4>{t(`haveQuestions`)}</h4>
+                              {/* <Button txt="4" /> */}
+                              <div
+                                 onClick={openModal}
+                                 style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                 }}>
+                                 <ButtonSecond txt="4" minWidth="210px" />
+                              </div>
+                           </div>
                         </div>
                      </div>
+                     <MessagesModal {...{ modalIsOpen, setIsOpen }} />
                   </div>
                </div>
             </div>

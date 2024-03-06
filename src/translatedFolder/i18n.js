@@ -21,7 +21,7 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Գնել հիմա', 'Տեսնել Բոլորը', 'Ուղարկել', 'Ավելացնել'],
+            buttons: ['Գնել հիմա', 'Տեսնել Բոլորը', 'Ուղարկել', 'Ավելացնել', 'Դիմել'],
 
             footer_title:
                'Հայաստանի Հանրապետության Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
@@ -115,7 +115,7 @@ i18n.use(initReactI18next).init({
             director: 'Տնօրեն',
             phone: 'Հեռախոսահամարներ',
             educationalPrograms: 'ՄՇՏԱԿԱՆ ՑՈՒՑԱԴՐՈՒԹՅՈՒՆՆԵՐ ԿԱՄ ՈՒՍՈՒՄՆԱԿԱՆ ԾՐԱԳՐԵՐ',
-
+            haveQuestions: 'Հարցեր ունե՞ք',
             // ==============Museum Page end===================
 
             abouteUsPage_title: ['ՄԵՐ ՄԱՍԻՆ', 'Հայաստանի մշակույթի նախարարության պատմություն'],
@@ -344,7 +344,7 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Купить сейчас', 'Увидеть все', 'Отправлять', 'Добавлять'],
+            buttons: ['Купить сейчас', 'Увидеть все', 'Отправлять', 'Добавлять', 'Применять'],
 
             footer_title: 'Министерство образования, науки, культуры и спорта Республики Армения',
 
@@ -437,6 +437,7 @@ i18n.use(initReactI18next).init({
             director: 'Директор',
             phone: 'телефоны',
             educationalPrograms: 'ПОСТОЯННЫЕ ВЫСТАВКИ ИЛИ ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ',
+            haveQuestions: 'У тебя есть вопросы?',
 
             // ==============Museum Page end===================
 
@@ -672,7 +673,7 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Buy Now', 'See All', 'Send', 'Add'],
+            buttons: ['Buy Now', 'See All', 'Send', 'Add', 'Apply'],
 
             footer_title:
                'Ministry of Education, Science, Culture and Sports of the Republic of Armenia',
@@ -764,8 +765,9 @@ i18n.use(initReactI18next).init({
             our_address: 'Our address',
             working_hours: 'Working hours',
             director: 'Director',
-            phone: 'phone',
+            phone: 'phones',
             educationalPrograms: 'PERMANENT EXHIBITIONS OR EDUCATIONAL PROGRAMS',
+            haveQuestions: 'Do you have questions?',
             // ==============Museum Page end===================
 
             abouteUsPage_title: ['ABOUT US', 'History of the Ministry of Culture of Armenia'],
