@@ -24,7 +24,7 @@ export const  hmoePageTopSlide = [
 // =========================single ticket===============================
 
 
-export const single_teecket_data =  [
+export const  single_teecket_data=  [
  {
     title: 'ՄԻԱՍՆԱԿԱՆ ՏՈՄՍ',
     txt: 'Գնեք 3 և ավելի թանգարանների միասնական տոմս և ստացեք 20 տոկոս զեղչ:',
@@ -96,38 +96,6 @@ export const homePage_museum_section_data = [
         time: '11.00 - 14.15',
         location: ' Երևան, «Զորագյուղ» ազգագրական թաղամաս,15,16',
         name: 'Հայ և ռուս ժողովուրդների բարեկամության թանգարան',
-        img: require('../images/home_slide_img_4.jpg')
-    },
-
-    {
-        id: '5',
-        time: '11.00 - 14.15',
-        location: ' гбгф ббв',
-        name: 'гфннбгд',
-        img: require('../images/home_slide_img_4.jpg')
-    },
-
-    {
-        id: '6',
-        time: '11.00 - 14.15',
-        location: ' гбгф ббв',
-        name: 'гфннбгд',
-        img: require('../images/home_slide_img_4.jpg')
-    },
-
-    {
-        id: '7',
-        time: '11.00 - 14.15',
-        location: ' гбгф ббв',
-        name: 'гфннбгд',
-        img: require('../images/home_slide_img_4.jpg')
-    },
-
-    {
-        id: '8',
-        time: '11.00 - 14.15',
-        location: ' гбгф ббв',
-        name: 'гфннбгд',
         img: require('../images/home_slide_img_4.jpg')
     },
 ]

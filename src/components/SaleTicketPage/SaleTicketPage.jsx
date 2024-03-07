@@ -41,7 +41,7 @@ function SaleTicketPage() {
 
                     <div className='sale_ticket_page_block_info_right'>
                         <div className='sale_ticket_page_block_info_right_img_div'>
-                            <img src={require('../../images/tecket.png')} alt="" />
+                            <img src={require('../../images/ticket.png')} alt="" />
                         </div>
 
                         <div className='sale_ticket_page_block_info_right_text_div'>

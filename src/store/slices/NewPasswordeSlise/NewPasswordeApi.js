@@ -15,6 +15,10 @@ export const postNewPassword = createAsyncThunk(
           };
     
           const response = await instance(config);
+
+          if(response.data.success === true){
+            window.location.pathname = `/${leng}/login`
+          }
           
           return response?.data;
         } catch (error) {

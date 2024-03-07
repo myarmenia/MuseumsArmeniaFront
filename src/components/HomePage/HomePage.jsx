@@ -11,7 +11,7 @@ import SouvenirsSection from '../SouvenirsSection/SouvenirsSection'
 import ContactUsSection from '../ContactUsSection/ContactUsSection'
 import PrivateTicket from '../PrivateTicket/PrivateTicket'
 
-function HomePage({changeFonSize, changeFont}) {
+function HomePage({changeFonSize, changeFont}) {    
     const [homeNavColor, setHomeNavColor] = useState(false)
 
     useEffect(()=>{
