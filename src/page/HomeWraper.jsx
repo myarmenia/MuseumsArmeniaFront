@@ -6,7 +6,7 @@ import FooterComponent from '../components/FooterComponent/FooterComponent';
 
 function HomeWraper({ changeFonSize, changeFont }) {
   const { pathname } = useLocation();
-  const leng = localStorage.getItem('lang');
+  const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang')  : 'am';
 
   return (
     <div className="home_wraper">

@@ -13,6 +13,7 @@ import { resendForgotReducer } from './slices/ResendForgotSlice/ResendForgotSlic
 import { MuseumPagesReducer } from './slices/MuseumPagesSlice/MuseumPagesSlice';
 import { NewsesReducer } from "./slices/newses/NewsesSlice";
 import { bannerReducer } from './slices/BanerSlice/BanerSlice';
+import { souvinersProdReducer } from './slices/SouvinersProdSlice/SouvinersProdSlice';
 
 const store = configureStore({
    reducer: {
@@ -29,7 +30,8 @@ const store = configureStore({
       resendForgot: resendForgotReducer,
       museumPages: MuseumPagesReducer,
       newses:NewsesReducer,
-      banner: bannerReducer
+      banner: bannerReducer,
+      souvinersProd: souvinersProdReducer
    },
    // middleware: (getDefaultMiddlware)=>[
    //     ...getDefaultMiddlware(),

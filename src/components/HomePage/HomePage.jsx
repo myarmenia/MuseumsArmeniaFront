@@ -23,7 +23,10 @@ function HomePage({changeFonSize, changeFont}) {
                 setHomeNavColor(false)
             }
         })
+        window.scrollTo(0,0);
     },[homeNavColor])
+
+    
   return (
     <div className='home_page'>
             <NavBarForHome homeNavColor={homeNavColor} {...{changeFonSize, changeFont}}/>

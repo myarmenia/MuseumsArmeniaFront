@@ -158,12 +158,12 @@ i18n
 
           country:[
 
+            {"am": "Հայաստան"},
             {"ad": "Անդորրա"},
             {"ae": "Արաբական Միացյալ Էմիրություններ"},
             {"af": "Աֆղանստան"},
             {"ag": "Անտիգուա և Բարբուդա"},
             {"al": "Ալբանիա"},
-            {"am": "Հայաստան"},
             {"ao": "Անգոլա"},
             {"ar": "Արգենտինա"},
             {"at": "Ավստրիա"},
@@ -355,16 +355,45 @@ i18n
             {"zm": "Զամբիա"},
             {"zw": "Զիմբաբվե"},
           ],
-
-
-
        
 
           abouteUs_page_data: [
             'Հայաստանի մշակույթի նախարարության պատմությունը սկսվում է Հայաստանի առաջին հանրապետության ժամանակներից: Հայաստանի առաջին հանրապետության կառավարության կազմում 1918թ. դեռևս չկար մշակույթի հարցերով զբաղվող ոչ մի կառույց: 1918 - 2019 թթ. գործում էր Հանրային կրթության մինիստրությունը: 1919թ. մայիսի 21-ին հանրային կրթության մինիստր Մելիք Ղարագյոզյանը դիմում է Մինիստրների խորհրդին՝ առաջարկելով այսուհետ Հանրային կրթության մինիստրությունն անվանել Կրթության և գեղարվեստի մինիստրություն: 1919թ. հուլիսի 1-ին կազմավորվում է Հանրային կրթության և արվեստի մինիստրությունը՝ միջնակարգ դպրոցների, տարրական դպրոցների, արվեստի և հնությունների, բժշկական-սանիտարական բաժիններով:1919թ. հուլիսի 17-ի նիստում ՀՀ մինիստրների խորհուրդը հաստատում է օրենք. «Հնության հուշարձանների և արվեստի բաժինը վերակազմակերպելու մասին. ա) հնության հուշարձանների և արվեստի բաժինը վերակազմակերպել երկու բաժինների՝ ա. հնության հուշարձանների պահպանման, բ. արվեստի հովանավորության.',
             'բ) բանալ Հանրային կրթության և արվեստի մինիստրության 1919 թ. հուլիս-դեկտեմբեր ամիսների համար քսաներկու հազար երկու հարյուր ռուբլու լրացուցիչ վարկ: Մինիստրների խորհրդի գործերի կառավարիչ՝ Գ. Խօջամիրյան»: Սույն օրենքով Հանրային կրթության և արվեստի մինիստրության կառուցվածքում ավելանում է հնությունների պահպանության բաժինը: Մինիստրության մշտական ուշադրության կենտրոնում էր հնությունների պահպանությունը, որի մասին են վկայում մի շարք փաստաթղթեր: Հնության պահպանության բաժինը գործում է մինչև 1920 թվականը և լուծարվում գործառույթները հնությունների պահպանության կոմիտեին անցնելու պատճառով: Մինիստրության ուշադրության կենտրոնում էր նաև Ապագա ազգային թանգարանի հարցը, ինչպես նաև թատերական գործունեությունը:  1920 թ. հունվարի 1-ից մինչև հունիսի 1-ը Կրթության և արվեստի մինիստրության հատուկ հանձնարարությունների կոմիսարի պաշտոնը վարել է Եղիշե Սողոմոնյանը (Չարենց): ',
             ' Հայաստանի պատմության թանգարանը մշակութային կազմակերպություն է ազգ կարևորությունը, որն ավելի քան մեկ դար ձեռք է բերել, հավաքել, հայտնաբերել, հաշվառել, պահպանել, ուսումնասիրել, մեկնաբանել և ցուցադրել Հայաստանին և հայությանը առնչվող շոշափելի և ոչ նյութական  մշակութային արժեքներ մարդիկ՝ նպաստելով գիտությանը,  կրթությանը, զբոսաշրջությանը։ զարգացում. Հիմնվելով մոտ չորս հարյուր հազար հնագիտական, ազգագրական, դրամագիտական և այլ հավաքածուներ, թանգարանը փորձում է կամրջել անցյալը և ապագան: Թանգարանի հավաքածուն արտացոլում է մշակույթի ամբողջական պատկերը և Հայաստանի պատմությունը նախապատմական ժամանակներից (մեկ միլիոն ութ հարյուր հազար տարի առաջ) մինչև մեր օրերը։ Թանգարանը հիմնադրվել է Հայաստանի Առաջին Հանրապետության խորհրդարանի 439 օրենք (09.09.1919 թ.). Այն կոչվել է Ազգագրական-մարդաբանական թանգարան-գրադարան։ Դա եղել է այցելուների համար բացվել է 1921թ. օգոստոսի 20-ին: Անվանափոխության ենթարկվել: Հայաստանի պետական կենտրոնական (1922), Մշակութային-պատմական (1931), պատմական (1935), Հայաստանի պատմության պետական թանգարան (1962) և Պատմության թանգարան Հայաստանի (2003 թ.):'
-          ]
+          ],
+
+
+          sale_ticket_page_Text_part_1: [
+            '1) Մինչև 12 տարեկան երեխաներն',
+            '2) Հայաստան ժամանած պետական պաշտոնական պատվիրակություն-ների անդամներին,',
+            '3) Հայաստանում հավատարմագրված դիվանագիտական ներկայացուցիչ-ներին,',
+            '4) Թանգարանների միջազգային խորհրդի անդամներին (ԻԿՕՄ), թանգարանային աշխատողներին,',
+            '5) երկկողմանի ծնողազուրկ 12 տարեկանից բարձր տարիքի երեխաներին, հատուկ խնամքի և կենցաղային սպասարկման կարիք ունեցող ծերերին,',
+            '6) Հայաստանի Հանրապետության ու Արցախի Հանրապետության տարածքներում մարտական գործողությունների  ժամանակ ծառայողական պարտականությունները կատարելիս զոհված զինծառայողների ընտանիքների անդամներին,',
+            '7) Երկրորդ համաշխարհային պատերազմի մասնակիցներին (Հայաստանի Հանրապետության և նախկին  ԽՍՀՄ պետությունների),',
+            '8) հաշմանդամություն ունեցող՝ 1-ին  խմբի (ուղեկցողի  հետ),  հաշմանդամություն ունեցող՝ 2-րդ և 3-րդ խմբերի (առանց ուղեկցողի) անձանց, աղքատության (ընտանեկան) նպաստի համակարգում ընդգրկված նպաստառուներին,',
+            '9) բազմազավակ ընտանիքների 12 տարեկանից բարձր երեխաներին,',
+            '10) ժամկետային զինծառայողներին,',
+            '11) Հայաստանի Հանրապետության սահմանամերձ շրջանների 12 տարեկանից բարձր դպրոցական տարիքի երեխաներին (նախօրոք ներկայացված հայտերի հիման վրա),',
+            '12) լրագրողներին` աշխատանքային բոլոր օրերին (անձը և կարգավիճակը հաստատող փաստաթղթի առկայության դեպքում),',
+            '13) Հայաստանի Հանրապետության քաղաքացիների համար յուրաքանչյուր ամսվա վերջին շաբաթ օրը մուտքն ազատ է:'
+          ],
+
+          sale_ticket_page_Text_part_2: [
+            '1) Տոմսի գինը 50 տոկոս զեղչով՝ 12 տարեկանից բարձր դպրոցականների, ուսանողների, Հայաստանի Հանրապետության քաղաքացի հանդիսացող կենսաթոշակառուների, փախստականների համար։',
+            '2) Թույլատրել զբոսաշրջային և կորպորատիվ նպատակներով մեծաքանակ տոմսերի վաճառքի դեպքում մշտական այցելության տոմսերի գները նվազեցնել մինչև:',
+            '3) 10 տոկոսի չափով՝ նախապես զբոսաշրջային օպերատորների կամ գործակալների հետ կնքելով համապատասխան պայմանագրեր:'
+          ],
+
+          sale_ticket_page_block_titles: [
+            'ԹԱՆԳԱՐԱՆԻ  ՄՇՏԱԿԱՆ  ՑՈՒՑԱԴՐՈՒԹՅԱՆ  ԱՆՎՃԱՐ  ԱՅՑԵԼՈՒԹՅՈՒՆ  ՏՐԱՄԱԴՐՎՈՒՄ Է',
+            'Զեղչեր'
+          ],
+
+          sale_ticket_page_title: 'Տոմսերի զեղչային քաղաքականություն',
+
+          
 
         },
       },
@@ -520,6 +549,7 @@ i18n
 
           country:[
 
+              {"am": "Армения"},
               {"jm": "Ямайка"},
               {"jp": "Япония"},
               {"ss": "Южный Судан"},
@@ -530,7 +560,6 @@ i18n
               {"ao": "Ангола"},
               {"ag": "Антигуа и Барбуда"},
               {"ar": "Аргентина"},
-              {"am": "Армения"},
               {"au": "Австралия"},
               {"at": "Австрия"},
               {"az": "Азербайджан"},
@@ -754,7 +783,36 @@ i18n
             'История Министерства культуры Армении начинается со времен первой Республики Армения. В составе правительства первой республики Армения в 1918 г. еще не существовало учреждения, занимающегося культурными вопросами. 1918 - 2019 г. действовало Министерство народного просвещения. 1919 год 21 мая министр народного образования Мелик Карагезян обратился к Совету министров с предложением впредь называть Министерство народного образования Министерством образования и изобразительных искусств. 1919 год 1 июля было создано Министерство народного образования и искусств с отделами средних школ, начальных школ, искусства и древностей, а также медико-санитарным отделами. На заседании 17 июля Совет Министров РА утвердил закон. «О реорганизации отдела памятников старины и искусства. а) реорганизовать отдел памятников старины и искусства на два отдела: а. сохранение древних памятников, б. меценатство.',
             'б) ключ Министерства народного просвещения и искусств 1919 года. дополнительный кредит в размере двадцати двух тысяч двухсот рублей за июль-декабрь. Управляющий делами Совета Министров: Г. Ходжамирян». Этим законом в структуру Министерства народного образования и искусств добавлен Департамент охраны древностей. Постоянное внимание министерства уделялось сохранению древностей, о чем свидетельствует ряд документов. Отдел древностей действовал до 1920 года и был распущен в связи с передачей функций Комитету древностей. Вопрос будущего Национального музея, а также театральная деятельность также находились в центре внимания министерства. В 1920 году С 1 января по 1 июня Егише Согомян (Чаренц) занимал должность уполномоченного по особым поручениям Министерства образования и искусства.',
             'Музей истории Армении – культурная организация национального значения, которая на протяжении более века приобретала, собирала, открывала, записывала, сохраняла, изучала, интерпретировала и экспонировала материальные и нематериальные культурные ценности, связанные с Арменией и армянским народом. , вклад в науку, образование, туризм. разработка. Основываясь на почти четырехстах тысячах археологических, этнографических, нумизматических и других коллекций, музей пытается соединить прошлое и будущее. Коллекция музея отражает полную картину культуры и истории Армении с доисторических времен (миллион восемьсот тысяч лет назад) до наших дней. Музей был основан Законом 439 Парламента Первой Республики Армения (09.09.1919). Он назывался Этнографо-антропологический музей-библиотека. Он был открыт для посетителей в 1921 году. 20 августа. Пройти смену имени. Государственный центр Армении (1922 г.), Культурно-исторический (1931 г.), Исторический (1935 г.), Государственный исторический музей Армении (1962 г.) и Музей истории Армении (2003 г.).'
-          ]
+          ],
+
+          sale_ticket_page_Text_part_1: [
+            '1) Дети до 12 лет',
+            '2) Членам официальных государственных делегаций, прибывающим в Армению,',
+            '3) Дипломатические представители, аккредитованные в Армении,',
+            '4) Членам Международного совета музеев (ИКОМ), музейным работникам,',
+            '5) двусторонне осиротевшие дети старше 12 лет, пожилые люди, нуждающиеся в особом уходе и бытовом обслуживании,',
+            '6) Членам семей военнослужащих, погибших при исполнении служебных обязанностей в ходе боевых действий на территориях Республики Армения и Республики Арцах,',
+            '7) Участники Второй мировой войны (Республики Армения и стран бывшего СССР),',
+            '8) инвалиды 1-й группы (с сопровождающим), инвалиды 2-й и 3-й групп (без сопровождающего), льготники, включенные в систему пособий по бедности (семейным),',
+            '9) дети старше 12 лет из многодетных семей,',
+            '10) призывники,',
+            '11) Дети школьного возраста старше 12 лет в приграничных районах Республики Армения (на основании заранее поданных заявлений),',
+            '12) журналисты - во все рабочие дни (при наличии документа, подтверждающего личность и статус),',
+            '13) Вход бесплатный для граждан Республики Армения в последнюю субботу каждого месяца.'
+          ],
+
+          sale_ticket_page_Text_part_2: [
+            '1) Стоимость билета со скидкой 50% для школьников старше 12 лет, студентов, пенсионеров, являющихся гражданами Республики Армения, беженцев.',
+            '2) Разрешить снизить цены на билеты для постоянного посещения в случае продажи большого количества билетов для туристических и корпоративных целей до:',
+            '3) В размере 10 процентов, предварительно заключив соответствующие соглашения с туроператорами или агентами:'
+          ],
+
+          sale_ticket_page_block_titles: [
+            'ПРЕДОСТАВЛЯЕТСЯ БЕСПЛАТНОЕ ПОСЕЩЕНИЕ ПОСТОЯННОЙ ЭКСПОЗИЦИИ МУЗЕЯ',
+            'Скидки'
+          ],
+
+          sale_ticket_page_title: 'Политика скидок на билеты',
         },
       },
 
@@ -908,6 +966,7 @@ i18n
           ],
 
           country:[
+            {"am":"Armenia"},
             {"af":"Afghanistan"},
             {"al":"Albania"},
             {"dz":"Algeria"},
@@ -915,7 +974,6 @@ i18n
             {"ao":"Angola"},
             {"ag":"Antigua and Barbuda"},
             {"ar":"Argentina"},
-            {"am":"Armenia"},
             {"au":"Australia"},
             {"at":"Austria"},
             {"az":"Azerbaijan"},
@@ -1104,34 +1162,41 @@ i18n
 
           ],
 
-           // ==============Museum Page start===================
-            // ==============Regions===================
-            aragatsotn: 'Արագածոտն',
-            ararat: 'Արարատ',
-            armavir: 'Արմավիր',
-            gegharkunik: 'Գեղարքունիք',
-            kotayk: 'Կոտայք',
-            lori: 'Լոռի',
-            shirak: 'Շիրակ',
-            syunik: 'Սյունիք',
-            tavush: 'Տավուշ',
-            vayots_dzor: 'Վայոց ձոր',
-            yerevan: 'Երևան',
-            description_museum: 'Պատմություն',
-            ourEvents: 'ՄԵՐ ՄԻՋՈՑԱՌՈՒՄՆԵՐԸ',
-            our_address: 'Մեր հասցեն',
-            working_hours: 'Աշխատանքային Ժամեր',
-            director: 'Տնօրեն',
-            phone: 'Հեռախոսահամարներ',
-            educationalPrograms: 'ՄՇՏԱԿԱՆ ՑՈՒՑԱԴՐՈՒԹՅՈՒՆՆԵՐ ԿԱՄ ՈՒՍՈՒՄՆԱԿԱՆ ԾՐԱԳՐԵՐ',
-
-            // ==============Museum Page end===================
-
           abouteUs_page_data: [
             'The history of the Ministry of Culture of Armenia begins with the times of the first Republic of Armenia. As part of the government of the first republic of Armenia in 1918. there was still no institution dealing with cultural matters. 1918 - 2019 the Ministry of Public Education was functioning. 1919 On May 21, Minister of Public Education Melik Gharagyozyan addressed the Council of Ministers, proposing to name the Ministry of Public Education the Ministry of Education and Fine Arts from now on. 1919 On July 1, the Ministry of Public Education and Arts was established with the departments of secondary schools, elementary schools, art and antiquities, and medical-sanitary departments. At the session of July 17, the RA Council of Ministers approves a law. "On reorganizing the department of ancient monuments and art. a) to reorganize the department of ancient monuments and art into two departments: a. preservation of ancient monuments, b. art patronage.',
             'b) key of the Ministry of Public Education and Arts in 1919. additional credit of twenty two thousand two hundred rubles for the months of July-December. Manager of affairs of the Council of Ministers: G. Khojamiryan". By this law, the Department of Antiquities Protection is added to the structure of the Ministry of Public Education and Arts. The ministry s constant focus was the preservation of antiquities, as evidenced by a number of documents. The Antiquities Department functioned until 1920 and was dissolved due to the transfer of functions to the Antiquities Committee. The issue of the Future National Museum, as well as theater activities, were also in the center of attention of the Ministry. In 1920 From January 1 to June 1, Yeghishe Soghomyan (Charents) held the position of Commissioner for Special Assignments of the Ministry of Education and Arts.',
             'The Museum of the History of Armenia is a cultural organization of national importance, which for more than a century has acquired, collected, discovered, recorded, preserved, studied, interpreted and exhibited tangible and intangible cultural values related to Armenia and Armenian people, contributing to science, education, tourism. development. Based on nearly four hundred thousand archaeological, ethnographic, numismatic and other collections, the museum tries to bridge the past and the future. The museums collection reflects the full picture of culture and history of Armenia from prehistoric times (one million eight hundred thousand years ago) to the present day. The museum was established by Law 439 of the Parliament of the First Republic of Armenia (09.09.1919). It was called the Ethnographic-Anthropological Museum-Library. It was opened for visitors in 1921. on August 20. Undergo a name change. State Central of Armenia (1922), Cultural-Historical (1931), Historical (1935), State History Museum of Armenia (1962) and History Museum of Armenia (2003).'
-          ] 
+          ],
+
+
+          sale_ticket_page_Text_part_1: [
+            '1) Children under 12 years old,',
+            '2) To the members of the official state delegations that arrived in Armenia,',
+            '3) Diplomatic representatives accredited in Armenia,',
+            '4) To the members of the International Council of Museums (ICOM), museum workers,',
+            '5) bilaterally orphaned children over 12 years of age, elderly people in need of special care and domestic service,',
+            '6) To the members of the families of servicemen who died while performing their official duties during combat operations in the territories of the Republic of Armenia and the Republic of Artsakh,',
+            '7) Participants of the Second World War (of the Republic of Armenia and former USSR states),',
+            '8) persons with disabilities of the 1st group (with a companion), persons with disabilities of the 2nd and 3rd groups (without a companion), beneficiaries included in the poverty (family) benefit system,',
+            '9) children over the age of 12 from large families,',
+            '10) conscripts,',
+            '11) Children of school age over 12 years old in the border regions of the Republic of Armenia (on the basis of applications submitted in advance),',
+            '12) journalists - on all working days (in the presence of a document confirming the identity and status),',
+            '13) Entry is free for citizens of the Republic of Armenia on the last Saturday of every month.'
+          ],
+
+          sale_ticket_page_Text_part_2: [
+            '1) Ticket price with a 50% discount for schoolchildren over 12 years old, students, pensioners who are citizens of the Republic of Armenia, refugees.',
+            '2) Allow to reduce the prices of tickets for permanent visits in case of sale of a large number of tickets for tourist and corporate purposes to:',
+            '3) In the amount of 10 percent, having previously concluded appropriate agreements with tour operators or agents:'
+          ],
+
+          sale_ticket_page_block_titles: [
+            'FREE ACCESS TO THE PERMANENT EXHIBITION OF THE MUSEUM IS PROVIDED',
+            'Discounts'
+          ],
+
+          sale_ticket_page_title: 'Ticket Discount Policy',
 
         },
       },

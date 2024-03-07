@@ -15,6 +15,7 @@ import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage'
 import AbouteUsPage from './components/AbouteUsPage/AbouteUsPage';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import { MuseumLayouts, MuseumPage, MuseumOne } from '../src/components/MuseumPage/index';
+import SaleTicketPage from './components/SaleTicketPage/SaleTicketPage';
 
 function App() {
    const [changeFonSize, setChangeFonSize] = useState('');
@@ -28,6 +29,8 @@ function App() {
    useEffect(() => {
       pathname == '/' && navigate(`/${leng}/`);
    }, []);
+
+  
 
    const changeFont = (type) => {
       setChangeFonSize(type);
@@ -108,6 +111,7 @@ function App() {
                     <Route path="news/:id" element={<SingleNews/>} />
                     <Route path='aboute-us' element={<PrivateRouteForOutSider><AbouteUsPage/></PrivateRouteForOutSider>}/>
                     <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
+                    <Route path='ticket-sale' element={<PrivateRouteForOutSider><SaleTicketPage/></PrivateRouteForOutSider>}/>
 
                </Route>
             </Route>

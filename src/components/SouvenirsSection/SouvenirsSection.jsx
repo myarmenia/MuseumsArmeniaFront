@@ -6,18 +6,28 @@ import Carousel from 'react-multi-carousel';
 import ButtonSecond from '../ButtonSecond/ButtonSecond';
 import { starIcon } from '../../iconFolder/icon';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSouvinersProd } from '../../store/slices/SouvinersProdSlice/SouvinersProdApi';
+import { selectSouvinersProd } from '../../store/slices/SouvinersProdSlice/SouvinersProdSlice';
 
 function SouvenirsSection() {
     const {t, i18n} = useTranslation()
 
-    
+    const dispatch = useDispatch()
 
+    useEffect(()=>{
+        dispatch(getSouvinersProd())
+    },[])
+
+    const respProd = useSelector(selectSouvinersProd)
+
+    console.log(respProd.data,'fffff');
     const product = 
-    souvenirsData.map(el => {
+    respProd.data.map(el => {
       
      return <div key={el.id} className='souvenir_item'>
                 <div className='souvenir_item_img_div'>
-                    <img src={el.img} alt="souvenir" />
+                    <img src={el.image} alt="souvenir" />
 
                     <div className='souvenir_item_add_cart_div'>
                         <ButtonSecond txt='3'/>
@@ -27,7 +37,7 @@ function SouvenirsSection() {
                 <div className='souvenir_item_info_div'>
                     <p>{el.name}</p>
                     <span>{starIcon} {starIcon} {starIcon} {starIcon} {starIcon}</span>
-                    <p>{el.value}AMD</p>
+                    <p>{el.price}  AMD</p>
                 </div>
             </div>
     }
