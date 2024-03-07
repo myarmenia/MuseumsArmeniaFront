@@ -12,6 +12,7 @@ import { newPasswordReducer } from './slices/NewPasswordeSlise/NewPasswordeSlise
 import { resendForgotReducer } from './slices/ResendForgotSlice/ResendForgotSlice';
 import { MuseumPagesReducer } from './slices/MuseumPagesSlice/MuseumPagesSlice';
 import { NewsesReducer } from "./slices/newses/NewsesSlice";
+import { ShopReducer } from './slices/Shop/ShopSlice';
 
 const store = configureStore({
    reducer: {
@@ -27,7 +28,8 @@ const store = configureStore({
       newPassword: newPasswordReducer,
       resendForgot: resendForgotReducer,
       museumPages: MuseumPagesReducer,
-      newses:NewsesReducer
+      newses:NewsesReducer,
+      shop:ShopReducer
    },
    // middleware: (getDefaultMiddlware)=>[
    //     ...getDefaultMiddlware(),

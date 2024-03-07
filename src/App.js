@@ -16,6 +16,8 @@ import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage'
 import AbouteUsPage from './components/AbouteUsPage/AbouteUsPage';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import { MuseumLayouts, MuseumPage, MuseumOne } from '../src/components/MuseumPage/index';
+import Shop from './components/Shop/Shop';
+import SingleShop from './components/SingleShop/SingleShop';
 
 function App() {
    const [changeFonSize, setChangeFonSize] = useState('medium');
@@ -104,8 +106,11 @@ function App() {
                         }
                      />
                   </Route>
-                  <Route path="news" element={<Newses {...{ changeFonSize }} />} />
-                  <Route path="news/:id" element={<SingleNews />} />
+                    <Route path="news" element={<Newses {...{changeFonSize}}/>} />
+                    <Route path="news/:id" element={<SingleNews/>} />
+                    <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
+                    <Route path="store" element={<Shop/>} />
+                    <Route path="store/:id" element={<SingleShop/>} />
 
                   <Route
                      path="aboute-us"
@@ -115,7 +120,6 @@ function App() {
                         </PrivateRouteForOutSider>
                      }
                   />
-                  <Route path="privacy-policy" element={<PrivacyPolicy />} />
                </Route>
             </Route>
          </Routes>
