@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 
 const MuseumMinBlock = ({ id ,address, name, photo, region}) => {
+   
    const {t, i18n} = useTranslation()
   return (
     <div className="par_MuseumMinBlock">

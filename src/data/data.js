@@ -24,7 +24,7 @@ export const  hmoePageTopSlide = [
 // =========================single ticket===============================
 
 
-export const single_teecket_data =  [
+export const  single_teecket_data=  [
  {
     title: 'ՄԻԱՍՆԱԿԱՆ ՏՈՄՍ',
     txt: 'Գնեք 3 և ավելի թանգարանների միասնական տոմս և ստացեք 20 տոկոս զեղչ:',

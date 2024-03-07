@@ -93,6 +93,7 @@ function LoginPage() {
                                                 const loginWithGoogleObj = {
                                                    token: credentialResponse.credential
                                                 }
+                                                console.log(loginWithGoogleObj);
 
                                                 dispatch(postGoogleLogin(loginWithGoogleObj))
                                             }}
