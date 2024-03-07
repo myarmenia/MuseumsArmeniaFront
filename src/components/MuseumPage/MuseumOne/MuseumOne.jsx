@@ -47,14 +47,9 @@ const MuseumOne = () => {
          {loadingStatus === 'loading' ? (
             <LoadSpinner />
          ) : loadingStatus === 'fulfilled' ? (
-            <div>
+            <div >
                <MuseumPageHeader headerImg={main_photo} title={name} />
-               <div
-                  className="museumPage_section"
-                  style={{
-                     height: 'auto',
-                     backgroundColor: '#F8F8F8',
-                  }}>
+               <div className="museumPage_section">
                   <div className="container" id="yourAppElement">
                      <div className="museumOne_parent" style={{}}>
                         <div className="museumOne-blockLeft">
