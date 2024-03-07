@@ -53,21 +53,17 @@ export const getPaginatePages = createAsyncThunk(
   },
 );
 
+export const getSingleNews = createAsyncThunk('newses/getSingleNews', async (id, thunkAPI) => {
+  try {
+    const config = {
+      method: 'get',
+      url: `news/get-news/${id}`,
+    };
 
-export const getSingleNews = createAsyncThunk(
-  'newses/getSingleNews',
-  async (id, thunkAPI) => {
-    try {
-      const config = {
-        method: 'get',
-        url: `news/get-news/${id}`,
-      };
-
-      const response = await instance(config);
-      console.log(response);
-      return response?.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.error.both);
-    }
-  },
-);
+    const response = await instance(config);
+    console.log(response);
+    return response?.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response.data.error.both);
+  }
+});

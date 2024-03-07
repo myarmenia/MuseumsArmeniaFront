@@ -1,27 +1,39 @@
-.all_privacypolicy {
-  min-height: 100vh;
+.privacy_policy_page{
+    min-height: 100vh;
+    background-image: url('../../images/previcyPolicyBackground_img.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100px 0;
 }
 
-.backImage_privacypolicy {
-  background-image: url('./../../images/privacypolicy.jpg');
-  filter: brightness(90%);
-  background-repeat: no-repeat;
-  height: 70vh;
-  background-size: cover;
+
+.privacy_policy_page p {
+  text-align: justify;
+}
+
+.privacy_policy_page .container{
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  margin-bottom: 80px;
-}
-.container-privacypolicy {
-  max-width: 1300px;
-  margin: 0 auto;
 }
 
-.textss_privacy {
-  margin-bottom: 20px;
+.privacy_policy_page_block{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
 }
-.textss_privacy_last {
-  margin-bottom: 140px;
+
+.privacy_policy_page_block_info{
+  background-color: white;
+  width: 1200px;
+  padding: 30px 0;
+  display: flex;
+}
+
+
+.privacy_policy_page_block_info >div{
+  width: 50%;
 }

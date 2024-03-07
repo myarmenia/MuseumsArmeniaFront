@@ -20,7 +20,7 @@ function SingleNews() {
   return (
     <>
       {loading ? (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>loading...</div>
+        <div style={{ display: 'flex', justifyContent: 'center',minHeight:"100vh" }}>loading...</div>
       ) : (
         <div className="container">
           <div className="single-news">

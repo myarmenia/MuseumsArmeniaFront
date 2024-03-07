@@ -5,6 +5,7 @@ export const postGoogleLogin = createAsyncThunk(
     'googleLogin/postGoogleLogin',
 
     async (body, thunkAPI) => {
+      const leng = localStorage.getItem('lang')
         try {
          
           const config = {
@@ -14,8 +15,11 @@ export const postGoogleLogin = createAsyncThunk(
           };
     
           const response = await instance(config);
-          localStorage.setItem("token", response.data.access_token);
+          localStorage.setItem("token", response.data.token);
           localStorage.setItem("isAuth", true);
+          if(response.data.success){
+            window.location.pathname = `/${leng}/`
+          }
           return response?.data
         } catch (error) {
           return thunkAPI.rejectWithValue(error.response.data.error);

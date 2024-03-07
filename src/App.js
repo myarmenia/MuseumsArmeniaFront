@@ -16,9 +16,13 @@ import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage'
 import AbouteUsPage from './components/AbouteUsPage/AbouteUsPage';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import { MuseumLayouts, MuseumPage, MuseumOne } from '../src/components/MuseumPage/index';
+import SaleTicketPage from './components/SaleTicketPage/SaleTicketPage';
+import Shop from './components/Shop/Shop';
+import SingleShop from './components/SingleShop/SingleShop';
+
 
 function App() {
-   const [changeFonSize, setChangeFonSize] = useState('medium');
+   const [changeFonSize, setChangeFonSize] = useState('');
 
    const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
 
@@ -29,6 +33,8 @@ function App() {
    useEffect(() => {
       pathname == '/' && navigate(`/${leng}/`);
    }, []);
+
+  
 
    const changeFont = (type) => {
       setChangeFonSize(type);
@@ -104,18 +110,22 @@ function App() {
                         }
                      />
                   </Route>
-                  <Route path="news" element={<Newses {...{ changeFonSize }} />} />
-                  <Route path="news/:id" element={<SingleNews />} />
 
-                  <Route
-                     path="aboute-us"
-                     element={
-                        <PrivateRouteForOutSider>
-                           <AbouteUsPage />
-                        </PrivateRouteForOutSider>
-                     }
-                  />
-                  <Route path="privacy-policy" element={<PrivacyPolicy />} />
+                    <Route path="news" element={<Newses {...{changeFonSize}}/>} />
+                    <Route path="news/:id" element={<SingleNews/>} />
+                    <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
+                    <Route path="store" element={<Shop/>} />
+                    <Route path="store/:id" element={<SingleShop/>} />
+                    <Route path='aboute-us' element={<PrivateRouteForOutSider><AbouteUsPage/></PrivateRouteForOutSider>}/>
+                    <Route path='ticket-sale' element={<PrivateRouteForOutSider><SaleTicketPage/></PrivateRouteForOutSider>}/>
+
+
+                    <Route path="news" element={<Newses {...{changeFonSize}}/>} />
+                    <Route path="news/:id" element={<SingleNews/>} />
+                    <Route path='aboute-us' element={<PrivateRouteForOutSider><AbouteUsPage/></PrivateRouteForOutSider>}/>
+                    <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
+                    <Route path='ticket-sale' element={<PrivateRouteForOutSider><SaleTicketPage/></PrivateRouteForOutSider>}/>
+
                </Route>
             </Route>
          </Routes>
