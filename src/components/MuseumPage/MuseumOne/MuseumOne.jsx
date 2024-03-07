@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
    postMuseumOnePages,
-   // educationalPrograms,
+   educationalPrograms,
 } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
@@ -35,7 +35,7 @@ const MuseumOne = () => {
 
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
-      // dispatch(educationalPrograms({ id }));
+      dispatch(educationalPrograms({ id }));
    }, []);
 
    const [modalIsOpen, setIsOpen] = React.useState(false);

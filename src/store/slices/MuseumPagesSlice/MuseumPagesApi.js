@@ -33,6 +33,7 @@ export const educationalPrograms = createAsyncThunk(
       const id = body?.id ? `${body.id}` : '';
       try {
          const { data } = await instance(`museum/${id}/educational-programs`);
+         console.log(data, 78778);
          // const { data } = await axios.get(
          //    `http://localhost:8000/api/museum/${id}/educational-programs`,
          // );
