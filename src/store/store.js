@@ -12,6 +12,7 @@ import { newPasswordReducer } from './slices/NewPasswordeSlise/NewPasswordeSlise
 import { resendForgotReducer } from './slices/ResendForgotSlice/ResendForgotSlice';
 import { MuseumPagesReducer } from './slices/MuseumPagesSlice/MuseumPagesSlice';
 import { NewsesReducer } from "./slices/newses/NewsesSlice";
+import { ShopReducer } from './slices/Shop/ShopSlice';
 
 import { bannerReducer } from './slices/BanerSlice/BanerSlice';
 import { souvinersProdReducer } from './slices/SouvinersProdSlice/SouvinersProdSlice';
@@ -32,11 +33,11 @@ const store = configureStore({
       newPassword: newPasswordReducer,
       resendForgot: resendForgotReducer,
       museumPages: MuseumPagesReducer,
-
       newses:NewsesReducer,
       banner: bannerReducer,
       souvinersProd: souvinersProdReducer,
       newses:NewsesReducer
+      shop:ShopReducer
 
    },
    // middleware: (getDefaultMiddlware)=>[
