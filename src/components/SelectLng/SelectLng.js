@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import '../..//translatedFolder/i18n';
 
 function SelectLng() {
-    const leng = localStorage.getItem('lang')
+  const leng = localStorage.getItem('lang')
     const [defaultLng, setDefaultLng] = useState('')
     const {t, i18n} = useTranslation()
 
@@ -13,10 +13,17 @@ function SelectLng() {
         const prevLng = localStorage.getItem('lang')
         const pathname = window.location.pathname
         const result = pathname.replace('/'+prevLng, '/'+lng)
+        console.log(result,'dddddddddd');
         localStorage.setItem('lang', lng)
 
         window.location.href = result
       };
+
+        useEffect(()=> {
+          if (leng === null) {
+             localStorage.setItem('lang', 'am')
+          }
+       },[leng])
 
 
     useEffect(()=>{
