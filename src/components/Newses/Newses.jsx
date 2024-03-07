@@ -70,7 +70,7 @@ function Newses() {
               ՆՈՐՈՒԹՅՈՒՆՆԵՐ
             </h1>
           </div>
-          <form onSubmit={(e) => searchNews(e)}>
+          <form onSubmit={(e) => searchNews(e)} className="form_newses">
             <input type="text" name="text" ref={textInputRef} className="form_input" />
             <button type="submit" className="form_button">
               Որոնել

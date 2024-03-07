@@ -14,6 +14,8 @@ import ResetSendEmailPage from './components/ResetSendEmailPage/ResetSendEmailPa
 import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import { MuseumLayouts, MuseumPage, MuseumOne } from '../src/components/MuseumPage/index';
+import Shop from './components/Shop/Shop';
+import SingleShop from './components/SingleShop/SingleShop';
 
 
 function App() {
@@ -107,6 +109,8 @@ function App() {
                     <Route path="news" element={<Newses {...{changeFonSize}}/>} />
                     <Route path="news/:id" element={<SingleNews/>} />
                     <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
+                    <Route path="store" element={<Shop/>} />
+                    <Route path="store/:id" element={<SingleShop/>} />
                </Route>
             </Route>
          </Routes>
