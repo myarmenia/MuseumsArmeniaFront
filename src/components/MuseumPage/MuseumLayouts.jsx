@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Outlet } from 'react-router-dom';
 
 const MuseumLayouts = () => {
@@ -9,4 +9,4 @@ const MuseumLayouts = () => {
    );
 };
 
-export default MuseumLayouts;
+export default memo(MuseumLayouts);

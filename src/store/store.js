@@ -11,13 +11,11 @@ import { checkForgotTokenReducer } from './slices/CheckForgotTokenSlice/CheckFor
 import { newPasswordReducer } from './slices/NewPasswordeSlise/NewPasswordeSlise';
 import { resendForgotReducer } from './slices/ResendForgotSlice/ResendForgotSlice';
 import { MuseumPagesReducer } from './slices/MuseumPagesSlice/MuseumPagesSlice';
-import { NewsesReducer } from "./slices/newses/NewsesSlice";
+import { NewsesReducer } from './slices/newses/NewsesSlice';
 import { ShopReducer } from './slices/Shop/ShopSlice';
-
+import { NewMessagesReducer } from './slices/NewMessagesSlice/NewMessagesSlice';
 import { bannerReducer } from './slices/BanerSlice/BanerSlice';
 import { souvinersProdReducer } from './slices/SouvinersProdSlice/SouvinersProdSlice';
-
-
 
 const store = configureStore({
    reducer: {
@@ -33,12 +31,11 @@ const store = configureStore({
       newPassword: newPasswordReducer,
       resendForgot: resendForgotReducer,
       museumPages: MuseumPagesReducer,
-      newses:NewsesReducer,
+      messages: NewMessagesReducer,
+      newses: NewsesReducer,
       banner: bannerReducer,
       souvinersProd: souvinersProdReducer,
-      newses:NewsesReducer,
-      shop:ShopReducer
-
+      shop: ShopReducer,
    },
    // middleware: (getDefaultMiddlware)=>[
    //     ...getDefaultMiddlware(),

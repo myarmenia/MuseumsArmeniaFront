@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { CaretDown } from '../../iconFolder/icon';
 import { CaretUp } from '../../iconFolder/icon';
 import { useTranslation } from 'react-i18next';
@@ -57,4 +57,4 @@ const SearchBlockMuseumPage = ({ regions }) => {
    );
 };
 
-export default SearchBlockMuseumPage;
+export default memo(SearchBlockMuseumPage);

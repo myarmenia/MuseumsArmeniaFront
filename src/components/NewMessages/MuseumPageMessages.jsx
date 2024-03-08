@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useState, useCallback, memo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
-const MuseumPageMessages = () => {
-  return (
-    <div>MuseumPageMessages</div>
-  )
-}
+import TypeList from './TypeList';
+import MessagesModal from './MessagesModal';
+import MessagesBlock from './MessagesBlock';
 
-export default MuseumPageMessages
+import './newMesages.css';
+
+const MuseumPageMessages = ({ modalIsOpen, setIsOpen }) => {
+   const { t, i18n } = useTranslation();
+   const dispatch = useDispatch();
+   const { isAuth, authUser } = useSelector((store) => store.auth);
+   const { messagesType } = useSelector((store) => store.messages);
+   return (
+      <MessagesModal>
+         {messagesType ? isAuth ? <MessagesBlock authUser={authUser} /> : <div>hjgf</div> : <TypeList />}
+      </MessagesModal>
+   );
+};
+
+export default memo(MuseumPageMessages);

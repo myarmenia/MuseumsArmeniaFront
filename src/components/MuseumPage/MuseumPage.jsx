@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import { MuseumPageHeader, SearchBlockMuseumPage, PaginationExample } from './index';
 import { postMuseumPages } from '../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import LoadSpinner from '../LoadSpinner/LoadSpinner';
@@ -47,4 +47,4 @@ const MuseumPage = () => {
    );
 };
 
-export default MuseumPage;
+export default memo(MuseumPage);

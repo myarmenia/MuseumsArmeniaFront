@@ -1,0 +1,42 @@
+.par_type {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.par_type-block {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.par_type-title {
+   text-decoration: 2px solid underline #cea670;
+}
+
+.par_type-list {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+}
+.par_type-item {
+   cursor: pointer;
+   transition: 0.4s;
+}
+.par_type-item:hover {
+   color: #cea670;
+   margin-left: 5px;
+}
+
+.messages_add {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
+.messages_add-input {
+   flex-grow: 4;
+   min-height: 50px;
+   padding: 0 10px 0 10px;
+}
