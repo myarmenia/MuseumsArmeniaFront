@@ -15,7 +15,7 @@ const MuseumPageMessages = ({ modalIsOpen, setIsOpen }) => {
    const { messagesType } = useSelector((store) => store.messages);
    return (
       <MessagesModal>
-         {messagesType ? isAuth ? <MessagesBlock authUser={authUser} /> : <div>hjgf</div> : <TypeList />}
+         {messagesType ? <MessagesBlock authUser={authUser} isAuth={isAuth} />  : <TypeList />}
       </MessagesModal>
    );
 };

@@ -10,7 +10,8 @@ const customStyles = {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      width: '60%',
+      width: '30%',
+      
       // border: '2px solid red',
       boxShadow: 'inset 0 0 0 1px #cea670',
       color: '#000000',

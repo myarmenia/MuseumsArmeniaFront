@@ -8,7 +8,7 @@ const EducationalPrograms = ({ dataEducationalPrograms }) => {
    return (
       <div className="museumOne_pageStyle">
          <h3>{t(`educationalPrograms`)}</h3>
-         <div>
+         <div className="museumOne_pageStyle-parentMinBlock">
             {dataEducationalPrograms.map(
                ({ description, name, min_quantity, max_quantity, id }) => (
                   <div key={id} className="educationalPrograms-minBlock">
@@ -17,8 +17,8 @@ const EducationalPrograms = ({ dataEducationalPrograms }) => {
                      <div>
                         <h4>{t(`NumberOfVisitors`)}</h4>
                         <p className="educationalPrograms-minBlock_count">
-                           {t(`minCount`)} :<span>{min_quantity}</span>
-                           {t(`maxCount`)} :<span>{max_quantity}</span>
+                          <span> {t(`minCount`)} :<span>{min_quantity}</span></span>
+                          <span> {t(`maxCount`)} :<span>{max_quantity}</span></span>
                         </p>
                      </div>
                   </div>

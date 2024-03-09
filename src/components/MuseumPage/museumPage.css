@@ -40,9 +40,9 @@
 
 /*  headers end ****************** */
 .museumPage_section {
-   padding: 20px 20px 340px;
+   padding: 20px 20px 10px;
    background-color: #f8f8f8;
-   padding-bottom: 340px;
+   /* padding-bottom: 340px; */
    min-height: 900px;
 }
 
@@ -195,9 +195,24 @@
    display: flex;
    flex-direction: column;
    gap: 10px;
+   border: 1px solid #d5aa72;
+   border-radius: 10px;
+   padding: 10px;
+}
+
+.museumOne_pageStyle-parentMinBlock {
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
 }
 
 .educationalPrograms-minBlock_count {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   gap: 10px;
+}
+.educationalPrograms-minBlock_count > span {
    display: flex;
    align-items: center;
    gap: 10px;
@@ -214,20 +229,24 @@
 
 @media (max-width: 1400px) {
    .museumPageHeader {
-      height: 430px;
+      height: 320px;
    }
 }
 @media (max-width: 1040px) {
    .par_MuseumMinBlock {
       width: 45%;
    }
-   .museumPage_section {
+   /* .museumPage_section {
       padding: 20px 20px 440px;
-   }
+   } */
 }
 @media (max-width: 800px) {
    .museumPageHeader {
-      height: 300px;
+      height: 150px;
+   }
+
+   .par_txt > h1 {
+      font-size: 25px;
    }
    .museumOne_parent {
       flex-direction: column;
@@ -240,11 +259,17 @@
    .par_MuseumMinBlock {
       width: 100%;
    }
-   .museumPage_section {
+   /* .museumPage_section {
       padding: 20px 20px 600px;
-   }
+   } */
 }
-@media (max-width: 420px) {
+@media (max-width: 430px) {
+   .museumPageHeader {
+      height: 150px;
+   }
+   .par_txt > h1 {
+      font-size: 15px;
+   }
    .museumOne_pageStyle > h3 {
       font-size: 20px;
    }

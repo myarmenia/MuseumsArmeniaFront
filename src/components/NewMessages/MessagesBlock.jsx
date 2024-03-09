@@ -2,7 +2,9 @@ import React, { memo, useRef, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ButtonSecond from '../ButtonSecond/ButtonSecond';
 import { postAuthUserMessages } from '../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
-const MessagesBlock = ({ authUser }) => {
+import NotUserMessagesBlock from './NotUserMessagesBlock';
+
+const MessagesBlock = ({ authUser, isAuth }) => {
    const inpMesagesRef = useRef('');
    const dispatch = useDispatch();
    const { dataMuseumOne } = useSelector((store) => store.museumPages);
@@ -27,14 +29,18 @@ const MessagesBlock = ({ authUser }) => {
 
    return (
       <div className="MessagesBlock">
-         <div>
-            <div className="messages_list"></div>
-            <div className="messages_add">
-               <input className="messages_add-input" type="text" ref={inpMesagesRef} />
-               {/* <button onClick={addMessages}>uxarkel</button> */}
-               <ButtonSecond txt="5" minWidth="100px" onClick={addMessages} />
+         {isAuth ? (
+            <div>
+               <div className="messages_list"></div>
+               <div className="messages_add">
+                  <input className="messages_add-input" type="text" ref={inpMesagesRef} />
+                  {/* <button onClick={addMessages}>uxarkel</button> */}
+                  <ButtonSecond txt="5" minWidth="100px" onClick={addMessages} />
+               </div>
             </div>
-         </div>
+         ) : (
+            <NotUserMessagesBlock />
+         )}
       </div>
    );
 };

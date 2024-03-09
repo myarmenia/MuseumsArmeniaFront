@@ -51,6 +51,7 @@ i18n.use(initReactI18next).init({
                'Էլ. փոստ',
                'Հաստատել գաղտնաբառը',
                'Հեռախոսահամար',
+               'Հաղորդագրություն',
             ],
 
             reset_password_btn: ['Մոռացել եմ գաղտնաբառը', 'Վերականգնել'],
@@ -417,6 +418,7 @@ i18n.use(initReactI18next).init({
                'Эл. почта',
                'Подтвердите пароль',
                'Номер телефона',
+               'Сообщение',
             ],
 
             reset_password_btn: ['Я забыл пароль', ' Восстановить'],
@@ -788,6 +790,7 @@ i18n.use(initReactI18next).init({
                'E-mail',
                'Confirm password',
                'Phone number',
+               'Message',
             ],
 
             reset_password_btn: ['I forgot my password', 'Restore'],

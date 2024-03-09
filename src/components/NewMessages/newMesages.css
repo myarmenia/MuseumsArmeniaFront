@@ -35,8 +35,38 @@
    align-items: center;
    gap: 20px;
 }
+
+.MessagesBlock{
+   height: 100%;
+}
 .messages_add-input {
    flex-grow: 4;
    min-height: 50px;
    padding: 0 10px 0 10px;
 }
+
+
+.NotUserMessages-form {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   height: 100%;
+}
+
+.messages_block-textArea {
+   resize: none;
+    width: 100%;
+    height: 130px;
+    overflow: auto;
+    border: none;
+    box-shadow: 0 0 6px -2px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+
+.messages_block-textArea:focus {
+   outline: none;  /* Убрать контур фокуса по умолчанию */
+   border: none;  /* Установить желаемый border */
+ }
