@@ -8,7 +8,7 @@ const NotUserMessagesBlock = () => {
 
    const validationSchema = yup.object().shape({
       email: yup.string().email(t('validation_inp.0')).required(t('validation_inp.1')),
-      messages: yup.string().required(t('validation_inp.1')).min(10).required('minimum 5 bar').max(20).required('max 10 bar'),
+      messages: yup.string().required(t('validation_inp.1')),
    });
 
    const handleLogin = (e, handleSubmit, isValid) => {
@@ -21,7 +21,7 @@ const NotUserMessagesBlock = () => {
             email: email.value,
             messages: messages.value,
          };
-         console.log(loginObj, 'test chat')
+        
          //  dispatch(postLogin(loginObj))
       }
    };
@@ -52,6 +52,7 @@ const NotUserMessagesBlock = () => {
                   {/* <span>{t('login_btn')}</span> */}
                   <div className="email-inp">
                      <input
+                      className="messages_block-inpEmail"
                         type="email"
                         name="email"
                         placeholder={t('placeholder.0')}
@@ -62,7 +63,7 @@ const NotUserMessagesBlock = () => {
                      {touched.email && errors.email && <p className="error">{errors.email}</p>}
                   </div>
 
-                  <div className="">
+                  <div>
                      {/* <input
                         type="text"
                         name="messages"
@@ -81,11 +82,11 @@ const NotUserMessagesBlock = () => {
                         onBlur={handleBlur}
                      ></textarea>
                      {touched.messages && errors.messages && (
-                        <p className="error">{errors.messages}</p>
+                        <p className="error_textarea">{errors.messages}</p>
                      )}
                   </div>
 
-                  <button className="login_btn">{t('login_btn')}</button>
+                  <button type='submit' className="login_btn">{t('login_btn')}</button>
                </form>
             )}
          </Formik>

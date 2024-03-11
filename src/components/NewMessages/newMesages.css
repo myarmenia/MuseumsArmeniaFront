@@ -53,6 +53,18 @@
    height: 100%;
 }
 
+.messages_block-inpEmail {
+   border: none;
+   box-shadow: 0 0 6px -2px;
+   border-radius: 5px;
+   width: 50%;
+   padding: 10px;
+}
+.messages_block-inpEmail:focus {
+  outline: none;  /* Убрать контур фокуса по умолчанию */
+  border: none;  /* Установить желаемый border */
+}
+
 .messages_block-textArea {
    resize: none;
     width: 100%;
@@ -64,9 +76,15 @@
     padding: 10px;
 }
 
-
+.error_textarea{
+   color: red;
+}
 
 .messages_block-textArea:focus {
    outline: none;  /* Убрать контур фокуса по умолчанию */
    border: none;  /* Установить желаемый border */
  }
+
+ .modal:hover {
+   width: '100%';
+}

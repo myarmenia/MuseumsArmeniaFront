@@ -8,7 +8,7 @@ import MessagesBlock from './MessagesBlock';
 
 import './newMesages.css';
 
-const MuseumPageMessages = ({ modalIsOpen, setIsOpen }) => {
+const MuseumPageMessages = () => {
    const { t, i18n } = useTranslation();
    const dispatch = useDispatch();
    const { isAuth, authUser } = useSelector((store) => store.auth);

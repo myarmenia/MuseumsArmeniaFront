@@ -17,9 +17,8 @@ const MessagesBlock = ({ authUser, isAuth }) => {
          const newMessages = {
             email: authUser.email,
             text: inpMesagesRef.current.value,
-            type: messagesType,
             museum_id: dataMuseumOne.id,
-            title: 'jhjkb jkkbzca kgjjbavc',
+            title: messagesType,
          };
 
          dispatch(postAuthUserMessages(newMessages));
