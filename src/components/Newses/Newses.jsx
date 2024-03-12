@@ -13,8 +13,10 @@ import {
 } from '../../store/slices/newses/NewsesSlice';
 import ReactPaginate from 'react-paginate';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Newses() {
+  const { t, i18n } = useTranslation();
   const lang = localStorage.getItem('lang');
   const navigate = useNavigate();
   // const [sizes, setSizes] = useState(45);
@@ -50,14 +52,14 @@ function Newses() {
     dispatch(getPaginatePages(currentPage));
   };
 
-  console.log('DataAllNews', DataAllNews);
+  // console.log('DataAllNews', DataAllNews);
   console.log('loading', loading);
   // console.log('PaginateLength', paginateLength);
 
   return (
     <>
       {loading ? (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>loading...</div>
+        <div style={{ display: 'flex', justifyContent: 'center',minHeight: '100vh' }}>loading...</div>
       ) : (
         <div className="all_news">
           <div className="backImage">
@@ -67,13 +69,13 @@ function Newses() {
             //   fontSize: `${sizes}px`,
             // }}
             >
-              ՆՈՐՈՒԹՅՈՒՆՆԵՐ
+              {t('newses_page_data.0')}
             </h1>
           </div>
           <form onSubmit={(e) => searchNews(e)} className="form_newses">
             <input type="text" name="text" ref={textInputRef} className="form_input" />
             <button type="submit" className="form_button">
-              Որոնել
+            {t('newses_page_data.1')}
             </button>
           </form>
           <div className="container">
