@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import { MuseumPageHeader, SearchBlockMuseumPage, PaginationExample } from './index';
 import { postMuseumPages } from '../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import LoadSpinner from '../LoadSpinner/LoadSpinner';
@@ -7,11 +7,8 @@ import headerImg from '../../images/museumheaderBacground.jpeg';
 import './museumPage.css';
 
 const MuseumPage = () => {
-   
    const dispatch = useDispatch();
-   const { loadingStatus, filterDataMuseum, regions } = useSelector(
-      (state) => state.museumPages,
-   );
+   const { loadingStatus, filterDataMuseum, regions } = useSelector((state) => state.museumPages);
 
    useEffect(() => {
       dispatch(postMuseumPages());
@@ -22,12 +19,11 @@ const MuseumPage = () => {
          {loadingStatus === 'loading' ? (
             <LoadSpinner />
          ) : loadingStatus === 'fulfilled' ? (
-            <div style={{height: '100vh'}}>
-               <MuseumPageHeader  headerImg={headerImg} title='Թանգարաններ'/>
+            <div style={{ minHeight: '100vh' }}>
+               <MuseumPageHeader headerImg={headerImg} title="Թանգարաններ" />
                <div
                   className="museumPage_section"
                   style={{
-                     height: 'auto',
                      backgroundColor: '#F8F8F8',
                   }}>
                   <div className="container section">
@@ -37,10 +33,18 @@ const MuseumPage = () => {
                </div>
             </div>
          ) : (
-            <div style={{height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><h3>ինչվոր մի բան այն չի !</h3></div>
+            <div
+               style={{
+                  height: '100vh',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+               }}>
+               <h3>Ինչ որ բան այն չէ !</h3>
+            </div>
          )}
       </>
    );
 };
 
-export default MuseumPage;
+export default memo(MuseumPage);

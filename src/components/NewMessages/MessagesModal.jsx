@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Modal from 'react-modal';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { setIsOpen } from '../../store/slices/NewMessagesSlice/NewMessagesSlice';
 const customStyles = {
    content: {
       top: '50%',
@@ -9,39 +10,50 @@ const customStyles = {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
+      // width: '40%',
+      
       // border: '2px solid red',
       boxShadow: 'inset 0 0 0 1px #cea670',
-      color: '#cea670',
+      color: '#000000',
+      
    },
 };
 // Modal.setAppElement('#yourAppElement');
 
-const MessagesModal = ({ modalIsOpen, setIsOpen }) => {
+const MessagesModal = ({ children }) => {
+   const { modalIsOpen } = useSelector((state) => state.messages);
+   const [windowWidth, setWindowWidth] = useState(2000)
+   useEffect(() => {
+      const handleResize = () => setWindowWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+  
+      // Cleanup function to remove event listener on component unmount
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    customStyles.content.width = windowWidth > 1200 ? '40%' : windowWidth < 800 ? '80%' : '60%'
+   
+   const dispatch = useDispatch();
    let subtitle;
    function afterOpenModal() {
       // references are now sync'd and can be accessed.
       subtitle.style.color = '#000';
    }
    function closeModal() {
-      setIsOpen(false);
+      dispatch(setIsOpen(false));
    }
+
    return (
       <Modal
          isOpen={modalIsOpen}
-         onAfterOpen={afterOpenModal}
+         // onAfterOpen={afterOpenModal}
          onRequestClose={closeModal}
-         style={customStyles}
+         style={{...customStyles}}
+         ariaHideApp={false}
          contentLabel="Example Modal">
-         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-         <button onClick={closeModal}>close</button>
-         <div>I am a modal</div>
-         <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-         </form>
+         {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2> */}
+         {/* <button onClick={closeModal}>close</button> */}
+         {/* {components} */}
+         {children}
       </Modal>
    );
 };

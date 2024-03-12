@@ -3,7 +3,7 @@ import './ButtonSecond.css';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-function ButtonSecond({ txt, path, minWidth='' }) {
+function ButtonSecond({ txt, path, minWidth='', onClick = ()=>{} }) {
    const lang = localStorage.getItem('lang');
    const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ function ButtonSecond({ txt, path, minWidth='' }) {
       );
    }
 
-   return <button style={{minWidth: minWidth }} className="btn_2 draw-border_2">{t('buttons.' + txt)}</button>;
+   return <button onClick={onClick} style={{minWidth: minWidth }} className="btn_2 draw-border_2">{t('buttons.' + txt)}</button>;
 }
 
 export default ButtonSecond;

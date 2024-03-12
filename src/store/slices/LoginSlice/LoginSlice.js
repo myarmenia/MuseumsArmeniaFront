@@ -30,6 +30,7 @@ const loginSlice = createSlice({
           })
           .addCase(postLogin.fulfilled, (state, action) => {
             state.data = action.payload
+            console.log(action.payload, 'action.payload');
             state.data.isAuth = true
             state.loading = 'fulfilled'
              state.status = 'succes';
