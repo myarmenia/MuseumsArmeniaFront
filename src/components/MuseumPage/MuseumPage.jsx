@@ -40,7 +40,7 @@ const MuseumPage = () => {
                   justifyContent: 'center',
                   alignItems: 'center',
                }}>
-               <h3>ինչվոր մի բան այն չի !</h3>
+               <h3>Ինչ որ բան այն չէ !</h3>
             </div>
          )}
       </>
