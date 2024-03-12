@@ -63,5 +63,6 @@ export const getLoadingShop = (state) => state.shop.loading;
 export const getCategories = (state) => state.shop.categories;
 export const getMuseumsNames = (state) => state.shop.museumes;
 export const getSingleShopDatas = (state) => state.shop.singleShopData;
+export const getSingleShopLoading = (state) => state.shop.loading;
 
 export const ShopReducer = ShopSlice.reducer;
