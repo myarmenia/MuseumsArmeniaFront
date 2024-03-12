@@ -119,13 +119,6 @@ function App() {
                     <Route path='aboute-us' element={<PrivateRouteForOutSider><AbouteUsPage/></PrivateRouteForOutSider>}/>
                     <Route path='ticket-sale' element={<PrivateRouteForOutSider><SaleTicketPage/></PrivateRouteForOutSider>}/>
 
-
-                    <Route path="news" element={<Newses {...{changeFonSize}}/>} />
-                    <Route path="news/:id" element={<SingleNews/>} />
-                    <Route path='aboute-us' element={<PrivateRouteForOutSider><AbouteUsPage/></PrivateRouteForOutSider>}/>
-                    <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
-                    <Route path='ticket-sale' element={<PrivateRouteForOutSider><SaleTicketPage/></PrivateRouteForOutSider>}/>
-
                </Route>
             </Route>
          </Routes>

@@ -139,7 +139,7 @@
   margin: 21px 0 22px;
   text-align: center;
 }
-.shop-box-price{
+.shop-box-price {
   margin-top: 10px;
 }
 /* .shop-box-title {
@@ -152,6 +152,25 @@
 
 .shop-paginate-none {
   display: none;
+}
+
+.shop-box_img .souvenir_item_add_cart_div {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 360px;
+  height: 360px;
+  background-color: white;
+  transform: rotateX(90deg);
+  transform-origin: top center;
+  transition: all 0.6s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shop-box:hover .shop-box_img .souvenir_item_add_cart_div {
+  transform: rotateX(0);
 }
 
 @media screen and (max-width: 910px) {

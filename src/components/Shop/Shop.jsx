@@ -17,8 +17,11 @@ import {
 } from '../../store/slices/Shop/ShopSlice';
 import ReactPaginate from 'react-paginate';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import ButtonSecond from '../ButtonSecond/ButtonSecond';
 
 function Shop() {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
   const dispatch = useDispatch();
@@ -80,7 +83,7 @@ function Shop() {
       ) : (
         <div className="shop_all">
           <div className="backImage_shop">
-            <h1>ԽԱՆՈՒԹ</h1>
+            <h1>{t('shop_page_data.0')}</h1>
           </div>
           <div className="container">
             <div className="input_and_filteres">
@@ -100,7 +103,7 @@ function Shop() {
                     onChange={handleChangeCategory}
                     value={selectedCategory}>
                     <option value="" disabled hidden>
-                      categorianer
+                    {t('shop_page_data.1')}
                     </option>
                     {allCategories.map((option, index) => (
                       <option key={index} value={option.id}>
@@ -117,7 +120,7 @@ function Shop() {
                     onChange={handleChangeMuseum}
                     value={selectedMuseum}>
                     <option value="" disabled hidden>
-                      tangaranner
+                    {t('shop_page_data.2')}
                     </option>
                     {allmuseumNames.map((option, index) => (
                       <option key={index} value={option.id}>
@@ -131,29 +134,31 @@ function Shop() {
 
             <div
               className={
-                AllShopData.data.length === 0 || AllShopData.data.length > 2
+                AllShopData.data?.length === 0 || AllShopData.data?.length > 2
                   ? 'shopess'
                   : 'shopess_start'
               }>
-              {AllShopData.data.length !== 0
-                ? AllShopData.data.map((el, index) => (
+              {AllShopData.data?.length !== 0
+                ? AllShopData?.data.map((el, index) => (
                     <div
                       className="shop-box"
                       key={index}
-                      // onClick={()=>navigate(`/${leng}/store/${el.id}`)}
-                      >
+                      onClick={() => navigate(`/${leng}/store/${el.id}`)}>
                       <div className="shop-box_img">
                         <img src={el.image} alt={el.image} />
+                        <div className="souvenir_item_add_cart_div">
+                            <ButtonSecond txt="3" />
+                          </div>
                       </div>
                       <div className="shop-box_texts_div">
                         <p className="shop-box-title">
-                          {el.name.length > 45 ? el.name.slice(0, 45) + '...' : el.name}
+                          {el.name?.length > 45 ? el.name.slice(0, 45) + '...' : el.name}
                         </p>
                         <p className="shop-box-price">{el.price}</p>
                       </div>
                     </div>
                   ))
-                : 'Տվյալներ չեն գտնվել'}
+                : t('shop_page_data.3')}
             </div>
             <div
               className={
