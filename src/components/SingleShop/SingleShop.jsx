@@ -95,6 +95,7 @@ function SingleShop() {
                         onClick={() => SinglePage(el.id)}>
                         <div className="shop-box_img_singleShop">
                           <img src={el.image} alt={el.image} />
+
                           
                           <div className="souvenir_item_add_cart_div">
                             <ButtonSecond txt="3" />
