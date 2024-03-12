@@ -21,7 +21,7 @@ function FooterComponent() {
 
         const handleScroll = () => {
             if (pathname === `/${leng}/`) {
-                if (window.scrollY >= 5000) {
+                if (window.scrollY >= 5200) {
                     setOpenFooter(true);
 
                 } else {

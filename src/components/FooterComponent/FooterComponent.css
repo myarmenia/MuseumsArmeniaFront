@@ -146,7 +146,8 @@
  }
 
    .footerComponent_img_div {
-      width: 80%;
+      width: 100%;
+      padding: 20px;
    }
 
    .footer_menu {
@@ -157,7 +158,7 @@
 @media (max-width: 480px) {
    .footerComponent .container {
       flex-direction: column;
-      gap: 10px;
+      gap: 40px;
    }
    .footerComponentStatic .container {
     flex-direction: column;
@@ -175,11 +176,11 @@
  } */
 
    .footerComponent {
-      height: 900px;
+      height: 800px;
    }
 
    .footerComponentStatic {
-    height: 900px;
+    height: 800px;
  }
 
 
@@ -193,7 +194,8 @@
  }
 
    .footerComponent_img_div {
-      width: 80%;
+      width: 100%;
+      padding: 0;
    }
 
    .footer_menu {

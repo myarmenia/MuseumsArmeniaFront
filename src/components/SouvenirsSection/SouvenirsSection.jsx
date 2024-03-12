@@ -36,7 +36,6 @@ function SouvenirsSection() {
 
                 <div className='souvenir_item_info_div'>
                     <p>{el.name}</p>
-                    <span>{starIcon} {starIcon} {starIcon} {starIcon} {starIcon}</span>
                     <p>{el.price}  AMD</p>
                 </div>
             </div>
