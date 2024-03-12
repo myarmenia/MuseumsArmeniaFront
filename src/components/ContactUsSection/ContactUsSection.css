@@ -1,13 +1,14 @@
 .contact_us_section {
-  margin: 250px 0;
+  /* margin: 250px 0; */
   background-color: #f8f8f8;
-  height: 600px;
+  height: 1000px;
+  padding-top: 150px;
 }
 
 .contact_us_section .container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 100%;
 }
 
@@ -97,8 +98,28 @@
   }
 
   .contact_us_section {
-    height: 700px;
+    height: 850px;
   }
+
+  .contact_us_section_block_contact_div {
+    width: 80%;
+  }
+
+  .feedBack {
+    width: 80%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .feedBack .name-inp input {
+    width: 200px;
+  }
+
+  .feedBack input {
+    width: 200px;
+  }
+
 
   .contact_us_section_block_contact_div {
     width: 80%;

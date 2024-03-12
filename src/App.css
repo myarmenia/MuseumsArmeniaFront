@@ -73,6 +73,10 @@ ul,ol{
 .App input{
     font-size: 16px ;
 }
+
+.App li {
+    font-size: 16px;
+}
   /* ============================================================================= */
 
 
@@ -203,6 +207,19 @@ ul,ol{
    }
    
    .App.small input{
+       font-size: 18px ;
+   }
+
+
+   .App.medium li{
+    font-size: 20px ;
+   }
+   
+   .App.large li{
+       font-size: 25px ;
+   }
+   
+   .App.small li{
        font-size: 18px ;
    }
    /* =================================== */

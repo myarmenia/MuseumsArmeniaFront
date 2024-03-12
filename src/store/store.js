@@ -36,7 +36,7 @@ const store = configureStore({
       newses:NewsesReducer,
       banner: bannerReducer,
       souvinersProd: souvinersProdReducer,
-      newses:NewsesReducer
+      newses:NewsesReducer,
       shop:ShopReducer
 
    },
