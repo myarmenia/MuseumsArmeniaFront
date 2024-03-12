@@ -24,7 +24,10 @@ const MessagesModal = ({ children }) => {
    const { modalIsOpen } = useSelector((state) => state.messages);
    const [windowWidth, setWindowWidth] = useState(2000)
    useEffect(() => {
-      const handleResize = () => setWindowWidth(window.innerWidth);
+      const handleResize = () => {
+         setWindowWidth(window.innerWidth)
+         
+      };
       window.addEventListener('resize', handleResize);
   
       // Cleanup function to remove event listener on component unmount
