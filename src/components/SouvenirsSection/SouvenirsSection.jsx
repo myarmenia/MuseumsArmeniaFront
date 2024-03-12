@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import { responsive2, souvenirsData } from '../../data/data';
-import 'react-multi-carousel/lib/styles.css';
-import './SouvenirsSection.css';
+import React, {useEffect, useRef} from 'react'
+import {responsive2, souvenirsData  } from '../../data/data'
+import "react-multi-carousel/lib/styles.css";
+import './SouvenirsSection.css'
 import Carousel from 'react-multi-carousel';
 import ButtonSecond from '../ButtonSecond/ButtonSecond';
 import { starIcon } from '../../iconFolder/icon';
@@ -11,63 +11,66 @@ import { getSouvinersProd } from '../../store/slices/SouvinersProdSlice/Souviner
 import { selectSouvinersProd } from '../../store/slices/SouvinersProdSlice/SouvinersProdSlice';
 
 function SouvenirsSection() {
-   const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation()
 
-   const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
-   useEffect(() => {
-      dispatch(getSouvinersProd());
-   }, []);
+    useEffect(()=>{
+        dispatch(getSouvinersProd())
+    },[])
 
-   const respProd = useSelector(selectSouvinersProd);
+    const respProd = useSelector(selectSouvinersProd)
 
-   const product = respProd.data.map((el) => {
-      return (
-         <div key={el.id} className="souvenir_item">
-            <div className="souvenir_item_img_div">
-               <img src={el.image} alt="souvenir" />
+    console.log(respProd.data,'fffff');
+    const product = 
+    respProd.data.map(el => {
+      
+     return <div key={el.id} className='souvenir_item'>
+                <div className='souvenir_item_img_div'>
+                    <img src={el.image} alt="souvenir" />
 
-               <div className="souvenir_item_add_cart_div">
-                  <ButtonSecond txt="3" />
-               </div>
+                    <div className='souvenir_item_add_cart_div'>
+                        <ButtonSecond txt='3'/>
+                    </div>
+                </div>
+
+                <div className='souvenir_item_info_div'>
+                    <p>{el.name}</p>
+                    <p>{el.price}  AMD</p>
+                </div>
+            </div>
+    }
+
+    )
+  return (
+    <div className='souvenirss_section'>
+        <div className='container'>
+
+        <div className='souvinirs_title_div'>
+            <h3>{t('souvenirs_title.0')}</h3>
+            <h2>{t('souvenirs_title.1')}</h2>
+        </div>
+        <div className='souvenir_items' >
+            
+                <Carousel showDots= {true}
+                
+                responsive={responsive2}
+                infinite = {true}
+                autoPlay={true}
+                autoPlaySpeed={4000}
+                keyBoardControl = {true}
+                containerClass='carousel-container'
+                dotListClass='custom-dot-list-style'
+                itemClass='carousel-item-padding-40-px'
+                >
+                {product}
+                </Carousel>
             </div>
 
-            <div className="souvenir_item_info_div">
-               <p>{el.name}</p>
-               <span>
-                  {starIcon} {starIcon} {starIcon} {starIcon} {starIcon}
-               </span>
-               <p>{el.price} AMD</p>
-            </div>
-         </div>
-      );
-   });
-   return (
-      <div className="souvenirss_section">
-         <div className="container">
-            <div className="souvinirs_title_div">
-               <h3>{t('souvenirs_title.0')}</h3>
-               <h2>{t('souvenirs_title.1')}</h2>
-            </div>
-            <div className="souvenir_items">
-               <Carousel
-                  showDots={true}
-                  responsive={responsive2}
-                  infinite={true}
-                  autoPlay={true}
-                  autoPlaySpeed={4000}
-                  keyBoardControl={true}
-                  containerClass="carousel-container"
-                  dotListClass="custom-dot-list-style"
-                  itemClass="carousel-item-padding-40-px">
-                  {product}
-               </Carousel>
-            </div>
-
-            <ButtonSecond txt="1" />
-         </div>
-      </div>
-   );
+            <ButtonSecond txt="1"/>
+        </div>
+    </div>
+  )
 }
 
-export default SouvenirsSection;
+export default SouvenirsSection

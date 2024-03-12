@@ -19,7 +19,7 @@ import { MuseumLayouts, MuseumPage, MuseumOne } from '../src/components/MuseumPa
 import SaleTicketPage from './components/SaleTicketPage/SaleTicketPage';
 import Shop from './components/Shop/Shop';
 import SingleShop from './components/SingleShop/SingleShop';
-
+import FaqPage from './components/FaqPage/FaqPage';
 
 function App() {
    const [changeFonSize, setChangeFonSize] = useState('');
@@ -33,8 +33,6 @@ function App() {
    useEffect(() => {
       pathname == '/' && navigate(`/${leng}/`);
    }, []);
-
-  
 
    const changeFont = (type) => {
       setChangeFonSize(type);
@@ -111,16 +109,36 @@ function App() {
                      />
                   </Route>
 
-                    <Route path="news" element={<Newses {...{changeFonSize}}/>} />
-                    <Route path="news/:id" element={<SingleNews/>} />
-                    <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
-                    <Route path="store" element={<Shop/>} />
-                    <Route path="store/:id" element={<SingleShop/>} />
-                    <Route path='aboute-us' element={<PrivateRouteForOutSider><AbouteUsPage/></PrivateRouteForOutSider>}/>
-                    <Route path='ticket-sale' element={<PrivateRouteForOutSider><SaleTicketPage/></PrivateRouteForOutSider>}/>
+                  <Route path="news" element={<Newses {...{ changeFonSize }} />} />
+                  <Route path="news/:id" element={<SingleNews />} />
+                  <Route path="privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="store" element={<Shop />} />
+                  <Route path="store/:id" element={<SingleShop />} />
+                  <Route
+                     path="aboute-us"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <AbouteUsPage />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+                  <Route
+                     path="ticket-sale"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <SaleTicketPage />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
 
-
-
+                  <Route
+                     path="FAQ"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <FaqPage />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
                </Route>
             </Route>
          </Routes>

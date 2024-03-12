@@ -32,9 +32,9 @@ const store = configureStore({
       resendForgot: resendForgotReducer,
       museumPages: MuseumPagesReducer,
       messages: NewMessagesReducer,
-      newses: NewsesReducer,
       banner: bannerReducer,
       souvinersProd: souvinersProdReducer,
+      newses: NewsesReducer,
       shop: ShopReducer,
    },
    // middleware: (getDefaultMiddlware)=>[
