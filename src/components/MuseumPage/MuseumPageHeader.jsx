@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 
 import './museumPage.css';
@@ -28,4 +28,4 @@ const MuseumPageHeader = ({headerImg = '', title= ''}) => {
    );
 };
 
-export default MuseumPageHeader;
+export default memo(MuseumPageHeader);

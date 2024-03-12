@@ -3,22 +3,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
    postMuseumOnePages,
-   // educationalPrograms,
+   educationalPrograms,
 } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
 import { useTranslation } from 'react-i18next';
 import MuseumPageHeader from '../MuseumPageHeader';
-import Button from '../../Button/Button';
 import ButtonSecond from '../../ButtonSecond/ButtonSecond';
 import MessagesModal from '../../NewMessages/MessagesModal';
+import MuseumPageMessages from '../../NewMessages/MuseumPageMessages';
+import { setIsOpen } from '../../../store/slices/NewMessagesSlice/NewMessagesSlice';
 
 const MuseumOne = () => {
    const { t, i18n } = useTranslation();
    const { id } = useParams();
    const dispatch = useDispatch();
 
-   const { loadingStatus, dataMuseumOne } = useSelector((state) => state.museumPages);
+   const { loadingStatus, dataMuseumOne, dataEducationalPrograms, educationalProgramsLoad } =
+      useSelector((state) => state.museumPages);
 
    const {
       main_photo,
@@ -35,12 +37,11 @@ const MuseumOne = () => {
 
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
-      // dispatch(educationalPrograms({ id }));
+      dispatch(educationalPrograms({ id }));
    }, []);
 
-   const [modalIsOpen, setIsOpen] = React.useState(false);
-   function openModal() {
-      setIsOpen(true);
+   const  openModal =()=> {
+      dispatch(setIsOpen(true));
    }
    return (
       <>
@@ -49,18 +50,18 @@ const MuseumOne = () => {
          ) : loadingStatus === 'fulfilled' ? (
             <div>
                <MuseumPageHeader headerImg={main_photo} title={name} />
-               <div
-                  className="museumPage_section"
-                  style={{
-                     height: 'auto',
-                     backgroundColor: '#F8F8F8',
-                  }}>
-                  <div className="container" id="yourAppElement">
-                     <div className="museumOne_parent" style={{}}>
+               <div className="museumPage_section">
+                  <div className="container">
+                     <div className="museumOne_parent">
                         <div className="museumOne-blockLeft">
                            <MuseumOneDescription description={description} photos={photos} />
                            <OurEvents />
-                           <EducationalPrograms />
+                           {educationalProgramsLoad === 'fulfilled' &&
+                              dataEducationalPrograms.length > 0 && (
+                                 <EducationalPrograms
+                                    dataEducationalPrograms={dataEducationalPrograms}
+                                 />
+                              )}
                         </div>
                         <div className="museumOne-blockRigth ">
                            <MuseumOnecontact
@@ -81,7 +82,7 @@ const MuseumOne = () => {
                            </div>
                         </div>
                      </div>
-                     <MessagesModal {...{ modalIsOpen, setIsOpen }} />
+                     <MuseumPageMessages />
                   </div>
                </div>
             </div>

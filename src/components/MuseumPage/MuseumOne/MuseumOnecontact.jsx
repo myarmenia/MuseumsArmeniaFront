@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { LocationIcon, TelIcon } from '../../../iconFolder/icon';
 const MuseumOnecontact = ({ working_days, region, director, address, phones }) => {
    const { t, i18n } = useTranslation();
-  
+
    return (
       <div className="museumOne_pageStyle">
          <div>

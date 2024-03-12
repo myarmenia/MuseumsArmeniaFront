@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import MuseumMinBlock from './MuseumMinBlock';
 function PaginationExample({ filterDataMuseum }) {
    // массив как свойство
@@ -43,4 +43,4 @@ function PaginationExample({ filterDataMuseum }) {
    );
 }
 
-export default PaginationExample;
+export default memo(PaginationExample);
