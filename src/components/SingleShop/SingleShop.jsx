@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './SingleShop.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSingleDataShop } from '../../store/slices/Shop/ShopApi';
-import { getSingleShopDatas, getSingleShopLoading } from '../../store/slices/Shop/ShopSlice';
+import { getSingleShopDatas, getSingleShopLoading, setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice';
 import ButtonSecond from '../ButtonSecond/ButtonSecond';
 import { useTranslation } from 'react-i18next';
+import CardModal from '../Shop/CardModal';
 
 function SingleShop() {
   const { t, i18n } = useTranslation();
@@ -37,6 +38,10 @@ function SingleShop() {
   };
   // console.log(singleShopDatas.similar_products.length, 5555555);
   /////////////////////////////////
+  // const handleClickOpenModal = useCallback((e)=>{
+  //   e.stopPropagation()
+  //   dispatch(setModalIsOpenShop(true))
+  // },[])
 
   return (
     <>
@@ -98,7 +103,9 @@ function SingleShop() {
 
                           
                           <div className="souvenir_item_add_cart_div">
-                            <ButtonSecond txt="3" />
+                            <ButtonSecond txt="3" 
+                            // onClick={handleClickOpenModal}
+                            />
                           </div>
                         </div>
 
@@ -114,6 +121,7 @@ function SingleShop() {
               </div>
             </div>
           </div>
+          <CardModal />
         </div>
       )}
     </>

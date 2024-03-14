@@ -173,6 +173,11 @@
   transform: rotateX(0);
 }
 
+/* .testtt {
+
+  
+} */
+
 @media screen and (max-width: 910px) {
   .shopess_start {
     display: flex;

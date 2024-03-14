@@ -1,0 +1,22 @@
+.xxx {
+  background-color: rgb(164, 150, 150);
+  height: 100vh;
+  width: 100%;
+  transition: all 0.8s ease;
+  transform: rotateY(0deg);
+  transform-origin: right;
+  animation-name: anim;
+  animation-duration: 1s;
+  overflow: auto;
+  color: gold;
+  /* animation-delay: 0.5s; */
+}
+
+@keyframes anim {
+  from {
+    transform: rotateY(90deg);
+  }
+  to {
+    transform: rotateY(0);
+  }
+}

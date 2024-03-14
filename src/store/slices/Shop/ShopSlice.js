@@ -14,12 +14,16 @@ const initialState = {
   categories: [],
   museumes: [],
   singleShopData: [],
+  modalIsOpenShop: false,
 };
 
 export const ShopSlice = createSlice({
   name: 'shop',
   initialState,
   reducers: {
+    setModalIsOpenShop(state, {payload}){
+      state.modalIsOpenShop = payload
+    }
     //////
   },
 
@@ -64,5 +68,7 @@ export const getCategories = (state) => state.shop.categories;
 export const getMuseumsNames = (state) => state.shop.museumes;
 export const getSingleShopDatas = (state) => state.shop.singleShopData;
 export const getSingleShopLoading = (state) => state.shop.loading;
+export const getSetModalIsOpenShop = (state)=> state.shop.modalIsOpenShop;
+export const { setModalIsOpenShop } = ShopSlice.actions;
 
 export const ShopReducer = ShopSlice.reducer;

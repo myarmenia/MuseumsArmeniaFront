@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './Shop.css';
 import SearchIcon from '../../images/search-icon.png';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,11 +14,13 @@ import {
   getCategories,
   getLoadingShop,
   getMuseumsNames,
+  setModalIsOpenShop,
 } from '../../store/slices/Shop/ShopSlice';
 import ReactPaginate from 'react-paginate';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ButtonSecond from '../ButtonSecond/ButtonSecond';
+import CardModal from './CardModal';
 
 function Shop() {
   const { t, i18n } = useTranslation();
@@ -71,6 +73,14 @@ function Shop() {
     setIsPagination(false);
   };
 
+  // const handleClickOpenModal = useCallback((id,image) => {
+  //   return (e) => {
+  //     e.stopPropagation();
+  //     console.log('Clicked item ID:', id);
+  //     console.log('Clicked item Image:', image);
+  //     dispatch(setModalIsOpenShop(true));
+  //   };
+  // }, []);
   console.log('AllShopData', AllShopData);
   // console.log('allCategories', allCategories);
   // console.log('allmuseumNames', allmuseumNames);
@@ -103,7 +113,7 @@ function Shop() {
                     onChange={handleChangeCategory}
                     value={selectedCategory}>
                     <option value="" disabled hidden>
-                    {t('shop_page_data.1')}
+                      {t('shop_page_data.1')}
                     </option>
                     {allCategories.map((option, index) => (
                       <option key={index} value={option.id}>
@@ -120,7 +130,7 @@ function Shop() {
                     onChange={handleChangeMuseum}
                     value={selectedMuseum}>
                     <option value="" disabled hidden>
-                    {t('shop_page_data.2')}
+                      {t('shop_page_data.2')}
                     </option>
                     {allmuseumNames.map((option, index) => (
                       <option key={index} value={option.id}>
@@ -147,8 +157,10 @@ function Shop() {
                       <div className="shop-box_img">
                         <img src={el.image} alt={el.image} />
                         <div className="souvenir_item_add_cart_div">
-                            <ButtonSecond txt="3" />
-                          </div>
+                          <ButtonSecond txt="3" 
+                          // onClick={handleClickOpenModal(el.id, el.image)} 
+                          />
+                        </div>
                       </div>
                       <div className="shop-box_texts_div">
                         <p className="shop-box-title">
@@ -183,6 +195,8 @@ function Shop() {
               />
             </div>
           </div>
+
+          <CardModal />
         </div>
       )}
     </>
