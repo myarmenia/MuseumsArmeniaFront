@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import { getAuthUserAllMessages } from './NewMessagesSliceApi';
 const initialState = {
    loadingStatus: 'loading',
    modalIsOpen: false,
    messagesType: null,
+   dataMuseumMessages: []
 };
 
 const NewMessagesSlice = createSlice({
@@ -17,24 +18,23 @@ const NewMessagesSlice = createSlice({
          state.messagesType = payload;
       },
    },
-   // extraReducers: (builder) => {
-   //    builder
-   //    postMuseumPages===========================
-   //    .addCase(postMuseumPages.pending, (state) => {
-   //       state.loadingStatus = 'loading';
-   //    })
-   //    .addCase(postMuseumPages.fulfilled, (state, { payload }) => {
-   //       state.loadingStatus = 'fulfilled';
-   //       state.dataMuseum = payload.data.museums;
-   //       state.filterDataMuseum = payload.data.museums;
-   //       state.regions = payload.data.regions;
-   //    })
-   //    .addCase(postMuseumPages.rejected, (state, action) => {
-   //       state.loadingStatus = 'rejected';
-   //       state.dataMuseum = [];
-   //       state.filterDataMuseum = [];
-   //    })
-   // },
+   extraReducers: (builder) => {
+      builder
+      // postMuseumPages===========================
+
+      .addCase(getAuthUserAllMessages.pending, (state) => {
+         state.loadingStatus = 'loading';
+      })
+      .addCase(getAuthUserAllMessages.fulfilled, (state, { payload }) => {
+         state.loadingStatus = 'fulfilled';
+         state.dataMuseumMessages = payload
+      })
+      .addCase(getAuthUserAllMessages.rejected, (state, action) => {
+         state.loadingStatus = 'rejected';
+         state.dataMuseum = [];
+         state.filterDataMuseum = [];
+      })
+   },
 });
 
 export const NewMessagesReducer = NewMessagesSlice.reducer;

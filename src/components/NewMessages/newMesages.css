@@ -88,3 +88,34 @@
  .modal:hover {
    width: '100%';
 }
+
+.ReactModal__Overlay {
+   background-color: inherit !important;
+}
+.close-Messages {
+   position: absolute;
+}
+
+.child_modall {
+   background-color: #ffffff;
+   height: 100%;
+   position: relative;
+   border: 1px solid #cea670;
+   padding: 10px;
+   border-radius: 10px;
+}
+.messagesModal-close {
+   position: absolute;
+   right: -38px;
+   top: -3px;
+   border: 1px solid #cea670;
+   /* background-color: red; */
+   width: 30px;
+   height: 30px;
+   border-radius: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 0 0 11px -2px;
+   cursor: pointer;
+}

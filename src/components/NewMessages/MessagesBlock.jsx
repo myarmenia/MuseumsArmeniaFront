@@ -19,6 +19,7 @@ const MessagesBlock = ({ authUser, isAuth }) => {
             text: inpMesagesRef.current.value,
             museum_id: dataMuseumOne.id,
             title: messagesType,
+            educationalPrograms: ''
          };
 
          dispatch(postAuthUserMessages(newMessages));
