@@ -48,7 +48,7 @@ const NotUserMessagesBlock = () => {
             title: messagesType,
             education_program_type: educationProgramType,
          };
-
+         setmMssagesUser(messages.value)
          dispatch(postAuthUserMessages(newMessages));
       }
    };

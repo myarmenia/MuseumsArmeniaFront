@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
+import { setMessagesType, setEducationProgramType } from '../../store/slices/MessagesBotSlice/MessagesBotSlice';
 import { setIsOpen } from '../../store/slices/NewMessagesSlice/NewMessagesSlice';
 const customStyles = {
    content: {
@@ -47,7 +48,13 @@ const MessagesModal = ({ children }) => {
    }
    function closeModal() {
       dispatch(setIsOpen(false));
+      dispatch(setMessagesType(null));
+      dispatch(setEducationProgramType(null));
    }
+
+   useEffect(() => {
+      return ()=> closeModal()
+   }, []);
 
    return (
       <div>

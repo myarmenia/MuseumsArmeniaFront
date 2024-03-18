@@ -449,8 +449,10 @@ i18n.use(initReactI18next).init({
                'Մասնակիցների քանակը',
                'Ո՞ր տարիքային խմբի մասին է խոսքը',
                'Կազմակերպության կամ անհատի անվանումը',
-               'Հեռախոսահամար'
+               'Հեռախոսահամար',
+               'Նշեք գիդի լեզուն'
             ],
+            otherMessagesBot: 'Գրեք ձեր հաղորդագրությունը',
          },
       },
 
@@ -905,8 +907,10 @@ i18n.use(initReactI18next).init({
                'Число участников',
                'О какой возрастной группе вы говорите?',
                'Название организации или частного лица',
-               'Номер телефона'
+               'Номер телефона',
+               'Укажите язык гида'
             ],
+            otherMessagesBot: 'Напишите ваше сообщение',
          },
 
          // Add more languages as needed
@@ -1349,8 +1353,10 @@ i18n.use(initReactI18next).init({
                'Number of participants',
                'What age group are you talking about?',
                'Name of organization or individual',
-               'Phone number'
+               'Phone number',
+               'Specify your guides language'
             ],
+            otherMessagesBot: 'Write your message',
          },
       },
    },
