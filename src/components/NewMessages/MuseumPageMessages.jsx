@@ -5,6 +5,7 @@ import { deleteMuseumMessages } from '../../store/slices/NewMessagesSlice/NewMes
 import TypeList from './TypeList';
 import MessagesModal from './MessagesModal';
 import MessagesBlock from './MessagesBlock';
+import NotUserMessagesBlock from './NotUserMessagesBlock';
 
 import './newMesages.css';
 
@@ -26,7 +27,7 @@ const MuseumPageMessages = ({museumId}) => {
       <MessagesModal>
          <div>
             <div className="MessagesModal-header">
-               <div
+               {/* <div
                   style={{
                      width: '100%',
                      height: '100px',
@@ -40,21 +41,12 @@ const MuseumPageMessages = ({museumId}) => {
                      position: 'relative',
                   }}>
                   <h4>{name}</h4>
-               </div>
+               </div> */}
             </div>
             <div className="MessagesModal-section">
-               <div>
-                  {isAuth && dataMuseumMessages.length ? (
-                     <div>
-                        <h3>cankanum eq sharunakel haxordagrutyun@</h3>
-                        <button onClick={()=>onClickButton}>ayo</button>
-                        <button onClick={()=>onClickButton}>voch</button>
-                     </div>
-                  ) : (
-                     'kjkjkj'
-                  )}
-               </div>
-               <MessagesBlock authUser={authUser} isAuth={isAuth} />
+              {
+               !isAuth ? <NotUserMessagesBlock/> : ''
+              }
             </div>
          </div>
       </MessagesModal>

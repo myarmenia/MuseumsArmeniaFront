@@ -121,11 +121,13 @@ i18n.use(initReactI18next).init({
             NumberOfVisitors: 'Այցելուների քանակը',
             minCount: 'Նվազագույնը',
             maxCount: 'Առավելագույնը',
-            typeMessages: 'Խնդրում ենք ընտրել հաղորդագրության թեման',
+            typeMessages: 'ընտրել հաղորդագրության թեման',
             educational_program: 'Կրթական ծրագիր',
             excursion: 'էքսկուրսիա',
             other: 'Այլ',
             oneTicket: 'Մեկ տոմսի արժեքը',
+            RegionsMussseum: 'Մարզեր',
+            allMussseum: 'Բոլորը',
             // ==============Museum Page end===================
 
             abouteUsPage_title: ['ՄԵՐ ՄԱՍԻՆ', 'Հայաստանի մշակույթի նախարարության պատմություն'],
@@ -572,6 +574,8 @@ i18n.use(initReactI18next).init({
             excursion: 'Экскурсия',
             other: 'Другой',
             oneTicket: 'Стоимость одного билета',
+            RegionsMussseum: 'Регионы',
+            allMussseum: 'Все',
             // ==============Museum Page end===================
 
             abouteUsPage_title: ['О НАС', 'История Министерства культуры Армении'],
@@ -1013,6 +1017,8 @@ i18n.use(initReactI18next).init({
             excursion: 'Excursion',
             other: 'Other',
             oneTicket: 'Cost of one ticket',
+            RegionsMussseum: 'Regions',
+            allMussseum: 'All',
             // ==============Museum Page end===================
 
             abouteUsPage_title: ['ABOUT US', 'History of the Ministry of Culture of Armenia'],

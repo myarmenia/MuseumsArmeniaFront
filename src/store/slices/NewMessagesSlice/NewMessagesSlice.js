@@ -3,7 +3,6 @@ import { getAuthUserAllMessages } from './NewMessagesSliceApi';
 const initialState = {
    loadingStatus: 'loading',
    modalIsOpen: false,
-   messagesType: null,
    dataMuseumMessages: []
 };
 
@@ -14,9 +13,7 @@ const NewMessagesSlice = createSlice({
       setIsOpen(state, { payload }) {
          state.modalIsOpen = payload;
       },
-      setMessagesType(state, { payload }) {
-         state.messagesType = payload;
-      },
+      
    },
    extraReducers: (builder) => {
       builder
@@ -38,4 +35,4 @@ const NewMessagesSlice = createSlice({
 });
 
 export const NewMessagesReducer = NewMessagesSlice.reducer;
-export const { setIsOpen, setMessagesType } = NewMessagesSlice.actions;
+export const { setIsOpen } = NewMessagesSlice.actions;

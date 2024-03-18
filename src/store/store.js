@@ -16,7 +16,7 @@ import { ShopReducer } from './slices/Shop/ShopSlice';
 import { NewMessagesReducer } from './slices/NewMessagesSlice/NewMessagesSlice';
 import { bannerReducer } from './slices/BanerSlice/BanerSlice';
 import { souvinersProdReducer } from './slices/SouvinersProdSlice/SouvinersProdSlice';
-
+import { MessagesBot } from './slices/MessagesBotSlice/MessagesBotSlice';
 const store = configureStore({
    reducer: {
       login: loginReducer,
@@ -36,6 +36,7 @@ const store = configureStore({
       souvinersProd: souvinersProdReducer,
       newses: NewsesReducer,
       shop: ShopReducer,
+      messagesBot: MessagesBot,
    },
    // middleware: (getDefaultMiddlware)=>[
    //     ...getDefaultMiddlware(),

@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
-
+import MessagesBotBlock from './MessagesBotBlock';
 const NotUserMessagesBlock = () => {
    const { t, i18n } = useTranslation();
 
@@ -21,13 +21,16 @@ const NotUserMessagesBlock = () => {
             email: email.value,
             messages: messages.value,
          };
-        
+
          //  dispatch(postLogin(loginObj))
       }
    };
 
    return (
-     
+      <div>
+         <div className="messages_chatList">
+             <MessagesBotBlock/>
+         </div>
          <Formik
             initialValues={{
                email: '',
@@ -48,11 +51,13 @@ const NotUserMessagesBlock = () => {
                handleSubmit,
                dirty,
             }) => (
-               <form className="NotUserMessages-form" onSubmit={(e) => handleLogin(e, handleSubmit, isValid)}>
+               <form
+                  className="NotUserMessages-form"
+                  onSubmit={(e) => handleLogin(e, handleSubmit, isValid)}>
                   {/* <span>{t('login_btn')}</span> */}
                   <div className="email-inp">
                      <input
-                      className="messages_block-inpEmail"
+                        className="messages_block-inpEmail"
                         type="email"
                         name="email"
                         placeholder={t('placeholder.0')}
@@ -73,24 +78,26 @@ const NotUserMessagesBlock = () => {
                         onBlur={handleBlur}
                      /> */}
                      <textarea
+                        disabled={true}
                         className="messages_block-textArea"
                         type="text"
                         name="messages"
                         placeholder={t('placeholder.8')}
                         value={values.messages}
                         onChange={handleChange}
-                        onBlur={handleBlur}
-                     ></textarea>
+                        onBlur={handleBlur}></textarea>
                      {touched.messages && errors.messages && (
                         <p className="error_textarea">{errors.messages}</p>
                      )}
                   </div>
 
-                  <button type='submit' className="login_btn">{t('login_btn')}</button>
+                  <button type="submit" className="login_btn">
+                     {t('login_btn')}
+                  </button>
                </form>
             )}
          </Formik>
-      
+      </div>
    );
 };
 

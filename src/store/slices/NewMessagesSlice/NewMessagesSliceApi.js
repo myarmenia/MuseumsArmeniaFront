@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import instance from '../../../axios';
 import axios from 'axios';
 
-
 export const postAuthUserMessages = createAsyncThunk(
    'NewMessages/postAuthUserMessages',
 
