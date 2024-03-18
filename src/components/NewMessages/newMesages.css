@@ -17,13 +17,12 @@
 .NotUserMessages-form {
    display: flex;
    flex-direction: column;
-   gap: 20px;
-   height: 100%;
+   gap: 10px;
 }
 
 .messages_block-inpEmail {
    border: none;
-   box-shadow: 0 0 6px -2px;
+   box-shadow: -7px 5px 8px -6px;
    border-radius: 5px;
    width: 50%;
    padding: 10px;
@@ -39,7 +38,7 @@
    height: 80px;
    overflow: auto;
    border: none;
-   box-shadow: 0 0 6px -2px;
+   box-shadow: -7px 5px 8px -6px;
    border-radius: 10px;
    padding: 10px;
 }
@@ -72,6 +71,13 @@
    padding: 10px;
    border-radius: 10px;
 }
+
+.MessagesModal-section {
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
 .messagesModal-close {
    position: absolute;
    right: -38px;
@@ -92,7 +98,7 @@
 
 .par-avatar_bot {
    display: flex;
-   justify-content: center;
+   justify-content: start;
    align-items: center;
    gap: 10px;
 }
@@ -109,7 +115,18 @@
    display: flex;
    flex-direction: column;
    gap: 20px;
+   height: 400px;
    overflow: auto;
+   padding-right: 5px;
+   transition: 0.4s;
+}
+
+.par_type::-webkit-scrollbar {
+   width: 5px;
+}
+.par_type::-webkit-scrollbar-thumb {
+   background: #cea670;
+   border-radius: 10px;
 }
 
 .par_type-block {
@@ -138,9 +155,8 @@
    transition: 0.4s;
    line-height: 30px;
    border: 1px solid #e3e3e3;
-   /* width: auto; */
+   max-width: 300px;
    padding: 5px 15px;
-   border-radius: 10px;
    letter-spacing: 2px;
 }
 .chatList-li:hover {
@@ -153,6 +169,7 @@
 }
 .admin_messages > span {
    color: #667085;
+   border-radius: 10px 10px 10px 0;
 }
 .user_messages {
    display: flex;
@@ -162,4 +179,28 @@
    cursor: inherit !important ;
    background-color: #3f3d56;
    color: #ffffff;
+   border-radius: 10px 10px 0 10px;
+}
+
+.chatBotHint_list {
+   transition: 0.4s;
+   line-height: 30px;
+   border: 1px solid #e3e3e3;
+   max-width: 300px;
+   padding: 5px 15px;
+   letter-spacing: 2px;
+   border-radius: 10px 10px 10px 0;
+}
+
+.sendMessages_btn {
+   /* width: 100%; */
+   /* height: 44px; */
+   background-color: inherit;
+   border: none;
+   outline: none;
+   /* color: var(--main_font_color); */
+   position: absolute;
+   bottom: 24px;
+   right: 10px;
+   cursor: pointer;
 }

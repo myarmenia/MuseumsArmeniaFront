@@ -14,7 +14,6 @@ export const postAuthUserMessages = createAsyncThunk(
          };
 
          const response = await instance(config);
-         console.log(response, 'responseeeee');
 
          //  return response?.data;
       } catch (error) {

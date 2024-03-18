@@ -25,7 +25,7 @@ const MuseumPageMessages = ({museumId}) => {
 
    return (
       <MessagesModal>
-         <div>
+         <>
             <div className="MessagesModal-header">
                {/* <div
                   style={{
@@ -43,12 +43,12 @@ const MuseumPageMessages = ({museumId}) => {
                   <h4>{name}</h4>
                </div> */}
             </div>
-            <div className="MessagesModal-section">
+            <div className="MessagesModal-section" style={{height: '100%'}}>
               {
                !isAuth ? <NotUserMessagesBlock/> : ''
               }
             </div>
-         </div>
+         </>
       </MessagesModal>
    );
 };

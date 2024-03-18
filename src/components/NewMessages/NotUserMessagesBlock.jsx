@@ -1,10 +1,34 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
+import { SendButtonMessages } from '../../iconFolder/icon';
 import MessagesBotBlock from './MessagesBotBlock';
+import { useDispatch, useSelector } from 'react-redux';
+import { postAuthUserMessages } from '../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
 const NotUserMessagesBlock = () => {
    const { t, i18n } = useTranslation();
+
+   const { dataEducationalPrograms, dataMuseumOne } = useSelector((store) => store.museumPages);
+   const { messagesType, educationProgramType } = useSelector((store) => store.messagesBot);
+
+   const [disabled, setDisabled] = useState(true);
+   const [messagesUser, setmMssagesUser] = useState(null);
+
+   const dispatch = useDispatch();
+   useEffect(() => {
+      if (dataEducationalPrograms.length) {
+         if (messagesType === 'educational_program' && educationProgramType) {
+            setDisabled(false);
+         } else if (messagesType) {
+            setDisabled(false);
+         }
+      } else if (messagesType) {
+         setDisabled(false);
+      } else {
+         setDisabled(true);
+      }
+   }, [messagesType, educationProgramType]);
 
    const validationSchema = yup.object().shape({
       email: yup.string().email(t('validation_inp.0')).required(t('validation_inp.1')),
@@ -17,19 +41,22 @@ const NotUserMessagesBlock = () => {
       const { email, messages } = e.target;
 
       if (email.value && messages.value && isValid) {
-         const loginObj = {
+         const newMessages = {
             email: email.value,
-            messages: messages.value,
+            text: messages.value,
+            museum_id: dataMuseumOne.id,
+            title: messagesType,
+            education_program_type: educationProgramType,
          };
 
-         //  dispatch(postLogin(loginObj))
+         dispatch(postAuthUserMessages(newMessages));
       }
    };
 
    return (
-      <div>
+      <>
          <div className="messages_chatList">
-             <MessagesBotBlock/>
+            <MessagesBotBlock messagesUser={messagesUser} />
          </div>
          <Formik
             initialValues={{
@@ -57,6 +84,7 @@ const NotUserMessagesBlock = () => {
                   {/* <span>{t('login_btn')}</span> */}
                   <div className="email-inp">
                      <input
+                        disabled={disabled}
                         className="messages_block-inpEmail"
                         type="email"
                         name="email"
@@ -68,7 +96,7 @@ const NotUserMessagesBlock = () => {
                      {touched.email && errors.email && <p className="error">{errors.email}</p>}
                   </div>
 
-                  <div>
+                  <div style={{ position: 'relative' }}>
                      {/* <input
                         type="text"
                         name="messages"
@@ -78,7 +106,7 @@ const NotUserMessagesBlock = () => {
                         onBlur={handleBlur}
                      /> */}
                      <textarea
-                        disabled={true}
+                        disabled={disabled}
                         className="messages_block-textArea"
                         type="text"
                         name="messages"
@@ -89,15 +117,14 @@ const NotUserMessagesBlock = () => {
                      {touched.messages && errors.messages && (
                         <p className="error_textarea">{errors.messages}</p>
                      )}
+                     <button type="submit" className="sendMessages_btn">
+                        <SendButtonMessages fill="#cea670" />
+                     </button>
                   </div>
-
-                  <button type="submit" className="login_btn">
-                     {t('login_btn')}
-                  </button>
                </form>
             )}
          </Formik>
-      </div>
+      </>
    );
 };
 

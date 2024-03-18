@@ -442,6 +442,15 @@ i18n.use(initReactI18next).init({
                'Հայաստանի Հանրապետության քաղաքացի հանդիսացող կենսաթոշակառուներ,',
                'փախստականներ։',
             ],
+
+            chatBotHint: [
+               'Խնդրում ենք նշել ձեր հաղորդագրության մեջ',
+               'Նախընտրելի օր',
+               'Մասնակիցների քանակը',
+               'Ո՞ր տարիքային խմբի մասին է խոսքը',
+               'Կազմակերպության կամ անհատի անվանումը',
+               'Հեռախոսահամար'
+            ],
          },
       },
 
@@ -890,6 +899,14 @@ i18n.use(initReactI18next).init({
                'Пенсионеры, являющиеся гражданами Республики Армения,',
                'беженцы.',
             ],
+            chatBotHint: [
+               'Пожалуйста, укажите в сообщении',
+               'Предпочтительный день',
+               'Число участников',
+               'О какой возрастной группе вы говорите?',
+               'Название организации или частного лица',
+               'Номер телефона'
+            ],
          },
 
          // Add more languages as needed
@@ -1325,6 +1342,14 @@ i18n.use(initReactI18next).init({
                'students,',
                'Pensioners who are citizens of the Republic of Armenia,',
                'Refugees',
+            ],
+            chatBotHint: [
+               'Please indicate in your message',
+               'Preferred day',
+               'Number of participants',
+               'What age group are you talking about?',
+               'Name of organization or individual',
+               'Phone number'
             ],
          },
       },
