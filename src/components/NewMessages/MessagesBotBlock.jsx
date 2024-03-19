@@ -9,7 +9,7 @@ import {
 const dataTypeMessages = ['educational_program', 'excursion', 'other'];
 const chatBotHint = [...new Array(7)];
 
-const MessagesBotBlock = ({ messagesUser }) => {
+const MessagesBotBlock = ({ messagesUser, resetMessages }) => {
    const { t, i18n } = useTranslation();
 
    const dispatch = useDispatch();
@@ -20,9 +20,11 @@ const MessagesBotBlock = ({ messagesUser }) => {
    const onClickMessagesType = useCallback((item) => {
       dispatch(setMessagesType(item));
       dispatch(setEducationProgramType(null));
+      resetMessages()
    }, []);
    const onClickEducationProgramType = useCallback((item) => {
       dispatch(setEducationProgramType(item));
+      resetMessages()
    }, []);
 
    const divRef = useRef();
@@ -118,11 +120,14 @@ const MessagesBotBlock = ({ messagesUser }) => {
                      </li>
                   )}
 
-                  {messagesUser && (
-                     <li className="user_messages">
-                        <span className="chatList-li">{messagesUser}</span>
-                     </li>
-                  )}
+                  {messagesUser.length ?
+                     messagesUser.map((el, idx) => (
+                        <li key={idx} className="user_messages">
+                           <span className="chatList-li">{el}</span>
+                        </li>
+                     )) : ''
+                     
+                  }
                </ul>
             </div>
          </div>

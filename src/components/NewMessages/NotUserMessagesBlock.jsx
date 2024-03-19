@@ -1,11 +1,11 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback, memo } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { SendButtonMessages } from '../../iconFolder/icon';
 import MessagesBotBlock from './MessagesBotBlock';
 import { useDispatch, useSelector } from 'react-redux';
-import { postAuthUserMessages } from '../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
+import { postUserMessages } from '../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
 const NotUserMessagesBlock = () => {
    const { t, i18n } = useTranslation();
 
@@ -13,8 +13,9 @@ const NotUserMessagesBlock = () => {
    const { messagesType, educationProgramType } = useSelector((store) => store.messagesBot);
 
    const [disabled, setDisabled] = useState(true);
-   const [messagesUser, setmMssagesUser] = useState(null);
+   const [messagesUser, setMssagesUser] = useState([]);
 
+   const textareaRef = useRef();
    const dispatch = useDispatch();
    useEffect(() => {
       if (dataEducationalPrograms.length) {
@@ -29,6 +30,10 @@ const NotUserMessagesBlock = () => {
          setDisabled(true);
       }
    }, [messagesType, educationProgramType]);
+
+   const resetMessages = useCallback(()=> {
+      setMssagesUser([])
+   }, [])
 
    const validationSchema = yup.object().shape({
       email: yup.string().email(t('validation_inp.0')).required(t('validation_inp.1')),
@@ -48,15 +53,15 @@ const NotUserMessagesBlock = () => {
             title: messagesType,
             education_program_type: educationProgramType,
          };
-         setmMssagesUser(messages.value)
-         dispatch(postAuthUserMessages(newMessages));
+         setMssagesUser([...messagesUser, messages.value]);
+         dispatch(postUserMessages(newMessages));
       }
    };
 
    return (
       <>
          <div className="messages_chatList">
-            <MessagesBotBlock messagesUser={messagesUser} />
+            <MessagesBotBlock messagesUser={messagesUser} resetMessages={resetMessages} />
          </div>
          <Formik
             initialValues={{
@@ -64,7 +69,8 @@ const NotUserMessagesBlock = () => {
                messages: '',
             }}
             onSubmit={(values, { resetForm }) => {
-               resetForm();
+               // resetForm();
+               textareaRef.current.value = '';
             }}
             validateOnBlur
             validationSchema={validationSchema}>
@@ -106,6 +112,7 @@ const NotUserMessagesBlock = () => {
                         onBlur={handleBlur}
                      /> */}
                      <textarea
+                        ref={textareaRef}
                         disabled={disabled}
                         className="messages_block-textArea"
                         type="text"
@@ -128,4 +135,4 @@ const NotUserMessagesBlock = () => {
    );
 };
 
-export default NotUserMessagesBlock;
+export default memo(NotUserMessagesBlock);

@@ -1,52 +1,32 @@
-import React, { useState, useCallback, memo } from 'react';
+import React, { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { deleteMuseumMessages } from '../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
-import TypeList from './TypeList';
+
 import MessagesModal from './MessagesModal';
 import MessagesBlock from './MessagesBlock';
 import NotUserMessagesBlock from './NotUserMessagesBlock';
 
 import './newMesages.css';
 
-const MuseumPageMessages = ({museumId}) => {
+const MuseumPageMessages = ({ museumId }) => {
    const { t, i18n } = useTranslation();
    const dispatch = useDispatch();
    const { loadingStatus, dataMuseumOne } = useSelector((state) => state.museumPages);
    const { isAuth, authUser } = useSelector((store) => store.auth);
-   const { messagesType, dataMuseumMessages } = useSelector((store) => store.messages);
+   const { dataMuseumMessages } = useSelector((store) => store.messages);
 
-   const { name } = dataMuseumOne;
-
-
-   const onClickButton =()=> {
-   
-   }
+ 
 
    return (
       <MessagesModal>
          <>
-            <div className="MessagesModal-header">
-               {/* <div
-                  style={{
-                     width: '100%',
-                     height: '100px',
-                     backgroundSize: 'contain',
-                     backgroundRepeat: 'round',
-                     display: 'flex',
-                     justifyContent: 'center',
-                     alignItems: 'center',
-                     borderBottom: '1px solid #cea670',
-                     marginBottom: '10px',
-                     position: 'relative',
-                  }}>
-                  <h4>{name}</h4>
-               </div> */}
-            </div>
-            <div className="MessagesModal-section" style={{height: '100%'}}>
-              {
-               !isAuth ? <NotUserMessagesBlock/> : ''
-              }
+            <div className="MessagesModal-header"></div>
+            <div className="MessagesModal-section" style={{ height: '100%' }}>
+               {isAuth ? (
+                  <MessagesBlock authUser={authUser} dataMuseumMessages={dataMuseumMessages} />
+               ) : (
+                  <NotUserMessagesBlock />
+               )}
             </div>
          </>
       </MessagesModal>

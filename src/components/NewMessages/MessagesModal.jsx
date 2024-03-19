@@ -3,6 +3,8 @@ import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMessagesType, setEducationProgramType } from '../../store/slices/MessagesBotSlice/MessagesBotSlice';
 import { setIsOpen } from '../../store/slices/NewMessagesSlice/NewMessagesSlice';
+
+
 const customStyles = {
    content: {
       top: 'auto',
@@ -53,6 +55,7 @@ const MessagesModal = ({ children }) => {
    }
 
    useEffect(() => {
+      
       return ()=> closeModal()
    }, []);
 
