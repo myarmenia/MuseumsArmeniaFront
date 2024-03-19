@@ -55,7 +55,7 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
          setStatusMessages(true);
          setDisabled(false);
       } else {
-         dispatch(deleteMuseumMessages(dataMuseumOne.id));
+         dispatch(deleteMuseumMessages(dataMuseumMessages.chat_id));
          setStatusMessages(false);
          dispatch(setDataMuseumMessages([]));
       }
