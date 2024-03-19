@@ -22,7 +22,8 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Գնել հիմա', 'Տեսնել Բոլորը', 'Ուղարկել', 'Ավելացնել', 'Դիմել', 'ՈՒղարկել'],
+            buttons: ['Գնել հիմա', 'Տեսնել Բոլորը', 'Ուղարկել', 'Ավելացնել', 'Դիմել', 'ՈՒղարկել', 'Այո', 'Ոչ'],
+            
 
             footer_title:
                'Հայաստանի Հանրապետության Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
@@ -453,6 +454,8 @@ i18n.use(initReactI18next).init({
                'Նշեք գիդի լեզուն'
             ],
             otherMessagesBot: 'Գրեք ձեր հաղորդագրությունը',
+            warningMessages: 'Ցանկանու՞մ եք շարունակել',
+            
          },
       },
 
@@ -482,8 +485,10 @@ i18n.use(initReactI18next).init({
                'Добавлять',
                'Применять',
                'Отправлять',
+               'Да',
+               'нет',
             ],
-
+      
             footer_title: 'Министерство образования, науки, культуры и спорта Республики Армения',
 
             news_section_title: 'ПОСЛЕДНИЕ НОВОСТИ',
@@ -911,6 +916,7 @@ i18n.use(initReactI18next).init({
                'Укажите язык гида'
             ],
             otherMessagesBot: 'Напишите ваше сообщение',
+            warningMessages: 'Вы хотите продолжать?',
          },
 
          // Add more languages as needed
@@ -935,8 +941,8 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Buy Now', 'See All', 'Send', 'Add', 'Apply'],
-
+            buttons: ['Buy Now', 'See All', 'Send', 'Add', 'Apply', 'Yes', 'no'],
+         
             footer_title:
                'Ministry of Education, Science, Culture and Sports of the Republic of Armenia',
 
@@ -1357,6 +1363,7 @@ i18n.use(initReactI18next).init({
                'Specify your guides language'
             ],
             otherMessagesBot: 'Write your message',
+            warningMessages: 'Do you want to continue?',
          },
       },
    },

@@ -34,13 +34,14 @@
 
 .messages_block-textArea {
    resize: none;
-   width: 100%;
-   height: 80px;
-   overflow: auto;
-   border: none;
-   box-shadow: -7px 5px 8px -6px;
-   border-radius: 10px;
-   padding: 10px;
+    width: 100%;
+    height: 80px;
+    overflow: auto;
+    border: none;
+    box-shadow: 0px 0px 26px -6px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #4D4D4D;
 }
 
 .error_textarea {
@@ -64,7 +65,8 @@
 }
 
 .child_modall {
-   background-color: #ffffff;
+   background-color: #4D4D4D;
+
    height: 100%;
    position: relative;
    border: 1px solid #cea670;
@@ -168,8 +170,14 @@
    justify-content: start;
 }
 .admin_messages > span {
-   color: #667085;
+   color:#1a1d23;
    border-radius: 10px 10px 10px 0;
+   background-color:  #bbb0a2;
+}
+.admin_messages > span {
+   color:#1a1d23;
+   border-radius: 10px 10px 10px 0;
+   background-color:  #bbb0a2;
 }
 .user_messages {
    display: flex;
@@ -177,9 +185,10 @@
 }
 .user_messages > span {
    cursor: inherit !important ;
-   background-color: #3f3d56;
+   background-color: #4b453d;
    color: #ffffff;
    border-radius: 10px 10px 0 10px;
+   border: 1px solid  #cea670;
 }
 
 .chatBotHint_list {
@@ -190,7 +199,13 @@
    padding: 5px 15px;
    letter-spacing: 2px;
    border-radius: 10px 10px 10px 0;
+   background-color:  #bbb0a2;
 }
+.chatBotHint_list > li {
+   color:#1a1d23;
+   
+}
+
 
 .sendMessages_btn {
    /* width: 100%; */
@@ -203,4 +218,19 @@
    bottom: 24px;
    right: 10px;
    cursor: pointer;
+}
+
+
+.warring_messages {
+   height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.warring_messages-button{
+   display: flex;
+   gap: 20px;
 }

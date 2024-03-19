@@ -12,6 +12,7 @@ import { setDataMuseumMessages } from '../../store/slices/NewMessagesSlice/NewMe
 import UserChatList from './UserChatList';
 import MessagesBotBlock from './MessagesBotBlock';
 import { SendButtonMessages } from '../../iconFolder/icon';
+import ButtonSecond from '../ButtonSecond/ButtonSecond';
 
 const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
    const { t, i18n } = useTranslation();
@@ -85,13 +86,15 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
 
    return (
       <>
-         <div className="messages_chatList">
+         <div className="messages_chatList" style={{height: '100%'}}>
             {dataMuseumMessages?.messages && statusMessages === null ? (
-               <div>
-                  <p>Cankanum eq sharunakel</p>
-                  <div>
-                     <button onClick={() => clearMessagesUser(true)}>ayo</button>
-                     <button onClick={() => clearMessagesUser(false)}>voch</button>
+               <div className="warring_messages">
+                  <h3>{t(`warningMessages`)}</h3>
+                  <div className="warring_messages-button">
+                     <ButtonSecond txt={6} minWidth='120px' onClick={() => clearMessagesUser(true)} />
+                     <ButtonSecond txt={7} minWidth='120px' onClick={() => clearMessagesUser(false)}/>
+                     {/* <button onClick={() => clearMessagesUser(true)}>ayo</button>
+                     <button onClick={() => clearMessagesUser(false)}>voch</button> */}
                   </div>
                </div>
             ) : statusMessages ? (
