@@ -22,7 +22,7 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Գնել հիմա', 'Տեսնել Բոլորը', 'Ուղարկել', 'Ավելացնել', 'Դիմել', 'ՈՒղարկել', 'Այո', 'Ոչ'],
+            buttons: ['Գնել հիմա', 'Տեսնել Բոլորը', 'Ուղարկել', 'Ավելացնել', 'Դիմել', 'ՈՒղարկել', 'Այո', 'Ոչ', 'Սկսեք զրուցել'],
             
 
             footer_title:
@@ -455,6 +455,10 @@ i18n.use(initReactI18next).init({
             ],
             otherMessagesBot: 'Գրեք ձեր հաղորդագրությունը',
             warningMessages: 'Ցանկանու՞մ եք շարունակել',
+            startMessages: [
+               'Եթե գրանցված չեք, գրեք մեզ ձեր էլ. նամակը թանգարանից պատասխան նամակ ստանալու համար',
+               'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:'
+            ]
             
          },
       },
@@ -487,6 +491,7 @@ i18n.use(initReactI18next).init({
                'Отправлять',
                'Да',
                'нет',
+               'Начать Чат'
             ],
       
             footer_title: 'Министерство образования, науки, культуры и спорта Республики Армения',
@@ -917,6 +922,10 @@ i18n.use(initReactI18next).init({
             ],
             otherMessagesBot: 'Напишите ваше сообщение',
             warningMessages: 'Вы хотите продолжать?',
+            startMessages: [
+               'Если вы не зарегистрированы, напишите нам свой адрес электронной почты, чтобы получить ответное письмо от музея.',
+               'Привет. Рад видеть тебя здесь! Нажимая кнопку «Начать чат», вы соглашаетесь на обработку ваших личных данных, как описано в нашей Политике конфиденциальности.'
+            ]
          },
 
          // Add more languages as needed
@@ -941,7 +950,7 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Buy Now', 'See All', 'Send', 'Add', 'Apply', 'Yes', 'no'],
+            buttons: ['Buy Now', 'See All', 'Send', 'Add', 'Apply', 'Yes', 'no', 'Start chat'],
          
             footer_title:
                'Ministry of Education, Science, Culture and Sports of the Republic of Armenia',
@@ -1364,6 +1373,10 @@ i18n.use(initReactI18next).init({
             ],
             otherMessagesBot: 'Write your message',
             warningMessages: 'Do you want to continue?',
+            startMessages: [
+               'If you are not registered, write us your email to receive a response letter from the museum',
+               'Hello Nice to see you here! By pressing the "Start chat" button you agree to have your personal data processed as described in our Privacy Policy'
+            ]
          },
       },
    },

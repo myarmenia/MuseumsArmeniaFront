@@ -13,13 +13,15 @@ import UserChatList from './UserChatList';
 import MessagesBotBlock from './MessagesBotBlock';
 import { SendButtonMessages } from '../../iconFolder/icon';
 import ButtonSecond from '../ButtonSecond/ButtonSecond';
+import StartMessagesBlock from './StartMessagesBlock';
+
 
 const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
    const { t, i18n } = useTranslation();
    const { dataEducationalPrograms, dataMuseumOne } = useSelector((store) => store.museumPages);
    const { messagesType, educationProgramType } = useSelector((store) => store.messagesBot);
    const { statusPostUserMessages } = useSelector((store) => store.messages);
-
+   const [startChat, setStartChst] = useState(false);
    const [disabled, setDisabled] = useState(true);
    const [messagesUser, setMssagesUser] = useState([]);
    const [statusMessages, setStatusMessages] = useState(null);
@@ -44,7 +46,9 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
    }, [messagesUser]);
 
 
-
+   const onClickButtonStart = React.useCallback(() => {
+      setStartChst(true);
+   }, []);
 
 
    const resetMessages = React.useCallback(() => {
@@ -99,9 +103,10 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
                </div>
             ) : statusMessages ? (
                <UserChatList messagesUser={messagesUser} dataMuseumMessages={dataMuseumMessages}/>
-            ) : (
-               <MessagesBotBlock messagesUser={messagesUser} resetMessages={resetMessages} />
-            )}
+            ) :  startChat ?  <MessagesBotBlock messagesUser={messagesUser} resetMessages={resetMessages} />
+               : <StartMessagesBlock onClick={onClickButtonStart}  txt={'startMessages.0'}/>
+         
+         }
          </div>
          <Formik
             initialValues={{

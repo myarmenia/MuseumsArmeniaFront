@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMessagesType, setEducationProgramType } from '../../store/slices/MessagesBotSlice/MessagesBotSlice';
 import { setIsOpen } from '../../store/slices/NewMessagesSlice/NewMessagesSlice';
-
+import { CloseMessages } from '../../iconFolder/icon';
 
 const customStyles = {
    content: {
@@ -15,11 +15,10 @@ const customStyles = {
       // transform: 'translate(-50%, -50%)',
       width: '450px',
       height: '650px',
-      padding: '15px 50px 0 0',
+      padding: '0',
       border: 'none',
       borderRadius: '10px',
       color: '#000000',
-
       background: 'inherit',
    },
 };

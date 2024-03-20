@@ -6,6 +6,8 @@ import { SendButtonMessages } from '../../iconFolder/icon';
 import MessagesBotBlock from './MessagesBotBlock';
 import { useDispatch, useSelector } from 'react-redux';
 import { postUserMessages } from '../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
+import StartMessagesBlock from './StartMessagesBlock';
+
 const NotUserMessagesBlock = () => {
    const { t, i18n } = useTranslation();
 
@@ -14,6 +16,7 @@ const NotUserMessagesBlock = () => {
 
    const [disabled, setDisabled] = useState(true);
    const [messagesUser, setMssagesUser] = useState([]);
+   const [startChat, setStartChst] = useState(false);
 
    const textareaRef = useRef();
    const dispatch = useDispatch();
@@ -31,9 +34,9 @@ const NotUserMessagesBlock = () => {
       }
    }, [messagesType, educationProgramType]);
 
-   const resetMessages = useCallback(()=> {
-      setMssagesUser([])
-   }, [])
+   const resetMessages = useCallback(() => {
+      setMssagesUser([]);
+   }, []);
 
    const validationSchema = yup.object().shape({
       email: yup.string().email(t('validation_inp.0')).required(t('validation_inp.1')),
@@ -58,10 +61,18 @@ const NotUserMessagesBlock = () => {
       }
    };
 
+   const onClickButtonStart = useCallback(() => {
+      setStartChst(true);
+   }, []);
+
    return (
       <>
          <div className="messages_chatList">
-            <MessagesBotBlock messagesUser={messagesUser} resetMessages={resetMessages} />
+            {startChat ? (
+               <MessagesBotBlock messagesUser={messagesUser} resetMessages={resetMessages} />
+            ) : (
+               <StartMessagesBlock txt={'startMessages.1'} onClick={onClickButtonStart} />
+            )}
          </div>
          <Formik
             initialValues={{
