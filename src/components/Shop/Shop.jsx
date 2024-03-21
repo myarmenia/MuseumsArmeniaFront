@@ -8,19 +8,24 @@ import {
   getFilteredShop,
   getMuseumNames,
   getSearchesShop,
+  postShopCardData,
 } from '../../store/slices/Shop/ShopApi';
 import {
   getAllShopDate,
+  getBaskettotalPrice,
   getCategories,
   getLoadingShop,
   getMuseumsNames,
+  setBasketData,
   setModalIsOpenShop,
+  totalPriceBasket,
 } from '../../store/slices/Shop/ShopSlice';
 import ReactPaginate from 'react-paginate';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ButtonSecond from '../ButtonSecond/ButtonSecond';
 import CardModal from './CardModal';
+import { getIsAuth } from '../../store/slices/Auth/AuthSlice';
 
 function Shop() {
   const { t, i18n } = useTranslation();
@@ -32,10 +37,14 @@ function Shop() {
   const loading = useSelector(getLoadingShop);
   const allCategories = useSelector(getCategories);
   const allmuseumNames = useSelector(getMuseumsNames);
+  const IsAuth = useSelector(getIsAuth);
   const [isPagination, setIsPagination] = useState(true);
   const [isFiltered, setIsFiltered] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedMuseum, setSelectedMuseum] = useState('');
+  const [errorText, setErrorText] = useState(false);
+  // const [idd, setIddd] = useState(null);
+  // const [imagee, setImagee] = useState(null);
 
   const handleChangeCategory = (event) => {
     console.log(event.target.value);
@@ -57,6 +66,7 @@ function Shop() {
     dispatch(getAllShop());
     dispatch(getCategoryShop());
     dispatch(getMuseumNames());
+    // dispatch(totalPriceBasket())
   }, []);
 
   const sendShopPage = (data) => {
@@ -72,15 +82,50 @@ function Shop() {
     searchTextShopRef.current.value = '';
     setIsPagination(false);
   };
+  const handleClickOpenModal = useCallback((id, image, name, price, museumName) => {
+    return (e) => {
+      e.stopPropagation();
+      console.log('IsAuth', IsAuth);
+      if (IsAuth) {
+        dispatch(setModalIsOpenShop(true));
+        dispatch(postShopCardData({ id }));
+      } else {
+        setErrorText(true);
+      }
+      // dispatch(
+      //   setBasketData({ id: id, image: image, name: name, price: price, museumName: museumName }),
+      // );
+      // Check if CardArray already exists in localStorage
+      // let CardArray = JSON.parse(localStorage.getItem('CardArray'));
 
-  // const handleClickOpenModal = useCallback((id,image) => {
-  //   return (e) => {
-  //     e.stopPropagation();
-  //     console.log('Clicked item ID:', id);
-  //     console.log('Clicked item Image:', image);
-  //     dispatch(setModalIsOpenShop(true));
-  //   };
-  // }, []);
+      // if (!CardArray) {
+      //   // If CardArray doesn't exist, initialize it as an array with the current id
+      //   CardArray = [{ id, image, name, price, museumName }];
+      //   localStorage.setItem('CardArray', JSON.stringify(CardArray));
+      //   dispatch(
+      //     setBasketData({ id: id, image: image, name: name, price: price, museumName: museumName }),
+      //   );
+      //   console.log(CardArray.length, 'CardArra22222222222222222y');
+      // } else {
+      //   // If CardArray already exists, push the new id into it
+      //   if (CardArray.find((el) => el.id === id)) {
+      //   } else {
+      //     console.log(CardArray.length, 'CardArrayCardArrayCardArray');
+      //     CardArray.push({ id, image, name, price, museumName });
+      //     localStorage.setItem('CardArray', JSON.stringify(CardArray));
+      //     dispatch(
+      //       setBasketData({
+      //         id: id,
+      //         image: image,
+      //         name: name,
+      //         price: price,
+      //         museumName: museumName,
+      //       }),
+      //     );
+      //   }
+      // }
+    };
+  }, []);
   console.log('AllShopData', AllShopData);
   // console.log('allCategories', allCategories);
   // console.log('allmuseumNames', allmuseumNames);
@@ -92,6 +137,9 @@ function Shop() {
         </div>
       ) : (
         <div className="shop_all">
+          <div className={errorText ? 'shop_error_text' : 'shop_error_text_none'}>
+            zambyuxic ogtvelu hamar petq e grancvel{' '}
+          </div>
           <div className="backImage_shop">
             <h1>{t('shop_page_data.0')}</h1>
           </div>
@@ -148,8 +196,8 @@ function Shop() {
                   ? 'shopess'
                   : 'shopess_start'
               }>
-              {AllShopData.data?.length !== 0
-                ? AllShopData?.data.map((el, index) => (
+              {AllShopData && AllShopData.data?.length !== 0
+                ? AllShopData.data?.map((el, index) => (
                     <div
                       className="shop-box"
                       key={index}
@@ -157,8 +205,15 @@ function Shop() {
                       <div className="shop-box_img">
                         <img src={el.image} alt={el.image} />
                         <div className="souvenir_item_add_cart_div">
-                          <ButtonSecond txt="3" 
-                          // onClick={handleClickOpenModal(el.id, el.image)} 
+                          <ButtonSecond
+                            txt="3"
+                            onClick={handleClickOpenModal(
+                              el.id,
+                              el.image,
+                              el.name,
+                              el.price,
+                              el.museum_name,
+                            )}
                           />
                         </div>
                       </div>

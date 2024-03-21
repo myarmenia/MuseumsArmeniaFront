@@ -37,10 +37,30 @@
 }
 
 /* ///H//// */
-.shop-card {
-  width: 23px !important;
-  height: 23px !important;
+.shopIconDiv {
+  position: relative;
 }
+.shopIconLength {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  color: white;
+  background-color: #cea670;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.shop-card {
+  width: 26px !important;
+  height: 26px !important;
+  cursor: pointer;
+}
+
 /* //////////////// */
 @media (max-width: 1024px) {
   .nav_bar {

@@ -1,5 +1,6 @@
 .shop_all {
   min-height: 100vh;
+  position: relative;
 }
 
 .backImage_shop {
@@ -172,11 +173,24 @@
 .shop-box:hover .shop-box_img .souvenir_item_add_cart_div {
   transform: rotateX(0);
 }
-
-/* .testtt {
-
-  
-} */
+/* /////////////shop error text///////////// */
+.shop_error_text {
+  position: fixed;
+  top: 70px;
+  right: 5px;
+  color: rgb(246, 31, 31);
+  z-index: 1111;
+  font-weight: 700;
+}
+.shop_error_text_none {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgb(246, 31, 31);
+  z-index: 1111;
+  display: none;
+}
+/* ////////////////// */
 
 @media screen and (max-width: 910px) {
   .shopess_start {

@@ -2,19 +2,32 @@ import React, { useCallback, useEffect, useState } from 'react';
 import './SingleShop.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSingleDataShop } from '../../store/slices/Shop/ShopApi';
-import { getSingleShopDatas, getSingleShopLoading, setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice';
+import {
+  getSingleDataShop,
+  postShopCardData,
+  postSingleShopCardData,
+} from '../../store/slices/Shop/ShopApi';
+import {
+  getLoadingShop,
+  getSingleShopDatas,
+  getSingleShopLoading,
+  setBasketData,
+  setModalIsOpenShop,
+} from '../../store/slices/Shop/ShopSlice';
 import ButtonSecond from '../ButtonSecond/ButtonSecond';
 import { useTranslation } from 'react-i18next';
 import CardModal from '../Shop/CardModal';
+import { getIsAuth } from '../../store/slices/Auth/AuthSlice';
 
 function SingleShop() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const IsAuth = useSelector(getIsAuth);
   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
   const params = useParams();
   const dispatch = useDispatch();
   const singleShopDatas = useSelector(getSingleShopDatas);
+  // const loading = useSelector(getSingleShopLoading);
   const loading = useSelector(getSingleShopLoading);
 
   useEffect(() => {
@@ -37,11 +50,59 @@ function SingleShop() {
     setNumber((prevNumber) => (prevNumber > 1 ? prevNumber - 1 : prevNumber));
   };
   // console.log(singleShopDatas.similar_products.length, 5555555);
+  console.log('numbernumber', number);
   /////////////////////////////////
-  // const handleClickOpenModal = useCallback((e)=>{
-  //   e.stopPropagation()
-  //   dispatch(setModalIsOpenShop(true))
-  // },[])
+  // const handleClickOpenModal = useCallback((e) => {
+  //   e.stopPropagation();
+  //   dispatch(setModalIsOpenShop(true));
+  // }, []);
+  const handleClickOpenModal = useCallback(
+    (id, image, name, price, museumName, productCount) => {
+      return (e) => {
+        e.stopPropagation();
+        dispatch(setModalIsOpenShop(true));
+        console.log('productCount', productCount);
+        const count = productCount !== undefined ? productCount : 1;
+        IsAuth && dispatch(postSingleShopCardData({ id,  productCount: count }));
+
+        //       dispatch(
+        //   setBasketData({ id: id, image: image, name: name, price: price, museumName: museumName,productCount:productCount }),
+        // );
+        // Check if CardArray already exists in localStorage
+        // let CardArray = JSON.parse(localStorage.getItem('CardArray'));
+
+        // if (!CardArray) {
+        //   // If CardArray doesn't exist, initialize it as an array with the current id
+        //   CardArray = [{ id, image, name, price, museumName ,productCount}];
+        //   localStorage.setItem('CardArray', JSON.stringify(CardArray));
+        //   dispatch(
+        //     setBasketData({ id: id, image: image, name: name, price: price, museumName: museumName,productCount:productCount }),
+        //   );
+        //   console.log(CardArray.length, 'CardArra22222222222222222y');
+        // } else {
+        //   // If CardArray already exists, push the new id into it
+        //   if (CardArray.find((el) => el.id === id)) {
+        //   } else {
+        //     console.log(CardArray.length, 'CardArrayCardArrayCardArray');
+        //     CardArray.push({ id, image, name, price, museumName,productCount });
+        //     localStorage.setItem('CardArray', JSON.stringify(CardArray));
+        //     dispatch(
+        //       setBasketData({
+        //         id: id,
+        //         image: image,
+        //         name: name,
+        //         price: price,
+        //         museumName: museumName,
+        //         productCount:productCount
+        //       }),
+        //     );
+        //   }
+        // }
+      };
+    },
+    [IsAuth],
+  );
+  console.log('singleShopDatas', singleShopDatas);
 
   return (
     <>
@@ -82,7 +143,17 @@ function SingleShop() {
                       </span>
                     </div>
                   </div>
-                  <ButtonSecond txt={3} />
+                  <ButtonSecond
+                    txt={3}
+                    onClick={handleClickOpenModal(
+                      singleShopDatas.id,
+                      singleShopDatas.image,
+                      singleShopDatas.name,
+                      singleShopDatas.price,
+                      singleShopDatas.museum_name,
+                      number,
+                    )}
+                  />
                 </div>
                 <p className="singleShop_top_right_kategoria">
                   {t('single_shop_page.1')}: {singleShopDatas.product_category_id}
@@ -101,10 +172,16 @@ function SingleShop() {
                         <div className="shop-box_img_singleShop">
                           <img src={el.image} alt={el.image} />
 
-                          
                           <div className="souvenir_item_add_cart_div">
-                            <ButtonSecond txt="3" 
-                            // onClick={handleClickOpenModal}
+                            <ButtonSecond
+                              txt="3"
+                              onClick={handleClickOpenModal(
+                                el.id,
+                                el.image,
+                                el.name,
+                                el.price,
+                                el.museum_name,
+                              )}
                             />
                           </div>
                         </div>

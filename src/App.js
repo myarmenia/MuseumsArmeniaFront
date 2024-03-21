@@ -109,11 +109,39 @@ function App() {
               />
             </Route>
 
-            <Route path="news" element={<Newses {...{ changeFonSize }} />} />
-            <Route path="news/:id" element={<SingleNews />} />
+            <Route
+              path="news"
+              element={
+                <PrivateRouteForOutSider>
+                  <Newses {...{ changeFonSize }} />
+                </PrivateRouteForOutSider>
+              }
+            />
+            <Route
+              path="news/:id"
+              element={
+                <PrivateRouteForOutSider>
+                  <SingleNews />
+                </PrivateRouteForOutSider>
+              }
+            />
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="store" element={<Shop />} />
-            <Route path="store/:id" element={<SingleShop />} />
+            <Route
+              path="store"
+              element={
+                <PrivateRouteForOutSider>
+                  <Shop />
+                </PrivateRouteForOutSider>
+              }
+            />
+            <Route
+              path="store/:id"
+              element={
+                <PrivateRouteForOutSider>
+                  <SingleShop />
+                </PrivateRouteForOutSider>
+              }
+            />
             <Route
               path="aboute-us"
               element={
