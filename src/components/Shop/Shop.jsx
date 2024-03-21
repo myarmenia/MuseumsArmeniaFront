@@ -92,13 +92,14 @@ function Shop() {
       } else {
         setErrorText(true);
       }
-      
+
       // dispatch(
       //   setBasketData({ id: id, image: image, name: name, price: price, museumName: museumName }),
       // );
       // Check if CardArray already exists in localStorage
       // let CardArray = JSON.parse(localStorage.getItem('CardArray'));
 
+      
       // if (!CardArray) {
       //   // If CardArray doesn't exist, initialize it as an array with the current id
       //   CardArray = [{ id, image, name, price, museumName }];
