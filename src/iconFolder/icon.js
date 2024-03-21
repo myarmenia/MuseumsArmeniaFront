@@ -273,25 +273,31 @@ export const SendButtonMessages = ({ width = '24', height = '24', fill = '#3F3D5
    </svg>
 );
 
-export const CloseMessages = ({
+export const CloseMessagesBtn = ({
    width = '10',
    height = '10',
    fill = '#3F3D56',
    stroke = '#B26705',
 }) => (
-   <svg
-      width={width}
-      height={height}
-      viewBox="0 0 10 10"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg">
-      <path d="M9.5 9.5L0.5 0.5" stroke={stroke} stroke-linecap="round" stroke-linejoin="round" />
+   <svg width={width} height={height} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M12.5 3.5L3.5 12.5"
+         stroke="#B26705"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+      />
+      <path
+         d="M12.5 12.5L3.5 3.5"
+         stroke="#B26705"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+      />
    </svg>
 );
 export const StartMessagesIcon = ({ width = '24', height = '24', fill = '#3F3D56' }) => (
    <svg
-      width="263"
-      height="227"
+      width={width}
+      height={height}
       viewBox="0 0 263 227"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">

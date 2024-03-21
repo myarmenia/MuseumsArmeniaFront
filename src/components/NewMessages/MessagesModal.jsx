@@ -3,18 +3,18 @@ import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMessagesType, setEducationProgramType } from '../../store/slices/MessagesBotSlice/MessagesBotSlice';
 import { setIsOpen } from '../../store/slices/NewMessagesSlice/NewMessagesSlice';
-import { CloseMessages } from '../../iconFolder/icon';
+import { CloseMessagesBtn } from '../../iconFolder/icon';
 
 const customStyles = {
    content: {
       top: 'auto',
       left: 'auto',
-      right: '5%',
-      bottom: '30px',
+      right: '2%',
+      bottom: '15px',
       // marginRight: '-50%',
       // transform: 'translate(-50%, -50%)',
-      width: '450px',
-      height: '650px',
+      width: '370px',
+      height: '600px',
       padding: '0',
       border: 'none',
       borderRadius: '10px',
@@ -69,7 +69,8 @@ const MessagesModal = ({ children }) => {
             contentLabel="Example Modal">
             <div className="child_modall">
                <div onClick={closeModal} className="messagesModal-close">
-                  <p>X</p>
+                  {/* <p>X</p> */}
+                  <CloseMessagesBtn width='15px' height='15px'/>
                </div>
                {children}
             </div>

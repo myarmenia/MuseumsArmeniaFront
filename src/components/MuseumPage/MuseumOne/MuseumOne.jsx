@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import {
    postMuseumOnePages,
    educationalPrograms,
+   getMuseumOneEvents
 } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import { getAuthUserAllMessages } from '../../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
@@ -39,6 +40,7 @@ const MuseumOne = () => {
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
       dispatch(educationalPrograms({ id }));
+      dispatch(getMuseumOneEvents({ id }));
       if (isAuth) {
          dispatch(getAuthUserAllMessages(id))
       }

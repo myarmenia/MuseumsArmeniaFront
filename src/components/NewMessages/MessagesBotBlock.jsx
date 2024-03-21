@@ -43,7 +43,7 @@ const MessagesBotBlock = ({ messagesUser, resetMessages }) => {
                   style={{ background: `url(${dataMuseumOne.main_photo})` }}></div>
                <p>{dataMuseumOne.name}</p>
             </div> */}
-            <div className="chatList-bot">
+           
                <ul className="chatList-ul">
                   <li className="admin_messages">
                      <span style={{ cursor: 'inherit' }} className="">
@@ -127,7 +127,7 @@ const MessagesBotBlock = ({ messagesUser, resetMessages }) => {
                        ))
                      : ''}
                </ul>
-            </div>
+          
          </div>
       </>
    );

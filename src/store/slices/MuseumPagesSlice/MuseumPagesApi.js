@@ -41,3 +41,17 @@ export const educationalPrograms = createAsyncThunk(
       }
    },
 );
+export const getMuseumOneEvents = createAsyncThunk(
+   'MuseumPagesOne/getMuseumOneEvents',
+   async (body, thunkAPI) => {
+      const id = body?.id ? `${body.id}` : '';
+      try {
+         const { data } = await instance(`museum/${id}/events`);
+         console.log(data);
+         // return thunkAPI.fulfillWithValue(data);
+      } catch (error) {
+         console.log(error);
+         return thunkAPI.rejectWithValue(error.response.data.error);
+      }
+   },
+);
