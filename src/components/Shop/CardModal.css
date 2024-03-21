@@ -1,0 +1,105 @@
+.xxx {
+  background-color: #f8f9fa;
+  height: 100vh;
+  width: 100%;
+  transition: all 0.8s ease;
+  transform: rotateY(0deg);
+  transform-origin: right;
+  animation-name: anim;
+  animation-duration: 1s;
+  overflow: auto;
+  color: black;
+  /* animation-delay: 0.5s; */
+}
+
+@keyframes anim {
+  from {
+    transform: rotateY(90deg);
+  }
+  to {
+    transform: rotateY(0);
+  }
+}
+
+/* ///////////////////////////////// */
+.closeBtn_basket {
+  text-align: end;
+  font-size: 18px;
+  padding-right: 14px;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  cursor: pointer;
+}
+.all_baskets {
+  background-color: #f8f9fa;
+}
+.basket_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 45px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 2px #00000005;
+}
+.basket_box_img {
+  width: 83px;
+  height: 83px;
+  object-fit: fill;
+}
+
+.delate_button {
+  cursor: pointer;
+  color: red;
+  font-size: 22px;
+}
+
+.basket_box_div {
+  width: 170px;
+}
+
+.museumName {
+  font-style: italic;
+  font-size: 15px;
+  font-weight: 100;
+}
+.basket_box_div_name {
+  font-weight: 600;
+}
+.left_div_basket_box {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_top_all_baskets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.card_top_all_baskets > p {
+  font-size: 22px;
+}
+.all_baskets_top_card {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 110px;
+  margin-top: 15px;
+}
+
+.shop_icon_with_count {
+  position: relative;
+}
+.shop_icon_count {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
