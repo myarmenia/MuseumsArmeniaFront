@@ -20,6 +20,7 @@ import SaleTicketPage from './components/SaleTicketPage/SaleTicketPage';
 import Shop from './components/Shop/Shop';
 import SingleShop from './components/SingleShop/SingleShop';
 import FaqPage from './components/FaqPage/FaqPage';
+import EventsPage from './components/EventsPage/EventsPage';
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('');
@@ -76,37 +77,72 @@ function App() {
               }
             />
 
-            <Route
-              index
-              element={
-                <PrivateRouteForOutSider>
-                  <HomePage {...{ changeFonSize, changeFont }} />
-                </PrivateRouteForOutSider>
-              }
-            />
-            <Route
-              path="museums"
-              element={
-                <PrivateRouteForOutSider>
-                  <MuseumLayouts />
-                </PrivateRouteForOutSider>
-              }>
-              <Route
-                index
-                element={
-                  <PrivateRouteForOutSider>
-                    <MuseumPage />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              <Route
-                path="museum/:id"
-                element={
-                  <PrivateRouteForOutSider>
-                    <MuseumOne />
-                  </PrivateRouteForOutSider>
-                }
-              />
+                  <Route
+                     index
+                     element={
+                        <PrivateRouteForOutSider>
+                           <HomePage {...{ changeFonSize, changeFont }} />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+                  <Route
+                     path="museums"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <MuseumLayouts />
+                        </PrivateRouteForOutSider>
+                     }>
+                     <Route
+                        index
+                        element={
+                           <PrivateRouteForOutSider>
+                              <MuseumPage />
+                           </PrivateRouteForOutSider>
+                        }
+                     />
+                     <Route
+                        path="museum/:id"
+                        element={
+                           <PrivateRouteForOutSider>
+                              <MuseumOne />
+                           </PrivateRouteForOutSider>
+                        }
+                     />
+                  </Route>
+
+                  <Route path="news" element={<Newses {...{ changeFonSize }} />} />
+                  <Route path="news/:id" element={<SingleNews />} />
+                  <Route path="privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="store" element={<Shop />} />
+                  <Route path="store/:id" element={<SingleShop />} />
+                  <Route
+                     path="aboute-us"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <AbouteUsPage />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+                  <Route
+                     path="ticket-sale"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <SaleTicketPage />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+
+                  <Route
+                     path="FAQ"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <FaqPage />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+               <Route path='events' element={<PrivateRouteForOutSider><EventsPage/></PrivateRouteForOutSider>}/>
+               </Route>
+                     
             </Route>
 
             <Route
@@ -167,8 +203,7 @@ function App() {
                 </PrivateRouteForOutSider>
               }
             />
-          </Route>
-        </Route>
+      
       </Routes>
     </div>
   );

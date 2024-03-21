@@ -1,0 +1,28 @@
+.private_ticket{
+    padding: 100px 0;
+}
+
+.private_ticket .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.private_ticket_type_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.private_ticket_type_div >button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.private_ticket_type_div >button:hover{
+    color: var(--second_font_color);
+}
+

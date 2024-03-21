@@ -22,7 +22,7 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Գնել հիմա', 'Տեսնել Բոլորը', 'Ուղարկել', 'Ավելացնել', 'Դիմել' , 'ՈՒղարկել'],
+            buttons: ['Գնել հիմա', 'Տեսնել Բոլորը', 'Ուղարկել', 'Ավելացնել', 'Դիմել' , 'ՈՒղարկել',],
 
             footer_title:
                'Հայաստանի Հանրապետության Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
@@ -442,7 +442,22 @@ i18n.use(initReactI18next).init({
             'ուսանողներ,',
             'Հայաստանի Հանրապետության քաղաքացի հանդիսացող կենսաթոշակառուներ,',
             'փախստականներ։'
-          ]
+          ],
+
+          privateTicketRegions: [
+            {bolor: 'Բոլորը'},
+            {yerevan: 'Երևան'},
+            {aragatsotn: 'Արագածոտն'},
+            {ararat: 'Արարատ'},
+            {armavir: 'Արմավիր'},
+            {gegharkunik: 'Գեղարքունիք'},
+            {kotayk: 'Կոտայք'},
+            {lori: 'Լոռի'},
+            {shirak: 'Շիրակ'},
+            {syunik: 'Սյունիք'},
+            {tavush: 'Տավուշ'},
+            {vayots_dzor: 'Վայոց Ձոր'}
+          ],
 
         },
 
@@ -890,7 +905,22 @@ i18n.use(initReactI18next).init({
             'студенты,',
             'Пенсионеры, являющиеся гражданами Республики Армения,',
             'беженцы.'
-          ]
+          ],
+
+          privateTicketRegions: [
+            {bolor: 'Все'},
+            {yerevan: 'Ереван'},
+            {aragatsotn: 'Арагацотн'},
+            {ararat: 'Арарат'},
+            {armavir: 'Армавир'},
+            {gegharkunik: 'Гегаркуник'},
+            {kotayk: 'Котайк'},
+            {lori: 'Лори'},
+            {shirak: 'Ширак'},
+            {syunik: 'Сюник'},
+            {tavush: 'Тавуш'},
+            {vayots_dzor: 'Вайоцдзор'}
+          ],
       },
 
       // Add more languages as needed
@@ -1332,7 +1362,22 @@ i18n.use(initReactI18next).init({
             'students,',
             'Pensioners who are citizens of the Republic of Armenia,',
             'Refugees'
-          ]
+          ],
+
+          privateTicketRegions: [
+            {bolor: 'All'},
+            {yerevan: 'Yerevan'},
+            {aragatsotn: 'Aragatsotn'},
+            {ararat: 'Ararat'},
+            {armavir: 'Armavir'},
+            {gegharkunik: 'Gegharkunik'},
+            {kotayk: 'Kotayk'},
+            {lori: 'Lori'},
+            {shirak: 'Shirak'},
+            {syunik: 'Syunik'},
+            {tavush: 'Tavush'},
+            {vayots_dzor: 'Vayots Dzor'}
+          ],
 
      },
 

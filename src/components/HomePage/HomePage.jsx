@@ -31,7 +31,7 @@ function HomePage({changeFonSize, changeFont}) {
     <div className='home_page'>
             <NavBarForHome homeNavColor={homeNavColor} {...{changeFonSize, changeFont}}/>
             <SliderInHome/>
-            {/* <PrivateTicket/> */}
+            <PrivateTicket/>
             <SingleTicketSection/>
             <NewsSectionInHome/>
             <MuseumSectionSliderInHome/>
