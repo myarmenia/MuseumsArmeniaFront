@@ -7,7 +7,7 @@ export const postVerifyAccount = createAsyncThunk(
     async (body, thunkAPI) => {
       const leng = localStorage.getItem('lang')
         try {
-          console.log(body,'dddddd');
+          console.log(body,'gggg');
           const config = {
             method: "post",
             url: "auth/check-verify-token",

@@ -1,32 +1,33 @@
 import React, { useState, useEffect, memo } from 'react';
 import MuseumMinBlock from './MuseumMinBlock';
 function PaginationExample({ filterDataMuseum }) {
-   // массив как свойство
+
    const [currentPage, setCurrentPage] = useState(1);
    const itemsPerPage = 6;
 
    useEffect(() => {
-      // Обновляем компонент при изменении текущей страницы
+     
       displayItems();
-   }, [currentPage, filterDataMuseum]); // Обновляем компонент при изменении текущей страницы и массива
+   }, [currentPage, filterDataMuseum]);
 
    const displayItems = () => {
       const startIndex = (currentPage - 1) * itemsPerPage;
-      const pageItems = filterDataMuseum.slice(startIndex, startIndex + itemsPerPage); // Используем переданный массив
+      const pageItems = filterDataMuseum.slice(startIndex, startIndex + itemsPerPage); 
       return pageItems.map((item, index) => <MuseumMinBlock {...item} key={item.id} />);
    };
 
    const handlePageChange = (page) => {
       setCurrentPage(page);
    };
-
-   const numPages = Math.ceil(filterDataMuseum.length / itemsPerPage); // Используем длину переданного массива
+  
+   const numPages = Math.ceil(filterDataMuseum.length / itemsPerPage); 
 
    return (
       <>
          <div className="par_museumList">{displayItems()}</div>
 
-         <div className="par_museum_pagButton">
+         {
+            filterDataMuseum.length > 6 && (<div className="par_museum_pagButton">
             {Array.from({ length: numPages }, (_, index) => (
                <button
                   className="museum_pagButton"
@@ -38,7 +39,8 @@ function PaginationExample({ filterDataMuseum }) {
                   {index + 1}
                </button>
             ))}
-         </div>
+         </div>)
+         }
       </>
    );
 }

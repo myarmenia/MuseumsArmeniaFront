@@ -20,6 +20,7 @@ import SaleTicketPage from './components/SaleTicketPage/SaleTicketPage';
 import Shop from './components/Shop/Shop';
 import SingleShop from './components/SingleShop/SingleShop';
 import FaqPage from './components/FaqPage/FaqPage';
+import EventsPage from './components/EventsPage/EventsPage';
 
 function App() {
    const [changeFonSize, setChangeFonSize] = useState('');
@@ -139,7 +140,9 @@ function App() {
                         </PrivateRouteForOutSider>
                      }
                   />
+               <Route path='events' element={<PrivateRouteForOutSider><EventsPage/></PrivateRouteForOutSider>}/>
                </Route>
+                     
             </Route>
          </Routes>
       </div>

@@ -34,15 +34,18 @@ const loginSlice = createSlice({
             state.data.isAuth = true
             state.loading = 'fulfilled'
              state.status = 'succes';
+             console.log(state.data,'ayooo');
           })
           .addCase(postLogin.rejected, (state, action) => {
              if(action.payload){
-                state.data.error = action.payload
+                state.data = action.payload
                 state.data.isAuth = false
                 
                }
                state.loading = 'rejected'
                state.status = 'failed'; 
+             console.log(action.payload,'voch');
+
           });
     },
  });
