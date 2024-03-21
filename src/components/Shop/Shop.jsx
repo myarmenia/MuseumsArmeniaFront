@@ -92,6 +92,7 @@ function Shop() {
       } else {
         setErrorText(true);
       }
+      
       // dispatch(
       //   setBasketData({ id: id, image: image, name: name, price: price, museumName: museumName }),
       // );
