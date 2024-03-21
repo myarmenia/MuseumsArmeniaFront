@@ -1,4 +1,5 @@
 import React, { useEffect, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MuseumPageHeader, SearchBlockMuseumPage, PaginationExample } from './index';
 import { postMuseumPages } from '../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import LoadSpinner from '../LoadSpinner/LoadSpinner';
@@ -8,6 +9,7 @@ import './museumPage.css';
 
 const MuseumPage = () => {
    const dispatch = useDispatch();
+   const {t, i18n} = useTranslation()
    const { loadingStatus, filterDataMuseum, regions } = useSelector((state) => state.museumPages);
 
    useEffect(() => {
@@ -20,7 +22,7 @@ const MuseumPage = () => {
             <LoadSpinner />
          ) : loadingStatus === 'fulfilled' ? (
             <div style={{ minHeight: '100vh' }}>
-               <MuseumPageHeader headerImg={headerImg} title="Թանգարաններ" />
+               <MuseumPageHeader headerImg={headerImg} title={t(`navMenuItems.1`)} />
                <div
                   className="museumPage_section"
                   style={{

@@ -8,7 +8,7 @@ import { filterRegionMuseum } from '../../store/slices/MuseumPagesSlice/MuseumPa
 const SearchBlockMuseumPage = ({ regions }) => {
    const dispatch = useDispatch();
    const { t, i18n } = useTranslation();
-   const [activRegion, setActivRegion] = React.useState({ name: 'Մարզեր', region: null });
+   const [activRegion, setActivRegion] = React.useState({ name: t(`RegionsMussseum`), region: null });
    const [openList, setOpenList] = React.useState(false);
 
    const filter = React.useCallback((obj) => {
@@ -32,11 +32,11 @@ const SearchBlockMuseumPage = ({ regions }) => {
                }}>
                <div >
                   <p className="searchOll"
-                     onClick={() => filter({ name: 'Մարզեր', region: null })}
+                     onClick={() => filter({ name: t(`RegionsMussseum`), region: null })}
                      style={{
                         color: `${activRegion.region === null ? '#D5AA72' : '#000'}`,
                      }}
-                  >Բոլորը</p>
+                  >{t(`allMussseum`)}</p>
                   <div className="listRegion">
                      {regions.map((el, idx) => (
                         <p

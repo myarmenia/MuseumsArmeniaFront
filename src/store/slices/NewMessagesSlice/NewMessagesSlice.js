@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import { getAuthUserAllMessages, postUserMessages} from './NewMessagesSliceApi';
 const initialState = {
    loadingStatus: 'loading',
    modalIsOpen: false,
-   messagesType: null,
+   dataMuseumMessages: [],
+   statusPostUserMessages: null
 };
 
 const NewMessagesSlice = createSlice({
@@ -13,29 +14,39 @@ const NewMessagesSlice = createSlice({
       setIsOpen(state, { payload }) {
          state.modalIsOpen = payload;
       },
-      setMessagesType(state, { payload }) {
-         state.messagesType = payload;
+      setDataMuseumMessages(state, { payload }) {
+         state.dataMuseumMessages = payload;
       },
    },
-   // extraReducers: (builder) => {
-   //    builder
-   //    postMuseumPages===========================
-   //    .addCase(postMuseumPages.pending, (state) => {
-   //       state.loadingStatus = 'loading';
-   //    })
-   //    .addCase(postMuseumPages.fulfilled, (state, { payload }) => {
-   //       state.loadingStatus = 'fulfilled';
-   //       state.dataMuseum = payload.data.museums;
-   //       state.filterDataMuseum = payload.data.museums;
-   //       state.regions = payload.data.regions;
-   //    })
-   //    .addCase(postMuseumPages.rejected, (state, action) => {
-   //       state.loadingStatus = 'rejected';
-   //       state.dataMuseum = [];
-   //       state.filterDataMuseum = [];
-   //    })
-   // },
+   extraReducers: (builder) => {
+      builder
+      // postMuseumPages===========================
+
+      .addCase(getAuthUserAllMessages.pending, (state) => {
+         state.loadingStatus = 'loading';
+      })
+      .addCase(getAuthUserAllMessages.fulfilled, (state, { payload }) => {
+         state.loadingStatus = 'fulfilled';
+         state.dataMuseumMessages = payload.data
+      })
+      .addCase(getAuthUserAllMessages.rejected, (state, action) => {
+         state.loadingStatus = 'rejected';
+         state.dataMuseum = [];
+         state.filterDataMuseum = [];
+      })
+
+       // postUserMessages===========================
+
+      .addCase(postUserMessages.pending, (state) => {
+      })
+      .addCase(postUserMessages.fulfilled, (state, { payload }) => {
+         state.statusPostUserMessages = true
+      })
+      .addCase(postUserMessages.rejected, (state, action) => {
+         state.statusPostUserMessages = null
+      })
+   },
 });
 
 export const NewMessagesReducer = NewMessagesSlice.reducer;
-export const { setIsOpen, setMessagesType } = NewMessagesSlice.actions;
+export const { setIsOpen, setDataMuseumMessages } = NewMessagesSlice.actions;
