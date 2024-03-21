@@ -2,9 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import instance from '../../../axios';
 
-export const getAllShop = createAsyncThunk(
-  'shop/getAllShop',
-   async (pageNum, thunkAPI) => {
+export const getAllShop = createAsyncThunk('shop/getAllShop', async (pageNum, thunkAPI) => {
+  // alert('getAllShop');
   try {
     const config = {
       method: 'get',
@@ -13,15 +12,14 @@ export const getAllShop = createAsyncThunk(
 
     const response = await instance(config);
     console.log(response, 88888888888);
+    // alert(333);
     return response?.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.error.both);
   }
 });
 
-export const getCategoryShop = createAsyncThunk(
-  'shop/getCategoryShop',
- async (_, thunkAPI) => {
+export const getCategoryShop = createAsyncThunk('shop/getCategoryShop', async (_, thunkAPI) => {
   try {
     const config = {
       method: 'get',
@@ -36,13 +34,11 @@ export const getCategoryShop = createAsyncThunk(
   }
 });
 
-export const getMuseumNames = createAsyncThunk(
-  'shop/getMuseumNames',
- async (_, thunkAPI) => {
+export const getMuseumNames = createAsyncThunk('shop/getMuseumNames', async (_, thunkAPI) => {
   try {
     const config = {
       method: 'get',
-      url: 'shop/museum-list',
+      url: 'museum-list',
     };
 
     const response = await instance(config);
@@ -73,7 +69,7 @@ export const getSearchesShop = createAsyncThunk(
 
 export const getFilteredShop = createAsyncThunk(
   'shop/getFilteredShop',
-  async ({category,museum}, thunkAPI) => {
+  async ({ category, museum }, thunkAPI) => {
     try {
       const config = {
         method: 'get',
@@ -88,7 +84,6 @@ export const getFilteredShop = createAsyncThunk(
   },
 );
 
-
 export const getSingleDataShop = createAsyncThunk(
   'shop/getSingleDataShop',
   async (id, thunkAPI) => {
@@ -96,6 +91,54 @@ export const getSingleDataShop = createAsyncThunk(
       const config = {
         method: 'get',
         url: `shop/product/${id}`,
+      };
+      const response = await instance(config);
+      console.log(response);
+      return response?.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error.both);
+    }
+  },
+);
+
+/////////////api for send backend product//////////////
+
+export const postShopCardData = createAsyncThunk(
+  'shop/postShopCardData',
+  async (body, thunkAPI) => {
+    try {
+      const cardData = {
+        type:"product",
+        product_id:body.id,
+        quantity:1
+      };
+      const config = {
+        method: 'post',
+        url: `cart/store`,
+        data: cardData,
+      };
+      const response = await instance(config);
+      console.log(response);
+      return response?.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error.both);
+    }
+  },
+);
+
+export const postSingleShopCardData = createAsyncThunk(
+  'shop/postSingleShopCardData',
+  async (body, thunkAPI) => {
+    try {
+      const singleCardData = {
+        type:"product",
+        product_id:body.id,
+        quantity:body.productCount
+      };
+      const config = {
+        method: 'post',
+        url: `cart/store`,
+        data: singleCardData,
       };
       const response = await instance(config);
       console.log(response);

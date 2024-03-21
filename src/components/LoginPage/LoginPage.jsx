@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import './LoginPage.css';
@@ -10,12 +10,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postLogin } from '../../store/slices/LoginSlice/LoginApi';
 import { postGoogleLogin } from '../../store/slices/GoogleLoginSlice/GoogleLoginApi';
 import { selectLogin } from '../../store/slices/LoginSlice/LoginSlice';
+import VerificationLogin from '../VerificationLogin/VerificationLogin';
 
 function LoginPage() {
+   const [openVerifyModal, setOpenVerifyModal] = useState(false)
    const leng = localStorage.getItem('lang');
    const { t, i18n } = useTranslation();
    const respLogin = useSelector(selectLogin);
-
+   const emailRef = useRef(null)
    const dispatch = useDispatch();
 
    const validationSchema = yup.object().shape({
@@ -35,6 +37,8 @@ function LoginPage() {
          };
 
          dispatch(postLogin(loginObj));
+         
+         respLogin.data.is_verify !== true && setOpenVerifyModal(true)
       }
    };
 
@@ -60,7 +64,6 @@ function LoginPage() {
                      password: '',
                   }}
                   onSubmit={(values, { resetForm }) => {
-                     resetForm();
                   }}
                   validateOnBlur
                   validationSchema={validationSchema}>
@@ -80,6 +83,7 @@ function LoginPage() {
                         <span>{t('login_btn')}</span>
                         <div className="email-inp">
                            <input
+                              ref = {emailRef}
                               type="email"
                               name="email"
                               placeholder={t('placeholder.0')}
@@ -106,7 +110,7 @@ function LoginPage() {
                            )}
                         </div>
 
-                        <p className="login_error_message">{respLogin?.data?.error}</p>
+                        <p className="login_error_message">{respLogin?.data?.message}</p>
 
                         <button className="login_btn">{t('login_btn')}</button>
 
@@ -143,8 +147,12 @@ function LoginPage() {
                      </form>
                   )}
                </Formik>
+
+               
+
             </div>
          </div>
+         {openVerifyModal && <VerificationLogin email={emailRef} {...{setOpenVerifyModal}}/>}
       </div>
    );
 }
