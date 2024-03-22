@@ -5,6 +5,9 @@ import { useTranslation } from 'react-i18next'
 import ButtonSecond from '../ButtonSecond/ButtonSecond'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectprivateTicket } from '../../store/slices/PrivateTicketSlice/PrivateTicketSlice'
+import { postTicketCart } from '../../store/slices/Shop/ShopApi'
+import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice'
+import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
 
 function PrivateStandartAndAbonementTicket({changeTicketType}) {
     const {t, i18n} = useTranslation()
@@ -24,6 +27,8 @@ function PrivateStandartAndAbonementTicket({changeTicketType}) {
     const privateRef = useRef(null)
     const dispatch = useDispatch()
     const respStandartTicket = useSelector(selectprivateTicket)
+    const isAuth = useSelector(getIsAuth)
+
 
     useEffect(() => {
         // setSelectedRegion({name: '', id: '', value: ''})
@@ -81,7 +86,7 @@ function PrivateStandartAndAbonementTicket({changeTicketType}) {
         const handleMuseumItemClick = (museum) => {
             setSelectedMuseum(museum.name)
             setMuseumItem(museum)
-            
+
             setTicketCountStandart(0)
             setTicketCountDicounted(0)
             setTicketCountFree(0)
@@ -154,6 +159,25 @@ function PrivateStandartAndAbonementTicket({changeTicketType}) {
             calculateTotalPrice();
         }, [ticketCountStandart, ticketCountDicounted, ticketCountFree, ticketCountSub]);
 
+
+        const addCart = (e) => {
+            e.stopPropagation()
+           if(isAuth){
+            dispatch(setModalIsOpenShop(true));
+            dispatch(postTicketCart({
+                type: 'ticket',
+                tickets: museumItem.tickets.map(el => ({
+                    type: el.type,
+                    id: el.id,
+                    quantity: el.type === 'standart' ? ticketCountStandart : el.type === 'discount' ? ticketCountDicounted  : el.type === 'subscription' ? ticketCountSub : ticketCountFree 
+                }))
+            }))
+
+            setTicketTypesBlock(false)
+           }
+            
+        }
+
     return (
         <div className='private_standart_ticket'>
             <div className='private_standart_ticket_regions' ref={regionRef} >
@@ -219,7 +243,7 @@ function PrivateStandartAndAbonementTicket({changeTicketType}) {
 
                     <div className='private_standart_ticket_museums_private_block_ticket_types_buy_div'>
                         <ButtonSecond txt='0'/>
-                        <ButtonSecond txt='5'/>
+                        <ButtonSecond txt='5' onClick={addCart}/>
                     </div>
                  </div>
                 )}

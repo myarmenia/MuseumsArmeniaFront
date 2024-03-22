@@ -10,6 +10,7 @@ import SectionAboteUs from '../SectionAboteUs/SectionAboteUs'
 import SouvenirsSection from '../SouvenirsSection/SouvenirsSection'
 import ContactUsSection from '../ContactUsSection/ContactUsSection'
 import PrivateTicket from '../PrivateTicket/PrivateTicket'
+import CardModal from '../Shop/CardModal'
 
 function HomePage({changeFonSize, changeFont}) {    
     const [homeNavColor, setHomeNavColor] = useState(false)
@@ -39,6 +40,7 @@ function HomePage({changeFonSize, changeFont}) {
             <SectionAboteUs/>
             <SouvenirsSection/>
             <ContactUsSection/>
+            <CardModal/>
     </div>
   )
 }
