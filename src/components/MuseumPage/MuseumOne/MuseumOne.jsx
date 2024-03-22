@@ -24,6 +24,7 @@ const MuseumOne = () => {
    const { loadingStatus, dataMuseumOne, dataEducationalPrograms, educationalProgramsLoad } =
       useSelector((state) => state.museumPages);
    
+      
    const {
       main_photo,
       name,
