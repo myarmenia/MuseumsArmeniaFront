@@ -1,0 +1,187 @@
+.private_standart_ticket{
+    display: flex;
+    /* width: 1000px; */
+    background-color: white;
+    border-radius: 70px;
+    height: 100px;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.468);
+}
+
+.private_standart_ticket_regions{
+    position: relative;
+    height: 100%;
+}
+
+.private_standart_ticket_regions > input:hover +ul{
+    transform: rotateX(0);
+}
+
+.private_standart_ticket_regions > input {
+    height: 100%;
+    background: transparent;
+    width: 200px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    /* border-right: 1px solid #AAAA; */
+    border-radius: 70px;
+    width: 100%;
+
+}
+
+.private_standart_ticket_regions > input:focus{
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.208);
+}
+
+.private_standart_ticket_regions_list{
+    position: absolute;
+    top: 110px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.427);
+    border-radius: 20px;
+    width: 300px;
+    z-index: 99;
+}
+
+.private_standart_ticket_regions_list li{
+    padding: 10px 20px;
+}
+
+.private_standart_ticket_regions_list li:nth-of-type(1){
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.private_standart_ticket_regions_list li:last-of-type{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.private_standart_ticket_regions_list li:hover{
+    background-color: #aaaaaa7a;
+}
+
+.private_standart_ticket_museums{
+    position: relative;
+    height: 100%;
+}
+
+.private_standart_ticket_museums > input {
+    height: 100%;
+    background: transparent;
+    border-radius: 70px;
+    width: 300px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+    /* border-right: 1px solid #AAAA; */
+}
+
+
+.private_standart_ticket_museums > input:focus{
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.515); */
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.168);
+}
+
+
+.private_standart_ticket_museum_list{
+    position: absolute;
+    top: 110px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.427);
+    border-radius: 20px;
+    width: 400px;
+    z-index: 99;
+}
+
+
+.private_standart_ticket_museum_list li{
+    padding: 10px 20px;
+}
+
+.private_standart_ticket_museum_list li:nth-of-type(1){
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.private_standart_ticket_museum_list li:last-of-type{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.private_standart_ticket_museum_list li:hover{
+    background-color: #aaaaaa7a;
+}
+
+
+.private_standart_ticket_museums_private_block{
+    height: 100%;
+    background: transparent;
+    border-radius: 70px;
+    width: 300px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.private_standart_ticket_museums_private_block >span{
+    color: #AAAA;
+}
+
+.private_standart_ticket_museums_private_block_ticket_types{
+    position: absolute;
+    top: 110px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.427);
+    border-radius: 20px;
+    width: 300px;
+    padding: 20px;
+    z-index: 99;
+}
+
+.private_standart_ticket_museums_private_block_ticket_types{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.packet_div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.packet_div_price{
+    color: var(--second_font_color);
+}
+
+.packet_div_count{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.packet_div_count span {
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 10px black;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.private_standart_ticket_museums_private_block_ticket_types_buy_div{
+    display: flex;
+    gap: 20px;
+}
+
+.private_standart_ticket_museums_private_block_ticket_types_buy_div button{
+    padding: 5px 10px;
+}

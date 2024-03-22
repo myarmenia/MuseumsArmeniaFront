@@ -186,6 +186,225 @@ export const responsive2 = {
   };
 
 
-
 //   ==================================================================================
 
+export const privateTicketsData = {
+    regions: [
+
+        {
+            id: '0',
+            nameKey: 'bolory'
+        },
+
+        {
+            id: '1',
+            nameKey: 'yerevan'
+        },
+
+        {
+            id: '2',
+            nameKey: 'aragatsotn'
+        },
+
+        {
+            id: '3',
+            nameKey: 'ararat'
+        },
+
+        {
+            id: '4',
+            nameKey: 'armavir'
+        },
+
+        {
+            id: '5',
+            nameKey: 'gegharkunik'
+        },
+        {
+            id: '6',
+            nameKey: 'kotayk'
+        },
+        {
+            id: '7',
+            nameKey: 'lori'
+        },
+        {
+            id: '8',
+            nameKey: 'shirak'
+        },
+        {
+            id: '9',
+            nameKey: 'syunik'
+        },
+        {
+            id: '10',
+            nameKey: 'tavush'
+        },
+        {
+            id: '11',
+            nameKey: 'vayots_dzor'
+        },
+    ],
+
+    museums: [
+        {
+                id: '1',
+                region_name: 'vayots_dzor',
+                name: 'Hovhannes Tumanyani Tun Tangaran',
+                tickets: [
+
+                    {
+                        id: '1',
+                        type: 'standart',
+                        price: 3000,
+                        min: 1,
+                        max: null
+                    },
+                
+                    {
+                        id: '2',
+                        type: 'discounted',
+                        price: 3500,
+                        min: 1,
+                        max: 10
+                    },
+                
+                    {
+                        id: '3',
+                        type: 'free',
+                        price: 0,
+                        min: 1,
+                        max: 12
+                    },
+                  
+                 ]
+        },
+
+        {
+                id: '2',
+                region_name: 'tavush',
+                name: 'Stepan Shahinyani Tun Tangaran',
+                tickets: [
+
+                    {
+                        id: '1',
+                        type: 'standart',
+                        price: 3000,
+                        min: 1,
+                        max: 10
+                    },
+                
+                    {
+                        id: '2',
+                        type: 'discounted',
+                        price: 3500,
+                        min: 1,
+                        max: 10
+                    },
+                
+                    {
+                        id: '3',
+                        type: 'free',
+                        price: 0,
+                        min: 1,
+                        max: 10
+                    },
+                  
+                 ]
+        },
+
+        {
+            id: '3',
+            region_name: 'syunik',
+            name: 'Patmutyan Tangaran',
+            tickets: [
+
+                {
+                    id: '1',
+                    type: 'standart',
+                    price: 3000,
+                    min: 1,
+                    max: 10
+                },
+            
+                {
+                    id: '2',
+                    type: 'discounted',
+                    price: 3500,
+                    min: 1,
+                    max: 10
+                },
+            
+                {
+                    id: '3',
+                    type: 'free',
+                    price: 0,
+                    min: 1,
+                    max: 10
+                },
+              
+             ]
+        },
+
+        {
+            id: '4',
+            region_name: 'lori',
+            name: 'Sevani tangaran',
+            tickets: [
+
+                {
+                    id: '1',
+                    type: 'standart',
+                    price: 3000,
+                    min: 1,
+                    max: 10
+                },
+            
+                {
+                    id: '2',
+                    type: 'discounted',
+                    price: 3500,
+                    min: 1,
+                    max: 10
+                },
+            
+                {
+                    id: '3',
+                    type: 'free',
+                    price: 0,
+                    min: 1,
+                    max: 10
+                },
+              
+             ]
+        },
+
+
+    ],
+
+   
+}
+
+
+// ===============================================
+export const ticketsType = [
+    {
+        id: '1',
+        type: 'standart'
+    },
+
+    {
+        id: '2',
+        type: 'subscription'
+    },
+
+    {
+        id: '3',
+        type: 'united'
+    },
+
+    {
+        id: '4',
+        type: 'event'
+    }
+]

@@ -22,8 +22,17 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Գնել հիմա', 'Տեսնել Բոլորը', 'Ուղարկել', 'Ավելացնել', 'Դիմել', 'ՈՒղարկել', 'Այո', 'Ոչ', 'Սկսեք զրուցել'],
-            
+            buttons: [
+               'Գնել հիմա',
+               'Տեսնել Բոլորը',
+               'Ուղարկել',
+               'Ավելացնել',
+               'Դիմել',
+               'ՈՒղարկել',
+               'Այո',
+               'Ոչ',
+               'Սկսեք զրուցել',
+            ],
 
             footer_title:
                'Հայաստանի Հանրապետության Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
@@ -122,13 +131,10 @@ i18n.use(initReactI18next).init({
             NumberOfVisitors: 'Այցելուների քանակը',
             minCount: 'Նվազագույնը',
             maxCount: 'Առավելագույնը',
-            typeMessages: 'ընտրել հաղորդագրության թեման',
+            typeMessages: 'Խնդրում ենք ընտրել հաղորդագրության թեման',
             educational_program: 'Կրթական ծրագիր',
             excursion: 'էքսկուրսիա',
             other: 'Այլ',
-            oneTicket: 'Մեկ տոմսի արժեքը',
-            RegionsMussseum: 'Մարզեր',
-            allMussseum: 'Բոլորը',
             // ==============Museum Page end===================
 
             abouteUsPage_title: ['ՄԵՐ ՄԱՍԻՆ', 'Հայաստանի մշակույթի նախարարության պատմություն'],
@@ -444,6 +450,21 @@ i18n.use(initReactI18next).init({
                'փախստականներ։',
             ],
 
+            privateTicketRegions: [
+               { bolor: 'Բոլորը' },
+               { yerevan: 'Երևան' },
+               { aragatsotn: 'Արագածոտն' },
+               { ararat: 'Արարատ' },
+               { armavir: 'Արմավիր' },
+               { gegharkunik: 'Գեղարքունիք' },
+               { kotayk: 'Կոտայք' },
+               { lori: 'Լոռի' },
+               { shirak: 'Շիրակ' },
+               { syunik: 'Սյունիք' },
+               { tavush: 'Տավուշ' },
+               { vayots_dzor: 'Վայոց Ձոր' },
+            ],
+
             chatBotHint: [
                'Խնդրում ենք նշել ձեր հաղորդագրության մեջ',
                'Նախընտրելի օր',
@@ -451,15 +472,14 @@ i18n.use(initReactI18next).init({
                'Ո՞ր տարիքային խմբի մասին է խոսքը',
                'Կազմակերպության կամ անհատի անվանումը',
                'Հեռախոսահամար',
-               'Նշեք գիդի լեզուն'
+               'Նշեք գիդի լեզուն',
             ],
             otherMessagesBot: 'Գրեք ձեր հաղորդագրությունը',
             warningMessages: 'Ցանկանու՞մ եք շարունակել',
             startMessages: [
                'Եթե գրանցված չեք, գրեք մեզ ձեր էլ. նամակը թանգարանից պատասխան նամակ ստանալու համար',
-               'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:'
-            ]
-            
+               'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:',
+            ],
          },
       },
 
@@ -491,9 +511,9 @@ i18n.use(initReactI18next).init({
                'Отправлять',
                'Да',
                'нет',
-               'Начать Чат'
+               'Начать Чат',
             ],
-      
+
             footer_title: 'Министерство образования, науки, культуры и спорта Республики Армения',
 
             news_section_title: 'ПОСЛЕДНИЕ НОВОСТИ',
@@ -594,9 +614,6 @@ i18n.use(initReactI18next).init({
             educational_program: 'Образовательная программа',
             excursion: 'Экскурсия',
             other: 'Другой',
-            oneTicket: 'Стоимость одного билета',
-            RegionsMussseum: 'Регионы',
-            allMussseum: 'Все',
             // ==============Museum Page end===================
 
             abouteUsPage_title: ['О НАС', 'История Министерства культуры Армении'],
@@ -911,24 +928,38 @@ i18n.use(initReactI18next).init({
                'Пенсионеры, являющиеся гражданами Республики Армения,',
                'беженцы.',
             ],
-            chatBotHint: [
-               'Пожалуйста, укажите в сообщении',
-               'Предпочтительный день',
-               'Число участников',
-               'О какой возрастной группе вы говорите?',
-               'Название организации или частного лица',
-               'Номер телефона',
-               'Укажите язык гида'
-            ],
-            otherMessagesBot: 'Напишите ваше сообщение',
-            warningMessages: 'Вы хотите продолжать?',
-            startMessages: [
-               'Если вы не зарегистрированы, напишите нам свой адрес электронной почты, чтобы получить ответное письмо от музея.',
-               'Привет. Рад видеть тебя здесь! Нажимая кнопку «Начать чат», вы соглашаетесь на обработку ваших личных данных, как описано в нашей Политике конфиденциальности.'
-            ]
-         },
 
-         // Add more languages as needed
+            privateTicketRegions: [
+               { bolor: 'Все' },
+               { yerevan: 'Ереван' },
+               { aragatsotn: 'Арагацотн' },
+               { ararat: 'Арарат' },
+               { armavir: 'Армавир' },
+               { gegharkunik: 'Гегаркуник' },
+               { kotayk: 'Котайк' },
+               { lori: 'Лори' },
+               { shirak: 'Ширак' },
+               { syunik: 'Сюник' },
+               { tavush: 'Тавуш' },
+               { vayots_dzor: 'Вайоцдзор' },
+            ],
+
+            chatBotHint: [
+               'Խնդրում ենք նշել ձեր հաղորդագրության մեջ',
+               'Նախընտրելի օր',
+               'Մասնակիցների քանակը',
+               'Ո՞ր տարիքային խմբի մասին է խոսքը',
+               'Կազմակերպության կամ անհատի անվանումը',
+               'Հեռախոսահամար',
+               'Նշեք գիդի լեզուն',
+            ],
+            otherMessagesBot: 'Գրեք ձեր հաղորդագրությունը',
+            warningMessages: 'Ցանկանու՞մ եք շարունակել',
+            startMessages: [
+               'Եթե գրանցված չեք, գրեք մեզ ձեր էլ. նամակը թանգարանից պատասխան նամակ ստանալու համար',
+               'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:',
+            ],
+         },
       },
 
       en: {
@@ -950,8 +981,18 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Buy Now', 'See All', 'Send', 'Add', 'Apply', 'Yes', 'no', 'Start chat'],
-         
+            buttons: [
+               'Buy now',
+               'See All',
+               'Send',
+               'Add',
+               'Apply',
+               'Send',
+               'Yes',
+               'No',
+               'Start Chat',
+            ],
+
             footer_title:
                'Ministry of Education, Science, Culture and Sports of the Republic of Armenia',
 
@@ -1052,9 +1093,6 @@ i18n.use(initReactI18next).init({
             educational_program: 'Educational program',
             excursion: 'Excursion',
             other: 'Other',
-            oneTicket: 'Cost of one ticket',
-            RegionsMussseum: 'Regions',
-            allMussseum: 'All',
             // ==============Museum Page end===================
 
             abouteUsPage_title: ['ABOUT US', 'History of the Ministry of Culture of Armenia'],
@@ -1362,21 +1400,37 @@ i18n.use(initReactI18next).init({
                'Pensioners who are citizens of the Republic of Armenia,',
                'Refugees',
             ],
-            chatBotHint: [
-               'Please indicate in your message',
-               'Preferred day',
-               'Number of participants',
-               'What age group are you talking about?',
-               'Name of organization or individual',
-               'Phone number',
-               'Specify your guides language'
+
+            privateTicketRegions: [
+               { bolor: 'All' },
+               { yerevan: 'Yerevan' },
+               { aragatsotn: 'Aragatsotn' },
+               { ararat: 'Ararat' },
+               { armavir: 'Armavir' },
+               { gegharkunik: 'Gegharkunik' },
+               { kotayk: 'Kotayk' },
+               { lori: 'Lori' },
+               { shirak: 'Shirak' },
+               { syunik: 'Syunik' },
+               { tavush: 'Tavush' },
+               { vayots_dzor: 'Vayots Dzor' },
             ],
-            otherMessagesBot: 'Write your message',
-            warningMessages: 'Do you want to continue?',
+
+            chatBotHint: [
+               'Խնդրում ենք նշել ձեր հաղորդագրության մեջ',
+               'Նախընտրելի օր',
+               'Մասնակիցների քանակը',
+               'Ո՞ր տարիքային խմբի մասին է խոսքը',
+               'Կազմակերպության կամ անհատի անվանումը',
+               'Հեռախոսահամար',
+               'Նշեք գիդի լեզուն',
+            ],
+            otherMessagesBot: 'Գրեք ձեր հաղորդագրությունը',
+            warningMessages: 'Ցանկանու՞մ եք շարունակել',
             startMessages: [
-               'If you are not registered, write us your email to receive a response letter from the museum',
-               'Hello Nice to see you here! By pressing the "Start chat" button you agree to have your personal data processed as described in our Privacy Policy'
-            ]
+               'Եթե գրանցված չեք, գրեք մեզ ձեր էլ. նամակը թանգարանից պատասխան նամակ ստանալու համար',
+               'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:',
+            ],
          },
       },
    },

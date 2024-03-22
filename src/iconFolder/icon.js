@@ -273,7 +273,9 @@ export const SendButtonMessages = ({ width = '24', height = '24', fill = '#3F3D5
    </svg>
 );
 
+
 export const CloseMessagesBtn = ({
+
    width = '10',
    height = '10',
    fill = '#3F3D56',
@@ -474,3 +476,11 @@ export const StartMessagesIcon = ({ width = '24', height = '24', fill = '#3F3D56
       </defs>
    </svg>
 );
+
+
+
+export const locationIcon = <svg width={16} height={20} viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 0C4.33333 0 0.5 2.83333 0.5 7.5C0.5 11.9167 7.16667 18.6667 7.41667 18.9167C7.58333 19.0833 7.75 19.1667 8 19.1667C8.25 19.1667 8.41667 19.0833 8.58333 18.9167C8.83333 18.6667 15.5 11.9167 15.5 7.5C15.5 2.83333 11.6667 0 8 0ZM8 10C6.58333 10 5.5 8.91667 5.5 7.5C5.5 6.08333 6.58333 5 8 5C9.41667 5 10.5 6.08333 10.5 7.5C10.5 8.91667 9.41667 10 8 10Z" fill="#3F3D56" />
+</svg>
+
+

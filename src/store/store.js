@@ -17,6 +17,10 @@ import { NewMessagesReducer } from './slices/NewMessagesSlice/NewMessagesSlice';
 import { bannerReducer } from './slices/BanerSlice/BanerSlice';
 import { souvinersProdReducer } from './slices/SouvinersProdSlice/SouvinersProdSlice';
 import { MessagesBot } from './slices/MessagesBotSlice/MessagesBotSlice';
+import { privateTicketReducer } from './slices/PrivateTicketSlice/PrivateTicketSlice';
+import { eventsTicketReducer } from './slices/PrivateEventTicketSlice/PrivateEventTicketSlice';
+import { eventPageReducer } from './slices/EventsPageSlice/EventsPageSlice';
+
 const store = configureStore({
    reducer: {
       login: loginReducer,
@@ -37,6 +41,10 @@ const store = configureStore({
       newses: NewsesReducer,
       shop: ShopReducer,
       messagesBot: MessagesBot,
+      privateTicket: privateTicketReducer,
+      eventsTicket: eventsTicketReducer,
+      eventPage:eventPageReducer
+
    },
    // middleware: (getDefaultMiddlware)=>[
    //     ...getDefaultMiddlware(),
