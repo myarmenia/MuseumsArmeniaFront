@@ -13,6 +13,7 @@ import {
 } from '../../store/slices/Shop/ShopSlice';
 import './CardModal.css'; // Import CSS file for modal styles
 import { useTranslation } from 'react-i18next';
+import { getDelateProductBasket } from '../../store/slices/Shop/ShopApi';
 
 const customStyles = {
   content: {
@@ -65,7 +66,7 @@ function CardModal() {
     dispatch(setModalIsOpenShop(false));
   }
   const removeElemBas = (id) => {
-    dispatch(removeElemBasket(id));
+    dispatch(getDelateProductBasket(id));
   };
 
   /////////////shop length/////////////////
@@ -78,7 +79,9 @@ function CardModal() {
 
   ///////////////////////////////////////
   // console.log('BasketData', BasketData);
+  // console.log('AllBasketData', Array.isArray(AllBasketData.products));
   console.log('AllBasketData', AllBasketData);
+  // console.log('AllBasketData.products.length', AllBasketData.products.length);
 
   return (
     <Modal
@@ -109,7 +112,7 @@ function CardModal() {
                   viewBox="0 0 16 16">
                   <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
                 </svg>
-                <p className="shop_icon_count">{AllBasketData.length}</p>
+                <p className="shop_icon_count">{AllBasketData.products?.length}</p>
               </div>
               <p>Your Cart</p>
             </div>
@@ -125,8 +128,8 @@ function CardModal() {
               </svg>
             </p>
           </div>
-          {AllBasketData.length !== 0 ? (
-            AllBasketData.map((el, index) => (
+          {AllBasketData.products?.length !== 0 ? (
+            AllBasketData.products?.map((el, index) => (
               <div key={index} className="basket_box">
                 <div className="left_div_basket_box">
                   <img src={el.image} alt={el.name} className="basket_box_img" />
