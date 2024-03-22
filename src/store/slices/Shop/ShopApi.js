@@ -108,9 +108,9 @@ export const postShopCardData = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const cardData = {
-        type:"product",
-        product_id:body.id,
-        quantity:1
+        type: 'product',
+        product_id: body.id,
+        quantity: 1,
       };
       const config = {
         method: 'post',
@@ -131,9 +131,9 @@ export const postSingleShopCardData = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const singleCardData = {
-        type:"product",
-        product_id:body.id,
-        quantity:body.productCount
+        type: 'product',
+        product_id: body.id,
+        quantity: body.productCount,
       };
       const config = {
         method: 'post',
@@ -149,6 +149,24 @@ export const postSingleShopCardData = createAsyncThunk(
   },
 );
 
+//////////////////delate product//////////////////////////
+
+export const getDelateProductBasket = createAsyncThunk(
+  'shop/getDelateProductBasket',
+  async (id, thunkAPI) => {
+    try {
+      const config = {
+        method: 'get',
+        url: `cart/item/${id}/delete`,
+      }
+      const response = await instance(config);
+      console.log(response);
+      return response?.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error.both);
+    }
+  },
+);
 
 // =============================================>
 
@@ -162,6 +180,25 @@ export const postTicketCart = createAsyncThunk(
         url: `cart/store`,
         data: body,
       };
+      const response = await instance(config);
+      console.log(response);
+      return response?.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error.both);
+    }
+  },
+);
+/////////////shop icon click modal open///////////////////////
+
+export const getShopIconBasketDatas = createAsyncThunk(
+  'shop/getShopIconBasketDatas',
+  async (_, thunkAPI) => {
+    try {
+      const config = {
+        method: 'get',
+        url: 'cart/items',
+      };
+
       const response = await instance(config);
       console.log(response);
       return response?.data;

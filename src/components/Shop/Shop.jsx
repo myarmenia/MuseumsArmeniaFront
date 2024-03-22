@@ -16,6 +16,7 @@ import {
   getCategories,
   getLoadingShop,
   getMuseumsNames,
+  getSetModalIsOpenShop,
   setBasketData,
   setModalIsOpenShop,
   totalPriceBasket,
@@ -38,6 +39,7 @@ function Shop() {
   const allCategories = useSelector(getCategories);
   const allmuseumNames = useSelector(getMuseumsNames);
   const IsAuth = useSelector(getIsAuth);
+  const ModalIsOpenShop = useSelector(getSetModalIsOpenShop);
   const [isPagination, setIsPagination] = useState(true);
   const [isFiltered, setIsFiltered] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -99,7 +101,6 @@ function Shop() {
       // Check if CardArray already exists in localStorage
       // let CardArray = JSON.parse(localStorage.getItem('CardArray'));
 
-      
       // if (!CardArray) {
       //   // If CardArray doesn't exist, initialize it as an array with the current id
       //   CardArray = [{ id, image, name, price, museumName }];
@@ -253,7 +254,7 @@ function Shop() {
             </div>
           </div>
 
-          <CardModal />
+         <CardModal />
         </div>
       )}
     </>

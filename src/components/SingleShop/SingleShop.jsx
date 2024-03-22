@@ -29,6 +29,7 @@ function SingleShop() {
   const singleShopDatas = useSelector(getSingleShopDatas);
   // const loading = useSelector(getSingleShopLoading);
   const loading = useSelector(getSingleShopLoading);
+  const [errorText, setErrorText] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -60,11 +61,14 @@ function SingleShop() {
     (id, image, name, price, museumName, productCount) => {
       return (e) => {
         e.stopPropagation();
-        dispatch(setModalIsOpenShop(true));
         console.log('productCount', productCount);
         const count = productCount !== undefined ? productCount : 1;
-        IsAuth && dispatch(postSingleShopCardData({ id,  productCount: count }));
-
+        if (IsAuth) {
+          dispatch(setModalIsOpenShop(true));
+          dispatch(postSingleShopCardData({ id,  productCount: count }));
+        } else {
+          setErrorText(true);
+        }
         //       dispatch(
         //   setBasketData({ id: id, image: image, name: name, price: price, museumName: museumName,productCount:productCount }),
         // );
@@ -113,6 +117,9 @@ function SingleShop() {
       ) : (
         <div className="container">
           <div className="singleShop_All">
+          <div className={errorText ? 'shop_error_text' : 'shop_error_text_none'}>
+            zambyuxic ogtvelu hamar petq e grancvel{' '}
+          </div>
             <div className="singleShop_top">
               <img
                 src={singleShopDatas.image}

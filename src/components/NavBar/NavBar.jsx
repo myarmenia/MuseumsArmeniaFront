@@ -16,6 +16,7 @@ import {
   getSetBasketData,
   setModalIsOpenShop,
 } from '../../store/slices/Shop/ShopSlice';
+import { getShopIconBasketDatas } from '../../store/slices/Shop/ShopApi';
 
 function NavBar({ changeFonSize, changeFont }) {
   const { t, i18n } = useTranslation();
@@ -33,6 +34,7 @@ function NavBar({ changeFonSize, changeFont }) {
   const handleClickOpenModal = useCallback((e) => {
     e.stopPropagation();
     dispatch(setModalIsOpenShop(true));
+    dispatch(getShopIconBasketDatas())
   }, []);
 
   return (
