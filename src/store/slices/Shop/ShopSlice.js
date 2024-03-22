@@ -128,9 +128,9 @@ export const ShopSlice = createSlice({
         );
       })
       .addCase(getShopIconBasketDatas.fulfilled, (state, action) => {
-        console.log("daravvvvv");
-        console.log("action.payload.data",action.payload.data);
+
         state.basketAllData = action.payload.data;
+        state.productLength = action.payload.params.items_count;
       })
   },
 });
