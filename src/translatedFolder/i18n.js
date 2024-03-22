@@ -22,7 +22,17 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Գնել հիմա', 'Տեսնել Բոլորը', 'Ուղարկել', 'Ավելացնել', 'Դիմել' , 'ՈՒղարկել',],
+            buttons: [
+               'Գնել հիմա',
+               'Տեսնել Բոլորը',
+               'Ուղարկել',
+               'Ավելացնել',
+               'Դիմել',
+               'ՈՒղարկել',
+               'Այո',
+               'Ոչ',
+               'Սկսեք զրուցել',
+            ],
 
             footer_title:
                'Հայաստանի Հանրապետության Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
@@ -97,7 +107,7 @@ i18n.use(initReactI18next).init({
                'Գրել նոր գաղտնաբառ',
             ],
 
-            // ==============Museum Page start===================
+             // ==============Museum Page start===================
             // ==============Regions===================
             aragatsotn: 'Արագածոտն',
             ararat: 'Արարատ',
@@ -121,10 +131,13 @@ i18n.use(initReactI18next).init({
             NumberOfVisitors: 'Այցելուների քանակը',
             minCount: 'Նվազագույնը',
             maxCount: 'Առավելագույնը',
-            typeMessages: 'Խնդրում ենք ընտրել հաղորդագրության թեման',
+            typeMessages: 'ընտրել հաղորդագրության թեման',
             educational_program: 'Կրթական ծրագիր',
             excursion: 'էքսկուրսիա',
             other: 'Այլ',
+            oneTicket: 'Մեկ տոմսի արժեքը',
+            RegionsMussseum: 'Մարզեր',
+            allMussseum: 'Բոլորը',
             // ==============Museum Page end===================
 
             abouteUsPage_title: ['ՄԵՐ ՄԱՍԻՆ', 'Հայաստանի մշակույթի նախարարության պատմություն'],
@@ -459,6 +472,22 @@ i18n.use(initReactI18next).init({
             {vayots_dzor: 'Վայոց Ձոր'}
           ],
 
+          chatBotHint: [
+            'Խնդրում ենք նշել ձեր հաղորդագրության մեջ',
+            'Նախընտրելի օր',
+            'Մասնակիցների քանակը',
+            'Ո՞ր տարիքային խմբի մասին է խոսքը',
+            'Կազմակերպության կամ անհատի անվանումը',
+            'Հեռախոսահամար',
+            'Նշեք գիդի լեզուն',
+         ],
+         otherMessagesBot: 'Գրեք ձեր հաղորդագրությունը',
+         warningMessages: 'Ցանկանու՞մ եք շարունակել',
+         startMessages: [
+            'Եթե գրանցված չեք, գրեք մեզ ձեր էլ. նամակը թանգարանից պատասխան նամակ ստանալու համար',
+            'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:',
+         ],
+
         },
 
 
@@ -484,7 +513,17 @@ i18n.use(initReactI18next).init({
 
             // ==============Buttons===================
 
-            buttons: ['Купить сейчас', 'Увидеть все', 'Отправлять', 'Добавлять', 'Применять', 'Отправлять'],
+            buttons: [
+               'Купить сейчас',
+               'Увидеть все',
+               'Отправлять',
+               'Добавлять',
+               'Применять',
+               'Отправлять',
+               'Да',
+               'нет',
+               'Начать Чат',
+            ],
 
             footer_title: 'Министерство образования, науки, культуры и спорта Республики Армения',
 
@@ -558,7 +597,7 @@ i18n.use(initReactI18next).init({
                'Напишите новый пароль',
             ],
 
-            // ==============Museum Page start===================
+             // ==============Museum Page start===================
             // ==============Regions===================
             aragatsotn: 'Арагацотн',
             ararat: 'Арарат',
@@ -586,6 +625,9 @@ i18n.use(initReactI18next).init({
             educational_program: 'Образовательная программа',
             excursion: 'Экскурсия',
             other: 'Другой',
+            oneTicket: 'Стоимость одного билета',
+            RegionsMussseum: 'Регионы',
+            allMussseum: 'Все',
             // ==============Museum Page end===================
 
             abouteUsPage_title: ['О НАС', 'История Министерства культуры Армении'],
@@ -921,9 +963,24 @@ i18n.use(initReactI18next).init({
             {tavush: 'Тавуш'},
             {vayots_dzor: 'Вайоцдзор'}
           ],
+          chatBotHint: [
+            'Пожалуйста, укажите в сообщении',
+             "Желаемый день",
+             'Число участников',
+             'О какой возрастной группе мы говорим?',
+             'Название организации или физического лица',
+             'Номер телефона',
+             'Укажите язык руководства',
+         ],
+         otherMessagesBot: 'Напишите свое сообщение',
+         warningMessages: 'Вы хотите продолжать?',
+         startMessages: [
+            'Если вы не зарегистрированы, напишите нам свой адрес электронной почты. письмо для получения ответного письма от музея',
+            'Привет. Приятно видеть тебя здесь. Нажимая кнопку «Начать чат», вы соглашаетесь на обработку ваших персональных данных, как описано в нашей Политике конфиденциальности.',
+         ],
       },
 
-      // Add more languages as needed
+      
    },
 
    en: {
@@ -945,7 +1002,17 @@ i18n.use(initReactI18next).init({
 
          // ==============Buttons===================
 
-         buttons: ['Buy Now', 'See All', 'Send', 'Add', 'Apply'],
+         buttons: [
+            'Buy now',
+            'See All',
+            'Send',
+            'Add',
+            'Apply',
+            'Send',
+            'Yes',
+            'No',
+            'Start Chat',
+         ],
 
          footer_title:
             'Ministry of Education, Science, Culture and Sports of the Republic of Armenia',
@@ -1047,6 +1114,9 @@ i18n.use(initReactI18next).init({
          educational_program: 'Educational program',
          excursion: 'Excursion',
          other: 'Other',
+         oneTicket: 'Cost of one ticket',
+         RegionsMussseum:'Regions',
+         allMussseum: 'All',
          // ==============Museum Page end===================
 
          abouteUsPage_title: ['ABOUT US', 'History of the Ministry of Culture of Armenia'],
@@ -1378,6 +1448,22 @@ i18n.use(initReactI18next).init({
             {tavush: 'Tavush'},
             {vayots_dzor: 'Vayots Dzor'}
           ],
+
+          chatBotHint: [
+            'Please indicate in message',
+            "Desired day",
+            'Number of participants',
+            'What age group are we talking about?',
+            'Name of organization or individual',
+            'Phone number',
+            'Specify the language of the manual',
+         ],
+         otherMessagesBot: 'Write your message',
+         warningMessages: 'Do you want to continue?',
+         startMessages: [
+            'If you are not registered, please write us your email address. letter to receive a response letter from the museum',
+            'Hello. Nice to see you here. By clicking the Start Chat button, you agree to the processing of your personal data as described in our Privacy Policy.',
+         ],
 
      },
 

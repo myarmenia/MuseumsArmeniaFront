@@ -5,6 +5,7 @@ import {
    postMuseumOnePages,
    educationalPrograms,
 } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
+import { getAuthUserAllMessages } from '../../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
 import { useTranslation } from 'react-i18next';
@@ -18,10 +19,10 @@ const MuseumOne = () => {
    const { t, i18n } = useTranslation();
    const { id } = useParams();
    const dispatch = useDispatch();
-
+   const { isAuth, authUser } = useSelector((store) => store.auth);
    const { loadingStatus, dataMuseumOne, dataEducationalPrograms, educationalProgramsLoad } =
       useSelector((state) => state.museumPages);
-
+   
    const {
       main_photo,
       name,
@@ -38,6 +39,9 @@ const MuseumOne = () => {
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
       dispatch(educationalPrograms({ id }));
+      if (isAuth) {
+         dispatch(getAuthUserAllMessages(id))
+      }
    }, []);
 
    const  openModal =()=> {
@@ -82,7 +86,7 @@ const MuseumOne = () => {
                            </div>
                         </div>
                      </div>
-                     <MuseumPageMessages />
+                     <MuseumPageMessages museumId={id}/>
                   </div>
                </div>
             </div>
