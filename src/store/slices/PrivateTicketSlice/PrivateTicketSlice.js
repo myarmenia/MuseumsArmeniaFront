@@ -5,6 +5,7 @@ const initialState = {
    data: [],
    status: 'idle',
    loading: 'pending',
+   params: {}
    };
 
 const privateTicketSlice = createSlice({
@@ -22,7 +23,8 @@ const privateTicketSlice = createSlice({
              state.status = 'loading';
           })
           .addCase(getPrivateTicket.fulfilled, (state, action) => {
-            state.data = action.payload
+            state.data = action.payload.data
+            state.params = action.payload.params
             state.loading = 'fulfilled'
              state.status = 'succes';
           })

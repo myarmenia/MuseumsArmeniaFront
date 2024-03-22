@@ -6,6 +6,7 @@ import { selectprivateTicket } from '../../store/slices/PrivateTicketSlice/Priva
 import DualCalendar from '../DualCalendar/DualCalendar'
 import './PrivateEventTicket.css'
 import { getEvents } from '../../store/slices/PrivateEventTicketSlice/PrivateEventTicketApi'
+import { postTicketCart } from '../../store/slices/Shop/ShopApi'
 
 function PrivateEventTicket({changeTicketType}) {
     const {t, i18n} = useTranslation()
@@ -91,11 +92,12 @@ function PrivateEventTicket({changeTicketType}) {
             dispatch(getEvents(museum.id))
         }
 
-        const packetCount = (op, type, max, price) => {
+        const packetCount = (op, type, max) => {
             if (max === null) {
                 max = 500000
             }
 
+            console.log(max,'max');
             if (type === "standart") {
               if (op === '+') {
                 ticketCountStandart >= max ? setTicketCountStandart(max) : setTicketCountStandart(ticketCountStandart + 1)
@@ -134,6 +136,8 @@ function PrivateEventTicket({changeTicketType}) {
             
         }
 
+        
+        
        
 
     return (
