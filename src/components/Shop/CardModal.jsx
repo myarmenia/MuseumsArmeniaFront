@@ -79,7 +79,8 @@ function CardModal() {
 
   ///////////////////////////////////////
   // console.log('BasketData', BasketData);
-  console.log('AllBasketData', Array.isArray(AllBasketData.products));
+  // console.log('AllBasketData', Array.isArray(AllBasketData.products));
+  console.log('AllBasketData', AllBasketData);
   // console.log('AllBasketData.products.length', AllBasketData.products.length);
 
   return (

@@ -6,6 +6,7 @@ import {
   getFilteredShop,
   getMuseumNames,
   getSearchesShop,
+  getShopIconBasketDatas,
   getSingleDataShop,
   postShopCardData,
   postSingleShopCardData,
@@ -116,9 +117,20 @@ export const ShopSlice = createSlice({
       })
       .addCase(getDelateProductBasket.fulfilled, (state, action) => {
         state.productLength = action.payload.params.items_count;
-        // state.basketAllData = state.basketAllData.filter((el) => el.id !== action.payload.data.id);
-        console.log(action.payload.data.id);
-      });
+        console.log('action.payload.data.id', action.payload.data.id);
+        let id = parseInt(action.payload.data.id);
+        state.basketAllData.products = state.basketAllData.products.filter(
+          (product) => product.id !== id,
+        );
+        state.basketAllData.tickets = state.basketAllData.tickets.filter(
+          (ticket) => ticket.id !== id,
+        );
+      })
+      .addCase(getShopIconBasketDatas.fulfilled, (state, action) => {
+        console.log("daravvvvv");
+        console.log("action.payload.data",action.payload.data);
+        state.basketAllData = action.payload.data;
+      })
   },
 });
 
