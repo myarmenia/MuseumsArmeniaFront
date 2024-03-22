@@ -148,3 +148,26 @@ export const postSingleShopCardData = createAsyncThunk(
     }
   },
 );
+
+
+// =============================================>
+
+export const postTicketCart = createAsyncThunk(
+  'ticketCart/postTicketCart',
+  async (body, thunkAPI) => {
+    try {
+      
+      const config = {
+        method: 'post',
+        url: `cart/store`,
+        data: body,
+      };
+      const response = await instance(config);
+      console.log(response);
+      return response?.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error.both);
+    }
+  },
+);
+// ==============================================>

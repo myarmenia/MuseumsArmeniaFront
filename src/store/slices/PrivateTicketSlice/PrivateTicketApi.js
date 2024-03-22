@@ -12,7 +12,7 @@ export const getPrivateTicket = createAsyncThunk(
         };
         
         const response = await instance(config); 
-        return response?.data.data;
+        return response?.data;
       } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data.error.both);
       }
