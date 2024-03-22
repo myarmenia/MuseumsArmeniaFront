@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   getAllShop,
   getCategoryShop,
+  getDelateProductBasket,
   getFilteredShop,
   getMuseumNames,
   getSearchesShop,
@@ -41,14 +42,14 @@ export const ShopSlice = createSlice({
     //   state.basketData = [...state.basketData, payload];
     //   // state.totalPrice = state.basketData.reduce((total, obj) => total + obj.price, 0);
     // },
-    removeElemBasket(state, payload) {
-      console.log('idddd', payload);
-      const id = payload.payload;
-      const newData = state.basketData.filter((el) => el.id !== id);
-      state.basketData = newData;
-      // state.totalPrice = state.totalPrice - state.basketData.find((el) => el.id === id)?.price || 0;
-      // localStorage.setItem('CardArray', JSON.stringify(newData));
-    },
+    // removeElemBasket(state, payload) {
+    //   console.log('idddd', payload);
+    //   const id = payload.payload;
+    //   const newData = state.basketData.filter((el) => el.id !== id);
+    //   state.basketData = newData;
+    //   // state.totalPrice = state.totalPrice - state.basketData.find((el) => el.id === id)?.price || 0;
+    //   // localStorage.setItem('CardArray', JSON.stringify(newData));
+    // },
     // setStorageProduct(state, payload) {
     //   console.log(payload, 'payloadpayload');
     //   // state.basketData = payload.filter((product) => state.storageProductId.includes(product.id));
@@ -105,12 +106,18 @@ export const ShopSlice = createSlice({
         state.loadingSingle = false;
       })
       .addCase(postShopCardData.fulfilled, (state, action) => {
-        state.productLength = action.payload.params;
-        state.basketAllData = action.payload.data.products;
+        state.productLength = action.payload.params.items_count;
+        state.basketAllData = action.payload.data;
+        console.log('basketAllDatabasketAllData', action.payload.data);
       })
       .addCase(postSingleShopCardData.fulfilled, (state, action) => {
-        state.productLength = action.payload.params;
-        state.basketAllData = action.payload.data.products;
+        state.productLength = action.payload.params.items_count;
+        state.basketAllData = action.payload.data;
+      })
+      .addCase(getDelateProductBasket.fulfilled, (state, action) => {
+        state.productLength = action.payload.params.items_count;
+        // state.basketAllData = state.basketAllData.filter((el) => el.id !== action.payload.data.id);
+        console.log(action.payload.data.id);
       });
   },
 });
