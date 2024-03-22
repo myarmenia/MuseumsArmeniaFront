@@ -10,6 +10,7 @@ import {
   getSingleDataShop,
   postShopCardData,
   postSingleShopCardData,
+  postTicketCart,
 } from './ShopApi';
 
 const initialState = {

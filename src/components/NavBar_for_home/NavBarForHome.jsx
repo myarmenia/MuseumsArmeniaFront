@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import NavMenu from '../NavMenu/NavMenu'
 import { logo } from '../../images/images'
 import './NavBarForHome.css'
@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
 import { logOutIcon, userIcon } from '../../iconFolder/icon'
 import { getLogOut } from '../../store/slices/LogOutSlice/LogOutApi'
+import ShopCard from '../../images/Bank.svg';
+import { getProductLength, setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice'
 
 function NavBarForHome({homeNavColor, changeFonSize, changeFont}) {
     const isAuth = useSelector(getIsAuth)
@@ -24,6 +26,15 @@ function NavBarForHome({homeNavColor, changeFonSize, changeFont}) {
 
       window.location.pathname = `/${leng}/login`
   }
+
+    // /////////////shop length/////////////////
+    const productLength = useSelector(getProductLength);
+    // //////////////end shop length///////////////////////
+  
+    const handleClickOpenModal = useCallback((e) => {
+      e.stopPropagation();
+      dispatch(setModalIsOpenShop(true));
+    }, []);
   return (
     <div className='nav_bar_for_home' style={{background: homeNavColor ? 'black' : 'transparent', opacity : homeNavColor ? '.7' : '1'}}>
        <div className='container'>
@@ -32,6 +43,15 @@ function NavBarForHome({homeNavColor, changeFonSize, changeFont}) {
               <NavMenu/>
             </div>
             <div className='nav_bar_for_home_right_div'>
+            <div className="shopIconDiv">
+            <span className="shopIconLength">{productLength}</span>
+            <img
+              src={ShopCard}
+              alt="shop-card"
+              className="shop-card"
+              onClick={handleClickOpenModal}
+            />
+          </div>
               {isAuth && <div>{userIcon}</div>}
               <ChangeFontSize {...{changeFonSize, changeFont}}/>
               <SelectLng/>

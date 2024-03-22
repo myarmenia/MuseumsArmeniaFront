@@ -33,6 +33,7 @@ export const educationalPrograms = createAsyncThunk(
       const id = body?.id ? `${body.id}` : '';
       try {
          const { data } = await instance(`museum/${id}/educational-programs`);
+
          return thunkAPI.fulfillWithValue(data);
       } catch (error) {
          console.log(error);
