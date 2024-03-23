@@ -273,26 +273,29 @@ export const SendButtonMessages = ({ width = '24', height = '24', fill = '#3F3D5
    </svg>
 );
 
-
 export const CloseMessagesBtn = ({
-
    width = '10',
    height = '10',
    fill = '#3F3D56',
    stroke = '#B26705',
 }) => (
-   <svg width={width} height={height} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <svg
+      width={width}
+      height={height}
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
       <path
          d="M12.5 3.5L3.5 12.5"
          stroke="#B26705"
-         stroke-linecap="round"
-         stroke-linejoin="round"
+         strokeLinecap="round"
+         strokeLinejoin="round"
       />
       <path
          d="M12.5 12.5L3.5 3.5"
          stroke="#B26705"
-         stroke-linecap="round"
-         stroke-linejoin="round"
+         strokeLinecap="round"
+         strokeLinejoin="round"
       />
    </svg>
 );
@@ -477,10 +480,52 @@ export const StartMessagesIcon = ({ width = '24', height = '24', fill = '#3F3D56
    </svg>
 );
 
+export const locationIcon = (
+   <svg width={16} height={20} viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M8 0C4.33333 0 0.5 2.83333 0.5 7.5C0.5 11.9167 7.16667 18.6667 7.41667 18.9167C7.58333 19.0833 7.75 19.1667 8 19.1667C8.25 19.1667 8.41667 19.0833 8.58333 18.9167C8.83333 18.6667 15.5 11.9167 15.5 7.5C15.5 2.83333 11.6667 0 8 0ZM8 10C6.58333 10 5.5 8.91667 5.5 7.5C5.5 6.08333 6.58333 5 8 5C9.41667 5 10.5 6.08333 10.5 7.5C10.5 8.91667 9.41667 10 8 10Z"
+         fill="#3F3D56"
+      />
+   </svg>
+);
+export const FilterIcon = () => (
+   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M13.875 16.125H3.75"
+         stroke="#D5AA72"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M20.25 16.125H17.625"
+         stroke="#D5AA72"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M15.75 18C16.7855 18 17.625 17.1605 17.625 16.125C17.625 15.0895 16.7855 14.25 15.75 14.25C14.7145 14.25 13.875 15.0895 13.875 16.125C13.875 17.1605 14.7145 18 15.75 18Z"
+         stroke="#D5AA72"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path d="M7.875 7.875H3.75" stroke="#D5AA72" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+         d="M20.25 7.875H11.625"
+         stroke="#D5AA72"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M9.75 9.75C10.7855 9.75 11.625 8.91053 11.625 7.875C11.625 6.83947 10.7855 6 9.75 6C8.71447 6 7.875 6.83947 7.875 7.875C7.875 8.91053 8.71447 9.75 9.75 9.75Z"
+         stroke="#D5AA72"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+   </svg>
+);
 
-
-export const locationIcon = <svg width={16} height={20} viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8 0C4.33333 0 0.5 2.83333 0.5 7.5C0.5 11.9167 7.16667 18.6667 7.41667 18.9167C7.58333 19.0833 7.75 19.1667 8 19.1667C8.25 19.1667 8.41667 19.0833 8.58333 18.9167C8.83333 18.6667 15.5 11.9167 15.5 7.5C15.5 2.83333 11.6667 0 8 0ZM8 10C6.58333 10 5.5 8.91667 5.5 7.5C5.5 6.08333 6.58333 5 8 5C9.41667 5 10.5 6.08333 10.5 7.5C10.5 8.91667 9.41667 10 8 10Z" fill="#3F3D56" />
-</svg>
-
-
+export const DownIcon = () => (
+   <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.98658 5.4082L0.802058 0.295016L11.1711 0.295017L5.98658 5.4082Z" fill="#A3A3A3" />
+   </svg>
+);

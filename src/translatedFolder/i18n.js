@@ -488,6 +488,8 @@ i18n.use(initReactI18next).init({
             'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:',
          ],
 
+         musseumPage_title: ['ՀԱՅԿԱԿԱՆ ԹԱՆԳԱՐԱՆՆԵՐ', 'Զտել', 'Կարդալ ավելին'],
+
         },
 
 
@@ -978,6 +980,7 @@ i18n.use(initReactI18next).init({
             'Если вы не зарегистрированы, напишите нам свой адрес электронной почты. письмо для получения ответного письма от музея',
             'Привет. Приятно видеть тебя здесь. Нажимая кнопку «Начать чат», вы соглашаетесь на обработку ваших персональных данных, как описано в нашей Политике конфиденциальности.',
          ],
+         musseumPage_title: ['АРМЯНСКИЕ МУЗЕИ', 'Фильтр', 'Читать далее'],
       },
 
       
@@ -1464,6 +1467,7 @@ i18n.use(initReactI18next).init({
             'If you are not registered, please write us your email address. letter to receive a response letter from the museum',
             'Hello. Nice to see you here. By clicking the Start Chat button, you agree to the processing of your personal data as described in our Privacy Policy.',
          ],
+         musseumPage_title: ['ARMENIAN MUSEUMS', 'Filter', 'Read more'],
 
      },
 
