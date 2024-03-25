@@ -128,10 +128,12 @@ export const ShopSlice = createSlice({
         );
       })
       .addCase(getShopIconBasketDatas.fulfilled, (state, action) => {
-
+        console.log("a11111111");
         state.basketAllData = action.payload.data;
+        console.log("a22222222222");
         state.productLength = action.payload.params.items_count;
-      })
+        console.log("a33333333333333");
+      });
   },
 });
 

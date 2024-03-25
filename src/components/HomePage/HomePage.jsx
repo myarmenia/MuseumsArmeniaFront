@@ -36,7 +36,7 @@ function HomePage({ changeFonSize, changeFont }) {
       <MuseumSectionSliderInHome />
       <AnimScroll />
       <SectionAboteUs />
-      <SouvenirsSection/>
+      <SouvenirsSection />
       <ContactUsSection />
       <CardModal />
     </div>

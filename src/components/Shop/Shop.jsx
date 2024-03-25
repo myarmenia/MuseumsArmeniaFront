@@ -232,7 +232,7 @@ function Shop() {
             </div>
             <div
               className={
-                AllShopData.data.length !== 0 && isPagination && isFiltered
+                AllShopData.data?.length !== 0 && isPagination && isFiltered
                   ? 'shop-paginate'
                   : 'shop-paginate-none'
               }>
@@ -240,7 +240,7 @@ function Shop() {
                 previousLabel={'<<'}
                 nextLabel={'>>'}
                 breakLabel={'...'}
-                pageCount={AllShopData.meta.last_page !== null ? AllShopData.meta.last_page : ''}
+                pageCount={AllShopData.meta?.last_page !== null ? AllShopData.meta?.last_page : ''}
                 marginPagesDisplayed={3}
                 onPageChange={sendShopPage}
                 containerClassName={'paginationn'}

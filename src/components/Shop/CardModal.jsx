@@ -50,6 +50,7 @@ function CardModal() {
   const AllBasketData = useSelector(getSetAllBasketData);
   const productLength = useSelector(getProductLength);
 
+
   useEffect(() => {
     document.body.style.overflow = ModalIsOpenShop ? 'hidden' : 'visible';
   }, [ModalIsOpenShop]);
@@ -101,39 +102,41 @@ function CardModal() {
       {/* {children} */}
       {/* <div className={ModalIsOpenShop ? 'testtt2' : 'testtt'}>asdasdasd</div> */}
       <div className={'xxx'}>
-        <div className="all_baskets">
-          <div className="all_baskets_top_card">
-            <div className="card_top_all_baskets">
-              <div className="shop_icon_with_count">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="35"
-                  height="35"
-                  fill="currentColor"
-                  className="bi bi-bag"
-                  viewBox="0 0 16 16">
-                  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
-                </svg>
-                <p className="shop_icon_count">{productLength}</p>
-              </div>
-              <p>Your Cart</p>
-            </div>
-            <p onClick={closeModal} className="closeBtn_basket">
+        <div className="all_baskets_top_card">
+          <div className="card_top_all_baskets">
+            <div className="shop_icon_with_count">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="35"
+                height="35"
                 fill="currentColor"
-                className="bi bi-x"
+                className="bi bi-bag"
                 viewBox="0 0 16 16">
-                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
               </svg>
-            </p>
+              <p className="shop_icon_count">{productLength}</p>
+            </div>
+            <p>Your Cart</p>
           </div>
+          <p onClick={closeModal} className="closeBtn_basket">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              className="bi bi-x"
+              viewBox="0 0 16 16">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg>
+          </p>
+        </div>
+        <div className={windowWidth < 1025 ? 'all_baskets_height' : 'all_baskets'}>
           {AllBasketData.products?.length !== 0 || AllBasketData.products?.length !== 0 ? (
             <>
               {AllBasketData.products?.map((el, index) => (
+              
                 <div key={index} className="basket_box">
+                  {console.log("mtavvv")}
                   <div className="left_div_basket_box">
                     <img src={el.image} alt={el.name} className="basket_box_img" />
                     <div className="basket_box_div">
@@ -192,6 +195,7 @@ function CardModal() {
           )}
           {/* <p>total {countProductBasket}</p> */}
         </div>
+        <div className="checkout_btn">Checkout</div>
       </div>
     </Modal>
   );

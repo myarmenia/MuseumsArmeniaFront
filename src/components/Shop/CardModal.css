@@ -32,6 +32,13 @@
 }
 .all_baskets {
   background-color: #f8f9fa;
+  overflow: auto;
+  height: 72%;
+}
+.all_baskets_height {
+  background-color: #f8f9fa;
+  overflow: auto;
+  height: 82%;
 }
 .basket_box {
   display: flex;
@@ -90,6 +97,7 @@
   align-items: center;
   gap: 110px;
   margin-top: 15px;
+  margin-bottom: 7px;
 }
 
 .shop_icon_with_count {
@@ -112,4 +120,22 @@
   margin: 10px;
   background-color: #ffffff;
   box-shadow: 0 2px 2px #00000005;
+}
+
+.checkout_btn {
+  text-align: center;
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  margin: 0 25px 0 25px;
+  cursor: pointer;
+  margin-top: 13px;
+}
+
+.checkout_btn:hover {
+  text-align: center;
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
 }

@@ -158,7 +158,7 @@ export const getDelateProductBasket = createAsyncThunk(
       const config = {
         method: 'get',
         url: `cart/item/${id}/delete`,
-      }
+      };
       const response = await instance(config);
       console.log(response);
       return response?.data;
@@ -174,7 +174,6 @@ export const postTicketCart = createAsyncThunk(
   'ticketCart/postTicketCart',
   async (body, thunkAPI) => {
     try {
-      
       const config = {
         method: 'post',
         url: `cart/store`,
