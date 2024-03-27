@@ -47,8 +47,8 @@ export const getMuseumOneEvents = createAsyncThunk(
       const id = body?.id ? `${body.id}` : '';
       try {
          const { data } = await instance(`museum/${id}/events`);
-         console.log(data);
-         // return thunkAPI.fulfillWithValue(data);
+
+         return thunkAPI.fulfillWithValue(data);
       } catch (error) {
          console.log(error);
          return thunkAPI.rejectWithValue(error.response.data.error);

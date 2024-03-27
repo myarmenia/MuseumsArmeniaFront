@@ -26,19 +26,19 @@ const customStyles = {
 
 const MessagesModal = ({ children }) => {
    const { modalIsOpen } = useSelector((state) => state.messages);
-   const [windowWidth, setWindowWidth] = useState(2000);
-   useEffect(() => {
-      const handleResize = () => {
-         setWindowWidth(window.innerWidth);
-      };
-      window.addEventListener('resize', handleResize);
+   // const [windowWidth, setWindowWidth] = useState(2000);
+   // useEffect(() => {
+   //    const handleResize = () => {
+   //       setWindowWidth(window.innerWidth);
+   //    };
+   //    window.addEventListener('resize', handleResize);
 
-      // Cleanup function to remove event listener on component unmount
-      return () => {
-         window.removeEventListener('resize', handleResize);
-         dispatch(setIsOpen(false));
-      };
-   }, []);
+   //    // Cleanup function to remove event listener on component unmount
+   //    return () => {
+   //       window.removeEventListener('resize', handleResize);
+   //       dispatch(setIsOpen(false));
+   //    };
+   // }, []);
    //  customStyles.content.width = windowWidth > 1200 ? '40%' : windowWidth < 800 ? '80%' : '60%'
 
    const dispatch = useDispatch();

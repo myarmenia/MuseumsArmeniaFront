@@ -23,8 +23,14 @@ const MuseumOne = () => {
    const { id } = useParams();
    const dispatch = useDispatch();
    const { isAuth, authUser } = useSelector((store) => store.auth);
-   const { loadingStatus, dataMuseumOne, dataEducationalPrograms, educationalProgramsLoad } =
-      useSelector((state) => state.museumPages);
+   const {
+      loadingStatus,
+      dataMuseumOne,
+      dataEducationalPrograms,
+      educationalProgramsLoad,
+      loadingMuseumOneEvents,
+      dataMuseumOneEvents,
+   } = useSelector((state) => state.museumPages);
 
    const {
       main_photo,
@@ -39,7 +45,7 @@ const MuseumOne = () => {
       working_days,
    } = dataMuseumOne;
 
-   console.log(dataMuseumOne, 77777);
+
 
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
@@ -77,7 +83,7 @@ const MuseumOne = () => {
                                  text={'ButtonBlock.0'}
                                  background={'#D5AA72'}
                                  color={'#FFFFFF'}
-                                 textBtn='10'
+                                 textBtn="10"
                               />
 
                               <CustomButtonBlock
@@ -87,12 +93,13 @@ const MuseumOne = () => {
                                  background={'#3F3D56'}
                                  color={'#FFFFFF'}
                                  boxShadow={'none'}
-                                 textBtn='11'
+                                 textBtn="11"
+                                 onClick={openModal}
                               />
                            </div>
                         </div>
+                        {loadingMuseumOneEvents === 'fulfilled' && <OurEvents {...{dataMuseumOneEvents}}/>}
 
-                        <OurEvents />
                         {educationalProgramsLoad === 'fulfilled' &&
                            dataEducationalPrograms.length > 0 && (
                               <EducationalPrograms

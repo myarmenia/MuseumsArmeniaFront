@@ -709,8 +709,8 @@ export const FbIcons = ({ width = '22', height = '22', fill = '#3F3D56' }) => (
             width="22"
             height="22"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
                in="SourceAlpha"
                type="matrix"
@@ -735,7 +735,7 @@ export const MuseumAbonementIcons = ({ width = '23', height = '23', fill = '#3F3
    <svg width={width} height={height} viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_d_544_38079)">
          <circle cx="11" cy="10.5" r="10" fill={fill} />
-         <g clip-path="url(#clip0_544_38079)">
+         <g clipPath="url(#clip0_544_38079)">
             <path
                d="M15.5833 13.2493H15.1667V9.91602H14.3333V13.2493H12.6667V9.91602H11.8333V13.2493H10.1667V9.91602H9.33333V13.2493H7.66667V9.91602H6.83333V13.2493H6.41667C6.18667 13.2493 6 13.4356 6 13.666C6 13.8964 6.18667 14.0827 6.41667 14.0827H15.5833C15.8133 14.0827 16 13.8964 16 13.666C16 13.4356 15.8133 13.2493 15.5833 13.2493Z"
                fill="white"
@@ -754,8 +754,8 @@ export const MuseumAbonementIcons = ({ width = '23', height = '23', fill = '#3F3
             width="22"
             height="22"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
                in="SourceAlpha"
                type="matrix"
