@@ -50,7 +50,6 @@ function CardModal() {
   const AllBasketData = useSelector(getSetAllBasketData);
   const productLength = useSelector(getProductLength);
 
-
   useEffect(() => {
     document.body.style.overflow = ModalIsOpenShop ? 'hidden' : 'visible';
   }, [ModalIsOpenShop]);
@@ -83,7 +82,7 @@ function CardModal() {
   ///////////////////////////////////////
   // console.log('BasketData', BasketData);
   // console.log('AllBasketData', Array.isArray(AllBasketData.products));
-  console.log('AllBasketData', AllBasketData);
+  // console.log('AllBasketData', AllBasketData);
   // console.log('AllBasketData.products.length', AllBasketData.products.length);
 
   return (
@@ -134,9 +133,7 @@ function CardModal() {
           {AllBasketData.products?.length !== 0 || AllBasketData.products?.length !== 0 ? (
             <>
               {AllBasketData.products?.map((el, index) => (
-              
                 <div key={index} className="basket_box">
-                  {console.log("mtavvv")}
                   <div className="left_div_basket_box">
                     <img src={el.image} alt={el.name} className="basket_box_img" />
                     <div className="basket_box_div">

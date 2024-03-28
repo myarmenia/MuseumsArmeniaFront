@@ -2,12 +2,13 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import instance from '../../../axios';
 
-export const getAllShop = createAsyncThunk('shop/getAllShop', async (pageNum, thunkAPI) => {
+export const getAllShop = createAsyncThunk('shop/getAllShop', async (data, thunkAPI) => {
   // alert('getAllShop');
+  console.log(data, 'dataaa');
   try {
     const config = {
       method: 'get',
-      url: `shop/product-list?page=${pageNum}`,
+      url: `shop/product-list?page=${data.currentPage}&museum_id=${data.museum_id}&product_category_id=${data.categora_id}&name=${data.searchText}`,
     };
 
     const response = await instance(config);
@@ -59,7 +60,7 @@ export const getSearchesShop = createAsyncThunk(
       };
 
       const response = await instance(config);
-      console.log(response);
+      console.log(response, 9999999999999999999999);
       return response?.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.error.both);
@@ -69,11 +70,11 @@ export const getSearchesShop = createAsyncThunk(
 
 export const getFilteredShop = createAsyncThunk(
   'shop/getFilteredShop',
-  async ({ category, museum }, thunkAPI) => {
+  async ({ category, museum, currentPage }, thunkAPI) => {
     try {
       const config = {
         method: 'get',
-        url: `shop/product-list?museum_id=${museum}&product_category_id=${category}`,
+        url: `shop/product-list?museum_id=${museum}&product_category_id=${category}&page=${currentPage}`,
       };
       const response = await instance(config);
       console.log(response);

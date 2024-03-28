@@ -16,6 +16,7 @@ import {
   getCategories,
   getLoadingShop,
   getMuseumsNames,
+  getSearchLengthShop,
   getSetModalIsOpenShop,
   setBasketData,
   setModalIsOpenShop,
@@ -40,32 +41,56 @@ function Shop() {
   const allmuseumNames = useSelector(getMuseumsNames);
   const IsAuth = useSelector(getIsAuth);
   const ModalIsOpenShop = useSelector(getSetModalIsOpenShop);
+  // const SearchLengthShop = useSelector(getSearchLengthShop);
   const [isPagination, setIsPagination] = useState(true);
   const [isFiltered, setIsFiltered] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedMuseum, setSelectedMuseum] = useState('');
   const [errorText, setErrorText] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
   // const [idd, setIddd] = useState(null);
   // const [imagee, setImagee] = useState(null);
 
   const handleChangeCategory = (event) => {
-    console.log(event.target.value);
-    dispatch(getFilteredShop({ category: event.target.value, museum: selectedMuseum }));
-    const selectedValue = event.target.value;
-    setSelectedCategory(selectedValue);
-    setIsFiltered(false);
+    const paginateDataObj = {
+      currentPage: 1,
+      searchText: '',
+      museum_id: selectedMuseum,
+      categora_id : event.target.value
+    };
+    dispatch(
+      getAllShop(paginateDataObj),
+      // getFilteredShop({ category: event.target.value, museum: selectedMuseum })
+      );
+    setSelectedCategory(event.target.value);
+    // AllShopData.data.length < 12 && setIsFiltered(false);
   };
 
   const handleChangeMuseum = (event) => {
-    // console.log(event.target.value);
-    dispatch(getFilteredShop({ category: selectedCategory, museum: event.target.value }));
-    const selectedValueM = event.target.value;
-    setSelectedMuseum(selectedValueM);
-    setIsFiltered(false);
+    const paginateDataObj = {
+      currentPage: 1,
+      searchText: '',
+      museum_id: event.target.value,
+      categora_id : selectedCategory
+    };
+    setCurrentPage(0);
+
+    dispatch(
+      getAllShop(paginateDataObj),
+      // getFilteredShop({ category: selectedCategory, museum: event.target.value, currentPage: 1 }),
+    );
+    setSelectedMuseum(event.target.value);
+    // AllShopData.data.length < 12 && setIsFiltered(false);
   };
 
   useEffect(() => {
-    dispatch(getAllShop());
+    const paginateDataObj = {
+      currentPage: 1,
+      searchText: '',
+      museum_id: '',
+      categora_id : ''
+    };
+    dispatch(getAllShop(paginateDataObj));
     dispatch(getCategoryShop());
     dispatch(getMuseumNames());
     // dispatch(totalPriceBasket())
@@ -75,15 +100,33 @@ function Shop() {
     window.scrollTo(0, 300);
     // console.log(data.selected);
     let currentPage = data.selected + 1;
-    dispatch(getAllShop(currentPage));
+    const paginateDataObj = {
+      museum_id: selectedMuseum,
+      categora_id : selectedCategory,
+      currentPage: currentPage,
+      searchText: searchTextShopRef.current.value,
+    };
+
+    dispatch(getAllShop(paginateDataObj));
   };
+
+  let SearchProductLength = AllShopData.data?.length;
 
   const searchShop = (e) => {
     e.preventDefault();
-    dispatch(getSearchesShop(searchTextShopRef.current.value));
-    searchTextShopRef.current.value = '';
-    setIsPagination(false);
+    SearchProductLength < 12 && setIsPagination(false);
+    const paginateDataObj = {
+      museum_id: selectedMuseum,
+      categora_id : selectedCategory,
+      currentPage: 1,
+      searchText: searchTextShopRef.current.value,
+    };
+
+    dispatch(getAllShop(paginateDataObj));
+    // dispatch(getSearchesShop(searchTextShopRef.current.value));
+    // searchTextShopRef.current.value = '';
   };
+
   const handleClickOpenModal = useCallback((id, image, name, price, museumName) => {
     return (e) => {
       e.stopPropagation();
@@ -129,7 +172,8 @@ function Shop() {
       // }
     };
   }, []);
-  console.log('AllShopData', AllShopData);
+  // console.log('AllShopData', AllShopData);
+  console.log('AllShopData_searchhh_bottom', AllShopData);
   // console.log('allCategories', allCategories);
   // console.log('allmuseumNames', allmuseumNames);
   return (
@@ -166,6 +210,9 @@ function Shop() {
                     <option value="" disabled hidden>
                       {t('shop_page_data.1')}
                     </option>
+                    <option value="" key="">
+                      bolor kategoria
+                    </option>
                     {allCategories.map((option, index) => (
                       <option key={index} value={option.id}>
                         {option.key}
@@ -182,6 +229,9 @@ function Shop() {
                     value={selectedMuseum}>
                     <option value="" disabled hidden>
                       {t('shop_page_data.2')}
+                    </option>
+                    <option value="" key="">
+                      bolor tangaranner
                     </option>
                     {allmuseumNames.map((option, index) => (
                       <option key={index} value={option.id}>
@@ -232,7 +282,8 @@ function Shop() {
             </div>
             <div
               className={
-                AllShopData.data?.length !== 0 && isPagination && isFiltered
+                AllShopData.data?.length !== 0 &&
+                AllShopData.meta?.per_page < AllShopData.meta?.total
                   ? 'shop-paginate'
                   : 'shop-paginate-none'
               }>
@@ -240,8 +291,10 @@ function Shop() {
                 previousLabel={'<<'}
                 nextLabel={'>>'}
                 breakLabel={'...'}
+                forcePage={AllShopData.meta?.current_page - 1}
                 pageCount={AllShopData.meta?.last_page !== null ? AllShopData.meta?.last_page : ''}
                 marginPagesDisplayed={3}
+                // onPageChange={(selected) => sendShopPage(selected.selected)}
                 onPageChange={sendShopPage}
                 containerClassName={'paginationn'}
                 pageClassName={'page-items'}
@@ -253,8 +306,7 @@ function Shop() {
               />
             </div>
           </div>
-
-         <CardModal />
+          <CardModal />
         </div>
       )}
     </>
