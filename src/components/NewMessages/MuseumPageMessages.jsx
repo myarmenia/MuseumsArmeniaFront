@@ -21,7 +21,7 @@ const MuseumPageMessages = ({ museumId }) => {
       <MessagesModal>
          <>
             <div className="MessagesModal-header"></div>
-            <div className="MessagesModal-section" style={{ height: '95%' }}>
+            <div className="MessagesModal-section">
                {isAuth ? (
                   <MessagesBlock authUser={authUser} dataMuseumMessages={dataMuseumMessages} />
                ) : (

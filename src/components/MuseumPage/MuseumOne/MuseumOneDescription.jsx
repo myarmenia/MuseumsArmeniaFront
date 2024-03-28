@@ -41,7 +41,7 @@ const MuseumOneDescription = ({ description, photos }) => {
             color={'#FFFFFF'}
             maxWidth={'250px'}
          />
-         <h3>{t(`description_museum`)}...</h3>
+         <h4 className="museumOne_title">{t(`description_museum`)}...</h4>
          <p>{description}</p>
          <div className="MuseumOne_parent-imgList">
             <div

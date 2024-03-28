@@ -45,7 +45,7 @@ const MuseumOne = () => {
       working_days,
    } = dataMuseumOne;
 
-
+   console.log(dataMuseumOne, 5555);
 
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));

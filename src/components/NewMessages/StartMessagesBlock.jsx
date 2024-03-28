@@ -8,7 +8,7 @@ const StartMessagesBlock = ({onClick, txt}) => {
       <div className="StartMessagesBlock">
          <div className="StartMessagesBlock-child">
             <div className="Startmessages-iconBlock">
-               <StartMessagesIcon width='200px' height='180px'/>
+               <StartMessagesIcon width='160px' height='140px'/>
             </div>
             <div className="Startmessages-textBlock">
                <p>{t(`${txt}`)}</p>

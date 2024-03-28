@@ -27,7 +27,7 @@ const MuseumMinBlock = ({ id, address, name, photo, region, description }) => {
                <div className="par_MuseumMinBlock-description">
                   <div className="block-description">
                      <h5 className="museum_name">{name}</h5>
-                     <p className="museum_description">{description.slice(0, 80)}...</p>
+                     <p className="museum_description">{description.slice(0, 40)}...</p>
                      <p className="museum_region">
                         <LocationIcon  width={10} height={14} fill={'#575757'}/>
                         {t(`${region}`)}</p>

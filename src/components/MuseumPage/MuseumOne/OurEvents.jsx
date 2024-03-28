@@ -11,7 +11,7 @@ import { Keyboard, Pagination, Navigation } from 'swiper/modules';
 const OurEvents = ({ dataMuseumOneEvents }) => {
    const { t, i18n } = useTranslation();
   const [windowWidth, setWindowWidth] = React.useState(2000);
-   console.log(dataMuseumOneEvents, 'dataMuseumOneEvents');
+   
 
    React.useEffect(() => {
       const handleResize = () => {
@@ -27,8 +27,8 @@ const OurEvents = ({ dataMuseumOneEvents }) => {
 
    return (
       <div className="museumOne_pageStyle">
-         <h3>{t(`ourEvents`)}</h3>
-         <div>
+         <h4 className="museumOne_title">{t(`ourEvents`)}</h4>
+         <div style={{marginTop: '10px'}}>
             <>
                <Swiper
                   slidesPerView={windowWidth <= 900 &&  windowWidth > 620 ? 2 : windowWidth <= 620 ? 1 : 3}

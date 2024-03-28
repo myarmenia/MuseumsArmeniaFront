@@ -1,9 +1,23 @@
 import React from 'react';
 import Link from 'antd/es/typography/Link';
 import { useTranslation } from 'react-i18next';
-import { LocationIcon, PhoneIcons, WebSideIcons, InvateIcons, InstaIcons } from '../../../iconFolder/icon';
+import {
+   LocationIcon,
+   PhoneIcons,
+   WebSideIcons,
+   InvateIcons,
+   InstaIcons,
+} from '../../../iconFolder/icon';
 const MuseumOnecontact = ({ working_days, region, director, address, phones, links }) => {
    const { t, i18n } = useTranslation();
+
+   const getBaseUrl = React.useCallback((url) => {
+      const regex = /^(?:([^\:]+)\:\/\/)?([^\/]+)/;
+      const match = url.match(regex);
+      return match?.[2]; // Доступ к группе 2 (доменное имя) с оператором optional chaining
+   }, []);
+
+   console.log(getBaseUrl(links?.web_site), 'testtt');
 
    return (
       <div className="museumOne_pageStyle blockRigth_styles">
@@ -34,15 +48,19 @@ const MuseumOnecontact = ({ working_days, region, director, address, phones, lin
             <h4>{t(`webSideMusum.0`)}</h4>
             <div className="blockRigth_styles-parPhone">
                <WebSideIcons width={17} />
-               {/* <p>{links?.}</p> */}
+               <p className="par-contactMinBlock">
+                  <a href={`${links?.web_site}`} rel="noopener noreferrer" target="_blank">
+                     {getBaseUrl(links?.web_site)}
+                  </a>
+               </p>
             </div>
          </div>
          <div>
             <div className="blockRigth_styles-parPhone">
-               <PhoneIcons width={22} height={22}/>
+               <PhoneIcons width={22} height={22} />
                {phones?.map((el, idx) => (
                   <p key={idx} className="par-contactMinBlock">
-                     <a  href={`tel:${el}`}>{el}</a>,
+                     <a href={`tel:${el}`}>{el},</a>
                   </p>
                ))}
             </div>
@@ -53,16 +71,18 @@ const MuseumOnecontact = ({ working_days, region, director, address, phones, lin
                <p>{t(`webSideMusum.1`)}</p>
             </div>
          </div>
-        {
-         links?.instagram && (
+         {links?.instagram && (
             <div>
-            <div className="blockRigth_styles-parPhone">
-               <InstaIcons  />
-               <p><a  href={links?.instagram} rel="noopener noreferrer" target="_blank">Instagram</a></p>
+               <div className="blockRigth_styles-parPhone">
+                  <InstaIcons />
+                  <p>
+                     <a href={links?.instagram} rel="noopener noreferrer" target="_blank">
+                        Instagram
+                     </a>
+                  </p>
+               </div>
             </div>
-         </div>
-            )
-        }
+         )}
       </div>
    );
 };
