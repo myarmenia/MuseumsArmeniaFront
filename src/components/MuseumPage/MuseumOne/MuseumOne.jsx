@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import {
    postMuseumOnePages,
    educationalPrograms,
+   getMuseumOneEvents,
 } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import { getAuthUserAllMessages } from '../../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
@@ -13,16 +14,24 @@ import MuseumPageHeader from '../MuseumPageHeader';
 import ButtonSecond from '../../ButtonSecond/ButtonSecond';
 import MessagesModal from '../../NewMessages/MessagesModal';
 import MuseumPageMessages from '../../NewMessages/MuseumPageMessages';
+import CustomButtonBlock from './CustomButtonBlock';
 import { setIsOpen } from '../../../store/slices/NewMessagesSlice/NewMessagesSlice';
+import { MuseumAbonementIcons } from '../../../iconFolder/icon';
 
 const MuseumOne = () => {
    const { t, i18n } = useTranslation();
    const { id } = useParams();
    const dispatch = useDispatch();
    const { isAuth, authUser } = useSelector((store) => store.auth);
-   const { loadingStatus, dataMuseumOne, dataEducationalPrograms, educationalProgramsLoad } =
-      useSelector((state) => state.museumPages);
-   
+   const {
+      loadingStatus,
+      dataMuseumOne,
+      dataEducationalPrograms,
+      educationalProgramsLoad,
+      loadingMuseumOneEvents,
+      dataMuseumOneEvents,
+   } = useSelector((state) => state.museumPages);
+
    const {
       main_photo,
       name,
@@ -36,17 +45,20 @@ const MuseumOne = () => {
       working_days,
    } = dataMuseumOne;
 
+   console.log(dataMuseumOne, 5555);
+
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
       dispatch(educationalPrograms({ id }));
+      dispatch(getMuseumOneEvents({ id }));
       if (isAuth) {
-         dispatch(getAuthUserAllMessages(id))
+         dispatch(getAuthUserAllMessages(id));
       }
    }, []);
 
-   const  openModal =()=> {
+   const openModal = () => {
       dispatch(setIsOpen(true));
-   }
+   };
    return (
       <>
          {loadingStatus === 'loading' ? (
@@ -57,36 +69,45 @@ const MuseumOne = () => {
                <div className="museumPage_section">
                   <div className="container">
                      <div className="museumOne_parent">
-                        <div className="museumOne-blockLeft">
-                           <MuseumOneDescription description={description} photos={photos} />
-                           <OurEvents />
-                           {educationalProgramsLoad === 'fulfilled' &&
-                              dataEducationalPrograms.length > 0 && (
-                                 <EducationalPrograms
-                                    dataEducationalPrograms={dataEducationalPrograms}
-                                 />
-                              )}
-                        </div>
-                        <div className="museumOne-blockRigth ">
-                           <MuseumOnecontact
-                              {...{ working_days, region, director, address, phones }}
-                           />
-                           <div className="museumOne_pageStyle">
-                              <h4>{t(`haveQuestions`)}</h4>
-                              {/* <Button txt="4" /> */}
-                              <div
+                        <div className="museumOne_parent-section1">
+                           <div className="museumOne-blockLeft">
+                              <MuseumOneDescription description={description} photos={photos} />
+                           </div>
+                           <div className="museumOne-blockRigth ">
+                              <MuseumOnecontact
+                                 {...{ working_days, region, director, address, phones, links }}
+                              />
+                              <CustomButtonBlock
+                                 icon={<MuseumAbonementIcons />}
+                                 title={'webSideMusum.2'}
+                                 text={'ButtonBlock.0'}
+                                 background={'#D5AA72'}
+                                 color={'#FFFFFF'}
+                                 textBtn="10"
+                              />
+
+                              <CustomButtonBlock
+                                 icon={<MuseumAbonementIcons />}
+                                 title={'haveQuestions'}
+                                 text={'ButtonBlock.1'}
+                                 background={'#3F3D56'}
+                                 color={'#FFFFFF'}
+                                 boxShadow={'none'}
+                                 textBtn="11"
                                  onClick={openModal}
-                                 style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                 }}>
-                                 <ButtonSecond txt="4" minWidth="210px" />
-                              </div>
+                              />
                            </div>
                         </div>
+                        {loadingMuseumOneEvents === 'fulfilled' && <OurEvents {...{dataMuseumOneEvents}}/>}
+
+                        {educationalProgramsLoad === 'fulfilled' &&
+                           dataEducationalPrograms.length > 0 && (
+                              <EducationalPrograms
+                                 dataEducationalPrograms={dataEducationalPrograms}
+                              />
+                           )}
                      </div>
-                     <MuseumPageMessages museumId={id}/>
+                     <MuseumPageMessages museumId={id} />
                   </div>
                </div>
             </div>

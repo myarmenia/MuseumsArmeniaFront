@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { postMuseumPages, postMuseumOnePages, educationalPrograms } from './MuseumPagesApi';
+import { postMuseumPages, postMuseumOnePages, educationalPrograms, getMuseumOneEvents } from './MuseumPagesApi';
 const initialState = {
    loadingStatus: 'loading',
    dataMuseum: [],
@@ -7,7 +7,9 @@ const initialState = {
    filterDataMuseum: [],
    regions: [],
    educationalProgramsLoad: 'loading',
-   dataEducationalPrograms: []
+   dataEducationalPrograms: [],
+   loadingMuseumOneEvents: 'loading',
+   dataMuseumOneEvents: [],
 };
 
 const MuseumPagesSlice = createSlice({
@@ -66,7 +68,22 @@ const MuseumPagesSlice = createSlice({
          .addCase(educationalPrograms.rejected, (state, action) => {
             state.educationalProgramsLoad = 'rejected';
             state.dataEducationalPrograms = [];
-         });
+         })
+
+         // getMuseumOneEvents =======================
+
+         .addCase(getMuseumOneEvents.pending, (state) => {
+            state.loadingMuseumOneEvents = 'loading';
+            state.dataMuseumOneEvents = [];
+         })
+         .addCase(getMuseumOneEvents.fulfilled, (state, { payload }) => {
+            state.loadingMuseumOneEvents = 'fulfilled';
+            state.dataMuseumOneEvents = payload.data;
+         })
+         .addCase(getMuseumOneEvents.rejected, (state, action) => {
+            state.loadingMuseumOneEvents = 'rejected';
+            state.dataMuseumOneEvents = [];
+         })
    },
 });
 

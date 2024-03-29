@@ -9,7 +9,7 @@ import './museumPage.css';
 
 const MuseumPage = () => {
    const dispatch = useDispatch();
-   const {t, i18n} = useTranslation()
+   const { t, i18n } = useTranslation();
    const { loadingStatus, filterDataMuseum, regions } = useSelector((state) => state.museumPages);
 
    useEffect(() => {
@@ -26,8 +26,15 @@ const MuseumPage = () => {
                <div
                   className="museumPage_section"
                   style={{
-                     backgroundColor: '#F8F8F8',
+                     backgroundColor: '#ffffff',
                   }}>
+                  <div className="museumPage_section-title">
+                     <div className="museumPage_section-title-lines_div">
+                        <img src={require('../../images/Line 100.png')} alt="" />
+                        <h2>{t(`musseumPage_title.0`)}</h2>
+                        <img src={require('../../images/Line 100.png')} alt="" />
+                     </div>
+                  </div>
                   <div className="container section">
                      <SearchBlockMuseumPage regions={regions} />
                      <PaginationExample filterDataMuseum={filterDataMuseum} />
