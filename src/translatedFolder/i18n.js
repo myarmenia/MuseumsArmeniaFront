@@ -488,6 +488,32 @@ i18n.use(initReactI18next).init({
             'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:',
          ],
 
+         ticketsType: [
+            'Ստանդարտ Տոմս',
+            'Աբոնեմենտ',
+            'Միասնական Տոմս',
+            'Միջոցառումներ'
+          ],
+
+          ticketsType_for_private: [
+            {standart: 'Ստանդարտ տոմս'},
+            {discount: 'Զեղջված տոմս'},
+            {free: 'Անվճար տոմս'},
+            {subscription: 'Աբոնեմենտ'},
+          ],
+
+          Ticket_type_placeholder: [
+            'Մարզ',
+            'Ընտրել մարզ',
+            'Թանգարան',
+            'Ընտրել թանգարան',
+            'Միջոցառում',
+            'Ընտրել միջոցառում',
+            'Պատվիրել տոմս',
+            'Ընդամենը - ',
+            'Խնդրում ենք մուտք գործել՝ ձեր զամբյուղին տոմս կամ ապրանք ավելացնելու համար:'
+          ]
+
         },
 
 
@@ -978,6 +1004,32 @@ i18n.use(initReactI18next).init({
             'Если вы не зарегистрированы, напишите нам свой адрес электронной почты. письмо для получения ответного письма от музея',
             'Привет. Приятно видеть тебя здесь. Нажимая кнопку «Начать чат», вы соглашаетесь на обработку ваших персональных данных, как описано в нашей Политике конфиденциальности.',
          ],
+
+         ticketsType: [
+            'Стандартный билет',
+            'Абонемент',
+            'Единый билет',
+            'События'
+          ],
+
+          ticketsType_for_private: [
+            {standart: 'Стандартный билет'},
+            {discount: 'Билет со скидкой'},
+            {free: 'Бесплатный билет'},
+            {subscription: 'Абонемент'},
+          ],
+
+          Ticket_type_placeholder: [
+            'Регион',
+            'Выбрать регион',
+            'Музей',
+            'Выбрать музей',
+            'Событие',
+            'Выбрать событие',
+            'Заказать билет',
+            'Итого - ',
+            'Пожалуйста, войдите, чтобы добавить билет или товар в корзину.',
+          ]
       },
 
       
@@ -1464,6 +1516,33 @@ i18n.use(initReactI18next).init({
             'If you are not registered, please write us your email address. letter to receive a response letter from the museum',
             'Hello. Nice to see you here. By clicking the Start Chat button, you agree to the processing of your personal data as described in our Privacy Policy.',
          ],
+
+         ticketsType: [
+            'Standard ticket',
+            'Abonement',
+            'United ticket',
+            'Events'
+          ],
+
+          ticketsType_for_private: [
+            {standart: 'Standart ticket'},
+            {discount: 'Discounted Ticket'},
+            {free: 'Free ticket'},
+            {subscription: 'Abonement'},
+
+          ],
+
+          Ticket_type_placeholder: [
+            'Region',
+            'Choose region',
+            "Museum",
+            'Choose museum',
+            'Event',
+            'Choose Event',
+            'Order ticket',
+            'Summary - ',
+            'Please login to add a ticket or item to your cart.'
+          ]
 
      },
 

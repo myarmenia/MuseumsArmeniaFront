@@ -25,7 +25,7 @@ function LoginPage() {
       password: yup.string().required(t('validation_inp.1')),
    });
 
-   const handleLogin = (e, handleSubmit, isValid) => {
+   const handleLogin = async(e, handleSubmit, isValid) => {
       handleSubmit();
       e.preventDefault();
       const { email, password } = e.target;
@@ -36,9 +36,10 @@ function LoginPage() {
             password: password.value,
          };
 
-         dispatch(postLogin(loginObj));
+        await dispatch(postLogin(loginObj));
          
-         respLogin.data.is_verify !== true && setOpenVerifyModal(true)
+          respLogin.data.is_verify !== true && setOpenVerifyModal(true)
+         
       }
    };
 
@@ -136,7 +137,7 @@ function LoginPage() {
                               const loginWithGoogleObj = {
                                  token: credentialResponse.credential,
                               };
-                              console.log(loginWithGoogleObj);
+                              console.log(credentialResponse);
 
                               dispatch(postGoogleLogin(loginWithGoogleObj));
                            }}
@@ -153,6 +154,8 @@ function LoginPage() {
             </div>
          </div>
          {openVerifyModal && <VerificationLogin email={emailRef} {...{setOpenVerifyModal}}/>}
+
+         
       </div>
    );
 }
