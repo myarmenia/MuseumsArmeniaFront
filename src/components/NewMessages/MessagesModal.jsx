@@ -1,81 +1,83 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
-import { setMessagesType, setEducationProgramType } from '../../store/slices/MessagesBotSlice/MessagesBotSlice';
+import {
+  setMessagesType,
+  setEducationProgramType,
+} from '../../store/slices/MessagesBotSlice/MessagesBotSlice';
 import { setIsOpen } from '../../store/slices/NewMessagesSlice/NewMessagesSlice';
 import { CloseMessages } from '../../iconFolder/icon';
 
 const customStyles = {
-   content: {
-      top: 'auto',
-      left: 'auto',
-      right: '5%',
-      bottom: '30px',
-      // marginRight: '-50%',
-      // transform: 'translate(-50%, -50%)',
-      width: '450px',
-      height: '650px',
-      padding: '0',
-      border: 'none',
-      borderRadius: '10px',
-      color: '#000000',
-      background: 'inherit',
-   },
+  content: {
+    top: 'auto',
+    left: 'auto',
+    right: '5%',
+    bottom: '30px',
+    // marginRight: '-50%',
+    // transform: 'translate(-50%, -50%)',
+    width: '450px',
+    height: '650px',
+    padding: '0',
+    border: 'none',
+    borderRadius: '10px',
+    color: '#000000',
+    background: 'inherit',
+  },
 };
 // Modal.setAppElement('#yourAppElement');
 
 const MessagesModal = ({ children }) => {
-   const { modalIsOpen } = useSelector((state) => state.messages);
-   const [windowWidth, setWindowWidth] = useState(2000);
-   useEffect(() => {
-      const handleResize = () => {
-         setWindowWidth(window.innerWidth);
-      };
-      window.addEventListener('resize', handleResize);
+  const { modalIsOpen } = useSelector((state) => state.messages);
+  const [windowWidth, setWindowWidth] = useState(2000);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
 
-      // Cleanup function to remove event listener on component unmount
-      return () => {
-         window.removeEventListener('resize', handleResize);
-         dispatch(setIsOpen(false));
-      };
-   }, []);
-   //  customStyles.content.width = windowWidth > 1200 ? '40%' : windowWidth < 800 ? '80%' : '60%'
-
-   const dispatch = useDispatch();
-   let subtitle;
-   function afterOpenModal() {
-      // references are now sync'd and can be accessed.
-      subtitle.style.color = '#000';
-   }
-   function closeModal() {
+    // Cleanup function to remove event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
       dispatch(setIsOpen(false));
-      dispatch(setMessagesType(null));
-      dispatch(setEducationProgramType(null));
-   }
+    };
+  }, []);
+  //  customStyles.content.width = windowWidth > 1200 ? '40%' : windowWidth < 800 ? '80%' : '60%'
 
-   useEffect(() => {
-      
-      return ()=> closeModal()
-   }, []);
+  const dispatch = useDispatch();
+  let subtitle;
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#000';
+  }
+  function closeModal() {
+    dispatch(setIsOpen(false));
+    dispatch(setMessagesType(null));
+    dispatch(setEducationProgramType(null));
+  }
 
-   return (
-      <div>
-         <Modal
-            isOpen={modalIsOpen}
-            // onAfterOpen={afterOpenModal}
-            // onRequestClose={}
-            style={{ ...customStyles }}
-            ariaHideApp={false}
-            contentLabel="Example Modal">
-            <div className="child_modall">
-               <div onClick={closeModal} className="messagesModal-close">
-                  <p>X</p>
-               </div>
-               {children}
-            </div>
-         </Modal>
-      </div>
-   );
+  useEffect(() => {
+    return () => closeModal();
+  }, []);
+
+  return (
+    <div>
+      <Modal
+        isOpen={modalIsOpen}
+        // onAfterOpen={afterOpenModal}
+        // onRequestClose={}
+        style={{ ...customStyles }}
+        ariaHideApp={false}
+        contentLabel="Example Modal">
+        <div className="child_modall">
+          <div onClick={closeModal} className="messagesModal-close">
+            <p>X</p>
+          </div>
+          {children}
+        </div>
+      </Modal>
+    </div>
+  );
 };
 
 export default MessagesModal;

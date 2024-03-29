@@ -28,7 +28,7 @@
   gap: 20px;
 }
 
-.nav_bar .container img {
+.nav_bar_logo_ {
   width: 150px;
 }
 
@@ -56,8 +56,8 @@
   cursor: pointer;
 }
 .shop-card {
-  width: 26px !important;
-  height: 26px !important;
+  min-width: 26px !important;
+  min-height: 26px !important;
   cursor: pointer;
 }
 

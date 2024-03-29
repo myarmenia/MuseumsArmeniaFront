@@ -61,8 +61,9 @@ function SouvenirsSection() {
             {product}
           </Carousel>
         </div>
-
-        <ButtonSecond txt="1" />
+        <div className="souvenir_items_seeMore_button">
+        <ButtonSecond txt="1" path={'store'} />
+        </div>
       </div>
     </div>
   );
