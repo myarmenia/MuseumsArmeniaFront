@@ -34,7 +34,7 @@ function NavBar({ changeFonSize, changeFont }) {
   const handleClickOpenModal = useCallback((e) => {
     e.stopPropagation();
     dispatch(setModalIsOpenShop(true));
-    dispatch(getShopIconBasketDatas())
+    dispatch(getShopIconBasketDatas());
   }, []);
 
   return (
@@ -42,7 +42,7 @@ function NavBar({ changeFonSize, changeFont }) {
       <div className="container">
         <div className="nav_bar_left_div">
           <NavLink to={`/${leng}/`}>
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" className="nav_bar_logo_" />
           </NavLink>
           <NavMenu />
         </div>

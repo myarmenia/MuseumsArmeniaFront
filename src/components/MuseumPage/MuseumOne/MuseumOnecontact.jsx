@@ -1,51 +1,88 @@
 import React from 'react';
+import Link from 'antd/es/typography/Link';
 import { useTranslation } from 'react-i18next';
-import { LocationIcon, TelIcon } from '../../../iconFolder/icon';
-const MuseumOnecontact = ({ working_days, region, director, address, phones }) => {
+import {
+   LocationIcon,
+   PhoneIcons,
+   WebSideIcons,
+   InvateIcons,
+   InstaIcons,
+} from '../../../iconFolder/icon';
+const MuseumOnecontact = ({ working_days, region, director, address, phones, links }) => {
    const { t, i18n } = useTranslation();
 
+   const getBaseUrl = React.useCallback((url) => {
+      const regex = /^(?:([^\:]+)\:\/\/)?([^\/]+)/;
+      const match = url.match(regex);
+      return match?.[2]; // Доступ к группе 2 (доменное имя) с оператором optional chaining
+   }, []);
+
+   console.log(getBaseUrl(links?.web_site), 'testtt');
+
    return (
-      <div className="museumOne_pageStyle">
-         <div>
-            <h4>{t(`our_address`)}</h4>
-            <p className="par-contactMinBlock">
-               <span>
-                  <LocationIcon />
-               </span>
-               {t(`${region}`)}
-               {address}
-            </p>
-         </div>
+      <div className="museumOne_pageStyle blockRigth_styles">
          <div>
             <h4>{t(`working_hours`)}</h4>
             <p className="par-contactMinBlock">
-               <span>
+               {/* <span>
                   <LocationIcon />
-               </span>
+               </span> */}
                {working_days}
             </p>
          </div>
          <div>
-            <h4>{t(`director`)}</h4>
+            <h4>{t(`our_address`)}</h4>
             <p className="par-contactMinBlock">
-               <span>
-                  <LocationIcon />
-               </span>
-               {director}
+               <LocationIcon width={20} height={20} fill="#3F3D56" />
+
+               {t(`${region}`)}
+               {address}
             </p>
          </div>
-         <div>
-            <h4>{t(`phone`)}</h4>
 
-            {phones?.map((el, idx) => (
-               <p key={idx} className="par-contactMinBlock">
-                  <span>
-                     <TelIcon width={17} />
-                  </span>
-                  {el}
-               </p>
-            ))}
+         <div>
+            <h4>{t(`director`)}</h4>
+            <p className="par-contactMinBlock">{director}</p>
          </div>
+         <div>
+            <h4>{t(`webSideMusum.0`)}</h4>
+            <div className="blockRigth_styles-parPhone">
+               <WebSideIcons width={17} />
+               <p className="par-contactMinBlock">
+                  <a href={`${links?.web_site}`} rel="noopener noreferrer" target="_blank">
+                     {getBaseUrl(links?.web_site)}
+                  </a>
+               </p>
+            </div>
+         </div>
+         <div>
+            <div className="blockRigth_styles-parPhone">
+               <PhoneIcons width={22} height={22} />
+               {phones?.map((el, idx) => (
+                  <p key={idx} className="par-contactMinBlock">
+                     <a href={`tel:${el}`}>{el},</a>
+                  </p>
+               ))}
+            </div>
+         </div>
+         <div>
+            <div className="blockRigth_styles-parPhone">
+               <InvateIcons width={22} />
+               <p>{t(`webSideMusum.1`)}</p>
+            </div>
+         </div>
+         {links?.instagram && (
+            <div>
+               <div className="blockRigth_styles-parPhone">
+                  <InstaIcons />
+                  <p>
+                     <a href={links?.instagram} rel="noopener noreferrer" target="_blank">
+                        Instagram
+                     </a>
+                  </p>
+               </div>
+            </div>
+         )}
       </div>
    );
 };

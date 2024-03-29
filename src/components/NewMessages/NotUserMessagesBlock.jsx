@@ -136,7 +136,7 @@ const NotUserMessagesBlock = () => {
                         <p className="error_textarea">{errors.messages}</p>
                      )}
                      <button type="submit" className="sendMessages_btn">
-                        <SendButtonMessages fill="#cea670" />
+                        <SendButtonMessages fill="#3F3D56" />
                      </button>
                   </div>
                </form>
