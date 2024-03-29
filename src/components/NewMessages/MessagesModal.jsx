@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
-import { setMessagesType, setEducationProgramType } from '../../store/slices/MessagesBotSlice/MessagesBotSlice';
+import {
+  setMessagesType,
+  setEducationProgramType,
+} from '../../store/slices/MessagesBotSlice/MessagesBotSlice';
 import { setIsOpen } from '../../store/slices/NewMessagesSlice/NewMessagesSlice';
 import { CloseMessagesBtn } from '../../iconFolder/icon';
 
 const customStyles = {
+
    content: {
       top: 'auto',
       left: 'auto',
@@ -21,10 +25,12 @@ const customStyles = {
       color: '#000000',
       background: 'inherit',
    },
+
 };
 // Modal.setAppElement('#yourAppElement');
 
 const MessagesModal = ({ children }) => {
+
    const { modalIsOpen } = useSelector((state) => state.messages);
    // const [windowWidth, setWindowWidth] = useState(2000);
    // useEffect(() => {
@@ -39,24 +45,24 @@ const MessagesModal = ({ children }) => {
    //       dispatch(setIsOpen(false));
    //    };
    // }, []);
-   //  customStyles.content.width = windowWidth > 1200 ? '40%' : windowWidth < 800 ? '80%' : '60%'
+   //  customStyles.content.width = windowWidth > 1200 ? '40%' : windowWidth < 800 ? '80%' : '60%'  
 
-   const dispatch = useDispatch();
-   let subtitle;
-   function afterOpenModal() {
-      // references are now sync'd and can be accessed.
-      subtitle.style.color = '#000';
-   }
-   function closeModal() {
-      dispatch(setIsOpen(false));
-      dispatch(setMessagesType(null));
-      dispatch(setEducationProgramType(null));
-   }
+  const dispatch = useDispatch();
+  let subtitle;
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#000';
+  }
+  function closeModal() {
+    dispatch(setIsOpen(false));
+    dispatch(setMessagesType(null));
+    dispatch(setEducationProgramType(null));
+  }
 
-   useEffect(() => {
-      
-      return ()=> closeModal()
-   }, []);
+  useEffect(() => {
+    return () => closeModal();
+  }, []);
+
 
    return (
       <div>
@@ -77,6 +83,7 @@ const MessagesModal = ({ children }) => {
          </Modal>
       </div>
    );
+
 };
 
 export default MessagesModal;
