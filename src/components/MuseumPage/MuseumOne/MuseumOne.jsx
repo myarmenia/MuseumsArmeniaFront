@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
@@ -17,14 +17,16 @@ import MuseumPageMessages from '../../NewMessages/MuseumPageMessages';
 import CustomButtonBlock from './CustomButtonBlock';
 import { setIsOpen } from '../../../store/slices/NewMessagesSlice/NewMessagesSlice';
 import { MuseumAbonementIcons } from '../../../iconFolder/icon';
-
+import MuseumTicketModal from './MuseumTicketModal';
 const MuseumOne = () => {
    const { t, i18n } = useTranslation();
    const { id } = useParams();
    const dispatch = useDispatch();
    const { isAuth, authUser } = useSelector((store) => store.auth);
+   
    const {
       loadingStatus,
+      loadingdataMuseumOne,
       dataMuseumOne,
       dataEducationalPrograms,
       educationalProgramsLoad,
@@ -43,9 +45,10 @@ const MuseumOne = () => {
       photos = [],
       region,
       working_days,
+      tickets,
    } = dataMuseumOne;
 
-   console.log(dataMuseumOne, 5555);
+   console.log('dataMuseumOne', dataMuseumOne);
 
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
@@ -56,14 +59,28 @@ const MuseumOne = () => {
       }
    }, []);
 
-   const openModal = () => {
+   const [modalIsOpen, setModalIsOpen] = useState(false);
+   const [ticketValue, setTicketValue]= useState(null);
+
+   const openModal = useCallback(() => {
       dispatch(setIsOpen(true));
-   };
+   }, []);
+
+   const handleClickCloseModal = useCallback(() => {
+      setModalIsOpen(false);
+   }, []);
+
+   const handleClickTicket = useCallback((arg) => {
+      setTicketValue(arg)
+      setModalIsOpen(true);
+   }, []);
+
+
    return (
       <>
-         {loadingStatus === 'loading' ? (
+         {loadingdataMuseumOne === 'loading' ? (
             <LoadSpinner />
-         ) : loadingStatus === 'fulfilled' ? (
+         ) : loadingdataMuseumOne === 'fulfilled' ? (
             <div>
                <MuseumPageHeader headerImg={main_photo} title={name} />
                <div className="museumPage_section">
@@ -71,7 +88,7 @@ const MuseumOne = () => {
                      <div className="museumOne_parent">
                         <div className="museumOne_parent-section1">
                            <div className="museumOne-blockLeft">
-                              <MuseumOneDescription description={description} photos={photos} />
+                              <MuseumOneDescription description={description} photos={photos} handleClickTicket={handleClickTicket}  />
                            </div>
                            <div className="museumOne-blockRigth ">
                               <MuseumOnecontact
@@ -84,6 +101,7 @@ const MuseumOne = () => {
                                  background={'#D5AA72'}
                                  color={'#FFFFFF'}
                                  textBtn="10"
+                                 onClick={()=> handleClickTicket('abonementTicket')}
                               />
 
                               <CustomButtonBlock
@@ -98,7 +116,9 @@ const MuseumOne = () => {
                               />
                            </div>
                         </div>
-                        {loadingMuseumOneEvents === 'fulfilled' && <OurEvents {...{dataMuseumOneEvents}}/>}
+                        {loadingMuseumOneEvents === 'fulfilled' && (
+                           <OurEvents {...{ dataMuseumOneEvents }} />
+                        )}
 
                         {educationalProgramsLoad === 'fulfilled' &&
                            dataEducationalPrograms.length > 0 && (
@@ -107,6 +127,13 @@ const MuseumOne = () => {
                               />
                            )}
                      </div>
+                     <MuseumTicketModal
+                        modalIsOpen={modalIsOpen}
+                        handleClickCloseModal={handleClickCloseModal}>
+                        {
+                           ticketValue === 'buyTicket' ? <div>buyTicket</div> : <div>Abonement ticket</div>
+                        }
+                     </MuseumTicketModal>
                      <MuseumPageMessages museumId={id} />
                   </div>
                </div>

@@ -5,7 +5,7 @@ import ButtonSecond from '../../ButtonSecond/ButtonSecond';
 
 import reserveImg from '../../../images/reserveImg.png';
 
-const MuseumOneDescription = ({ description, photos }) => {
+const MuseumOneDescription = ({ description, photos, handleClickTicket }) => {
    const { t, i18n } = useTranslation();
    const [activImg, setActivImg] = React.useState(photos[0] || reserveImg);
    const [img1, setImg1] = React.useState(photos[1] || reserveImg);
@@ -40,6 +40,7 @@ const MuseumOneDescription = ({ description, photos }) => {
             background={'#D5AA72'}
             color={'#FFFFFF'}
             maxWidth={'250px'}
+            onClick={()=>handleClickTicket('buyTicket')}
          />
          <h4 className="museumOne_title">{t(`description_museum`)}...</h4>
          <p>{description}</p>

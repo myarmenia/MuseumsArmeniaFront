@@ -5,7 +5,7 @@ import { setMessagesType, setEducationProgramType } from '../../store/slices/Mes
 import { setIsOpen } from '../../store/slices/NewMessagesSlice/NewMessagesSlice';
 import { CloseMessagesBtn } from '../../iconFolder/icon';
 
-const customStyles = {
+const messagesCustomStyles = {
    content: {
       top: 'auto',
       left: 'auto',
@@ -22,7 +22,7 @@ const customStyles = {
       background: 'inherit',
    },
 };
-// Modal.setAppElement('#yourAppElement');
+
 
 const MessagesModal = ({ children }) => {
    const { modalIsOpen } = useSelector((state) => state.messages);
@@ -47,6 +47,7 @@ const MessagesModal = ({ children }) => {
       // references are now sync'd and can be accessed.
       subtitle.style.color = '#000';
    }
+   
    function closeModal() {
       dispatch(setIsOpen(false));
       dispatch(setMessagesType(null));
@@ -64,7 +65,7 @@ const MessagesModal = ({ children }) => {
             isOpen={modalIsOpen}
             // onAfterOpen={afterOpenModal}
             // onRequestClose={}
-            style={{ ...customStyles }}
+            style={{ ...messagesCustomStyles }}
             ariaHideApp={false}
             contentLabel="Example Modal">
             <div className="child_modall">
