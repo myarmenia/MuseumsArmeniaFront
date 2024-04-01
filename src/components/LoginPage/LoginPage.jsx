@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import './LoginPage.css';
@@ -25,7 +25,7 @@ function LoginPage() {
       password: yup.string().required(t('validation_inp.1')),
    });
 
-   const handleLogin = (e, handleSubmit, isValid) => {
+   const handleLogin = async(e, handleSubmit, isValid) => {
       handleSubmit();
       e.preventDefault();
       const { email, password } = e.target;
@@ -36,11 +36,15 @@ function LoginPage() {
             password: password.value,
          };
 
-         dispatch(postLogin(loginObj));
+        await dispatch(postLogin(loginObj));
          
-         respLogin.data.is_verify !== true && setOpenVerifyModal(true)
+      
       }
    };
+
+   useEffect(() => {
+      Object.hasOwn(respLogin.data, "is_verify") && setOpenVerifyModal(true)
+   },[respLogin.data]) 
 
    return (
       <div className="login_page">
@@ -136,7 +140,7 @@ function LoginPage() {
                               const loginWithGoogleObj = {
                                  token: credentialResponse.credential,
                               };
-                              console.log(loginWithGoogleObj);
+                              console.log(credentialResponse);
 
                               dispatch(postGoogleLogin(loginWithGoogleObj));
                            }}
@@ -153,6 +157,8 @@ function LoginPage() {
             </div>
          </div>
          {openVerifyModal && <VerificationLogin email={emailRef} {...{setOpenVerifyModal}}/>}
+
+         
       </div>
    );
 }

@@ -11,25 +11,25 @@ const UserChatList = ({ messagesUser, dataMuseumMessages }) => {
    const { dataMuseumOne } = useSelector((store) => store.museumPages);
 
    const divRef = useRef();
-   console.log(dataMuseumMessages, 88888);
+  
    useEffect(() => {
       const div = divRef.current;
       div.scrollTop = div.scrollHeight;
    }, [dataMuseumMessages]);
 
    return (
-      <div ref={divRef} className="par_type" style={{height: '500px'}}>
-         <div className="par-avatar_bot">
+      <div ref={divRef} className="par_type" style={{height: '480px'}}>
+         {/* <div className="par-avatar_bot">
             <div
                className="avatar_bot"
                style={{ background: `url(${dataMuseumOne.main_photo})` }}></div>
             <p>{dataMuseumOne.name}</p>
-         </div>
+         </div> */}
          <div className="chatList-bot">
             <ul className="chatList-ul">
                {dataMuseumMessages.messages.map((el) => (
                   <li  key={el.id} className={el.type === 'visitor' ? 'user_messages' : 'admin_messages'}>
-                     <span style={{ cursor: 'inherit' }} className="chatList-li">
+                     <span style={{ cursor: 'inherit' }} >
                         {el.text}
                      </span>
                   </li>

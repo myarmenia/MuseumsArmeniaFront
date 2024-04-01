@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLogOut } from '../../store/slices/LogOutSlice/LogOutApi';
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice';
-import { logOutIcon } from '../../iconFolder/icon';
+import { logOutIcon, userIcon } from '../../iconFolder/icon';
 import ShopCard from '../../images/Bank.svg';
 import {
   getProductLength,
@@ -57,6 +57,7 @@ function NavBar({ changeFonSize, changeFont }) {
               onClick={handleClickOpenModal}
             />
           </div>
+          {isAuth && <div>{userIcon}</div>}
           <ChangeFontSize {...{ changeFonSize, changeFont }} />
           <SelectLng />
           {!isAuth && <NavLink to={`/${leng}/login`}>{t('login_btn')}</NavLink>}

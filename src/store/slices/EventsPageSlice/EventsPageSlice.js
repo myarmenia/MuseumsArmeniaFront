@@ -31,7 +31,7 @@ const eventPageSlice = createSlice({
                 state.data.error = action.payload
                }
                state.loading = 'rejected'
-               state.status = 'failed'; 
+               state.status = 'failed';
           });
     },
  });
