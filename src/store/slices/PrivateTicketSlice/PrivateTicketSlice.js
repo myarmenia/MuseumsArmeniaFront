@@ -27,6 +27,7 @@ const privateTicketSlice = createSlice({
             state.params = action.payload.params
             state.loading = 'fulfilled'
              state.status = 'succes';
+             console.log(66666);
           })
           .addCase(getPrivateTicket.rejected, (state, action) => {
              if(action.payload){
@@ -34,6 +35,8 @@ const privateTicketSlice = createSlice({
                }
                state.loading = 'rejected'
                state.status = 'failed'; 
+
+               console.log('oooo');
           });
     },
  });

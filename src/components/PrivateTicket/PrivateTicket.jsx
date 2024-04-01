@@ -6,17 +6,48 @@ import { getPrivateTicket } from '../../store/slices/PrivateTicketSlice/PrivateT
 import PrivateStandartAndAbonementTicket from '../PrivateStandartAndAbonementTicket/PrivateStandartAndAbonementTicket'
 import PrivateUnitedTicket from '../PrivateUnitedTicket/PrivateUnitedTicket'
 import PrivateEventTicket from '../PrivateEventTicket/PrivateEventTicket'
+import { useTranslation } from 'react-i18next'
+import { dotIcon } from '../../iconFolder/icon'
 
 function PrivateTicket() {
+    const {t, i18n} = useTranslation()
     const [changeTicketType, setChangeTicketType] = useState('1')
     const dispatch = useDispatch()
+
+     const ticketsType = [
+        {
+            id: '1',
+            type: 'standart',
+            type_name: t('ticketsType.0')
+        },
+    
+        {
+            id: '2',
+            type: 'subscription',
+            type_name: t('ticketsType.1')
+        },
+    
+        {
+            id: '3',
+            type: 'united',
+            type_name: t('ticketsType.2')
+        },
+    
+        {
+            id: '4',
+            type: 'event',
+            type_name: t('ticketsType.3')
+        }
+    ]
+
+    
     const handleChangeTicket = (item_id, type) =>{
         setChangeTicketType(item_id)
-        dispatch(getPrivateTicket(type))
+        dispatch(getPrivateTicket({type: type, startDate: null, endDate: null, museumId: null }))
     }
 
     useEffect(()=> {
-        dispatch(getPrivateTicket('standart'))
+        dispatch(getPrivateTicket({type: 'standart', startDate: null, endDate: null, museumId: null }))
     },[])
 
 
@@ -26,7 +57,7 @@ function PrivateTicket() {
             <div className='private_ticket_type_div'>
                 {
                     ticketsType.map(item => 
-                        <button key={item.id} style={{color: changeTicketType === item.id ? 'var(--second_font_color' : 'black'}} onClick={() => handleChangeTicket(item.id, item.type)}>{item.type}</button>
+                        <button key={item.id} style={{color: changeTicketType === item.id ? '#3F3D56' : 'gray'}} onClick={() => handleChangeTicket(item.id, item.type)}><span>{changeTicketType === item.id && dotIcon}</span><p>{item.type_name}</p></button>
                     )
                 }
             </div>

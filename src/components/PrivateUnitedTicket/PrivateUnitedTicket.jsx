@@ -9,6 +9,7 @@ import { postTicketCart } from '../../store/slices/Shop/ShopApi'
 import './PrivateUnitedTicket.css'
 import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice'
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
+import { locationIcon, minusIcon, museumIcon, plusIcon, privateTicketIcon } from '../../iconFolder/icon'
 
 function PrivateUnitedTicket() {
     const { t, i18n } = useTranslation()
@@ -22,6 +23,9 @@ function PrivateUnitedTicket() {
     const [fullValueTicket, setFullValueTicket] = useState(0)
     const [options, setOptions] = useState([]);
     const [currentOpt, setCurrentOpt] = useState([]);
+    const [cartErrorMessage, setCartErrorMessage] = useState(null)
+    const [eventLineRegion, setEventLineRegion] = useState(true)
+    const [eventLineMuseum, setEventLineMuseum] = useState(true)
     const regionRef = useRef(null)
     const museumRef = useRef(null)
     const privateRef = useRef(null)
@@ -58,9 +62,12 @@ function PrivateUnitedTicket() {
 
             if (!path.includes(regionRef.current)) {
                 setopenModal(false)
+                setEventLineRegion(true)
             }
             if (!path2.includes(museumRef.current)) {
                 setopenModalMuseum(false)
+                setEventLineMuseum(true)
+                setEventLineRegion(true)
             }
             if (!path3.includes(privateRef.current)) {
                 setTicketTypesBlock(false)
@@ -72,12 +79,12 @@ function PrivateUnitedTicket() {
 
     }, [])
 
-
+    console.log(respStandartTicket.status !== 'failed','hhh');
 
     useEffect(() => {
         selectedRegion.name === 'bolor' || selectedRegion.id === '0'
-            ? setOptions(respStandartTicket.data)
-            : setOptions(respStandartTicket.data.filter(museum => museum.region_name === selectedRegion.name))
+            ? setOptions(respStandartTicket.status === 'succes' && respStandartTicket.data)
+            : setOptions(respStandartTicket.status == 'succes' && respStandartTicket.data.filter(museum => museum.region_name === selectedRegion.name))
 
     }, [respStandartTicket.data])
 
@@ -123,7 +130,7 @@ function PrivateUnitedTicket() {
 
     const handleSelectRegion = (e, obj) => {
         setSelectedRegion(obj)
-        dispatch(getPrivateTicket('united'))
+        dispatch(getPrivateTicket({type: 'united', startDate: null, endDate: null, museumId: null}))
 
     }
 
@@ -168,13 +175,57 @@ function PrivateUnitedTicket() {
 
         setTicketTypesBlock(false)
         }
+
+        else{
+            setCartErrorMessage(true);
+            setTimeout(() => {
+                setCartErrorMessage(false);
+            }, 4000); 
+         }
+
+         setTicketTypesBlock(false)
     }
+
+    const  handleMuseumInpFocus = (e)=>{
+        e.stopPropagation()
+          setEventLineMuseum(false)
+          setEventLineRegion(false)
+          setopenModal(false)
+          setTicketTypesBlock(false)
+       }
+
+      const handleRegionInpFocus = (e) =>{
+        e.stopPropagation()
+        setEventLineRegion(false)
+        setTicketTypesBlock(false)
+        setopenModalMuseum(false)
+
+
+      }
+
+     const handlePrivateBlockClick = (e) =>{
+        e.stopPropagation()
+        setEventLineMuseum(false)
+        setTicketTypesBlock(true)
+        setopenModal(false)
+        setopenModalMuseum(false)
+
+
+     }
+
+     console.log(options, respStandartTicket.data, 'gghsdhdjh');
 
 
     return (
         <div className='private_standart_ticket'>
-            <div className='private_standart_ticket_regions' ref={regionRef} >
-                <input type="text" onKeyDown={handleKeyDown} onClick={() => setopenModal(!openModal)} value={selectedRegion.value || ''} onChange={() => { }} placeholder='regions' />
+            {cartErrorMessage && <h3 className='cart_error_message'>{t('Ticket_type_placeholder.8')}</h3>}
+            <div className='private_standart_ticket_regions' ref={regionRef} onClick={(e)=> handleRegionInpFocus(e)}>
+                <input type="text" onKeyDown={handleKeyDown} onClick={() => setopenModal(!openModal)} value={selectedRegion.value || ''} onChange={() => { }} placeholder={t('Ticket_type_placeholder.0')}/>
+
+                <div className='placeholder_div'>
+                    <span>{museumIcon}</span>
+                        <p>{t('Ticket_type_placeholder.1')}</p>
+                </div>
 
                 {
                     openModal && (
@@ -182,21 +233,33 @@ function PrivateUnitedTicket() {
                             {
                                 privateTicketRegions.map((region, index) => {
 
-                                    return <li key={index} onClick={(e) => handleSelectRegion(e, { name: Object.keys(region)[0], id: index + 1, value: Object.values(region)[0] })}>{Object.values(region)[0]}</li>
+                                    return <li key={index} onClick={(e) => handleSelectRegion(e, { name: Object.keys(region)[0], id: index + 1, value: Object.values(region)[0] })}><span>{locationIcon}</span> <p>{Object.values(region)[0]}</p></li>
 
                                 })
                             }
                         </ul>
                     )
                 }
+                {eventLineRegion && <div className='line_ticket'></div>}
             </div>
 
-            <div className='private_standart_ticket_museums' ref={museumRef} >
-                <input type="text" onKeyDown={handleDelMuseum} value={selectedMuseum} onClick={() => setopenModalMuseum(true)} onChange={() => { }} placeholder='museums' />
+            <div className='private_standart_ticket_museums' ref={museumRef} onClick={(e)=> handleMuseumInpFocus(e)}>
+                <input type="text" onKeyDown={handleDelMuseum} value={selectedMuseum} onClick={() => setopenModalMuseum(true)} onChange={() => { }} placeholder={t('Ticket_type_placeholder.2')} />
+
+                <div className='placeholder_div'>
+                    <span>{museumIcon}</span>
+                        <p>{t('Ticket_type_placeholder.3')}</p>
+                </div>
+
                 {openModalMuseum && (
                     <ul className='private_united_ticket_museum_list'>
                         {options && options.map(museum => (
                             <label key={museum.id}>
+                                <span>{museumIcon}</span>
+                                <li>
+                                    <span>{museum.name}</span>
+                                    <span>{museum.tickets[0].price} AMD</span>
+                                </li>
                                 <input
                                     id={museum.id}
                                     ref={museumInpRef}
@@ -204,24 +267,26 @@ function PrivateUnitedTicket() {
                                     type="checkbox"
                                     onChange={(e) => handleCheckboxChange(e, museum)}
                                 />
-                                <li>
-                                    <span>{museum.name}</span>
-                                    <span>{museum.tickets[0].price} AMD</span>
-                                </li>
                             </label>
                         ))}
                     </ul>
                 )}
+
+                {eventLineMuseum && <div className='line_ticket'></div>}
+
             </div>
 
-            <div ref={privateRef} className='private_standart_ticket_museums_private_block' onClick={() => setTicketTypesBlock(true)} style={{ boxShadow: ticketTypesBlock ? '10px 0 40px rgba(0, 0, 0, 0.168)' : 'none' }}>
-                <span>Ticket types</span>
+            <div ref={privateRef} className='private_standart_ticket_museums_private_block'  onClick={(e) => handlePrivateBlockClick(e)} style={{boxShadow: ticketTypesBlock ? '0 0 20px rgba(0, 0, 0, 0.055)' : 'none'}}>
+                <div className='placeholder_div_ticket'>
+                        <span>{privateTicketIcon}</span>
+                        <p>{t('Ticket_type_placeholder.6')}</p>
+                </div>
 
                 {ticketTypesBlock && currentOpt.length === respStandartTicket.params.min_museum_quantity &&
 
                     (<div className='private_standart_ticket_museums_private_block_ticket_types'>
                         {
-                            currentOpt.length === 2 && currentOpt.map(el =>
+                            currentOpt.length === respStandartTicket.params.min_museum_quantity && currentOpt.map(el =>
                                 <div key={el.id}>
                                     <div className='packet_div'>
                                         <span className='packet_div_type'>{el.name}</span>
@@ -232,18 +297,19 @@ function PrivateUnitedTicket() {
                         }
 
                         <div className='packet_div_count'>
-                            <span onClick={() => packetCount('-')}>-</span>
-                            <h3>{ticketCount}</h3>
-                            <span onClick={() => packetCount('+')}>+</span>
+                            <span onClick={() => packetCount('-')}>{minusIcon}</span>
+                            <span style={{color: ticketCount > 0 ? 'black' : 'gray'}}>{ticketCount}</span>
+                            <span onClick={() => packetCount('+')}>{plusIcon}</span>
                         </div>
 
                         <div className='private_standart_ticket_museums_private_block_ticket_types_full_value'>
-                            <span>Ընդամենը -   {fullValueTicket} AMD</span>
+                            <span>{t('Ticket_type_placeholder.7')}   {fullValueTicket} AMD</span>
                         </div>
 
                         <div className='private_standart_ticket_museums_private_block_ticket_types_buy_div'>
-                            <ButtonSecond txt='0' />
-                            <ButtonSecond txt='5' onClick={addCart} />
+
+                            <button className='bay_ticket_btn'>{t('buttons.0')}</button>
+                            <button className='add_cart_btn' onClick={addCart}>{t('buttons.3')}</button>
                         </div>
                     </div>
                     )}

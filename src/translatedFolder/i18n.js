@@ -448,44 +448,72 @@ i18n.use(initReactI18next).init({
                'Հայաստանի Հանրապետության քաղաքացիների համար յուրաքանչյուր ամսվա վերջին շաբաթ օրը մուտքն ազատ է:',
             ],
 
-            faq_sale_tickets: [
-               'Համայն ՀՀ նորմատիվ ակտերի թանգարանի տոմսի արժեքը 50 տոկոսով զեղչվում է հետևյալ դեպքերում՝',
-               '12 տարեկանից բարձր դպրոցականներ',
-               'ուսանողներ,',
-               'Հայաստանի Հանրապետության քաղաքացի հանդիսացող կենսաթոշակառուներ,',
-               'փախստականներ։',
-            ],
 
-            privateTicketRegions: [
-               { bolor: 'Բոլորը' },
-               { yerevan: 'Երևան' },
-               { aragatsotn: 'Արագածոտն' },
-               { ararat: 'Արարատ' },
-               { armavir: 'Արմավիր' },
-               { gegharkunik: 'Գեղարքունիք' },
-               { kotayk: 'Կոտայք' },
-               { lori: 'Լոռի' },
-               { shirak: 'Շիրակ' },
-               { syunik: 'Սյունիք' },
-               { tavush: 'Տավուշ' },
-               { vayots_dzor: 'Վայոց Ձոր' },
-            ],
+          faq_sale_tickets: [
+            'Համայն ՀՀ նորմատիվ ակտերի թանգարանի տոմսի արժեքը 50 տոկոսով զեղչվում է հետևյալ դեպքերում՝',
+            '12 տարեկանից բարձր դպրոցականներ',
+            'ուսանողներ,',
+            'Հայաստանի Հանրապետության քաղաքացի հանդիսացող կենսաթոշակառուներ,',
+            'փախստականներ։'
+          ],
 
-            chatBotHint: [
-               'Խնդրում ենք նշել ձեր հաղորդագրության մեջ',
-               'Նախընտրելի օր',
-               'Մասնակիցների քանակը',
-               'Ո՞ր տարիքային խմբի մասին է խոսքը',
-               'Կազմակերպության կամ անհատի անվանումը',
-               'Հեռախոսահամար',
-               'Նշեք գիդի լեզուն',
-            ],
-            otherMessagesBot: 'Գրեք ձեր հաղորդագրությունը',
-            warningMessages: 'Ցանկանու՞մ եք շարունակել',
-            startMessages: [
-               'Եթե գրանցված չեք, գրեք մեզ ձեր էլ. նամակը թանգարանից պատասխան նամակ ստանալու համար',
-               'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:',
-            ],
+          privateTicketRegions: [
+            {bolor: 'Բոլորը'},
+            {yerevan: 'Երևան'},
+            {aragatsotn: 'Արագածոտն'},
+            {ararat: 'Արարատ'},
+            {armavir: 'Արմավիր'},
+            {gegharkunik: 'Գեղարքունիք'},
+            {kotayk: 'Կոտայք'},
+            {lori: 'Լոռի'},
+            {shirak: 'Շիրակ'},
+            {syunik: 'Սյունիք'},
+            {tavush: 'Տավուշ'},
+            {vayots_dzor: 'Վայոց Ձոր'}
+          ],
+
+          chatBotHint: [
+            'Խնդրում ենք նշել ձեր հաղորդագրության մեջ',
+            'Նախընտրելի օր',
+            'Մասնակիցների քանակը',
+            'Ո՞ր տարիքային խմբի մասին է խոսքը',
+            'Կազմակերպության կամ անհատի անվանումը',
+            'Հեռախոսահամար',
+            'Նշեք գիդի լեզուն',
+         ],
+         otherMessagesBot: 'Գրեք ձեր հաղորդագրությունը',
+         warningMessages: 'Ցանկանու՞մ եք շարունակել',
+         startMessages: [
+            'Եթե գրանցված չեք, գրեք մեզ ձեր էլ. նամակը թանգարանից պատասխան նամակ ստանալու համար',
+            'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:',
+         ],
+
+         ticketsType: [
+            'Ստանդարտ Տոմս',
+            'Աբոնեմենտ',
+            'Միասնական Տոմս',
+            'Միջոցառումներ'
+          ],
+
+          ticketsType_for_private: [
+            {standart: 'Ստանդարտ տոմս'},
+            {discount: 'Զեղջված տոմս'},
+            {free: 'Անվճար տոմս'},
+            {subscription: 'Աբոնեմենտ'},
+          ],
+
+          Ticket_type_placeholder: [
+            'Մարզ',
+            'Ընտրել մարզ',
+            'Թանգարան',
+            'Ընտրել թանգարան',
+            'Միջոցառում',
+            'Ընտրել միջոցառում',
+            'Պատվիրել տոմս',
+            'Ընդամենը - ',
+            'Խնդրում ենք մուտք գործել՝ ձեր զամբյուղին տոմս կամ ապրանք ավելացնելու համար:'
+          ],
+
 
             musseumPage_title: ['ՀԱՅԿԱԿԱՆ ԹԱՆԳԱՐԱՆՆԵՐ', 'Զտել', 'Կարդալ ավելին'],
             webSideMusum: ['ՎԵԲ ԿԱՅՔ', 'հրավիրել', 'Թանգարանի բացատ'],
@@ -948,44 +976,71 @@ i18n.use(initReactI18next).init({
                'беженцы.',
             ],
 
-            privateTicketRegions: [
-               { bolor: 'Все' },
-               { yerevan: 'Ереван' },
-               { aragatsotn: 'Арагацотн' },
-               { ararat: 'Арарат' },
-               { armavir: 'Армавир' },
-               { gegharkunik: 'Гегаркуник' },
-               { kotayk: 'Котайк' },
-               { lori: 'Лори' },
-               { shirak: 'Ширак' },
-               { syunik: 'Сюник' },
-               { tavush: 'Тавуш' },
-               { vayots_dzor: 'Вайоцдзор' },
-            ],
-            chatBotHint: [
-               'Пожалуйста, укажите в сообщении',
-               'Желаемый день',
-               'Число участников',
-               'О какой возрастной группе мы говорим?',
-               'Название организации или физического лица',
-               'Номер телефона',
-               'Укажите язык руководства',
-            ],
-            otherMessagesBot: 'Напишите свое сообщение',
-            warningMessages: 'Вы хотите продолжать?',
-            startMessages: [
-               'Если вы не зарегистрированы, напишите нам свой адрес электронной почты. письмо для получения ответного письма от музея',
-               'Привет. Приятно видеть тебя здесь. Нажимая кнопку «Начать чат», вы соглашаетесь на обработку ваших персональных данных, как описано в нашей Политике конфиденциальности.',
-            ],
-            musseumPage_title: ['АРМЯНСКИЕ МУЗЕИ', 'Фильтр', 'Читать далее'],
-            webSideMusum: ['ВЕБ-САЙТ', 'приглашать', 'Музейный абонемент'],
-            ButtonBlock: [
-               'Безлимитный доступ на 365 дней',
-               'Напишите гиду, образовательным программам и другим вопросам.',
-            ],
-         },
-      },
 
+          privateTicketRegions: [
+            {bolor: 'Все'},
+            {yerevan: 'Ереван'},
+            {aragatsotn: 'Арагацотн'},
+            {ararat: 'Арарат'},
+            {armavir: 'Армавир'},
+            {gegharkunik: 'Гегаркуник'},
+            {kotayk: 'Котайк'},
+            {lori: 'Лори'},
+            {shirak: 'Ширак'},
+            {syunik: 'Сюник'},
+            {tavush: 'Тавуш'},
+            {vayots_dzor: 'Вайоцдзор'}
+          ],
+          chatBotHint: [
+            'Пожалуйста, укажите в сообщении',
+             "Желаемый день",
+             'Число участников',
+             'О какой возрастной группе мы говорим?',
+             'Название организации или физического лица',
+             'Номер телефона',
+             'Укажите язык руководства',
+         ],
+         otherMessagesBot: 'Напишите свое сообщение',
+         warningMessages: 'Вы хотите продолжать?',
+         startMessages: [
+            'Если вы не зарегистрированы, напишите нам свой адрес электронной почты. письмо для получения ответного письма от музея',
+            'Привет. Приятно видеть тебя здесь. Нажимая кнопку «Начать чат», вы соглашаетесь на обработку ваших персональных данных, как описано в нашей Политике конфиденциальности.',
+         ],
+         musseumPage_title: ['АРМЯНСКИЕ МУЗЕИ', 'Фильтр', 'Читать далее'],
+         webSideMusum: ['ВЕБ-САЙТ', 'приглашать', 'Музейный абонемент'],
+         ButtonBlock: [
+            'Безлимитный доступ на 365 дней',
+            'Напишите гиду, образовательным программам и другим вопросам.',
+         ],
+
+         ticketsType: [
+            'Стандартный билет',
+            'Абонемент',
+            'Единый билет',
+            'События'
+          ],
+
+          ticketsType_for_private: [
+            {standart: 'Стандартный билет'},
+            {discount: 'Билет со скидкой'},
+            {free: 'Бесплатный билет'},
+            {subscription: 'Абонемент'},
+          ],
+
+          Ticket_type_placeholder: [
+            'Регион',
+            'Выбрать регион',
+            'Музей',
+            'Выбрать музей',
+            'Событие',
+            'Выбрать событие',
+            'Заказать билет',
+            'Итого - ',
+            'Пожалуйста, войдите, чтобы добавить билет или товар в корзину.',
+          ]
+
+      },
+    },
       en: {
          translation: {
             title: 'hello',
@@ -1446,35 +1501,65 @@ i18n.use(initReactI18next).init({
                { vayots_dzor: 'Vayots Dzor' },
             ],
 
-            chatBotHint: [
-               'Please indicate in message',
-               'Desired day',
-               'Number of participants',
-               'What age group are we talking about?',
-               'Name of organization or individual',
-               'Phone number',
-               'Specify the language of the manual',
-            ],
-            otherMessagesBot: 'Write your message',
-            warningMessages: 'Do you want to continue?',
-            startMessages: [
-               'If you are not registered, please write us your email address. letter to receive a response letter from the museum',
-               'Hello. Nice to see you here. By clicking the Start Chat button, you agree to the processing of your personal data as described in our Privacy Policy.',
-            ],
-            musseumPage_title: ['ARMENIAN MUSEUMS', 'Filter', 'Read more'],
-            webSideMusum: ['WEB SITE', 'invate', 'Museum abonement'],
-            ButtonBlock: [
-               'Unlimited access for 365 days',
-               'Write for tour guide, educational programs and other questions',
-            ],
-         },
-      },
+
+          chatBotHint: [
+            'Please indicate in message',
+            "Desired day",
+            'Number of participants',
+            'What age group are we talking about?',
+            'Name of organization or individual',
+            'Phone number',
+            'Specify the language of the manual',
+         ],
+         otherMessagesBot: 'Write your message',
+         warningMessages: 'Do you want to continue?',
+         startMessages: [
+            'If you are not registered, please write us your email address. letter to receive a response letter from the museum',
+            'Hello. Nice to see you here. By clicking the Start Chat button, you agree to the processing of your personal data as described in our Privacy Policy.',
+         ],
+         musseumPage_title: ['ARMENIAN MUSEUMS', 'Filter', 'Read more'],
+         webSideMusum: ['WEB SITE', 'invate', 'Museum abonement'],
+         ButtonBlock: [
+            'Unlimited access for 365 days',
+            'Write for tour guide, educational programs and other questions',
+         ],
+         ticketsType: [
+            'Standard ticket',
+            'Abonement',
+            'United ticket',
+            'Events'
+          ],
+
+          ticketsType_for_private: [
+            {standart: 'Standart ticket'},
+            {discount: 'Discounted Ticket'},
+            {free: 'Free ticket'},
+            {subscription: 'Abonement'},
+
+          ],
+
+          Ticket_type_placeholder: [
+            'Region',
+            'Choose region',
+            "Museum",
+            'Choose museum',
+            'Event',
+            'Choose Event',
+            'Order ticket',
+            'Summary - ',
+            'Please login to add a ticket or item to your cart.'
+          ]
+
+     },
+
+   },
+
    },
    lng: localStorage.getItem('lang') ? localStorage.getItem('lang') : 'am', // Default language
    fallbackLng: localStorage.getItem('lang'), // Fallback language
    interpolation: {
       escapeValue: false,
-   },
-});
+   }
+})
 
 export default i18n;

@@ -387,24 +387,3 @@ export const privateTicketsData = {
 
 
 // ===============================================
-export const ticketsType = [
-    {
-        id: '1',
-        type: 'standart'
-    },
-
-    {
-        id: '2',
-        type: 'subscription'
-    },
-
-    {
-        id: '3',
-        type: 'united'
-    },
-
-    {
-        id: '4',
-        type: 'event'
-    }
-]

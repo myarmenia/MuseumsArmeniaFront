@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './ChangeFontSize.css'
-import { changeFontIcon } from '../../iconFolder/icon'
+import { changeFontIcon, zoomIcon } from '../../iconFolder/icon'
 
 function ChangeFontSize({changeFonSize, changeFont}) {
 
   
   return (
     <div className='change_font'>
-      <span>{changeFontIcon}</span>
+      <span>{zoomIcon}</span>
        <ul className='font_list'>
            <li style={{fontSize: '25px'}}  onClick={() => changeFont('large')}>A</li>
            <li style={{fontSize: '20px'}} onClick={() => changeFont('medium')}>A</li>
