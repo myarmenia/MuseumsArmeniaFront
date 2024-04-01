@@ -22,8 +22,8 @@ const TicketMuseumCatalog = () => {
             }
          </div>
          <div className="TicketMuseumCatalog-buttonBlock">
-            <ButtonSecond text={'ButtonBlock.1'} maxWidth="160px" background={'#D5AA72'}  color={'#FFFFFF'} boxShadow={'none'} />
-            <ButtonSecond text={'ButtonBlock.1'} maxWidth="160px" background={'#D5AA72'}  color={'#FFFFFF'} boxShadow={'none'} />
+            <ButtonSecond txt='0'  background={'#D5AA72'}  color={'#FFFFFF'} boxShadow={'none'}  fontSize='12px' newClass='newStyleBtn'/>
+            <ButtonSecond txt='12'  background={'#D5AA72'}  color={'#FFFFFF'} boxShadow={'none'} fontSize='12px' newClass='newStyleBtn'/>
          </div>
       </div>
     </div>

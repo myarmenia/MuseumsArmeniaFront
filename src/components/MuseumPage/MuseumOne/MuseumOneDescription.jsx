@@ -41,6 +41,7 @@ const MuseumOneDescription = ({ description, photos, handleClickTicket }) => {
             color={'#FFFFFF'}
             maxWidth={'250px'}
             onClick={()=>handleClickTicket('ticket', 'Buy Ticket')}
+            newClass='newStyleBtn'
          />
          <h4 className="museumOne_title">{t(`description_museum`)}...</h4>
          <p>{description}</p>

@@ -52,6 +52,20 @@
 
 .ant-picker{
     border: none;
-    height: 100px;
+    height: 80px;
     border-radius: 70px;
+}
+
+
+.ant-picker .ant-picker-input:nth-of-type(1) >input{
+    padding-left: 20px !important;
+}
+
+.ant-picker-input >input::placeholder{
+    color: gray !important;
+}
+
+.ant-picker-suffix{
+    position: absolute !important;
+    left: 10px !important;
 }

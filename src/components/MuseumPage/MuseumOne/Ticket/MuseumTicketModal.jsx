@@ -4,14 +4,15 @@ import { CloseMessagesBtn } from '../../../../iconFolder/icon';
 
 const museumTicketcustomStyles = {
    content: {
-      top: '50%',
+      top: '53%',
       left: '50%',
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
       overflow: 'none',
-      width: '400px'
+      // width: '400px'
+      padding: '25px 40px'
    },
 };
 
@@ -41,7 +42,7 @@ const MuseumTicketModal = ({ children, modalIsOpen, handleClickCloseModal }) => 
             ariaHideApp={false}
             contentLabel="Example Modal">
             <div className="child_modallTicket">
-               <div onClick={handleClickCloseModal} className="messagesModal-close">
+               <div onClick={handleClickCloseModal} className="ticketModal-close">
                   <CloseMessagesBtn width="15px" height="15px" />
                </div>
                {children}

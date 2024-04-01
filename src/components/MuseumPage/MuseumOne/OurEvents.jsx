@@ -60,6 +60,7 @@ const OurEvents = ({ dataMuseumOneEvents }) => {
                                     background={'#D5AA72'}
                                     color={'#FFFFFF'}
                                     maxWidth={'160px'}
+                                    fontSize='12px'
                                  />
                               </div>
                            </div>

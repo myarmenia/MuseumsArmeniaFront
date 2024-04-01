@@ -1,16 +1,20 @@
 .private_standart_ticket{
     display: flex;
-    /* width: 1000px; */
+    width: 90%;
     background-color: white;
     border-radius: 70px;
-    height: 100px;
+    height: 80px;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.468);
+    box-shadow: 0 12px 19px -5px #00000014;
 }
 
+
+.private_standart_ticket >div{
+    width: 33.3% ;
+    height: 100%;
+}
 .private_standart_ticket_regions{
     position: relative;
-    height: 100%;
 }
 
 .private_standart_ticket_regions > input:hover +ul{
@@ -20,46 +24,48 @@
 .private_standart_ticket_regions > input {
     height: 100%;
     background: transparent;
-    width: 200px;
     border: none;
     outline: none;
-    padding: 10px;
-    /* border-right: 1px solid #AAAA; */
+    padding: 40px;
+    padding-top: 25px;
     border-radius: 70px;
     width: 100%;
-
+    padding-left: 80px;
 }
+.private_standart_ticket_regions > input::placeholder {
+    color: gray;
+  }
 
 .private_standart_ticket_regions > input:focus{
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.208);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.055);
 }
 
 .private_standart_ticket_regions_list{
     position: absolute;
-    top: 110px;
+    top: 90px;
     left: 0;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.427);
-    border-radius: 20px;
-    width: 300px;
     z-index: 99;
+    width: 100%;
+    background-color: white;
+    z-index: 99;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .private_standart_ticket_regions_list li{
-    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 30px;
+    padding: 20px 10px;
+    cursor: pointer;
+    color: #636363;
+    border-bottom: 1px solid #ECEBEB;
 }
 
-.private_standart_ticket_regions_list li:nth-of-type(1){
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
 
-.private_standart_ticket_regions_list li:last-of-type{
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
 .private_standart_ticket_regions_list li:hover{
-    background-color: #aaaaaa7a;
+    background-color: #F6F5F5;
 }
 
 .private_standart_ticket_museums{
@@ -71,48 +77,54 @@
     height: 100%;
     background: transparent;
     border-radius: 70px;
-    width: 300px;
     border: none;
     outline: none;
-    padding: 10px;
+    padding: 40px;
+    padding-top: 25px;
+    padding-left: 80px;
     width: 100%;
-    /* border-right: 1px solid #AAAA; */
 }
+
+.private_standart_ticket_museums > input::placeholder {
+    color: gray;
+  }
 
 
 .private_standart_ticket_museums > input:focus{
-    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.515); */
-    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.168);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.055);
 }
 
 
 .private_standart_ticket_museum_list{
     position: absolute;
-    top: 110px;
+    top: 90px;
     left: 0;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.427);
-    border-radius: 20px;
-    width: 400px;
     z-index: 99;
+    min-width: 100%;
+    background-color: white;
+    z-index: 99;
+    padding: 20px;
+    border-radius: 10px;
+
 }
 
 
 .private_standart_ticket_museum_list li{
-    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 20px;
+    padding: 10px;
+    cursor: pointer;
+    color: #636363;
+    border-bottom: 1px solid #ECEBEB;
 }
 
-.private_standart_ticket_museum_list li:nth-of-type(1){
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
 
-.private_standart_ticket_museum_list li:last-of-type{
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
+
+
 .private_standart_ticket_museum_list li:hover{
-    background-color: #aaaaaa7a;
+    background-color: #F6F5F5;
 }
 
 
@@ -120,7 +132,7 @@
     height: 100%;
     background: transparent;
     border-radius: 70px;
-    width: 300px;
+    width: 100%;
     border: none;
     outline: none;
     padding: 10px;
@@ -131,17 +143,17 @@
 
 .private_standart_ticket_museums_private_block >span{
     color: #AAAA;
+    padding-left: 30px ;
 }
 
 .private_standart_ticket_museums_private_block_ticket_types{
     position: absolute;
-    top: 110px;
+    top: 90px;
     left: 0;
     background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.427);
-    border-radius: 20px;
-    width: 300px;
-    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px 30px;
     z-index: 99;
 }
 
@@ -165,23 +177,125 @@
     display: flex;
     align-items: center;
     gap: 15px;
-
 }
+
+.count_span{
+    color: gray;
+}
+
+span.color{
+    color: black;
+}
+
 
 .packet_div_count span {
     width: 20px;
     height: 20px;
-    box-shadow: 0 0 10px black;
-    border-radius: 50%;
     text-align: center;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .private_standart_ticket_museums_private_block_ticket_types_buy_div{
     display: flex;
     gap: 20px;
+    width: 100%;
+    justify-content: center;
 }
 
 .private_standart_ticket_museums_private_block_ticket_types_buy_div button{
     padding: 5px 10px;
+}
+
+.cart_error_message{
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    color: red;
+    font-weight: 100;
+}
+
+.line_ticket{
+    border-left: 1px solid #AAAA;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+
+.line_ticket_left{
+    border-left: 1px solid #AAAA;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 20px;
+}
+
+.placeholder_div{
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #AAAA;
+    gap: 20px;
+    height: 100%;
+    
+}
+
+.placeholder_div span:nth-of-type(1){
+    position: absolute;
+    top: 30px;
+    left: 40px;
+}
+
+.placeholder_div p{
+    position: absolute;
+    top: 45px;
+    left: 80px;
+    font-size: 11px;
+    width: 110px;
+}
+
+.placeholder_div span svg path{
+    stroke: #AAAA;
+    fill: none;
+}
+
+.placeholder_div_ticket{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    color: gray;
+    gap: 20px;
+    height: 80%;
+    padding-left: 40px;
+}
+
+
+.placeholder_div_ticket span svg path{
+    stroke: #AAAA;
+    fill: none;
+}
+
+.private_standart_ticket_museums_private_block_ticket_types_full_value{
+    display: flex;
+    justify-content: center;  
+}
+
+.private_standart_ticket_museums_private_block_ticket_types_full_value span b{
+    color: gray;
+}
+
+.bay_ticket_btn, .add_cart_btn{
+    background-color: #D5AA72;
+    width: 100px;
+    color: white;
+    border: none;
+    font-size: 12px !important;
+}
+
+.bay_ticket_btn:active, .add_cart_btn:active{
+    background-color: rgb(63, 61, 86);
+
 }

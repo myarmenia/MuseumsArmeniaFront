@@ -102,6 +102,7 @@ const MuseumOne = () => {
                                  color={'#FFFFFF'}
                                  textBtn="10"
                                  onClick={() => handleClickTicket('ticket', 'Abonement ticket')}
+                                 newClass='newStyleBtn'
                               />
 
                               <CustomButtonBlock
@@ -113,6 +114,7 @@ const MuseumOne = () => {
                                  boxShadow={'none'}
                                  textBtn="11"
                                  onClick={openModal}
+                                 newClass='newStyleBtn'
                               />
                            </div>
                         </div>

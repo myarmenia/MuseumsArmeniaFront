@@ -3,12 +3,17 @@ import instance from "../../../axios";
 
 export const getPrivateTicket = createAsyncThunk(
   'privateTicket/getPrivateTicket',
-  async (type, thunkAPI) => {
+  async (body, thunkAPI) => {
+
+        const start_date = body.startDate ? `&start_date=${body.startDate}` : ''
+        const end_date = body.endDate ? `&end_date=${body.endDate}` : ''
+
+        const museumId = body.museumId ? `&museum_id=${body.museumId}` : '' 
 
       try {
         const config = {
           method: "get",
-          url: `tickets?type=${type}`,
+          url: `tickets?type=${body.type}${start_date}${end_date}${museumId}`,
         };
         
         const response = await instance(config); 
