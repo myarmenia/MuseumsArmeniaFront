@@ -1,15 +1,18 @@
 import React from 'react';
 import './DualCalendar.css';
 import { DatePicker } from 'antd';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getPrivateTicket } from '../../store/slices/PrivateTicketSlice/PrivateTicketApi';
+import { selectprivateTicket } from '../../store/slices/PrivateTicketSlice/PrivateTicketSlice';
 
 const { RangePicker } = DatePicker;
 
 function DualCalendar({museum, setStartDate, setEndDate, startDate, endDate, museumItem, setEventLineCalendar}) {
+  const respStandartTicket = useSelector(selectprivateTicket)
 
   const dispatch = useDispatch()
   const handleDateChange = (dates) => {
+
     if (dates && dates.length === 2) {
       sessionStorage.setItem('start_date', dates[0].format('YYYY-MM-DD'));
       sessionStorage.setItem('end_date', dates[1].format('YYYY-MM-DD'));
@@ -22,12 +25,14 @@ function DualCalendar({museum, setStartDate, setEndDate, startDate, endDate, mus
       
       console.error('Invalid dates:', dates);
     }
+
   };
 
   const handleCalendarClick = (e) =>{
     e.stopPropagation()
     setEventLineCalendar(false)
   }
+
 
   return (
     <div>

@@ -49,6 +49,19 @@ function PrivateEventTicket({changeTicketType}) {
         setSelectedMuseum('')
     }, [changeTicketType])
 
+    useEffect(() => {
+        respStandartTicket.data.map(el => {
+            if (el.name.trim() !== selectedMuseum.trim()) {
+                setSelectedMuseum('')
+                console.log('barev');
+            }
+
+            console.log(el.name.trim(), 'hh');
+            console.log(selectedMuseum, 'gg');
+
+        })
+    }, [respStandartTicket.data, selectedMuseum])
+
     const handleKeyDown = (event) => {
         const key = event.key;
         if (key === 'Backspace' || key === 'Delete') {
