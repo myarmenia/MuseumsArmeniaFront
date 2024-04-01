@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import instance from '../../../axios';
 
 export const getAllShop = createAsyncThunk('shop/getAllShop', async (data, thunkAPI) => {
@@ -41,7 +40,6 @@ export const getMuseumNames = createAsyncThunk('shop/getMuseumNames', async (_, 
       method: 'get',
       url: 'museum-list',
     };
-
     const response = await instance(config);
     console.log(response, 666666666);
     return response?.data;
@@ -58,7 +56,6 @@ export const getSearchesShop = createAsyncThunk(
         method: 'get',
         url: `shop/product-list?name=${searchText}`,
       };
-
       const response = await instance(config);
       console.log(response, 9999999999999999999999);
       return response?.data;
