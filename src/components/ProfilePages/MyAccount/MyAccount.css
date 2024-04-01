@@ -1,0 +1,155 @@
+.MyAccount_big_div {
+  width: 25vw;
+  padding: 32px;
+}
+.MyAccount_title {
+  min-width: 100px;
+}
+.edit-save-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 15px;
+  min-width: 250px;
+}
+
+.edit-save-block span {
+  color: #9ca3af;
+  text-decoration: underline;
+}
+
+/* ///////////////////top inputes//////////////////////////// */
+.top_inputes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 250px;
+}
+
+.MyAccount_input-name {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #aaaaaa;
+}
+.MyAccount_input-name:focus {
+  outline: transparent;
+}
+/* //////////// */
+.MyAccount_input-surname {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #aaaaaa;
+}
+.MyAccount_input-surname:focus {
+  outline: transparent;
+}
+/* //////////// */
+.MyAccount_input-phone {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #aaaaaa;
+}
+.MyAccount_input-phone:focus {
+  outline: transparent;
+}
+/* ////////////// */
+.MyAccount_select-country {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #aaaaaa;
+  color: #b26705;
+}
+.MyAccount_select-country:focus {
+  outline: transparent;
+}
+/* /////////////// */
+.MyAccount_input-date {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #aaaaaa;
+  padding: 5px;
+}
+.MyAccount_input-date::-webkit-calendar-picker-indicator {
+  filter: invert(50%) sepia(10%) saturate(10000%) hue-rotate(20deg) brightness(80%) contrast(90%);
+  /* color: #B26705; */
+}
+/* .MyAccount_input-date::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.MyAccount_input-date {
+  background-image: url('../../../images/CalendarInp.png');
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 8px) center;
+} */
+.MyAccount_input-date:focus {
+  outline: transparent;
+}
+/* ///////////////////////// */
+.gender_div {
+  margin-top: 24px;
+  min-width: 250px;
+}
+.gender_div p {
+  color: #121314;
+  margin-bottom: 24px;
+}
+/* //////// */
+.gender_div_input {
+  width: 16px;
+  height: 16px;
+}
+.gender_div_input:checked {
+  accent-color: #b26705;
+}
+
+.gender_div_inputes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gender_div_input_div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* //////////////////bottom inputes/////////////////////// */
+
+.bottom_inputes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 23px;
+}
+
+.bottom_inputes_divs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 250px;
+}
+
+/* ///////////////////////log out/////////////////// */
+.log_out_myAccount {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 34px;
+  min-width: 100px;
+}
+.log_out_myAccount span {
+  color: #a6a6a6;
+}
+
+@media (max-width: 680px) {
+  .MyAccount_all {
+    display: flex;
+    justify-content: center;
+  }
+  .MyAccount_big_div {
+    width: fit-content;
+  }
+}

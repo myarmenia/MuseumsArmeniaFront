@@ -1,0 +1,39 @@
+.ProfileSidebar_all {
+  min-height: 120vh;
+  border-right: 1px solid black;
+  background-color: #3f3d56;
+}
+.ProfileSidebar_bigDiv {
+  display: flex;
+  flex-direction: column;
+  /* gap: 35px; */
+  /* padding: 18px; */
+  width: 60px;
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+}
+.ProfileSidebar_bigDiv:hover {
+  width: 210px;
+  cursor: pointer;
+}
+.profileSIdebar_divs {
+  padding: 18px;
+}
+/* .profileSIdebar_divs_back_white {
+  background-color: #FFFFFF;
+} */
+.line_div {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 25px;
+  width: 220px;
+  color: white;
+}
+.line_divActive {
+  /* color: #121212; */
+  /* background-color: blueviolet; */
+  /* color: #4340BB !important; */
+  filter: invert(0%) sepia(49%) saturate(4337%) hue-rotate(338deg) brightness(17%) contrast(86%);
+  /* background-color: white; */
+}
