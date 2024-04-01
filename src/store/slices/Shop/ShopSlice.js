@@ -117,6 +117,11 @@ export const ShopSlice = createSlice({
         state.productLength = action.payload.params.items_count;
         state.basketAllData = action.payload.data;
       })
+      .addCase(postTicketCart.fulfilled, (state, action) => {
+        console.log('postTicketCartpostTicketCartpostTicketCart');
+        state.productLength = action.payload.params.items_count;
+        state.basketAllData = action.payload.data;
+      })
       .addCase(getDelateProductBasket.fulfilled, (state, action) => {
         state.productLength = action.payload.params.items_count;
         console.log('action.payload.data.id', action.payload.data.id);
