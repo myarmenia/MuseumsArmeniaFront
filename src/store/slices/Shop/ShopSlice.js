@@ -24,6 +24,7 @@ const initialState = {
   // basketData: [],
   basketAllData: [],
   productLength: 0,
+  // searchCountLengthShop: 0,
   // storageProductId: localStorage.getItem('CardArray')
   //   ? JSON.parse(localStorage.getItem('CardArray'))
   //   : [],
@@ -93,9 +94,9 @@ export const ShopSlice = createSlice({
       })
       .addCase(getSearchesShop.fulfilled, (state, action) => {
         // alert(4);
-
         state.shopAllData = action.payload;
         state.loading = false;
+        // state.searchCountLengthShop = action.payload.data.length;
       })
       .addCase(getFilteredShop.fulfilled, (state, action) => {
         // alert(6);
@@ -128,10 +129,12 @@ export const ShopSlice = createSlice({
         );
       })
       .addCase(getShopIconBasketDatas.fulfilled, (state, action) => {
-        console.log("daravvvvv");
-        console.log("action.payload.data",action.payload.data);
+        console.log('a11111111');
         state.basketAllData = action.payload.data;
-      })
+        console.log('a22222222222');
+        state.productLength = action.payload.params.items_count;
+        console.log('a33333333333333');
+      });
   },
 });
 
@@ -148,6 +151,7 @@ export const getSetModalIsOpenShop = (state) => state.shop.modalIsOpenShop;
 // export const getBaskettotalPrice = (state) => state.shop.totalPrice;
 export const getProductLength = (state) => state.shop.productLength;
 export const getSetAllBasketData = (state) => state.shop.basketAllData;
+// export const getSearchLengthShop = (state) => state.shop.searchCountLengthShop;
 
 export const { setModalIsOpenShop, setBasketData, removeElemBasket, totalPriceBasket } =
   ShopSlice.actions;

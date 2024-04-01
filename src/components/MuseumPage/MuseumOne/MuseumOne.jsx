@@ -7,23 +7,26 @@ import {
    getMuseumOneEvents,
 } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import { getAuthUserAllMessages } from '../../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
-import LoadSpinner from '../../LoadSpinner/LoadSpinner';
-import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
 import { useTranslation } from 'react-i18next';
+import { setIsOpen } from '../../../store/slices/NewMessagesSlice/NewMessagesSlice';
+import { setModalTicketIsOpen, setTicketType } from '../../../store/slices/MuseumTicket/MuseumTicketSlice';
+
+
+import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
+import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import MuseumPageHeader from '../MuseumPageHeader';
-import ButtonSecond from '../../ButtonSecond/ButtonSecond';
-import MessagesModal from '../../NewMessages/MessagesModal';
 import MuseumPageMessages from '../../NewMessages/MuseumPageMessages';
 import CustomButtonBlock from './CustomButtonBlock';
-import { setIsOpen } from '../../../store/slices/NewMessagesSlice/NewMessagesSlice';
 import { MuseumAbonementIcons } from '../../../iconFolder/icon';
-import MuseumTicketModal from './MuseumTicketModal';
+import { TicketMuseumBlock } from './Ticket';
+
+
 const MuseumOne = () => {
    const { t, i18n } = useTranslation();
    const { id } = useParams();
    const dispatch = useDispatch();
    const { isAuth, authUser } = useSelector((store) => store.auth);
-   
+
    const {
       loadingStatus,
       loadingdataMuseumOne,
@@ -58,23 +61,16 @@ const MuseumOne = () => {
          dispatch(getAuthUserAllMessages(id));
       }
    }, []);
-
-   const [modalIsOpen, setModalIsOpen] = useState(false);
-   const [ticketValue, setTicketValue]= useState(null);
+  
 
    const openModal = useCallback(() => {
       dispatch(setIsOpen(true));
    }, []);
 
-   const handleClickCloseModal = useCallback(() => {
-      setModalIsOpen(false);
+   const handleClickTicket = useCallback((kindOf, type) => {
+      dispatch(setModalTicketIsOpen(true))
+      dispatch(setTicketType({kindOf, type}))
    }, []);
-
-   const handleClickTicket = useCallback((arg) => {
-      setTicketValue(arg)
-      setModalIsOpen(true);
-   }, []);
-
 
    return (
       <>
@@ -88,7 +84,11 @@ const MuseumOne = () => {
                      <div className="museumOne_parent">
                         <div className="museumOne_parent-section1">
                            <div className="museumOne-blockLeft">
-                              <MuseumOneDescription description={description} photos={photos} handleClickTicket={handleClickTicket}  />
+                              <MuseumOneDescription
+                                 description={description}
+                                 photos={photos}
+                                 handleClickTicket={handleClickTicket}
+                              />
                            </div>
                            <div className="museumOne-blockRigth ">
                               <MuseumOnecontact
@@ -101,7 +101,7 @@ const MuseumOne = () => {
                                  background={'#D5AA72'}
                                  color={'#FFFFFF'}
                                  textBtn="10"
-                                 onClick={()=> handleClickTicket('abonementTicket')}
+                                 onClick={() => handleClickTicket('ticket', 'Abonement ticket')}
                               />
 
                               <CustomButtonBlock
@@ -127,13 +127,7 @@ const MuseumOne = () => {
                               />
                            )}
                      </div>
-                     <MuseumTicketModal
-                        modalIsOpen={modalIsOpen}
-                        handleClickCloseModal={handleClickCloseModal}>
-                        {
-                           ticketValue === 'buyTicket' ? <div>buyTicket</div> : <div>Abonement ticket</div>
-                        }
-                     </MuseumTicketModal>
+                     <TicketMuseumBlock />
                      <MuseumPageMessages museumId={id} />
                   </div>
                </div>

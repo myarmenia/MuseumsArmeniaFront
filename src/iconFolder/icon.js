@@ -696,8 +696,8 @@ export const FbIcons = ({ width = '22', height = '22', fill = '#3F3D56' }) => (
          <circle cx="11" cy="10" r="10" fill={fill} />
       </g>
       <path
-         fill-rule="evenodd"
-         clip-rule="evenodd"
+         fillRule="evenodd"
+         clipRule="evenodd"
          d="M10.7658 6.64083C11.176 6.23058 11.7324 6.00007 12.3125 6H13.4375C13.5204 6 13.5999 6.03292 13.6585 6.09153C13.7171 6.15013 13.75 6.22962 13.75 6.3125V7.8125C13.75 7.89538 13.7171 7.97487 13.6585 8.03347C13.5999 8.09208 13.5204 8.125 13.4375 8.125H12.3125C12.3043 8.125 12.2962 8.12662 12.2886 8.12976C12.281 8.1329 12.2741 8.1375 12.2683 8.14331C12.2625 8.14911 12.2579 8.156 12.2548 8.16358C12.2516 8.17117 12.25 8.17929 12.25 8.1875V9H13.4375C13.485 8.99997 13.5319 9.01078 13.5746 9.0316C13.6173 9.05241 13.6547 9.08269 13.6839 9.12013C13.7132 9.15757 13.7335 9.20119 13.7434 9.24766C13.7532 9.29414 13.7524 9.34225 13.7408 9.38833L13.3658 10.8883C13.3489 10.956 13.3099 11.016 13.2549 11.0589C13.1999 11.1018 13.1322 11.125 13.0625 11.125H12.25V13.8125C12.25 13.8954 12.2171 13.9749 12.1585 14.0335C12.0999 14.0921 12.0204 14.125 11.9375 14.125H10.4375C10.3546 14.125 10.2751 14.0921 10.2165 14.0335C10.1579 13.9749 10.125 13.8954 10.125 13.8125V11.125H9.3125C9.22962 11.125 9.15013 11.0921 9.09153 11.0335C9.03292 10.9749 9 10.8954 9 10.8125V9.3125C9 9.27146 9.00808 9.23083 9.02379 9.19291C9.03949 9.155 9.06251 9.12055 9.09153 9.09153C9.12055 9.06251 9.155 9.03949 9.19291 9.02379C9.23083 9.00808 9.27146 9 9.3125 9H10.125V8.1875C10.1251 7.60737 10.3556 7.05102 10.7658 6.64083ZM12.3125 6.625C11.8981 6.625 11.5007 6.78962 11.2076 7.08265C10.9146 7.37567 10.75 7.7731 10.75 8.1875V9.3125C10.75 9.39538 10.7171 9.47487 10.6585 9.53347C10.5999 9.59208 10.5204 9.625 10.4375 9.625H9.625V10.5H10.4375C10.5204 10.5 10.5999 10.5329 10.6585 10.5915C10.7171 10.6501 10.75 10.7296 10.75 10.8125V13.5H11.625V10.8125C11.625 10.7296 11.6579 10.6501 11.7165 10.5915C11.7751 10.5329 11.8546 10.5 11.9375 10.5H12.8183L13.0371 9.625H11.9375C11.8546 9.625 11.7751 9.59208 11.7165 9.53347C11.6579 9.47487 11.625 9.39538 11.625 9.3125V8.1875C11.625 8.00516 11.6974 7.8303 11.8264 7.70136C11.9553 7.57243 12.1302 7.5 12.3125 7.5H13.125V6.625H12.3125Z"
          fill="#FFFEFE"
       />
@@ -732,7 +732,12 @@ export const FbIcons = ({ width = '22', height = '22', fill = '#3F3D56' }) => (
    </svg>
 );
 export const MuseumAbonementIcons = ({ width = '23', height = '23', fill = '#3F3D56' }) => (
-   <svg width={width} height={height} viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <svg
+      width={width}
+      height={height}
+      viewBox="0 0 22 23"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_d_544_38079)">
          <circle cx="11" cy="10.5" r="10" fill={fill} />
          <g clipPath="url(#clip0_544_38079)">
@@ -777,5 +782,122 @@ export const MuseumAbonementIcons = ({ width = '23', height = '23', fill = '#3F3
             <rect width="10" height="10" fill="white" transform="translate(6 4.5)" />
          </clipPath>
       </defs>
+   </svg>
+);
+
+export const MinusButtonIcons = ({ width = '46', height = '46', fill = '#AAAAAA' }) => (
+   <svg
+      width={width}
+      height={height}
+      viewBox="0 0 46 46"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <g filter="url(#filter0_d_544_31460)">
+         <path
+            d="M43 21C43 32.0457 34.0457 41 23 41C11.9543 41 3.00004 32.0457 3.00004 21C3.00004 9.9543 11.9543 1 23 1C34.0457 1 43 9.9543 43 21Z"
+            fill="white"
+         />
+         <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M16 21C16 20.4477 16.3918 20 16.875 20H29.125C29.6082 20 30 20.4477 30 21C30 21.5523 29.6082 22 29.125 22H16.875C16.3918 22 16 21.5523 16 21Z"
+            fill={fill}
+         />
+      </g>
+      <defs>
+         <filter
+            id="filter0_d_544_31460"
+            x="0"
+            y="0"
+            width="46"
+            height="46"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feColorMatrix
+               in="SourceAlpha"
+               type="matrix"
+               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+               result="hardAlpha"
+            />
+            <feOffset dy="2" />
+            <feGaussianBlur stdDeviation="1.5" />
+            <feComposite in2="hardAlpha" operator="out" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_544_31460" />
+            <feBlend
+               mode="normal"
+               in="SourceGraphic"
+               in2="effect1_dropShadow_544_31460"
+               result="shape"
+            />
+         </filter>
+      </defs>
+   </svg>
+);
+
+export const PlusButtonIcons = ({ width = '46', height = '46', fill = '#3F3D56' }) => (
+   <svg
+      width={width}
+      height={height}
+      viewBox="0 0 46 46"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <g filter="url(#filter0_d_544_31464)">
+         <path
+            d="M43 21C43 32.0457 34.0457 41 23 41C11.9543 41 3.00004 32.0457 3.00004 21C3.00004 9.9543 11.9543 1 23 1C34.0457 1 43 9.9543 43 21Z"
+            fill={fill}
+         />
+         <path
+            d="M24.0041 27.0719C24.0041 27.3382 23.8983 27.5936 23.71 27.7819C23.5217 27.9702 23.2663 28.076 23 28.076C22.7337 28.076 22.4783 27.9702 22.29 27.7819C22.1017 27.5936 21.9959 27.3382 21.9959 27.0719L22.003 20.9979L15.9289 21.0049C15.6626 21.0049 15.4072 20.8991 15.2189 20.7108C15.0306 20.5225 14.9248 20.2671 14.9248 20.0008C14.9248 19.7345 15.0306 19.4791 15.2189 19.2908C15.4072 19.1025 15.6626 18.9967 15.9289 18.9967L22.003 19.0038L21.9959 12.9298C21.9959 12.6635 22.1017 12.4081 22.29 12.2198C22.4783 12.0315 22.7337 11.9257 23 11.9257C23.2663 11.9257 23.5217 12.0315 23.71 12.2198C23.8983 12.4081 24.0041 12.6635 24.0041 12.9298L23.997 19.0038L30.0711 18.9967C30.3374 18.9967 30.5928 19.1025 30.7811 19.2908C30.9694 19.4791 31.0752 19.7345 31.0752 20.0008C31.0752 20.2671 30.9694 20.5225 30.7811 20.7108C30.5928 20.8991 30.3374 21.0049 30.0711 21.0049L23.997 20.9979L24.0041 27.0719Z"
+            fill="white"
+         />
+      </g>
+      <defs>
+         <filter
+            id="filter0_d_544_31464"
+            x="0"
+            y="0"
+            width="46"
+            height="46"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feColorMatrix
+               in="SourceAlpha"
+               type="matrix"
+               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+               result="hardAlpha"
+            />
+            <feOffset dy="2" />
+            <feGaussianBlur stdDeviation="1.5" />
+            <feComposite in2="hardAlpha" operator="out" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_544_31464" />
+            <feBlend
+               mode="normal"
+               in="SourceGraphic"
+               in2="effect1_dropShadow_544_31464"
+               result="shape"
+            />
+         </filter>
+      </defs>
+   </svg>
+);
+export const AttentionIcons = ({ width = '46', height = '46', fill = '#3F3D56' }) => (
+   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"
+         stroke="#A6A6A6"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+      />
+      <path d="M7.5 7.5H8V11H8.5" fill="#A6A6A6" />
+      <path d="M7.5 7.5H8V11H8.5" stroke="#A6A6A6" stroke-linecap="round" stroke-linejoin="round" />
+      <path
+         d="M8.125 5.25C8.125 5.38807 8.01307 5.5 7.875 5.5C7.73693 5.5 7.625 5.38807 7.625 5.25C7.625 5.11193 7.73693 5 7.875 5C8.01307 5 8.125 5.11193 8.125 5.25Z"
+         fill="#A6A6A6"
+         stroke="#A6A6A6"
+      />
    </svg>
 );

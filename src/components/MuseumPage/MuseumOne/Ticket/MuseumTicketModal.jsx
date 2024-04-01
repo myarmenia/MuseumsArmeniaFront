@@ -1,20 +1,21 @@
-import React, {useSelector,useEffect } from 'react'
+import React, { useSelector, useEffect } from 'react';
 import Modal from 'react-modal';
-import { CloseMessagesBtn } from '../../../iconFolder/icon';
+import { CloseMessagesBtn } from '../../../../iconFolder/icon';
 
 const museumTicketcustomStyles = {
    content: {
-     top: '50%',
-     left: '50%',
-     right: 'auto',
-     bottom: 'auto',
-     marginRight: '-50%',
-     transform: 'translate(-50%, -50%)',
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      overflow: 'none',
+      width: '400px'
    },
- };
+};
 
-const MuseumTicketModal = ({children, modalIsOpen, handleClickCloseModal}) => {
-  
+const MuseumTicketModal = ({ children, modalIsOpen, handleClickCloseModal }) => {
    // const [windowWidth, setWindowWidth] = useState(2000);
    // useEffect(() => {
    //    const handleResize = () => {
@@ -30,9 +31,6 @@ const MuseumTicketModal = ({children, modalIsOpen, handleClickCloseModal}) => {
    // }, []);
    //  customStyles.content.width = windowWidth > 1200 ? '40%' : windowWidth < 800 ? '80%' : '60%'
 
-  
-  
-
    return (
       <div>
          <Modal
@@ -44,14 +42,13 @@ const MuseumTicketModal = ({children, modalIsOpen, handleClickCloseModal}) => {
             contentLabel="Example Modal">
             <div className="child_modallTicket">
                <div onClick={handleClickCloseModal} className="messagesModal-close">
-                  {/* <p>X</p> */}
-                  <CloseMessagesBtn width='15px' height='15px'/>
+                  <CloseMessagesBtn width="15px" height="15px" />
                </div>
                {children}
             </div>
          </Modal>
       </div>
    );
-}
+};
 
-export default MuseumTicketModal
+export default MuseumTicketModal;
