@@ -130,7 +130,7 @@ function CardModal() {
           </p>
         </div>
         <div className={windowWidth < 1025 ? 'all_baskets_height' : 'all_baskets'}>
-          {AllBasketData.products?.length !== 0 || AllBasketData.products?.length !== 0 ? (
+          {AllBasketData.products?.length !== 0 || AllBasketData.tickets?.length !== 0 ? (
             <>
               {AllBasketData.products?.map((el, index) => (
                 <div key={index} className="basket_box">
