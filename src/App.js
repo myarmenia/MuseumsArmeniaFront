@@ -21,6 +21,9 @@ import Shop from './components/Shop/Shop';
 import SingleShop from './components/SingleShop/SingleShop';
 import FaqPage from './components/FaqPage/FaqPage';
 import EventsPage from './components/EventsPage/EventsPage';
+import ProfilePage from './components/ProfilePages/ProfilePage';
+import MyAccount from './components/ProfilePages/MyAccount/MyAccount';
+import OrderHistory from './components/ProfilePages/OrderHistory/OrderHistory';
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('');
@@ -176,67 +179,49 @@ function App() {
                 </PrivateRouteForOutSider>
               }
             />
+
+            <Route
+              path="profilePage"
+              element={
+                <PrivateRoute>
+                  <ProfilePage />
+                </PrivateRoute>
+              }>
+              <Route
+                index
+                element={
+                  <PrivateRoute>
+                    <MyAccount />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="myaccount"
+                element={
+                  <PrivateRoute>
+                    <MyAccount />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="chat"
+                element={
+                  <PrivateRoute>
+                    <div>chat</div>
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="orderhistory"
+                element={
+                  <PrivateRoute>
+                    <OrderHistory/>
+                  </PrivateRoute>
+                }
+              />
+            </Route>
           </Route>
         </Route>
-
-        {/* <Route
-          path="news"
-          element={
-            <PrivateRouteForOutSider>
-              <Newses {...{ changeFonSize }} />
-            </PrivateRouteForOutSider>
-          }
-        /> */}
-        {/* <Route
-          path="news/:id"
-          element={
-            <PrivateRouteForOutSider>
-              <SingleNews />
-            </PrivateRouteForOutSider>
-          }
-        /> */}
-        {/* <Route path="privacy-policy" element={<PrivacyPolicy />} />
-        <Route
-          path="store"
-          element={
-            <PrivateRouteForOutSider>
-              <Shop />
-            </PrivateRouteForOutSider>
-          }
-        /> */}
-        {/* <Route
-          path="store/:id"
-          element={
-            <PrivateRouteForOutSider>
-              <SingleShop />
-            </PrivateRouteForOutSider>
-          }
-        /> */}
-        {/* <Route
-          path="aboute-us"
-          element={
-            <PrivateRouteForOutSider>
-              <AbouteUsPage />
-            </PrivateRouteForOutSider>
-          }
-        /> */}
-        {/* <Route
-          path="ticket-sale"
-          element={
-            <PrivateRouteForOutSider>
-              <SaleTicketPage />
-            </PrivateRouteForOutSider>
-          }
-        /> */}
-
-        {/* <Route
-          path="FAQ"
-          element={
-            <PrivateRouteForOutSider>
-              <FaqPage />
-            </PrivateRouteForOutSider>
-          }
-        /> */}
       </Routes>
     </div>
   );
