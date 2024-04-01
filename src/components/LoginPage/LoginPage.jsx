@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import './LoginPage.css';
@@ -38,10 +38,13 @@ function LoginPage() {
 
         await dispatch(postLogin(loginObj));
          
-          respLogin.data.is_verify !== true && setOpenVerifyModal(true)
-         
+      
       }
    };
+
+   useEffect(() => {
+      Object.hasOwn(respLogin.data, "is_verify") && setOpenVerifyModal(true)
+   },[respLogin.data]) 
 
    return (
       <div className="login_page">

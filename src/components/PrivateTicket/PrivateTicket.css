@@ -1,5 +1,5 @@
 .private_ticket{
-    padding: 100px 0;
+    padding-top: 100px;
 }
 
 .private_ticket .container{
@@ -30,3 +30,9 @@
     color: var(--second_font_color);
 }
 
+
+@media(max-width: 1024px){
+    .private_ticket{
+        display: none;
+    }
+}

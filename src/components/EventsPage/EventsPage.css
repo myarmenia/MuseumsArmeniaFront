@@ -312,6 +312,36 @@
 }
 
 
+@media(max-width: 730px){
+    .event_page_item{
+        width: 90%;
+    }
+
+    .event_page_items{
+        justify-content: center;
+    }
+
+    .event_page_item_img_div{
+        height: 400px;
+    }
+
+    .events_page .container{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .events_page_filter_region{
+        width: 90%;
+    }
+    .events_page_filter_div >div{
+        flex-direction: column;
+        align-items: center;
+    }
+    .events_page_filter_museum{
+        width: 90%;
+    }
+}
+
 
 @media(max-width: 485px){
     .event_page_item{

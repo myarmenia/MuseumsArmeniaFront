@@ -448,29 +448,6 @@ i18n.use(initReactI18next).init({
                'Հայաստանի Հանրապետության քաղաքացիների համար յուրաքանչյուր ամսվա վերջին շաբաթ օրը մուտքն ազատ է:',
             ],
 
-            faq_sale_tickets: [
-               'Համայն ՀՀ նորմատիվ ակտերի թանգարանի տոմսի արժեքը 50 տոկոսով զեղչվում է հետևյալ դեպքերում՝',
-               '12 տարեկանից բարձր դպրոցականներ',
-               'ուսանողներ,',
-               'Հայաստանի Հանրապետության քաղաքացի հանդիսացող կենսաթոշակառուներ,',
-               'փախստականներ։',
-            ],
-
-          faq_free_tickets: [
-            ' Մինչև 12 տարեկան երեխաներն,',
-            'Հայաստան ժամանած պետական պաշտոնական պատվիրա-կությունների անդամներին,',
-            'Հայաստանում հավատարմագրված դիվանագիտական ներկայացուցիչներին,',
-            'Թանգարանների միջազգային խորհրդի անդամներին (ԻԿՕՄ), թանգարանային աշխատողներին,',
-            'երկկողմանի ծնողազուրկ 12 տարեկանից բարձր տարիքի երեխաներին, հատուկ խնամքի և կենցաղային սպասարկման կարիք ունեցող ծերերին,',
-            'Հայաստանի Հանրապետության ու Արցախի Հանրապետության տարածքներում մարտական գործողությունների  ժամանակ ծառայողական պարտականությունները կատարելիս զոհված զինծառայողների ընտանիքների անդամներին,',
-            'Երկրորդ համաշխարհային պատերազմի մասնակիցներին (Հայաստանի Հանրապետության և նախկին  ԽՍՀՄ պետությունների),',
-            'հաշմանդամություն ունեցող՝ 1-ին  խմբի (ուղեկցողի  հետ),  հաշմանդամություն ունեցող՝ 2-րդ և 3-րդ խմբերի (առանց ուղեկցողի) անձանց, աղքատության (ընտանեկան) նպաստի համակարգում ընդգրկված նպաստառուներին',
-            'բազմազավակ ընտանիքների 12 տարեկանից բարձր երեխաներին,',
-            'ժամկետային զինծառայողներին',
-            'Հայաստանի Հանրապետության սահմանամերձ շրջանների 12 տարեկանից բարձր դպրոցական տարիքի երեխաներին (նախօրոք ներկայացված հայտերի հիման վրա),',
-            'լրագրողներին` աշխատանքային բոլոր օրերին (անձը և կարգավիճակը հաստատող փաստաթղթի առկայության դեպքում),',
-            'Հայաստանի Հանրապետության քաղաքացիների համար յուրաքանչյուր ամսվա վերջին շաբաթ օրը մուտքն ազատ է:'
-          ],
 
           faq_sale_tickets: [
             'Համայն ՀՀ նորմատիվ ակտերի թանգարանի տոմսի արժեքը 50 տոկոսով զեղչվում է հետևյալ դեպքերում՝',
@@ -537,37 +514,6 @@ i18n.use(initReactI18next).init({
             'Խնդրում ենք մուտք գործել՝ ձեր զամբյուղին տոմս կամ ապրանք ավելացնելու համար:'
           ],
 
-      
-            privateTicketRegions: [
-               { bolor: 'Բոլորը' },
-               { yerevan: 'Երևան' },
-               { aragatsotn: 'Արագածոտն' },
-               { ararat: 'Արարատ' },
-               { armavir: 'Արմավիր' },
-               { gegharkunik: 'Գեղարքունիք' },
-               { kotayk: 'Կոտայք' },
-               { lori: 'Լոռի' },
-               { shirak: 'Շիրակ' },
-               { syunik: 'Սյունիք' },
-               { tavush: 'Տավուշ' },
-               { vayots_dzor: 'Վայոց Ձոր' },
-            ],
-
-            chatBotHint: [
-               'Խնդրում ենք նշել ձեր հաղորդագրության մեջ',
-               'Նախընտրելի օր',
-               'Մասնակիցների քանակը',
-               'Ո՞ր տարիքային խմբի մասին է խոսքը',
-               'Կազմակերպության կամ անհատի անվանումը',
-               'Հեռախոսահամար',
-               'Նշեք գիդի լեզուն',
-            ],
-            otherMessagesBot: 'Գրեք ձեր հաղորդագրությունը',
-            warningMessages: 'Ցանկանու՞մ եք շարունակել',
-            startMessages: [
-               'Եթե գրանցված չեք, գրեք մեզ ձեր էլ. նամակը թանգարանից պատասխան նամակ ստանալու համար',
-               'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:',
-            ],
 
             musseumPage_title: ['ՀԱՅԿԱԿԱՆ ԹԱՆԳԱՐԱՆՆԵՐ', 'Զտել', 'Կարդալ ավելին'],
             webSideMusum: ['ՎԵԲ ԿԱՅՔ', 'հրավիրել', 'Թանգարանի բացատ'],
@@ -1094,7 +1040,7 @@ i18n.use(initReactI18next).init({
           ]
 
       },
-
+    },
       en: {
          translation: {
             title: 'hello',
@@ -1556,47 +1502,6 @@ i18n.use(initReactI18next).init({
             ],
 
 
-          faq_sale_tickets_title: 'Discounted tickets',
-
-          faq_free_tickets: [
-            'Children up to 12 years old',
-            'To the members of the official state delegations that arrived in Armenia,',
-            'diplomatic representatives accredited in Armenia,',
-            'To the members of the International Council of Museums (ICOM), museum workers,',
-            'bilaterally orphaned children over 12 years of age, elderly people in need of special care and domestic service,',
-            'To the members of the families of servicemen who died while performing their official duties during combat operations in the territories of the Republic of Armenia and the Republic of Artsakh,',
-            'Participants of the Second World War (of the Republic of Armenia and former USSR states),',
-            'persons with disabilities of the 1st group (with a companion), persons with disabilities of the 2nd and 3rd groups (without a companion), beneficiaries included in the poverty (family) benefit system',
-            'children over the age of 12 from large families,',
-            'conscripts',
-            'Children of school age over 12 years old in the border regions of the Republic of Armenia (on the basis of applications submitted in advance),',
-            'journalists - on all working days (in the presence of a document confirming the identity and status),',
-            'Entry is free for citizens of the Republic of Armenia on the last Saturday of every month.'
-          ],
-
-          faq_sale_tickets: [
-            'The ticket price of the Museum of All RA Normative Acts is discounted by 50% in the following cases:',
-            'Schoolchildren over 12 years old',
-            'students,',
-            'Pensioners who are citizens of the Republic of Armenia,',
-            'Refugees'
-          ],
-
-          privateTicketRegions: [
-            {bolor: 'All'},
-            {yerevan: 'Yerevan'},
-            {aragatsotn: 'Aragatsotn'},
-            {ararat: 'Ararat'},
-            {armavir: 'Armavir'},
-            {gegharkunik: 'Gegharkunik'},
-            {kotayk: 'Kotayk'},
-            {lori: 'Lori'},
-            {shirak: 'Shirak'},
-            {syunik: 'Syunik'},
-            {tavush: 'Tavush'},
-            {vayots_dzor: 'Vayots Dzor'}
-          ],
-
           chatBotHint: [
             'Please indicate in message',
             "Desired day",
@@ -1654,7 +1559,7 @@ i18n.use(initReactI18next).init({
    fallbackLng: localStorage.getItem('lang'), // Fallback language
    interpolation: {
       escapeValue: false,
-   },
-});
+   }
+})
 
 export default i18n;
