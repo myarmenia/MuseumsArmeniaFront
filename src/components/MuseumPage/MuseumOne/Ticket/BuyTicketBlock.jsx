@@ -66,7 +66,7 @@ const BuyTicketBlock = ({ hendleClickItems }) => {
             </div>
             <div className="BuyTicketBlock-list-totalPrice">
                <p>
-                  TOTAL: <span>{totalPrice} AMD</span>
+               {t(`infoBuyTicket.4`)} : <span>{totalPrice} AMD</span>
                </p>
             </div>
             {ticketLoading === 'rejected' && (

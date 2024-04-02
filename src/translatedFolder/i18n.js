@@ -525,7 +525,8 @@ i18n.use(initReactI18next).init({
                'իմանալ ավելին',
                'Էքսկուրսավար հայերեն լեզվով',
                'Էքսկուրսավար օտար լեզվով',
-               'Էքսկուրսավարի ծառայությունից օգտվելու համար անհրաժեշտ է նախապես ամրագրել։'
+               'Էքսկուրսավարի ծառայությունից օգտվելու համար անհրաժեշտ է նախապես ամրագրել։',
+               'Ընդամենը'
             ]
          },
       },
@@ -1047,7 +1048,8 @@ i18n.use(initReactI18next).init({
                'узнать больше',
                'Гид на армянском языке',
                'Гид на иностранном языке',
-               'Чтобы воспользоваться услугой экскурсовода, необходимо заранее забронировать место.'
+               'Чтобы воспользоваться услугой экскурсовода, необходимо заранее забронировать место.',
+               'Общий'
             ]
          },
       },
@@ -1561,7 +1563,8 @@ i18n.use(initReactI18next).init({
                'know more',
                'Tour guide in Armenian language',
                'Tour guide in a foreign language',
-               'To use the service of a tour guide, you need to make a reservation in advance.'
+               'To use the service of a tour guide, you need to make a reservation in advance.',
+               'Total'
             ]
          },
       },
