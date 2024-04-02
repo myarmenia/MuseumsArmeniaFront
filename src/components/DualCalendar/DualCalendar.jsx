@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './DualCalendar.css';
 import { DatePicker } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,10 +23,10 @@ function DualCalendar({museum, setStartDate, setEndDate, startDate, endDate, mus
       dispatch(getPrivateTicket({type: 'event', startDate: start_date, endDate: end_date, museumId: museum !== '' ? museumItem?.id : null }));
     } else {
       
-      console.error('Invalid dates:', dates);
+     dispatch(getPrivateTicket({type: 'event', startDate: null, endDate: null, museumId: null }))
     }
-
   };
+
 
   const handleCalendarClick = (e) =>{
     e.stopPropagation()

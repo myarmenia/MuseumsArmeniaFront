@@ -50,17 +50,9 @@ function PrivateEventTicket({changeTicketType}) {
     }, [changeTicketType])
 
     useEffect(() => {
-        respStandartTicket.data.map(el => {
-            if (el.name.trim() !== selectedMuseum.trim()) {
-                setSelectedMuseum('')
-                console.log('barev');
-            }
-
-            console.log(el.name.trim(), 'hh');
-            console.log(selectedMuseum, 'gg');
-
-        })
-    }, [respStandartTicket.data, selectedMuseum])
+        setSelectedMuseum('')
+        setEventInpVal('')
+    }, [respStandartTicket.data])
 
     const handleKeyDown = (event) => {
         const key = event.key;
@@ -149,12 +141,11 @@ function PrivateEventTicket({changeTicketType}) {
         e.stopPropagation()
          if (isAuth) {
             await  dispatch(postTicketCart({
-                type: 'ticket',
-                tickets: currentEvent.event_configs.map(el => ({
+                items: currentEvent.event_configs.map(el => ({
                     type: 'event',
                     id: el.id,
                     quantity: sessionStorage.getItem(`quantity${el.id}`)
-                }))
+                })).filter(el => el.quantity > 0)
    
             }))
 

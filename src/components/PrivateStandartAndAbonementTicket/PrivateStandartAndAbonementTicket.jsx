@@ -45,6 +45,10 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
     }, [respStandartTicket.data])
 
     
+    useEffect(() => {
+        setSelectedMuseum('')
+        
+    }, [selectedRegion])
 
     const handleKeyDown = (event) => {
         const key = event.key;
@@ -183,13 +187,34 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
         if (isAuth) {
             dispatch(setModalIsOpenShop(true));
             dispatch(postTicketCart({
-                type: 'ticket',
-                tickets: museumItem.tickets.map(el => ({
-                    type: el.type,
-                    id: el.id,
-                    quantity: el.type === 'standart' ? ticketCountStandart : el.type === 'discount' ? ticketCountDicounted : el.type === 'subscription' ? ticketCountSub : ticketCountFree
-                }))
-            }))
+                items: museumItem.tickets.map(el => {
+                    return el.type === 'standart' && ticketCountStandart !== 0
+                        ? {
+                            type: el.type,
+                            id: el.id,
+                            quantity: ticketCountStandart
+                        }
+                        : el.type === 'discount' && ticketCountDicounted !== 0
+                        ? {
+                            type: el.type,
+                            id: el.id,
+                            quantity: ticketCountDicounted
+                        }
+                        : el.type === 'free' && ticketCountFree !== 0
+                        ? {
+                            type: el.type,
+                            id: el.id,
+                            quantity: ticketCountFree
+                        }
+                        : el.type === 'subscription' && ticketCountSub !== 0
+                        ? {
+                            type: el.type,
+                            id: el.id,
+                            quantity: ticketCountSub
+                        }
+                        : null;
+                }).filter(ticket => ticket !== null) 
+            }));
 
             setTicketTypesBlock(false)
         }

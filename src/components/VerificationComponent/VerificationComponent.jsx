@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectRegisterData, selectRegisterError, selectRegisterLoading } from '../../store/slices/RegisterSlice/RegisterSlice'
 import LoadSpinner from '../LoadSpinner/LoadSpinner'
@@ -18,6 +18,8 @@ import { postRepeatVerifyCode } from '../../store/slices/RepeatVerifyCodeSlice/R
     const respRegiterData = useSelector(selectRegisterData)
     const registerLoading = useSelector(selectRegisterLoading)
     const errMessage = useSelector(getData)
+    const inpRef = useRef(null)
+    const [f, setF] = useState(null)
 
     const handleChange = (e, index) => {
         if (isNaN(e.target.value)) return false
@@ -46,6 +48,30 @@ import { postRepeatVerifyCode } from '../../store/slices/RepeatVerifyCodeSlice/R
         }
     }
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Backspace' || e.key === 'Delete') {
+            if (!e.target.value && e.target.previousElementSibling) {
+                e.target.previousElementSibling.focus();
+            }
+        }
+    };
+
+    const handlePaste = (e) => {
+        e.preventDefault();
+        const pasteData = e.clipboardData.getData('text');
+        const updatedOtp = [...otp];
+        let index = 0;
+      
+        for (let i = 0; i < updatedOtp.length && index < pasteData.length; i++) {
+          if (!isNaN(pasteData[index])) {
+            updatedOtp[i] = pasteData[index];
+            index++;
+          }
+        }
+      
+        setOtp(updatedOtp);
+      };
+      
   return (
     <>
     {registerLoading === 'pending' ? <LoadSpinner/> : registerLoading === 'fulfilled' && respRegiterData.success  ? (<div className='verification_modal' onClick={() => setOpenVerifyModal(false)}>
@@ -60,7 +86,15 @@ import { postRepeatVerifyCode } from '../../store/slices/RepeatVerifyCodeSlice/R
                 <div className='verify_inputs_div'>
                     {
                       otp.map((data, i) => {
-                            return <input key={i} type='text' maxLength={1} value={data} onChange={(e) => handleChange(e, i)}/>
+                            return <input
+                            key={i}
+                            type='text'
+                            maxLength={1}
+                            value={data}
+                            onChange={(e) => handleChange(e, i)}
+                            onKeyDown={handleKeyDown}
+                            onPaste={handlePaste}
+                          />
                         })
                     }
                 </div>
