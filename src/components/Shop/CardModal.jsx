@@ -15,6 +15,7 @@ import {
 import './CardModal.css'; // Import CSS file for modal styles
 import { useTranslation } from 'react-i18next';
 import { getDelateProductBasket } from '../../store/slices/Shop/ShopApi';
+import Trash from '../../images/Trash.svg';
 
 const customStyles = {
   content: {
@@ -115,13 +116,13 @@ function CardModal() {
               </svg>
               <p className="shop_icon_count">{productLength}</p>
             </div>
-            <p>Your Cart</p>
+            <p style={{ fontSize: '20px' }}>Your Cart</p>
           </div>
           <p onClick={closeModal} className="closeBtn_basket">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
+              width="25"
+              height="25"
               fill="currentColor"
               className="bi bi-x"
               viewBox="0 0 16 16">
@@ -145,11 +146,12 @@ function CardModal() {
                         <b>Тangaran:</b>
                       </i>
                       <p className="museumName">{el.museum_name}</p>
-                      <p>{el.quantity + '/' + el.total_price + ' amd'}</p>
+                      <p>{el.quantity + '|' + el.total_price + ' AMD'}</p>
                     </div>
                   </div>
                   <p className="delate_button" onClick={() => removeElemBas(el.id)}>
-                    <svg
+                    <img src={Trash} alt="Trash" className="trash_icon" />
+                    {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="17"
                       height="17"
@@ -157,11 +159,10 @@ function CardModal() {
                       className="bi bi-trash3"
                       viewBox="0 0 16 16">
                       <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
-                    </svg>
+                    </svg> */}
                   </p>
                 </div>
               ))}
-              {console.log(AllBasketData.tickets)}
               {AllBasketData.tickets?.map((el, index) => (
                 <div key={index} className="basket_box_ticket">
                   <div>
@@ -171,10 +172,11 @@ function CardModal() {
                     </i>
                     <p className="museumName">{el.museum_name}</p>
                     <p>{el.date}</p>
-                    <p>{el.quantity + '/' + el.total_price + ' amd'}</p>
+                    <p>{el.quantity + '|' + el.total_price + ' AMD'}</p>
                   </div>
                   <p className="delate_button" onClick={() => removeElemBas(el.id)}>
-                    <svg
+                  <img src={Trash} alt="Trash" className="trash_icon" />
+                    {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="17"
                       height="17"
@@ -182,7 +184,7 @@ function CardModal() {
                       className="bi bi-trash3"
                       viewBox="0 0 16 16">
                       <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
-                    </svg>
+                    </svg> */}
                   </p>
                 </div>
               ))}

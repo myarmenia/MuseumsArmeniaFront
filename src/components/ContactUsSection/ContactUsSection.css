@@ -79,6 +79,16 @@
   gap: 20px;
 }
 
+/* //////////////H////////// */
+#message {
+  width: 500px;
+  border: 1px solid #808080;
+}
+#message:focus {
+  outline: none;
+}
+/* //////////////H-end////////// */
+
 @media (max-width: 1024px) {
   .contact_us_section_block {
     flex-direction: column;
@@ -108,8 +118,10 @@
   .feedBack {
     width: 80%;
   }
+  #message {
+    width: 300px;
+  }
 }
-
 
 @media (max-width: 480px) {
   .feedBack .name-inp input {
@@ -120,12 +132,14 @@
     width: 200px;
   }
 
-
   .contact_us_section_block_contact_div {
     width: 80%;
   }
 
   .feedBack {
     width: 80%;
+  }
+  #message {
+    width: 200px;
   }
 }

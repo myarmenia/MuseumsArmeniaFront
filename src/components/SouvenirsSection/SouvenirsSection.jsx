@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { responsive2, souvenirsData } from '../../data/data';
 import 'react-multi-carousel/lib/styles.css';
 import './SouvenirsSection.css';
@@ -9,9 +9,16 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSouvinersProd } from '../../store/slices/SouvinersProdSlice/SouvinersProdApi';
 import { selectSouvinersProd } from '../../store/slices/SouvinersProdSlice/SouvinersProdSlice';
+import { getIsAuth } from '../../store/slices/Auth/AuthSlice';
+import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice';
+import { postShopCardData } from '../../store/slices/Shop/ShopApi';
+import { useNavigate } from 'react-router-dom';
 
 function SouvenirsSection() {
+  const navigate = useNavigate();
+  const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
   const { t, i18n } = useTranslation();
+  const IsAuth = useSelector(getIsAuth);
 
   const dispatch = useDispatch();
 
@@ -21,15 +28,34 @@ function SouvenirsSection() {
 
   const respProd = useSelector(selectSouvinersProd);
 
+  const handleClickOpenModal = useCallback((id, image, name, price, museumName) => {
+    return (e) => {
+      e.stopPropagation();
+      console.log('IsAuth', IsAuth);
+      if (IsAuth) {
+        dispatch(setModalIsOpenShop(true));
+        dispatch(postShopCardData({ id }));
+      } else {
+        // setErrorText(true);
+        // window.location.href()
+        // window.location.pathname = `/${leng}/login`;
+        navigate(`/${leng}/login`)
+      }
+    };
+  }, []);
+
   console.log(respProd.data, 'fffff');
   const product = respProd.data.map((el) => {
     return (
-      <div key={el.id} className="souvenir_item">
+      <div
+        key={el.id}
+        onClick={() => navigate(`/${leng}/store/${el.id}`)}
+        className="souvenir_item">
         <div className="souvenir_item_img_div">
           <img src={el.image} alt="souvenir" />
 
           <div className="souvenir_item_add_cart_div">
-            <ButtonSecond txt="3" />
+            <ButtonSecond txt="3" onClick={handleClickOpenModal(el.id)} />
           </div>
         </div>
 

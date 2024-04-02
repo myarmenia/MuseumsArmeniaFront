@@ -21,6 +21,7 @@ import { privateTicketReducer } from './slices/PrivateTicketSlice/PrivateTicketS
 import { eventsTicketReducer } from './slices/PrivateEventTicketSlice/PrivateEventTicketSlice';
 import { eventPageReducer } from './slices/EventsPageSlice/EventsPageSlice';
 import { MuseumTicketReducer } from './slices/MuseumTicket/MuseumTicketSlice';
+import { ContactUsReducer } from './slices/ContactUs/ContactUsSlice';
 
 const store = configureStore({
    reducer: {
@@ -45,7 +46,8 @@ const store = configureStore({
       privateTicket: privateTicketReducer,
       eventsTicket: eventsTicketReducer,
       eventPage:eventPageReducer,
-      museumTicket: MuseumTicketReducer
+      museumTicket: MuseumTicketReducer,
+      contactus:ContactUsReducer
 
    },
    // middleware: (getDefaultMiddlware)=>[
