@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { postMuseumTicket } from './MuseumTicketApi';
+
+
 const initialState = {
    modalTicketIsOpen: false,
    ticketType: { kindOf: null, type: null },
@@ -7,8 +10,14 @@ const initialState = {
       { id: 1, price: 100, min: 0, max: 10, type: 'standart', count: 0 },
       { id: 1, price: 50, min: 0, max: 10, type: 'discount', count: 0 },
       { id: 1, price: 0, min: 0, max: 10, type: 'free', count: 0 },
+      { id: 2, price: 20000, min: 0, max: 10, type: 'subscription', count: 0 },
    ],
    dataItems: [],
+   ticketLoading: '',
+   success: null,
+   responseMessages: '',
+   paymentsUrl: ''
+
 };
 
 const MuseumTicketSlice = createSlice({
@@ -57,24 +66,24 @@ const MuseumTicketSlice = createSlice({
          }
       },
    },
-   // extraReducers: (builder) => {
-   //    builder
+   extraReducers: (builder) => {
+      builder
 
-   //       .addCase(postMuseumPages.pending, (state) => {
-   //          state.loadingStatus = 'loading';
-   //       })
-   //       .addCase(postMuseumPages.fulfilled, (state, { payload }) => {
-   //          state.loadingStatus = 'fulfilled';
-   //          state.dataMuseum = payload.data.museums;
-   //          state.filterDataMuseum = payload.data.museums;
-   //          state.regions = payload.data.regions;
-   //       })
-   //       .addCase(postMuseumPages.rejected, (state, action) => {
-   //          state.loadingStatus = 'rejected';
-   //          state.dataMuseum = [];
-   //          state.filterDataMuseum = [];
-   //       })
-   // },
+         .addCase(postMuseumTicket.pending, (state) => {
+            state.ticketLoading = 'loading';
+         })
+         .addCase(postMuseumTicket.fulfilled, (state, { payload }) => {
+            state.ticketLoading = 'fulfilled';
+            state.paymentsUrl = payload.data.redirect_url;
+            state.success = payload.success;
+         })
+         .addCase(postMuseumTicket.rejected, (state, {payload}) => {
+            console.log(payload, 'payload');
+            state.ticketLoading = 'rejected';
+            state.success = payload.success ?? false;
+            state.responseMessages = payload.message
+         })
+   },
 });
 
 export const MuseumTicketReducer = MuseumTicketSlice.reducer;

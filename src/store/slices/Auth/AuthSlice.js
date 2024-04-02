@@ -26,9 +26,17 @@ export const authSlice = createSlice({
         state.authUser = action.payload.authUser;
         state.isAuth = true;
       })
-      //   .addCase(editUser.fulfilled, (state, action) => {
-      //     state.authUser = action.payload.user
-      //     state.isAuth = true
+    //   .addCase(editUser.fulfilled, (state, action) => {
+    //     state.authUser = action.payload.user
+    //     state.isAuth = true
+    // })
+      .addCase(getCurrentUser.fulfilled, (state, action) => {
+          state.authUser = action.payload
+         
+          state.isAuth = true
+      })
+      // .addCase(getCurrentLesson.pending, (state, action) => {
+      //   console.log("pending")
       // })
       .addCase(getCurrentUser.fulfilled, (state, action) => {
         state.authUser = action.payload;

@@ -4,7 +4,8 @@ const initialState = {
    loadingStatus: 'loading',
    modalIsOpen: false,
    dataMuseumMessages: [],
-   statusPostUserMessages: null
+   statusPostUserMessages: null,
+   responseUsersMessages: null
 };
 
 const NewMessagesSlice = createSlice({
@@ -41,6 +42,7 @@ const NewMessagesSlice = createSlice({
       })
       .addCase(postUserMessages.fulfilled, (state, { payload }) => {
          state.statusPostUserMessages = true
+         state.responseUsersMessages = payload?.message
       })
       .addCase(postUserMessages.rejected, (state, action) => {
          state.statusPostUserMessages = null

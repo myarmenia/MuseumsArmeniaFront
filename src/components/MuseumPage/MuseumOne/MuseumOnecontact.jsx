@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'antd/es/typography/Link';
 import { useTranslation } from 'react-i18next';
 import {
    LocationIcon,
@@ -14,10 +13,10 @@ const MuseumOnecontact = ({ working_days, region, director, address, phones, lin
    const getBaseUrl = React.useCallback((url) => {
       const regex = /^(?:([^\:]+)\:\/\/)?([^\/]+)/;
       const match = url.match(regex);
-      return match?.[2]; // Доступ к группе 2 (доменное имя) с оператором optional chaining
+      return match?.[2]; 
    }, []);
 
-   console.log(getBaseUrl(links?.web_site), 'testtt');
+  
 
    return (
       <div className="museumOne_pageStyle blockRigth_styles">
