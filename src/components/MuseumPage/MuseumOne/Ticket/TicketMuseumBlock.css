@@ -9,6 +9,7 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
+   gap: 15px;
 }
 
 .TicketMuseumCatalog-buttonBlock {
@@ -92,6 +93,9 @@
    justify-content: space-between;
    align-items: center;
 }
+.BuyTicketBlock-list-price span {
+   min-width: 70px;
+}
 
 .BuyTicketBlock-list-totalPrice > p {
    display: flex;
@@ -102,7 +106,7 @@
    font-size: 16px;
    line-height: 20px;
    color: #3f3d56;
-   margin: 10px 0 20px;
+   margin: 10px 0 14px;
 }
 .BuyTicketBlock-list-totalPrice > p span {
    font-family: globalFont;
@@ -142,4 +146,14 @@
    font-size: 12px;
    line-height: 25px;
    color:#A3A3A3;
+}
+
+.BuyTicketBlock-list-warning p {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: red;
+   font-size: 13px;
+   font-family: globalFont;
+   margin: 10px 0 14px;
 }

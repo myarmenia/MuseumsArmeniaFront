@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import instance from '../../../axios';
-import axios from 'axios';
+
 
 export const postUserMessages = createAsyncThunk(
    'NewMessages/postAuthUserMessages',
@@ -13,9 +13,9 @@ export const postUserMessages = createAsyncThunk(
             data: body,
          };
 
-         const response = await instance(config);
+         const {data} = await instance(config);
 
-         //  return response?.data;
+          return data;
       } catch (error) {
          console.log(error, 'error');
          return thunkAPI.rejectWithValue(error.response.data.error.both);
