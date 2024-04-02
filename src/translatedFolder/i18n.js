@@ -35,6 +35,7 @@ i18n.use(initReactI18next).init({
                'Գնել տոմս',
                'Աբոննե տոմս',
                'Գրեք մեզ',
+               'Ավելացնել զամբյուղում'
             ],
 
             footer_title:
@@ -558,6 +559,7 @@ i18n.use(initReactI18next).init({
                'Купить билет',
                'Абонементный билет',
                'Напишите нам',
+               'Добавить в корзину',
             ],
 
             footer_title: 'Министерство образования, науки, культуры и спорта Республики Армения',
@@ -1075,6 +1077,7 @@ i18n.use(initReactI18next).init({
                'Buy Ticket',
                'Abonement ticket',
                'Write to us',
+               'Add to cart',
             ],
 
             footer_title:

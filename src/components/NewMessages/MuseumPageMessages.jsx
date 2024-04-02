@@ -15,21 +15,21 @@ const MuseumPageMessages = ({ museumId }) => {
    const { isAuth, authUser } = useSelector((store) => store.auth);
    const { dataMuseumMessages } = useSelector((store) => store.messages);
 
- 
-
    return (
-      <MessagesModal>
-         <>
-            <div className="MessagesModal-header"></div>
-            <div className="MessagesModal-section">
-               {isAuth ? (
-                  <MessagesBlock authUser={authUser} dataMuseumMessages={dataMuseumMessages} />
-               ) : (
-                  <NotUserMessagesBlock />
-               )}
-            </div>
-         </>
-      </MessagesModal>
+      <div className="bigPar-MessagesModal">
+         <MessagesModal>
+            <>
+               <div className="MessagesModal-header"></div>
+               <div className="MessagesModal-section">
+                  {isAuth ? (
+                     <MessagesBlock authUser={authUser} dataMuseumMessages={dataMuseumMessages} />
+                  ) : (
+                     <NotUserMessagesBlock />
+                  )}
+               </div>
+            </>
+         </MessagesModal>
+      </div>
    );
 };
 

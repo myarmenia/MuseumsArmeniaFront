@@ -34,9 +34,7 @@ const MuseumOnecontact = ({ working_days, region, director, address, phones, lin
             <h4>{t(`our_address`)}</h4>
             <p className="par-contactMinBlock">
                <LocationIcon width={20} height={20} fill="#3F3D56" />
-
-               {t(`${region}`)}
-               {address}
+               {t(`${region}`) } {address}
             </p>
          </div>
 

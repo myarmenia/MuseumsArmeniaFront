@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
@@ -7,24 +7,29 @@ import {
    getMuseumOneEvents,
 } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import { getAuthUserAllMessages } from '../../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
-import LoadSpinner from '../../LoadSpinner/LoadSpinner';
-import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
 import { useTranslation } from 'react-i18next';
+import { setIsOpen } from '../../../store/slices/NewMessagesSlice/NewMessagesSlice';
+import { setModalTicketIsOpen, setTicketType } from '../../../store/slices/MuseumTicket/MuseumTicketSlice';
+
+
+import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
+import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import MuseumPageHeader from '../MuseumPageHeader';
-import ButtonSecond from '../../ButtonSecond/ButtonSecond';
-import MessagesModal from '../../NewMessages/MessagesModal';
 import MuseumPageMessages from '../../NewMessages/MuseumPageMessages';
 import CustomButtonBlock from './CustomButtonBlock';
-import { setIsOpen } from '../../../store/slices/NewMessagesSlice/NewMessagesSlice';
 import { MuseumAbonementIcons } from '../../../iconFolder/icon';
+import { TicketMuseumBlock } from './Ticket';
+
 
 const MuseumOne = () => {
    const { t, i18n } = useTranslation();
    const { id } = useParams();
    const dispatch = useDispatch();
    const { isAuth, authUser } = useSelector((store) => store.auth);
+
    const {
       loadingStatus,
+      loadingdataMuseumOne,
       dataMuseumOne,
       dataEducationalPrograms,
       educationalProgramsLoad,
@@ -43,9 +48,10 @@ const MuseumOne = () => {
       photos = [],
       region,
       working_days,
+      tickets,
    } = dataMuseumOne;
 
-   console.log(dataMuseumOne, 5555);
+   console.log('dataMuseumOne', dataMuseumOne);
 
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
@@ -55,15 +61,22 @@ const MuseumOne = () => {
          dispatch(getAuthUserAllMessages(id));
       }
    }, []);
+  
 
-   const openModal = () => {
+   const openModal = useCallback(() => {
       dispatch(setIsOpen(true));
-   };
+   }, []);
+
+   const handleClickTicket = useCallback((kindOf, type) => {
+      dispatch(setModalTicketIsOpen(true))
+      dispatch(setTicketType({kindOf, type}))
+   }, []);
+
    return (
       <>
-         {loadingStatus === 'loading' ? (
+         {loadingdataMuseumOne === 'loading' ? (
             <LoadSpinner />
-         ) : loadingStatus === 'fulfilled' ? (
+         ) : loadingdataMuseumOne === 'fulfilled' ? (
             <div>
                <MuseumPageHeader headerImg={main_photo} title={name} />
                <div className="museumPage_section">
@@ -71,7 +84,11 @@ const MuseumOne = () => {
                      <div className="museumOne_parent">
                         <div className="museumOne_parent-section1">
                            <div className="museumOne-blockLeft">
-                              <MuseumOneDescription description={description} photos={photos} />
+                              <MuseumOneDescription
+                                 description={description}
+                                 photos={photos}
+                                 handleClickTicket={handleClickTicket}
+                              />
                            </div>
                            <div className="museumOne-blockRigth ">
                               <MuseumOnecontact
@@ -84,6 +101,8 @@ const MuseumOne = () => {
                                  background={'#D5AA72'}
                                  color={'#FFFFFF'}
                                  textBtn="10"
+                                 onClick={() => handleClickTicket('ticket', 'Abonement ticket')}
+                                 newClass='newStyleBtn'
                               />
 
                               <CustomButtonBlock
@@ -95,10 +114,13 @@ const MuseumOne = () => {
                                  boxShadow={'none'}
                                  textBtn="11"
                                  onClick={openModal}
+                                 newClass='newStyleBtn'
                               />
                            </div>
                         </div>
-                        {loadingMuseumOneEvents === 'fulfilled' && <OurEvents {...{dataMuseumOneEvents}}/>}
+                        {loadingMuseumOneEvents === 'fulfilled' && (
+                           <OurEvents {...{ dataMuseumOneEvents }} />
+                        )}
 
                         {educationalProgramsLoad === 'fulfilled' &&
                            dataEducationalPrograms.length > 0 && (
@@ -107,6 +129,7 @@ const MuseumOne = () => {
                               />
                            )}
                      </div>
+                     <TicketMuseumBlock />
                      <MuseumPageMessages museumId={id} />
                   </div>
                </div>
