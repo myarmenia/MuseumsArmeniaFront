@@ -49,6 +49,11 @@ function PrivateEventTicket({changeTicketType}) {
         setSelectedMuseum('')
     }, [changeTicketType])
 
+    useEffect(() => {
+        setSelectedMuseum('')
+        setEventInpVal('')
+    }, [respStandartTicket.data])
+
     const handleKeyDown = (event) => {
         const key = event.key;
         if (key === 'Backspace' || key === 'Delete') {
@@ -136,12 +141,11 @@ function PrivateEventTicket({changeTicketType}) {
         e.stopPropagation()
          if (isAuth) {
             await  dispatch(postTicketCart({
-                type: 'ticket',
-                tickets: currentEvent.event_configs.map(el => ({
+                items: currentEvent.event_configs.map(el => ({
                     type: 'event',
                     id: el.id,
                     quantity: sessionStorage.getItem(`quantity${el.id}`)
-                }))
+                })).filter(el => el.quantity > 0)
    
             }))
 

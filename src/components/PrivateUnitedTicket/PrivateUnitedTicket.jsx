@@ -165,8 +165,7 @@ function PrivateUnitedTicket() {
         })
 
         dispatch(postTicketCart({
-            type: 'ticket',
-            tickets: [{
+            items: [{
                 type: typeTicket,
                 museum_ids: museumId,
                 quantity: ticketCount
@@ -282,11 +281,11 @@ function PrivateUnitedTicket() {
                         <p>{t('Ticket_type_placeholder.6')}</p>
                 </div>
 
-                {ticketTypesBlock && currentOpt.length === respStandartTicket.params.min_museum_quantity &&
+                {ticketTypesBlock && currentOpt.length >= respStandartTicket.params.min_museum_quantity &&
 
                     (<div className='private_standart_ticket_museums_private_block_ticket_types'>
                         {
-                            currentOpt.length === respStandartTicket.params.min_museum_quantity && currentOpt.map(el =>
+                            currentOpt.length >= respStandartTicket.params.min_museum_quantity && currentOpt.map(el =>
                                 <div key={el.id}>
                                     <div className='packet_div'>
                                         <span className='packet_div_type'>{el.name}</span>
