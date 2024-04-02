@@ -56,10 +56,6 @@ import './VerificationEmailComponent.css'
             sessionStorage.setItem('verificationEmail', email.current.value);
             sessionStorage.setItem('verificationToken', `${inp1.value}${inp2.value}${inp3.value}${inp4.value}${inp5.value}`);
     
-            // if (errMessage.data.success === true) {
-            //     navigate(`/${leng}/reset-password`);
-            // }
-            // console.log(f,'fffffffffffffff');
         }
     };
 
@@ -68,6 +64,31 @@ import './VerificationEmailComponent.css'
             navigate(`/${leng}/reset-password`)
         }
     },[errMessage.data.success])
+
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Backspace' || e.key === 'Delete') {
+            if (!e.target.value && e.target.previousElementSibling) {
+                e.target.previousElementSibling.focus();
+            }
+        }
+    };
+
+    const handlePaste = (e) => {
+        e.preventDefault();
+        const pasteData = e.clipboardData.getData('text');
+        const updatedOtp = [...otp];
+        let index = 0;
+      
+        for (let i = 0; i < updatedOtp.length && index < pasteData.length; i++) {
+          if (!isNaN(pasteData[index])) {
+            updatedOtp[i] = pasteData[index];
+            index++;
+          }
+        }
+      
+        setOtp(updatedOtp);
+      };
   return (
     <>
     {loading === 'pending' ? <LoadSpinner/> : loading === 'fulfilled' && respEmail?.data?.success  ?(<div className='verification_modal' onClick={() => setOpenVerifyModal(false)}>
@@ -82,7 +103,7 @@ import './VerificationEmailComponent.css'
                 <div className='verify_inputs_div'>
                     {
                       otp.map((data, i) => {
-                            return <input key={i} type='text' maxLength={1} value={data} onChange={(e) => handleChange(e, i)}/>
+                            return <input key={i} type='text' maxLength={1} value={data} onChange={(e) => handleChange(e, i)} onKeyDown={handleKeyDown} onPaste={(handlePaste)} />
                         })
                     }
                 </div>

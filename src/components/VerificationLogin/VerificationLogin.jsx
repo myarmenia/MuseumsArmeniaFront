@@ -50,6 +50,31 @@ import { selectLogin, selectLoginLoading } from '../../store/slices/LoginSlice/L
         }
     }
 
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Backspace' || e.key === 'Delete') {
+            if (!e.target.value && e.target.previousElementSibling) {
+                e.target.previousElementSibling.focus();
+            }
+        }
+    };
+
+    const handlePaste = (e) => {
+        e.preventDefault();
+        const pasteData = e.clipboardData.getData('text');
+        const updatedOtp = [...otp];
+        let index = 0;
+      
+        for (let i = 0; i < updatedOtp.length && index < pasteData.length; i++) {
+          if (!isNaN(pasteData[index])) {
+            updatedOtp[i] = pasteData[index];
+            index++;
+          }
+        }
+      
+        setOtp(updatedOtp);
+      };
+
   return (
     <>
     {loginLoading === 'pending' ? <LoadSpinner/> : loginLoading === 'rejected' && (!respLogin.data.is_verify )? (<div className='verification_modal' onClick={() => setOpenVerifyModal(false)}>
@@ -64,7 +89,7 @@ import { selectLogin, selectLoginLoading } from '../../store/slices/LoginSlice/L
                 <div className='verify_inputs_div'>
                     {
                       otp.map((data, i) => {
-                            return <input key={i} type='text' maxLength={1} value={data} onChange={(e) => handleChange(e, i)}/>
+                            return <input key={i} type='text' maxLength={1} value={data} onChange={(e) => handleChange(e, i)} onKeyDown={handleKeyDown} onPaste={handlePaste}/>
                         })
                     }
                 </div>
