@@ -81,26 +81,19 @@ export const ShopSlice = createSlice({
         console.log('chdarav');
       })
       .addCase(getCategoryShop.fulfilled, (state, action) => {
-        // alert(2);
-
         state.categories = action.payload.data;
         state.loading = false;
       })
       .addCase(getMuseumNames.fulfilled, (state, action) => {
-        // alert(3);
-
         state.museumes = action.payload.data;
         state.loading = false;
       })
       .addCase(getSearchesShop.fulfilled, (state, action) => {
-        // alert(4);
         state.shopAllData = action.payload;
         state.loading = false;
         // state.searchCountLengthShop = action.payload.data.length;
       })
       .addCase(getFilteredShop.fulfilled, (state, action) => {
-        // alert(6);
-
         state.shopAllData = action.payload;
         state.loading = false;
       })

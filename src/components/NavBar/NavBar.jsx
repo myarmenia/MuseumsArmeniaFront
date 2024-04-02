@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLogOut } from '../../store/slices/LogOutSlice/LogOutApi';
-import { getIsAuth } from '../../store/slices/Auth/AuthSlice';
+import { getAuthUser, getIsAuth } from '../../store/slices/Auth/AuthSlice';
 import { logOutIcon, userIcon } from '../../iconFolder/icon';
 import ShopCard from '../../images/Bank.svg';
 import {
@@ -21,6 +21,7 @@ import { getShopIconBasketDatas } from '../../store/slices/Shop/ShopApi';
 function NavBar({ changeFonSize, changeFont }) {
   const { t, i18n } = useTranslation();
   const isAuth = useSelector(getIsAuth);
+  const isAuthCount = useSelector(getAuthUser);
   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
   const dispatch = useDispatch();
 
@@ -37,6 +38,7 @@ function NavBar({ changeFonSize, changeFont }) {
     dispatch(getShopIconBasketDatas());
   }, []);
 
+  console.log('isAuthCount', isAuthCount.card_count);
   return (
     <div className="nav_bar">
       <div className="container">
@@ -48,15 +50,17 @@ function NavBar({ changeFonSize, changeFont }) {
         </div>
 
         <div className="nav_bar_right_div">
-          <div className="shopIconDiv">
-            <span className="shopIconLength">{productLength}</span>
-            <img
-              src={ShopCard}
-              alt="shop-card"
-              className="shop-card"
-              onClick={handleClickOpenModal}
-            />
-          </div>
+          {isAuth && (
+            <div className="shopIconDiv">
+              <span className="shopIconLength">{ productLength || isAuthCount.card_count}</span>
+              <img
+                src={ShopCard}
+                alt="shop-card"
+                className="shop-card"
+                onClick={handleClickOpenModal}
+              />
+            </div>
+          )}
           {isAuth && <div>{userIcon}</div>}
           <ChangeFontSize {...{ changeFonSize, changeFont }} />
           <SelectLng />
