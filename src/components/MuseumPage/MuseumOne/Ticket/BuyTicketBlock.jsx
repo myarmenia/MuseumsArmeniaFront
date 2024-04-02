@@ -26,7 +26,10 @@ const BuyTicketBlock = ({ hendleClickItems }) => {
                         <div key={idx} className="BuyTicketBlock-list-menu">
                            <div>
                               <p>
-                                 {t(`${items.type}`)} - <span>{items.price} AMD</span>
+                                 {t(`${items.type}`)} -{' '}
+                                 <span style={{ color: items.price > 0 ? '#000000' : '#a6a6a6' }}>
+                                    {items.price} {t(`single_shop_page.0`)}
+                                 </span>
                               </p>
 
                               {items.type !== 'standart' && (
@@ -38,11 +41,13 @@ const BuyTicketBlock = ({ hendleClickItems }) => {
                            </div>
                            <div className="BuyTicketBlock-list-Button">
                               <span onClick={() => hendleClickItems('down', items)}>
-                                 <MinusButtonIcons />
+                                 <MinusButtonIcons width="40" height="40" />
                               </span>
-                              <p>{items.count}</p>
+                              <p style={{ color: items.count > 0 ? '#000000' : '#a6a6a6' }}>
+                                 {items.count}
+                              </p>
                               <span onClick={() => hendleClickItems('up', items)}>
-                                 <PlusButtonIcons />
+                                 <PlusButtonIcons width="40" height="40" />
                               </span>
                            </div>
                         </div>
@@ -50,23 +55,23 @@ const BuyTicketBlock = ({ hendleClickItems }) => {
                )}
             </div>
             {/* <div className="BuyTicketBlock-list-priceOne">
-               <p>standart <span>1000 AMD</span></p>
-               <p>discounted <span>500 AMD</span></p>
+               <p>standart <span>1000 {t(`single_shop_page.0`)}</span></p>
+               <p>discounted <span>500 {t(`single_shop_page.0`)}</span></p>
             </div> */}
             <div className="BuyTicketBlock-list-price">
                <div>
                   <p>
-                     {t(`infoBuyTicket.1`)} <span>{dataMuseumOne.guide.am} AMD</span>
+                     {t(`infoBuyTicket.1`)} <span>{dataMuseumOne.guide.am} {t(`single_shop_page.0`)}</span>
                   </p>
                   <p>
-                     {t(`infoBuyTicket.2`)} <span>{dataMuseumOne.guide.other} AMD</span>
+                     {t(`infoBuyTicket.2`)} <span>{dataMuseumOne.guide.other} {t(`single_shop_page.0`)}</span>
                   </p>
                   <p>{t(`infoBuyTicket.3`)}</p>
                </div>
             </div>
             <div className="BuyTicketBlock-list-totalPrice">
                <p>
-               {t(`infoBuyTicket.4`)} : <span>{totalPrice} AMD</span>
+                  {t(`infoBuyTicket.4`)} : <span style={{ color: totalPrice > 0 ? '#000000' : '#a6a6a6' }}> {totalPrice} {t(`single_shop_page.0`)}</span>
                </p>
             </div>
             {ticketLoading === 'rejected' && (

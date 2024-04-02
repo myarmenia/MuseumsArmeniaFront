@@ -10,7 +10,7 @@ const initialState = {
       { id: 1, price: 100, min: 0, max: 10, type: 'standart', count: 0 },
       { id: 1, price: 50, min: 0, max: 10, type: 'discount', count: 0 },
       { id: 1, price: 0, min: 0, max: 10, type: 'free', count: 0 },
-      { id: 2, price: 20000, min: 0, max: 10, type: 'subscription', count: 0 },
+      { id: 2, price: 20000, min: 0, max: 5, type: 'subscription', count: 0 },
    ],
    dataItems: [],
    ticketLoading: '',
