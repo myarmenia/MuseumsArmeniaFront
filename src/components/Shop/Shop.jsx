@@ -50,28 +50,32 @@ function Shop() {
   const [currentPage, setCurrentPage] = useState(0);
   // const [idd, setIddd] = useState(null);
   // const [imagee, setImagee] = useState(null);
-
-  const handleChangeCategory = (event) => {
+  console.log('skizb');
+  // const handleChangeCategory = (event) => {
+  // debugger
+  const handleChangeCategory = useCallback((event) => {
     const paginateDataObj = {
       currentPage: 1,
       searchText: '',
       museum_id: selectedMuseum,
-      categora_id : event.target.value
+      categora_id: event.target.value,
     };
     dispatch(
       getAllShop(paginateDataObj),
       // getFilteredShop({ category: event.target.value, museum: selectedMuseum })
-      );
+    );
     setSelectedCategory(event.target.value);
     // AllShopData.data.length < 12 && setIsFiltered(false);
-  };
-
-  const handleChangeMuseum = (event) => {
+  }, []);
+  // };
+  console.log('vrevner');
+  // const handleChangeMuseum = (event) => {
+  const handleChangeMuseum = useCallback((event) => {
     const paginateDataObj = {
       currentPage: 1,
       searchText: '',
       museum_id: event.target.value,
-      categora_id : selectedCategory
+      categora_id: selectedCategory,
     };
     setCurrentPage(0);
 
@@ -81,43 +85,53 @@ function Shop() {
     );
     setSelectedMuseum(event.target.value);
     // AllShopData.data.length < 12 && setIsFiltered(false);
-  };
+  }, []);
+  // };
 
   useEffect(() => {
+    window.scrollTo(0, 250);
+    console.log('useFfecti masss');
+    dispatch(getCategoryShop()).then(() => {
+      dispatch(getMuseumNames());
+    });
     const paginateDataObj = {
       currentPage: 1,
       searchText: '',
       museum_id: '',
-      categora_id : ''
+      categora_id: '',
     };
     dispatch(getAllShop(paginateDataObj));
-    dispatch(getCategoryShop());
-    dispatch(getMuseumNames());
+
     // dispatch(totalPriceBasket())
   }, []);
+  console.log('useFfectic heto');
 
-  const sendShopPage = (data) => {
+  // const sendShopPage = (data) => {
+  const sendShopPage = useCallback((data) => {
     window.scrollTo(0, 300);
     // console.log(data.selected);
     let currentPage = data.selected + 1;
     const paginateDataObj = {
       museum_id: selectedMuseum,
-      categora_id : selectedCategory,
+      categora_id: selectedCategory,
       currentPage: currentPage,
       searchText: searchTextShopRef.current.value,
     };
 
     dispatch(getAllShop(paginateDataObj));
-  };
+  }, []);
+  // };
 
   let SearchProductLength = AllShopData.data?.length;
+  console.log('mejtexner');
 
-  const searchShop = (e) => {
+  // const searchShop = (e) => {
+  const searchShop = useCallback((e) => {
     e.preventDefault();
     SearchProductLength < 12 && setIsPagination(false);
     const paginateDataObj = {
       museum_id: selectedMuseum,
-      categora_id : selectedCategory,
+      categora_id: selectedCategory,
       currentPage: 1,
       searchText: searchTextShopRef.current.value,
     };
@@ -125,7 +139,8 @@ function Shop() {
     dispatch(getAllShop(paginateDataObj));
     // dispatch(getSearchesShop(searchTextShopRef.current.value));
     // searchTextShopRef.current.value = '';
-  };
+  }, []);
+  // };
 
   const handleClickOpenModal = useCallback((id, image, name, price, museumName) => {
     return (e) => {
@@ -135,7 +150,9 @@ function Shop() {
         dispatch(setModalIsOpenShop(true));
         dispatch(postShopCardData({ id }));
       } else {
-        setErrorText(true);
+        // setErrorText(true);
+        // window.location.href()
+        window.location.pathname = `/${leng}/login`
       }
 
       // dispatch(
@@ -173,20 +190,22 @@ function Shop() {
     };
   }, []);
   // console.log('AllShopData', AllShopData);
-  console.log('AllShopData_searchhh_bottom', AllShopData);
+  // console.log('AllShopData_searchhh_bottom', AllShopData);
   // console.log('allCategories', allCategories);
   // console.log('allmuseumNames', allmuseumNames);
+  console.log('minchev return');
   return (
     <>
+      {console.log('jsxxxxxx')}
       {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', minHeight: '100vh' }}>
           loading...
         </div>
       ) : (
         <div className="shop_all">
-          <div className={errorText ? 'shop_error_text' : 'shop_error_text_none'}>
+          {/* <div className={errorText ? 'shop_error_text' : 'shop_error_text_none'}>
             zambyuxic ogtvelu hamar petq e grancvel{' '}
-          </div>
+          </div> */}
           <div className="backImage_shop">
             <h1>{t('shop_page_data.0')}</h1>
           </div>

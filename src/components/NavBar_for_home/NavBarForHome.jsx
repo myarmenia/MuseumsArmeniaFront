@@ -7,7 +7,7 @@ import SelectLng from '../SelectLng/SelectLng';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { getIsAuth } from '../../store/slices/Auth/AuthSlice';
+import { getAuthUser, getIsAuth } from '../../store/slices/Auth/AuthSlice';
 import { logOutIcon, userIcon } from '../../iconFolder/icon';
 import { getLogOut } from '../../store/slices/LogOutSlice/LogOutApi';
 import ShopCard from '../../images/Bank.svg';
@@ -16,6 +16,7 @@ import { getShopIconBasketDatas } from '../../store/slices/Shop/ShopApi';
 
 function NavBarForHome({ homeNavColor, changeFonSize, changeFont }) {
   const isAuth = useSelector(getIsAuth);
+  const isAuthCount = useSelector(getAuthUser);
   const { t, i18n } = useTranslation();
   const leng = localStorage.getItem('lang');
   const dispatch = useDispatch();
@@ -50,15 +51,18 @@ function NavBarForHome({ homeNavColor, changeFonSize, changeFont }) {
           <NavMenu />
         </div>
         <div className="nav_bar_for_home_right_div">
-          <div className="shopIconDiv">
-            <span className="shopIconLength">{productLength}</span>
-            <img
-              src={ShopCard}
-              alt="shop-card"
-              className="shop-card"
-              onClick={handleClickOpenModal}
-            />
-          </div>
+          {isAuth && (
+            <div className="shopIconDiv">
+              <span className="shopIconLength">{productLength || isAuthCount.card_count}</span>
+              <img
+                src={ShopCard}
+                alt="shop-card"
+                className="shop-card"
+                onClick={handleClickOpenModal}
+              />
+            </div>
+          )}
+
           {isAuth && <div>{userIcon}</div>}
           <ChangeFontSize {...{ changeFonSize, changeFont }} />
           <SelectLng />
