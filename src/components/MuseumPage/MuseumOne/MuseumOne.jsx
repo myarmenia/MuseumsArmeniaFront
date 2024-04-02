@@ -37,19 +37,7 @@ const MuseumOne = () => {
       dataMuseumOneEvents,
    } = useSelector((state) => state.museumPages);
 
-   const {
-      main_photo,
-      name,
-      address,
-      description,
-      director,
-      links,
-      phones,
-      photos = [],
-      region,
-      working_days,
-      tickets,
-   } = dataMuseumOne;
+  
 
    console.log('dataMuseumOne', dataMuseumOne);
 
@@ -60,7 +48,7 @@ const MuseumOne = () => {
       if (isAuth) {
          dispatch(getAuthUserAllMessages(id));
       }
-   }, []);
+   }, [id]);
   
 
    const openModal = useCallback(() => {
@@ -78,21 +66,21 @@ const MuseumOne = () => {
             <LoadSpinner />
          ) : loadingdataMuseumOne === 'fulfilled' ? (
             <div>
-               <MuseumPageHeader headerImg={main_photo} title={name} />
+               <MuseumPageHeader headerImg={dataMuseumOne.main_photo} title={dataMuseumOne.name} />
                <div className="museumPage_section">
                   <div className="container">
                      <div className="museumOne_parent">
                         <div className="museumOne_parent-section1">
                            <div className="museumOne-blockLeft">
                               <MuseumOneDescription
-                                 description={description}
-                                 photos={photos}
+                                 description={dataMuseumOne.description}
+                                 photos={dataMuseumOne.photos}
                                  handleClickTicket={handleClickTicket}
                               />
                            </div>
                            <div className="museumOne-blockRigth ">
                               <MuseumOnecontact
-                                 {...{ working_days, region, director, address, phones, links }}
+                                 {...dataMuseumOne}
                               />
                               <CustomButtonBlock
                                  icon={<MuseumAbonementIcons />}

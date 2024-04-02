@@ -20,13 +20,13 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
    const { t, i18n } = useTranslation();
    const { dataEducationalPrograms, dataMuseumOne } = useSelector((store) => store.museumPages);
    const { messagesType, educationProgramType } = useSelector((store) => store.messagesBot);
-   const { statusPostUserMessages } = useSelector((store) => store.messages);
+   const { statusPostUserMessages,responseUsersMessages} = useSelector((store) => store.messages);
    const [startChat, setStartChst] = useState(false);
    const [disabled, setDisabled] = useState(true);
    const [messagesUser, setMssagesUser] = useState([]);
    const [statusMessages, setStatusMessages] = useState(null);
    const dispatch = useDispatch();
-   console.log(dataMuseumMessages, 'MessagesBlock');
+  
    useEffect(() => {
       if (dataEducationalPrograms.length) {
          if (messagesType === 'educational_program' && educationProgramType) {
@@ -43,7 +43,7 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
 
    useEffect(() => {
       dispatch(getAuthUserAllMessages(dataMuseumOne.id));
-   }, [messagesUser]);
+   }, []);
 
 
    const onClickButtonStart = React.useCallback(() => {
@@ -69,6 +69,16 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
    const validationSchema = yup.object().shape({
       messages: yup.string().required(t('validation_inp.1')),
    });
+
+   // const addMessagesResponse = async()=> {
+   //    const messages = await responseUsersMessages
+   //    setResMessages((prevMesages) => {
+   //       if (prevMesages.length) {
+   //          return [...prevMesages, messages]
+   //       }
+   //       return [messages]
+   //    })
+   // }
 
    const handleLogin = (e, handleSubmit, isValid) => {
       handleSubmit();
