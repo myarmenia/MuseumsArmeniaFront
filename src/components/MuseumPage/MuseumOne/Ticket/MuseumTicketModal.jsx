@@ -23,8 +23,6 @@ const MuseumTicketModal = ({ children, modalIsOpen, handleClickCloseModal }) => 
    //       setWindowWidth(window.innerWidth);
    //    };
    //    window.addEventListener('resize', handleResize);
-
-   //    // Cleanup function to remove event listener on component unmount
    //    return () => {
    //       window.removeEventListener('resize', handleResize);
    //       dispatch(setIsOpen(false));
