@@ -20,11 +20,11 @@ export const postMuseumTicket = createAsyncThunk(
           data: body.postData,
         }
 
-         const response = await instance(config);
-         return response
+         const {data} = await instance(config);
+         return data
         } catch (error) {
-          console.log(error, 'error');
-         return thunkAPI.rejectWithValue(error);
+        
+         return thunkAPI.rejectWithValue(error.response.data);
       }
    },
 );

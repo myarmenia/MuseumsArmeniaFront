@@ -20,8 +20,10 @@ import { MessagesBot } from './slices/MessagesBotSlice/MessagesBotSlice';
 import { privateTicketReducer } from './slices/PrivateTicketSlice/PrivateTicketSlice';
 import { eventsTicketReducer } from './slices/PrivateEventTicketSlice/PrivateEventTicketSlice';
 import { eventPageReducer } from './slices/EventsPageSlice/EventsPageSlice';
+import { buyTicketReducer } from './slices/BuyTicketSlice/BuyTicketSlice';
 import { MuseumTicketReducer } from './slices/MuseumTicket/MuseumTicketSlice';
 import { ContactUsReducer } from './slices/ContactUs/ContactUsSlice';
+
 
 const store = configureStore({
    reducer: {
@@ -46,9 +48,9 @@ const store = configureStore({
       privateTicket: privateTicketReducer,
       eventsTicket: eventsTicketReducer,
       eventPage:eventPageReducer,
+      buyTicket: buyTicketReducer,
       museumTicket: MuseumTicketReducer,
       contactus:ContactUsReducer
-
    },
    // middleware: (getDefaultMiddlware)=>[
    //     ...getDefaultMiddlware(),
