@@ -6,6 +6,7 @@ import { getCurrentUser } from './AuthApi';
 const initialState = {
   authUser: {},
   isAuth: false,
+  temp: null
 };
 
 export const authSlice = createSlice({
@@ -42,9 +43,9 @@ export const authSlice = createSlice({
     // .addCase(getCurrentLesson.pending, (state, action) => {
     //   console.log("pending")
     // })
-    // .addCase(getCurrentLesson.rejected, (state, action) => {
-    //   console.log("rejected");
-    // });
+    .addCase(getCurrentUser.rejected, (state, action) => {
+        state.temp = true
+    });
   },
 });
 
@@ -53,5 +54,6 @@ export const { setAuth, setIsAuth } = authSlice.actions;
 // export const {getAuthUser} = loginSlice.actions
 export const getAuthUser = (state) => state.auth.authUser;
 export const getIsAuth = (state) => state.auth.isAuth;
+export const getIsTemp = (state) => state.auth.temp
 
 export const authReduser = authSlice.reducer;

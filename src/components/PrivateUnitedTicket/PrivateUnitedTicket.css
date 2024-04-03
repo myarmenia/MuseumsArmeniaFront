@@ -8,8 +8,14 @@
     z-index: 99;
     padding: 20px;
     border-radius: 10px;
+    height: 230px;
+    overflow: auto;
 }
 
+
+.private_united_ticket_museum_list::-webkit-scrollbar {
+    width: 0;
+}
 
 .private_united_ticket_museum_list >label{
     display: flex;
