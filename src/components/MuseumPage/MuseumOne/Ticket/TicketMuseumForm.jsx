@@ -15,9 +15,12 @@ const TicketMuseumForm = () => {
    const { t, i18n } = useTranslation();
    const [countryVal, setCountryVal] = useState('');
    const dispatch = useDispatch();
+
    const respBuyTicket = useSelector(selectBuyTicket)
    const {dataItems, ticketLoading, success, responseMessages, paymentsUrl } =
       useSelector((state) => state.museumTicket);
+
+
    const validationSchema = yup.object().shape({
       email: yup.string().email(t('validation_inp.0')).required(t('validation_inp.1')),
    });
@@ -30,13 +33,28 @@ const TicketMuseumForm = () => {
       if (email.value && isValid) {
          const person = {
             email: email.value,
-            name: name.value,
-            surname: surname.value,
-            phone: phone.value,
-            country_id: country.value,
-            birth_date: age.value,
-            gender: gender.value,
+
          };
+
+         if (name.value) {
+            person.name = name.value;
+         }
+         if (phone.value) {
+            person.phone = phone.value;
+         }
+         if (age.value) {
+            person.birth_date = age.value;
+         }
+         if (surname.value) {
+            person.surname = surname.value;
+         }
+         if (country.value) {
+            person.country_id = country.value;
+         }
+         if (gender.value) {
+            person.gender = gender.value;
+         }
+
          dispatch(
             postMuseumTicket({
                userToken: null,
