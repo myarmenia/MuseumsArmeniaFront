@@ -15,9 +15,9 @@
    align-items: center;
    gap: 15px;
 }
-.BuyTicketBlock-list-menu span {
+/* .BuyTicketBlock-list-menu span {
    color: #a6a6a6;
-}
+} */
 
 .TicketMuseumCatalog-buttonBlock {
    display: flex;
@@ -66,6 +66,8 @@
 }
 .BuyTicketBlock-list-Button span {
    cursor: pointer;
+   display: flex;
+   color: #a6a6a6;
 }
 
 .BuyTicketBlock-list-priceOne p {
@@ -190,6 +192,17 @@
    justify-content: space-between;
    min-width: 300px;
 }
+.ticketForm-blockradio > label {
+   color: #AAAAAA;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   font-family: globalFont;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 20px;
+}
+
 
 // ticket form end .................................
 

@@ -9,8 +9,10 @@ import {
 import { getAuthUserAllMessages } from '../../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
 import { useTranslation } from 'react-i18next';
 import { setIsOpen } from '../../../store/slices/NewMessagesSlice/NewMessagesSlice';
-import { setModalTicketIsOpen, setTicketType } from '../../../store/slices/MuseumTicket/MuseumTicketSlice';
-
+import {
+   setModalTicketIsOpen,
+   setTicketType,
+} from '../../../store/slices/MuseumTicket/MuseumTicketSlice';
 
 import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
@@ -19,7 +21,6 @@ import MuseumPageMessages from '../../NewMessages/MuseumPageMessages';
 import CustomButtonBlock from './CustomButtonBlock';
 import { MuseumAbonementIcons } from '../../../iconFolder/icon';
 import { TicketMuseumBlock } from './Ticket';
-
 
 const MuseumOne = () => {
    const { t, i18n } = useTranslation();
@@ -37,10 +38,6 @@ const MuseumOne = () => {
       dataMuseumOneEvents,
    } = useSelector((state) => state.museumPages);
 
-  
-
-   console.log('dataMuseumOne', dataMuseumOne);
-
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
       dispatch(educationalPrograms({ id }));
@@ -49,15 +46,14 @@ const MuseumOne = () => {
          dispatch(getAuthUserAllMessages(id));
       }
    }, [id]);
-  
 
    const openModal = useCallback(() => {
       dispatch(setIsOpen(true));
    }, []);
 
    const handleClickTicket = useCallback((kindOf, type) => {
-      dispatch(setModalTicketIsOpen(true))
-      dispatch(setTicketType({kindOf, type}))
+      dispatch(setModalTicketIsOpen(true));
+      dispatch(setTicketType({ kindOf, type }));
    }, []);
 
    return (
@@ -79,9 +75,7 @@ const MuseumOne = () => {
                               />
                            </div>
                            <div className="museumOne-blockRigth ">
-                              <MuseumOnecontact
-                                 {...dataMuseumOne}
-                              />
+                              <MuseumOnecontact {...dataMuseumOne} />
                               <CustomButtonBlock
                                  icon={<MuseumAbonementIcons />}
                                  title={'webSideMusum.2'}
@@ -90,7 +84,7 @@ const MuseumOne = () => {
                                  color={'#FFFFFF'}
                                  textBtn="10"
                                  onClick={() => handleClickTicket('ticket', 'Abonement ticket')}
-                                 newClass='newStyleBtn'
+                                 newClass="newStyleBtn"
                               />
 
                               <CustomButtonBlock
@@ -102,7 +96,7 @@ const MuseumOne = () => {
                                  boxShadow={'none'}
                                  textBtn="11"
                                  onClick={openModal}
-                                 newClass='newStyleBtn'
+                                 newClass="newStyleBtn"
                               />
                            </div>
                         </div>

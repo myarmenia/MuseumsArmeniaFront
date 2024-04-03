@@ -31,11 +31,11 @@ const AbonementTicketBlock = ({ hendleClickItems }) => {
                            </div>
                            <div className="BuyTicketBlock-list-Button">
                               <span onClick={() => hendleClickItems('down', items)}>
-                                 <MinusButtonIcons />
+                                 <MinusButtonIcons width="40" height="40"/>
                               </span>
                               <p>{items.count}</p>
                               <span onClick={() => hendleClickItems('up', items)}>
-                                 <PlusButtonIcons />
+                                 <PlusButtonIcons width="40" height="40"/>
                               </span>
                            </div>
                         </div>

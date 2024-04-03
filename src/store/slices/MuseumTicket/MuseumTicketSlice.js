@@ -78,7 +78,7 @@ const MuseumTicketSlice = createSlice({
             state.success = payload.success;
          })
          .addCase(postMuseumTicket.rejected, (state, {payload}) => {
-            console.log(payload, 'payload');
+            // console.log(payload, 'payload');
             state.ticketLoading = 'rejected';
             state.success = payload.success ?? false;
             state.responseMessages = payload.message
