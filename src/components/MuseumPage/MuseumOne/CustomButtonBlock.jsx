@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {memo} from 'react';
 import ButtonSecond from '../../ButtonSecond/ButtonSecond';
 import { useTranslation } from 'react-i18next';
-const CustomButtonBlock = ({ icon='', background='', color='', boxShadow='', title='', text='',textBtn='', onClick = () => {} }) => {
+const CustomButtonBlock = ({ icon='', background='', color='', boxShadow='', title='', text='',textBtn='', onClick = () => {}, newClass='' }) => {
    const { t, i18n } = useTranslation();
-
+   
    return (
       <div className="museumOne_pageStyle blockRigth_styles">
          <div className="header_right-button">
@@ -18,10 +18,10 @@ const CustomButtonBlock = ({ icon='', background='', color='', boxShadow='', tit
                justifyContent: 'center',
                alignItems: 'center',
             }}>
-            <ButtonSecond txt={textBtn} minWidth="210px" background={background} color={color} boxShadow={boxShadow} />
+            <ButtonSecond txt={textBtn} minWidth="210px" background={background} color={color} boxShadow={boxShadow} newClass={newClass}/>
          </div>
       </div>
    );
 };
 
-export default CustomButtonBlock;
+export default memo(CustomButtonBlock)

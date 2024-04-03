@@ -29,6 +29,7 @@
   padding-top: 10px;
   padding-bottom: 6px;
   cursor: pointer;
+  filter: invert(50%) sepia(10%) saturate(10000%) hue-rotate(20deg) brightness(80%) contrast(90%);
 }
 .all_baskets {
   background-color: #f8f9fa;
@@ -51,11 +52,15 @@
   box-shadow: 0 2px 2px #00000005;
 }
 .basket_box_img {
-  width: 83px;
-  height: 83px;
+  width: 63px;
+  height: 63px;
+  border-radius: 6px;
   object-fit: fill;
 }
 
+.trash_icon:hover {
+  filter: invert(50%) sepia(10%) saturate(10000%) hue-rotate(20deg) brightness(80%) contrast(90%);
+}
 .delate_button {
   cursor: pointer;
   color: red;
@@ -96,8 +101,7 @@
   justify-content: end;
   align-items: center;
   gap: 110px;
-  margin-top: 15px;
-  margin-bottom: 7px;
+  margin-top: 10px;
 }
 
 .shop_icon_with_count {
@@ -110,6 +114,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #b26705;
 }
 
 .basket_box_ticket {
@@ -124,7 +129,7 @@
 
 .checkout_btn {
   text-align: center;
-  background-color: #000000;
+  background-color: #d5aa72;
   color: #ffffff;
   border: 2px solid #ffffff;
   padding: 10px 20px;
@@ -137,5 +142,5 @@
   text-align: center;
   background-color: #ffffff;
   color: #000000;
-  border: 2px solid #000000;
+  border: 2px solid #d5aa72;
 }

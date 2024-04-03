@@ -8,8 +8,7 @@ import {
 import { setIsOpen } from '../../store/slices/NewMessagesSlice/NewMessagesSlice';
 import { CloseMessagesBtn } from '../../iconFolder/icon';
 
-const customStyles = {
-
+const messagesCustomStyles = {
    content: {
       top: 'auto',
       left: 'auto',
@@ -27,7 +26,7 @@ const customStyles = {
    },
 
 };
-// Modal.setAppElement('#yourAppElement');
+
 
 const MessagesModal = ({ children }) => {
 
@@ -47,6 +46,7 @@ const MessagesModal = ({ children }) => {
    // }, []);
    //  customStyles.content.width = windowWidth > 1200 ? '40%' : windowWidth < 800 ? '80%' : '60%'  
 
+
   const dispatch = useDispatch();
   let subtitle;
   function afterOpenModal() {
@@ -64,13 +64,14 @@ const MessagesModal = ({ children }) => {
   }, []);
 
 
+
    return (
       <div>
          <Modal
             isOpen={modalIsOpen}
             // onAfterOpen={afterOpenModal}
             // onRequestClose={}
-            style={{ ...customStyles }}
+            style={{ ...messagesCustomStyles }}
             ariaHideApp={false}
             contentLabel="Example Modal">
             <div className="child_modall">

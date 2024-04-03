@@ -3,6 +3,7 @@ import { postMuseumPages, postMuseumOnePages, educationalPrograms, getMuseumOneE
 const initialState = {
    loadingStatus: 'loading',
    dataMuseum: [],
+   loadingdataMuseumOne: 'loading',
    dataMuseumOne: {},
    filterDataMuseum: [],
    regions: [],
@@ -44,14 +45,14 @@ const MuseumPagesSlice = createSlice({
 
          // postMuseumOnePages ========================
          .addCase(postMuseumOnePages.pending, (state) => {
-            state.loadingStatus = 'loading';
+            state.loadingdataMuseumOne = 'loading';
          })
          .addCase(postMuseumOnePages.fulfilled, (state, { payload }) => {
-            state.loadingStatus = 'fulfilled';
+            state.loadingdataMuseumOne = 'fulfilled';
             state.dataMuseumOne = payload.data;
          })
          .addCase(postMuseumOnePages.rejected, (state, action) => {
-            state.loadingStatus = 'rejected';
+            state.loadingdataMuseumOne = 'rejected';
             state.dataMuseumOne = {};
          })
 

@@ -64,9 +64,9 @@
    width: '100%';
 }
 
-.ReactModal__Overlay {
+/* .bigPar-MessagesModal  .ReactModal__Overlay {
    background-color: inherit !important;
-}
+} */
 .close-Messages {
    position: absolute;
 }

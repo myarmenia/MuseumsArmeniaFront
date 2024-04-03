@@ -5,7 +5,8 @@ import { getCurrentUser } from './AuthApi';
 
 const initialState = {
   authUser: {},
-  isAuth: false
+  isAuth: false,
+  temp: null
 };
 
 export const authSlice = createSlice({
@@ -19,12 +20,12 @@ export const authSlice = createSlice({
       state.isAuth = action.payload;
     },
   },
-  
+
   extraReducers: (builder) => {
     builder
-     .addCase(postLogin.fulfilled, (state, action) => {
-          state.authUser = action.payload.authUser
-          state.isAuth = true
+      .addCase(postLogin.fulfilled, (state, action) => {
+        state.authUser = action.payload.authUser;
+        state.isAuth = true;
       })
     //   .addCase(editUser.fulfilled, (state, action) => {
     //     state.authUser = action.payload.user
@@ -32,30 +33,27 @@ export const authSlice = createSlice({
     // })
       .addCase(getCurrentUser.fulfilled, (state, action) => {
           state.authUser = action.payload
-          console.log(state.authUser,'dddd');
+         
           state.isAuth = true
       })
       // .addCase(getCurrentLesson.pending, (state, action) => {
       //   console.log("pending")
       // })
-      // .addCase(getCurrentLesson.rejected, (state, action) => {
-      //   console.log("rejected");
-      // });
+     
+    // .addCase(getCurrentLesson.pending, (state, action) => {
+    //   console.log("pending")
+    // })
+    .addCase(getCurrentUser.rejected, (state, action) => {
+        state.temp = true
+    });
   },
 });
 
-export const {
-  setAuth,
-  setIsAuth
-} = authSlice.actions;
+export const { setAuth, setIsAuth } = authSlice.actions;
 
 // export const {getAuthUser} = loginSlice.actions
 export const getAuthUser = (state) => state.auth.authUser;
 export const getIsAuth = (state) => state.auth.isAuth;
-
+export const getIsTemp = (state) => state.auth.temp
 
 export const authReduser = authSlice.reducer;
-
-
-
-

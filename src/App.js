@@ -24,9 +24,12 @@ import EventsPage from './components/EventsPage/EventsPage';
 import ProfilePage from './components/ProfilePages/ProfilePage';
 import MyAccount from './components/ProfilePages/MyAccount/MyAccount';
 import OrderHistory from './components/ProfilePages/OrderHistory/OrderHistory';
+import { useSelector } from 'react-redux';
+import { getIsTemp } from './store/slices/Auth/AuthSlice';
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('');
+  const respTemp = useSelector(getIsTemp)
 
   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
 
@@ -36,7 +39,14 @@ function App() {
 
   useEffect(() => {
     pathname == '/' && navigate(`/${leng}/`);
-  }, []);
+    if(respTemp){
+      navigate(`/${leng}/login`)
+      localStorage.removeItem('token')
+      localStorage.removeItem('isAuth')
+    }
+
+    console.log(respTemp,'55');
+  }, [respTemp]);
 
   const changeFont = (type) => {
     setChangeFonSize(type);

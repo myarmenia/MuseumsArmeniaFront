@@ -13,6 +13,8 @@ function ButtonSecond({
    background = '',
    color = '',
    boxShadow = '',
+   fontSize='',
+   newClass= '',
 }) {
    const lang = localStorage.getItem('lang');
    const navigate = useNavigate();
@@ -36,8 +38,9 @@ function ButtonSecond({
             background: background,
             color: color,
             boxShadow: boxShadow,
+            fontSize: fontSize
          }}
-         className="btn_2 draw-border_2">
+         className={`btn_2 draw-border_2 ${newClass}`}>
          {t('buttons.' + txt)}
       </button>
    );

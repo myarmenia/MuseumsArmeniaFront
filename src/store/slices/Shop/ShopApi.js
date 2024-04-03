@@ -19,7 +19,7 @@ export const getAllShop = createAsyncThunk('shop/getAllShop', async (data, thunk
   }
 });
 
-export const getCategoryShop = createAsyncThunk('shop/getCategoryShop', async (_, thunkAPI) => {
+export const getCategoryShop = createAsyncThunk('shop/getcategoryshop', async (_, thunkAPI) => {
   try {
     const config = {
       method: 'get',
@@ -34,7 +34,7 @@ export const getCategoryShop = createAsyncThunk('shop/getCategoryShop', async (_
   }
 });
 
-export const getMuseumNames = createAsyncThunk('shop/getMuseumNames', async (_, thunkAPI) => {
+export const getMuseumNames = createAsyncThunk('shop/getmuseumnames', async (_, thunkAPI) => {
   try {
     const config = {
       method: 'get',
@@ -106,9 +106,11 @@ export const postShopCardData = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const cardData = {
+        "items" : [{
         type: 'product',
         product_id: body.id,
-        quantity: 1,
+        quantity: 1
+        }]
       };
       const config = {
         method: 'post',
@@ -129,9 +131,12 @@ export const postSingleShopCardData = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const singleCardData = {
-        type: 'product',
+        "items": [{
+             type: 'product',
         product_id: body.id,
-        quantity: body.productCount,
+        quantity: body.productCount,     
+        }]
+
       };
       const config = {
         method: 'post',

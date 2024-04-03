@@ -4,13 +4,16 @@ import { postBuyTicket } from "./BuyTicketApi";
 const initialState = {
    data: {},
    loading: 'pending',
+   obj: {}
    };
 
 const buyTicketSlice = createSlice({
     name: 'buyTicket',
     initialState,
     reducers: {
-      
+        setObj(state, { payload }) {
+            state.obj = payload;
+         },
     },
  
    
@@ -39,7 +42,7 @@ export const selectBuyTicket = (state) => state.buyTicket
 export const selectBuyTicketLoading = (state) => state.buyTicket.loading
 
 
- export const {} = buyTicketSlice.actions
+ export const {setObj} = buyTicketSlice.actions
 
 
 export const buyTicketReducer =  buyTicketSlice.reducer

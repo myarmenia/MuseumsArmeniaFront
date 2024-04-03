@@ -82,25 +82,26 @@ const MessagesBotBlock = ({ messagesUser, resetMessages }) => {
                   ) : (
                      ''
                   )}
-                  {educationProgramType && (
+                  {educationProgramType ? (
                      <li className="user_messages">
                         <span className="">{educationProgramType}</span>
                      </li>
-                  )}
+                  ) : ''
+               }
                   {dataEducationalPrograms.length && messagesType === 'educational_program' ? (
-                     educationProgramType && (
+                     educationProgramType ? (
                         <li className="admin_messages">
                            <ul className="chatBotHint_list">
                               {chatBotHint.map((_, idx) => (
                                  <li key={idx}>
                                     {idx !== 6
-                                       ? `${idx > 0 && `${idx}.`} ${t(`chatBotHint.${idx}`)}`
+                                       ? `${idx > 0 ? `${idx}.` : ''} ${t(`chatBotHint.${idx}`)}`
                                        : ''}
                                  </li>
                               ))}
                            </ul>
                         </li>
-                     )
+                     ) : ''
                   ) : messagesType === 'excursion' ? (
                      <li className="admin_messages">
                         <ul className="chatBotHint_list">

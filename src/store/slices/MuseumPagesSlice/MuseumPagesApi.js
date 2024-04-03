@@ -14,6 +14,7 @@ export const postMuseumPages = createAsyncThunk(
       }
    },
 );
+
 export const postMuseumOnePages = createAsyncThunk(
    'MuseumPagesOne/postMuseumPagesOne',
    async (body, thunkAPI) => {

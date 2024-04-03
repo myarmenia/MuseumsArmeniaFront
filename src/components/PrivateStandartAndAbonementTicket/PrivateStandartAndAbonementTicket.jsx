@@ -11,7 +11,9 @@ import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
 import { locationIcon, minusIcon, museumIcon, plusIcon, privateTicketIcon } from '../../iconFolder/icon'
 import { getPrivateTicket } from '../../store/slices/PrivateTicketSlice/PrivateTicketApi'
 import { postBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketApi'
-import { selectBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketSlice'
+import { selectBuyTicket, setObj } from '../../store/slices/BuyTicketSlice/BuyTicketSlice'
+import { setModalTicketIsOpen, setTicketType } from '../../store/slices/MuseumTicket/MuseumTicketSlice'
+import { MuseumTicketModal, TicketMuseumBlock } from '../MuseumPage/MuseumOne/Ticket'
 
 function PrivateStandartAndAbonementTicket({ changeTicketType }) {
     const { t, i18n } = useTranslation()
@@ -229,6 +231,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
     }
 
     const buyTicket = async(e) => {
+        e.preventDefault()
         if (isAuth) {
             await dispatch(postBuyTicket({
                 request_name: "web",
@@ -262,6 +265,43 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
             }));
 
         }
+        else{
+            dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket'}))
+            dispatch(setModalTicketIsOpen(true))
+            setTicketTypesBlock(false)
+            dispatch(setObj({
+                request_name: "web",
+                items: museumItem.tickets.map(el => {
+                    return el.type === 'standart' && ticketCountStandart !== 0
+                        ? {
+                            type: el.type,
+                            id: el.id,
+                            quantity: ticketCountStandart
+                        }
+                        : el.type === 'discount' && ticketCountDicounted !== 0
+                        ? {
+                            type: el.type,
+                            id: el.id,
+                            quantity: ticketCountDicounted
+                        }
+                        : el.type === 'free' && ticketCountFree !== 0
+                        ? {
+                            type: el.type,
+                            id: el.id,
+                            quantity: ticketCountFree
+                        }
+                        : el.type === 'subscription' && ticketCountSub !== 0
+                        ? {
+                            type: el.type,
+                            id: el.id,
+                            quantity: ticketCountSub
+                        }
+                        : null;
+                }).filter(ticket => ticket !== null) 
+            }))
+        }
+
+        
     }
 
     useEffect(() => {
@@ -302,6 +342,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
 
 
     return (
+        <>
         <div className='private_standart_ticket'>
             {cartErrorMessage && <h3 className='cart_error_message'>{t('Ticket_type_placeholder.8')}</h3>}
             <div className='private_standart_ticket_regions' ref={regionRef} onClick={(e) => handleRegionInpFocus(e)}>
@@ -400,6 +441,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
                     )}
             </div>
         </div>
+        <TicketMuseumBlock/></>
     )
 }
 
