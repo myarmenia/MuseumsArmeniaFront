@@ -10,6 +10,8 @@ import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice'
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
 import { locationIcon, minusIcon, museumIcon, plusIcon, privateTicketIcon } from '../../iconFolder/icon'
 import { getPrivateTicket } from '../../store/slices/PrivateTicketSlice/PrivateTicketApi'
+import { postBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketApi'
+import { selectBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketSlice'
 
 function PrivateStandartAndAbonementTicket({ changeTicketType }) {
     const { t, i18n } = useTranslation()
@@ -33,11 +35,10 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
     const dispatch = useDispatch()
     const respStandartTicket = useSelector(selectprivateTicket)
     const isAuth = useSelector(getIsAuth)
+    const respBuyTicket = useSelector(selectBuyTicket)
 
     
-    
     useEffect(() => {
-        // setSelectedRegion({name: '', id: '', value: ''})
         setSelectedMuseum('')
         respStandartTicket.data.map(el =>{
             setMuseumItem(el)
@@ -98,7 +99,6 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
         : respStandartTicket.data.filter(museum => museum.region_name === selectedRegion.name);
 
 
-    console.log(filteredMuseums, 'gghjghg');
 
     const privateTicketRegions = t('privateTicketRegions', { returnObjects: true })
 
@@ -228,6 +228,48 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
         setTicketTypesBlock(false)
     }
 
+    const buyTicket = async(e) => {
+        if (isAuth) {
+            await dispatch(postBuyTicket({
+                request_name: "web",
+                items: museumItem.tickets.map(el => {
+                    return el.type === 'standart' && ticketCountStandart !== 0
+                        ? {
+                            type: el.type,
+                            id: '8',
+                            quantity: ticketCountStandart
+                        }
+                        : el.type === 'discount' && ticketCountDicounted !== 0
+                        ? {
+                            type: el.type,
+                            id: el.id,
+                            quantity: ticketCountDicounted
+                        }
+                        : el.type === 'free' && ticketCountFree !== 0
+                        ? {
+                            type: el.type,
+                            id: el.id,
+                            quantity: ticketCountFree
+                        }
+                        : el.type === 'subscription' && ticketCountSub !== 0
+                        ? {
+                            type: el.type,
+                            id: el.id,
+                            quantity: ticketCountSub
+                        }
+                        : null;
+                }).filter(ticket => ticket !== null) 
+            }));
+
+        }
+    }
+
+    useEffect(() => {
+        respBuyTicket.data.message === 'success' &&    (window.location.href = respBuyTicket.data.data.redirect_url)
+    }, [respBuyTicket.data.message])
+
+
+    
     const handleMuseumInpFocus = (e) => {
         e.stopPropagation()
         setEventLineMuseum(false)
@@ -291,7 +333,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
                     <p>{t('Ticket_type_placeholder.2')}</p>
                 </div>
                 {
-                    openModalMuseum && (
+                  filteredMuseums.length !== 0 &&  openModalMuseum && (
 
                         <ul className='private_standart_ticket_museum_list' onClick={() => setopenModalMuseum(false)}>
                             {filteredMuseums.map(museum => (
@@ -347,9 +389,11 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
                             <span><b>{t('Ticket_type_placeholder.7')} </b>{fullValueTicket} AMD</span>
                         </div>
 
+                        {respBuyTicket?.data.success === false && <p>{respBuyTicket?.data.message}</p>}
+
                         <div className='private_standart_ticket_museums_private_block_ticket_types_buy_div'>
 
-                            <button className='bay_ticket_btn'>{t('buttons.0')}</button>
+                            <button className='bay_ticket_btn' onClick={buyTicket}>{t('buttons.0')}</button>
                             <button className='add_cart_btn' onClick={addCart}>{t('buttons.3')}</button>
                         </div>
                     </div>

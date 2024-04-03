@@ -50,8 +50,13 @@
     z-index: 99;
     padding: 20px;
     border-radius: 10px;
+    overflow: auto;
+    height: 230px;
 }
 
+.private_standart_ticket_regions_list::-webkit-scrollbar {
+    width: 0;
+}
 .private_standart_ticket_regions_list li{
     display: flex;
     align-items: center;
@@ -105,9 +110,14 @@
     z-index: 99;
     padding: 20px;
     border-radius: 10px;
-
+    overflow: auto;
+    height: 230px;
 }
 
+
+.private_standart_ticket_museum_list::-webkit-scrollbar {
+    width: 0;
+}
 
 .private_standart_ticket_museum_list li{
     display: flex;
