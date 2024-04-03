@@ -6,26 +6,25 @@ import {
    setTicketType,
 } from '../../../../store/slices/MuseumTicket/MuseumTicketSlice';
 import { postMuseumTicket } from '../../../../store/slices/MuseumTicket/MuseumTicketApi';
+import { useTranslation } from 'react-i18next';
 
 import { BuyTicketBlock, AbonementTicketBlock } from './index';
 import ButtonSecond from '../../../ButtonSecond/ButtonSecond';
 
 const TicketMuseumCatalog = () => {
    const dispatch = useDispatch();
-   const { modalTicketIsOpen, ticketType, tickets, dataItems } = useSelector(
-      (state) => state.museumTicket,
-   );
+   const [t, i18n] = useTranslation();
 
+   const { ticketType, dataItems } = useSelector((state) => state.museumTicket);
+   const { isAuth } = useSelector((store) => store.auth);
    const hendleClickItems = useCallback((dovnUp, obj) => {
       dispatch(setDataItems({ dovnUp, obj }));
    }, []);
 
-
    const HendleBuyTicket = useCallback(() => {
       const userToken = localStorage.getItem('token');
-
-      if (userToken) {
-         if (dataItems.length) {
+      if (dataItems.length) {
+         if (isAuth) {
             dispatch(
                postMuseumTicket({
                   userToken,
@@ -35,19 +34,19 @@ const TicketMuseumCatalog = () => {
                   },
                }),
             );
-         }else{}
-      } else {
-         dispatch(setTicketType({ kindOf: 'form', type: 'Buy Ticket' }));
+         } else {
+            dispatch(setTicketType({ kindOf: 'form', type: 'Buy Ticket' }));
+         }
       }
    }, [dataItems]);
-
-   
 
    return (
       <div className="TicketMuseumCatalog-parent">
          <div>
             <div className="TicketMuseumCatalog-header" style={{ textAlign: 'center' }}>
-               <p>{ticketType.type}</p>
+               <p>
+                  {ticketType.type === 'Buy Ticket' ? t(`infoBuyTicket.5`) : t(`infoBuyTicket.6`)}
+               </p>
             </div>
             <div>
                {ticketType.type === 'Buy Ticket' ? (

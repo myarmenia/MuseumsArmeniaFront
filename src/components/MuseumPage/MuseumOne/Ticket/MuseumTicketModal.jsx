@@ -12,7 +12,7 @@ const museumTicketcustomStyles = {
       transform: 'translate(-50%, -50%)',
       overflow: 'none',
       // width: '400px'
-      padding: '25px 40px'
+      padding: '0'
    },
 };
 
