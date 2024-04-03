@@ -29,6 +29,7 @@ function ContactUsSection() {
   console.log('teaxtAreaVal', textValue);
 
   const handleFeedback = (e, handleSubmit, isValid) => {
+    handleSubmit()
     e.preventDefault();
     if (isValid) {
       dispatch(

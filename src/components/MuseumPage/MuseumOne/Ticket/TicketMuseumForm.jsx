@@ -8,14 +8,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postMuseumTicket } from '../../../../store/slices/MuseumTicket/MuseumTicketApi';
 
 import './TicketMuseumBlock.css';
+import { selectBuyTicket } from '../../../../store/slices/BuyTicketSlice/BuyTicketSlice';
+import { postBuyTicket } from '../../../../store/slices/BuyTicketSlice/BuyTicketApi';
 const TicketMuseumForm = () => {
    const leng = localStorage.getItem('lang');
    const { t, i18n } = useTranslation();
    const [countryVal, setCountryVal] = useState('');
    const dispatch = useDispatch();
-   const { dataItems, ticketLoading, success, responseMessages } = useSelector(
-      (state) => state.museumTicket,
-   );
+
+   const respBuyTicket = useSelector(selectBuyTicket)
+   const {dataItems, ticketLoading, success, responseMessages, paymentsUrl } =
+      useSelector((state) => state.museumTicket);
+
+
    const validationSchema = yup.object().shape({
       email: yup.string().email(t('validation_inp.0')).required(t('validation_inp.1')),
    });
@@ -28,6 +33,7 @@ const TicketMuseumForm = () => {
       if (email.value && isValid) {
          const person = {
             email: email.value,
+
          };
 
          if (name.value) {
@@ -55,11 +61,16 @@ const TicketMuseumForm = () => {
                postData: {
                   request_name: 'web',
                   person,
-                  items: dataItems,
+                  items: respBuyTicket?.obj.items.length > 0 ? respBuyTicket?.obj.items : dataItems,
                },
             }),
          );
+
+         
+         
       }
+
+    
    };
 
    const handleChangeCountry = (val, type) => {
