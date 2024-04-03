@@ -1,4 +1,4 @@
-import React, {useCallback, memo} from 'react';
+import React, {useCallback, memo, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setModalTicketIsOpen } from '../../../../store/slices/MuseumTicket/MuseumTicketSlice';
@@ -9,11 +9,17 @@ import './TicketMuseumBlock.css'
 
 const TicketMuseumBlock = () => {
    const dispatch = useDispatch()
-   const {modalTicketIsOpen, ticketType} = useSelector((state) => state.museumTicket);
+   const {modalTicketIsOpen, ticketType, success, paymentsUrl} = useSelector((state) => state.museumTicket);
   
    const handleClickCloseModal = useCallback(() => {
       dispatch(setModalTicketIsOpen(false))
    }, []);
+
+   useEffect(() => {
+      if (success) {
+         window.location.assign(`${paymentsUrl}`);
+      }
+   }, [success]);
 
    return (
       <MuseumTicketModal modalIsOpen={modalTicketIsOpen} handleClickCloseModal={handleClickCloseModal}>

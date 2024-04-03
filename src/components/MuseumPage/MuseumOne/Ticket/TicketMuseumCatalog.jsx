@@ -42,38 +42,34 @@ const TicketMuseumCatalog = () => {
 
    return (
       <div className="TicketMuseumCatalog-parent">
+         <div className="TicketMuseumCatalog-header" style={{ textAlign: 'center' }}>
+            <p>{ticketType.type === 'Buy Ticket' ? t(`infoBuyTicket.5`) : t(`infoBuyTicket.6`)}</p>
+         </div>
          <div>
-            <div className="TicketMuseumCatalog-header" style={{ textAlign: 'center' }}>
-               <p>
-                  {ticketType.type === 'Buy Ticket' ? t(`infoBuyTicket.5`) : t(`infoBuyTicket.6`)}
-               </p>
-            </div>
-            <div>
-               {ticketType.type === 'Buy Ticket' ? (
-                  <BuyTicketBlock hendleClickItems={hendleClickItems} />
-               ) : (
-                  <AbonementTicketBlock hendleClickItems={hendleClickItems} />
-               )}
-            </div>
-            <div className="TicketMuseumCatalog-buttonBlock">
-               <ButtonSecond
-                  txt="0"
-                  background={'#D5AA72'}
-                  color={'#FFFFFF'}
-                  boxShadow={'none'}
-                  fontSize="12px"
-                  newClass="newStyleBtn"
-                  onClick={HendleBuyTicket}
-               />
-               <ButtonSecond
-                  txt="12"
-                  background={'#D5AA72'}
-                  color={'#FFFFFF'}
-                  boxShadow={'none'}
-                  fontSize="12px"
-                  newClass="newStyleBtn"
-               />
-            </div>
+            {ticketType.type === 'Buy Ticket' ? (
+               <BuyTicketBlock hendleClickItems={hendleClickItems} />
+            ) : (
+               <AbonementTicketBlock hendleClickItems={hendleClickItems} />
+            )}
+         </div>
+         <div className="TicketMuseumCatalog-buttonBlock">
+            <ButtonSecond
+               txt="0"
+               background={'#D5AA72'}
+               color={'#FFFFFF'}
+               boxShadow={'none'}
+               fontSize="12px"
+               newClass="newStyleBtn"
+               onClick={HendleBuyTicket}
+            />
+            <ButtonSecond
+               txt="12"
+               background={'#D5AA72'}
+               color={'#FFFFFF'}
+               boxShadow={'none'}
+               fontSize="12px"
+               newClass="newStyleBtn"
+            />
          </div>
       </div>
    );
