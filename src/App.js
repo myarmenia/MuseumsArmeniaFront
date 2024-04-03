@@ -24,8 +24,10 @@ import EventsPage from './components/EventsPage/EventsPage';
 import ProfilePage from './components/ProfilePages/ProfilePage';
 import MyAccount from './components/ProfilePages/MyAccount/MyAccount';
 import OrderHistory from './components/ProfilePages/OrderHistory/OrderHistory';
+import ContactWithUs from './components/contactWithUs/contactWithUs';
 import { useSelector } from 'react-redux';
 import { getIsTemp } from './store/slices/Auth/AuthSlice';
+
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('');
@@ -230,6 +232,14 @@ function App() {
                 }
               />
             </Route>
+            <Route
+              path="contact"
+              element={
+                <PrivateRouteForOutSider>
+                  <ContactWithUs />
+                </PrivateRouteForOutSider>
+              }
+            />
           </Route>
         </Route>
       </Routes>
