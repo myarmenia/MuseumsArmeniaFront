@@ -38,11 +38,7 @@ export const authSlice = createSlice({
       // .addCase(getCurrentLesson.pending, (state, action) => {
       //   console.log("pending")
       // })
-      .addCase(getCurrentUser.fulfilled, (state, action) => {
-        state.authUser = action.payload;
-        console.log(state.authUser, 'dddd');
-        state.isAuth = true;
-      });
+     
     // .addCase(getCurrentLesson.pending, (state, action) => {
     //   console.log("pending")
     // })

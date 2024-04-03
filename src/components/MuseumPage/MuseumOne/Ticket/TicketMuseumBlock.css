@@ -1,3 +1,7 @@
+.TicketMuseumCatalog-parent {
+   padding: 0 40px 25px;
+}
+
 .BuyTicketBlock-listPar {
    display: flex;
    flex-direction: column;
@@ -11,6 +15,9 @@
    align-items: center;
    gap: 15px;
 }
+/* .BuyTicketBlock-list-menu span {
+   color: #a6a6a6;
+} */
 
 .TicketMuseumCatalog-buttonBlock {
    display: flex;
@@ -36,7 +43,7 @@
    cursor: pointer;
    color: #b26705;
    width: 100%;
-   padding: 0 11px;
+   padding: 10px 11px;
 }
 
 .attention {
@@ -57,8 +64,10 @@
    align-items: center;
    gap: 10px;
 }
-.BuyTicketBlock-list-Button  span {
+.BuyTicketBlock-list-Button span {
    cursor: pointer;
+   display: flex;
+   color: #a6a6a6;
 }
 
 .BuyTicketBlock-list-priceOne p {
@@ -102,7 +111,7 @@
    justify-content: center;
    align-items: center;
    font-family: globalFont;
-   font-weight: 700;
+   font-weight: 400;
    font-size: 16px;
    line-height: 20px;
    color: #3f3d56;
@@ -114,6 +123,7 @@
    font-size: 16px;
    line-height: 20px;
    color: #000000;
+   margin-left: 10px;
 }
 .newStyleBtn::before {
    border: none;
@@ -121,7 +131,6 @@
 .newStyleBtn::after {
    border: none;
 }
-
 
 .AbonementTicket_totalPrice {
    display: flex;
@@ -145,7 +154,7 @@
    font-weight: 400;
    font-size: 12px;
    line-height: 25px;
-   color:#A3A3A3;
+   color: #a3a3a3;
 }
 
 .BuyTicketBlock-list-warning p {
@@ -156,4 +165,49 @@
    font-size: 13px;
    font-family: globalFont;
    margin: 10px 0 14px;
+}
+
+// ticket form start .................................
+
+.museumTicket-formChild-inbut > input {
+   border: 1px solid #aaaaaa;
+   padding: 14px 16px;
+   min-width: 300px;
+}
+
+.formChild-inbut {
+   border: 1px solid #aaaaaa;
+   padding: 14px 16px;
+   min-width: 300px;
+}
+
+.museumTicket-selectIcon {
+   position: absolute;
+   right: 10px;
+   top: 14px;
+}
+
+.ticketForm-blockradio {
+   display: flex;
+   justify-content: space-between;
+   min-width: 300px;
+}
+.ticketForm-blockradio > label {
+   color: #AAAAAA;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   font-family: globalFont;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 20px;
+}
+
+
+// ticket form end .................................
+
+@media (max-width: 500px) {
+   .TicketMuseumCatalog-parent {
+      padding: 0 20px 25px;
+   }
 }
