@@ -5,6 +5,7 @@ import {
   getBasketLength,
   getBaskettotalPrice,
   getProductLength,
+  getRedirectUrl,
   getSetAllBasketData,
   getSetBasketData,
   getSetModalIsOpenShop,
@@ -14,7 +15,10 @@ import {
 } from '../../store/slices/Shop/ShopSlice';
 import './CardModal.css'; // Import CSS file for modal styles
 import { useTranslation } from 'react-i18next';
-import { getDelateProductBasket } from '../../store/slices/Shop/ShopApi';
+import {
+  getDelateProductBasket,
+  postAllBasketDataDoingPurchase,
+} from '../../store/slices/Shop/ShopApi';
 import Trash from '../../images/Trash.svg';
 
 const customStyles = {
@@ -50,6 +54,7 @@ function CardModal() {
   // console.log(getStorageProduct, 'getStorageProduct');
   const AllBasketData = useSelector(getSetAllBasketData);
   const productLength = useSelector(getProductLength);
+  const RedirectUrl = useSelector(getRedirectUrl);
 
   useEffect(() => {
     document.body.style.overflow = ModalIsOpenShop ? 'hidden' : 'visible';
@@ -70,6 +75,37 @@ function CardModal() {
   }
   const removeElemBas = (id) => {
     dispatch(getDelateProductBasket(id));
+  };
+
+  const sendBakstAllDataPayment = () => {
+    let arr = [];
+    AllBasketData.products.map((el, index) => {
+      arr.push({
+        type: 'product',
+        product_id: el.product_id,
+        quantity: el.quantity,
+      });
+    });
+    AllBasketData.tickets.map((el, index) => {
+      arr.push({
+        type: el.type,
+        id: el.ticket_id,
+        quantity: el.quantity,
+      });
+    });
+    console.log('arr', arr);
+    let sendObj = {
+      request_type: 'cart',
+      request_name: 'web',
+      items: arr,
+    };
+    console.log('sendObj', sendObj);
+    dispatch(postAllBasketDataDoingPurchase(sendObj)).then((res) => {
+      if (res.meta.requestStatus === 'fulfilled') {
+        // console.log('RedirectUrl', res.payload.data.redirect_url);
+        window.location.href = res.payload.data.redirect_url
+      }
+    });
   };
 
   /////////////shop length/////////////////
@@ -175,7 +211,7 @@ function CardModal() {
                     <p>{el.quantity + '|' + el.total_price + ' AMD'}</p>
                   </div>
                   <p className="delate_button" onClick={() => removeElemBas(el.id)}>
-                  <img src={Trash} alt="Trash" className="trash_icon" />
+                    <img src={Trash} alt="Trash" className="trash_icon" />
                     {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="17"
@@ -194,7 +230,9 @@ function CardModal() {
           )}
           {/* <p>total {countProductBasket}</p> */}
         </div>
-        <div className="checkout_btn">Checkout</div>
+        <div className="checkout_btn" onClick={sendBakstAllDataPayment}>
+          Checkout
+        </div>
       </div>
     </Modal>
   );

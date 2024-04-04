@@ -52,13 +52,13 @@ function NavBarForHome({ homeNavColor, changeFonSize, changeFont }) {
         </div>
         <div className="nav_bar_for_home_right_div">
           {isAuth && (
-            <div className="shopIconDiv">
+            <div className="shopIconDiv" onClick={handleClickOpenModal}>
               <span className="shopIconLength">{productLength || isAuthCount.card_count}</span>
               <img
                 src={ShopCard}
                 alt="shop-card"
                 className="shop-card"
-                onClick={handleClickOpenModal}
+                
               />
             </div>
           )}
