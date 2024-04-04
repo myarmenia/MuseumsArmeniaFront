@@ -13,6 +13,10 @@ import TicketCountDiv from '../TicketCountDiv/TicketCountDiv'
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
 import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice'
 import { eventIcon, locationIcon, museumIcon, privateTicketIcon } from '../../iconFolder/icon'
+import { setModalTicketIsOpen, setTicketType } from '../../store/slices/MuseumTicket/MuseumTicketSlice'
+import { TicketMuseumBlock } from '../MuseumPage/MuseumOne/Ticket'
+import { postBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketApi'
+import { selectBuyTicket, setObj } from '../../store/slices/BuyTicketSlice/BuyTicketSlice'
 
 function PrivateEventTicket({changeTicketType}) {
     const {t, i18n} = useTranslation()
@@ -42,6 +46,8 @@ function PrivateEventTicket({changeTicketType}) {
     const respStandartTicket = useSelector(selectprivateTicket)
     const respEvent = useSelector(getEventsTicket)
     const isAuth = useSelector(getIsAuth)
+    const respBuyTicket = useSelector(selectBuyTicket)
+
 
 
     useEffect(() => {
@@ -164,10 +170,47 @@ function PrivateEventTicket({changeTicketType}) {
 
          setTicketTypesBlock(false)
         
-
         } 
         
 
+        const buyTicket = async(e) => {
+            e.preventDefault()
+
+            if(isAuth){
+                await  dispatch(postBuyTicket({
+                    items: currentEvent.event_configs.map(el => ({
+                        type: 'event',
+                        id: el.id,
+                        quantity: sessionStorage.getItem(`quantity${el.id}`)
+                    })).filter(el => el.quantity > 0)
+       
+                }))
+                .then(res => {
+                    if(res.meta.requestStatus === "fulfilled"){
+                        window.location.href = res.payload.data.redirect_url
+                        console.log(res,'ayo');
+                    }   
+               })
+    
+                // currentEvent.event_configs.map(item => {
+                //     sessionStorage.removeItem(`quantity${item.id}`)
+                // })
+            }
+            else{
+                dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket'}))
+                dispatch(setModalTicketIsOpen(true))
+
+                await dispatch(setObj({
+                    items: currentEvent.event_configs.map(el => ({
+                        type: 'event',
+                        id: el.id,
+                        quantity: sessionStorage.getItem(`quantity${el.id}`)
+                    })).filter(el => el.quantity > 0)
+       
+                }))
+
+            }
+        }
 
         const handleMuseumInpFocus = (e) => {
             e.stopPropagation()
@@ -208,7 +251,8 @@ function PrivateEventTicket({changeTicketType}) {
         }
 
     return (
-        <div className='private_standart_ticket'>
+        <>
+            <div className='private_standart_ticket'>
             {cartErrorMessage && <h3 className='cart_error_message'>{t('Ticket_type_placeholder.8')}</h3>}
             <DualCalendar {...{selectedMuseum, setStartDate, setEndDate, startDate, endDate, museumItem, setEventLineCalendar}}/>
 
@@ -311,15 +355,19 @@ function PrivateEventTicket({changeTicketType}) {
                         <span>{t('Ticket_type_placeholder.7')}   {fullValueTicket} AMD</span>
                     </div>
 
+                    {respBuyTicket?.data.success === false && <p>{respBuyTicket?.data.message}</p>}
+
                     <div className='private_standart_ticket_museums_private_block_ticket_types_buy_div'>
                         
-                            <button className='bay_ticket_btn'>{t('buttons.0')}</button>
+                            <button className='bay_ticket_btn' onClick={buyTicket}>{t('buttons.0')}</button>
                             <button className='add_cart_btn' onClick={addCart}>{t('buttons.3')}</button>
                     </div>
                  </div>
                 )}
             </div>
         </div>
+         <TicketMuseumBlock/>
+        </>
     )
 }
 

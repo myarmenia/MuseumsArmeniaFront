@@ -29,7 +29,6 @@ const buyTicketSlice = createSlice({
           .addCase(postBuyTicket.rejected, (state, action) => {
              if(action.payload){
                 state.data = action.payload
-                console.log(state.data,'slic');
                }
                state.loading = "rejected"
           });

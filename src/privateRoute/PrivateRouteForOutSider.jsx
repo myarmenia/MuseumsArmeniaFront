@@ -14,6 +14,7 @@ const PrivateRouteForOutSider = ({ children }) => {
       const fetchData = async () => {
          if (!isAuth && localIsAuth) {
             await dispatch(getCurrentUser());
+           
          }
          setLoading(false);
       };

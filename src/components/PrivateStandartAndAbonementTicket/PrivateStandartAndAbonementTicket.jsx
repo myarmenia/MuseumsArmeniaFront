@@ -239,7 +239,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
                     return el.type === 'standart' && ticketCountStandart !== 0
                         ? {
                             type: el.type,
-                            id: '8',
+                            id: el.id,
                             quantity: ticketCountStandart
                         }
                         : el.type === 'discount' && ticketCountDicounted !== 0
@@ -262,7 +262,11 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
                         }
                         : null;
                 }).filter(ticket => ticket !== null) 
-            }));
+            })).then(res => {
+                if(res.meta.requestStatus === "fulfilled"){
+                    window.location.href = res.payload.data.redirect_url
+                }
+            })
 
         }
         else{
@@ -304,9 +308,9 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
         
     }
 
-    useEffect(() => {
-        respBuyTicket.data.message === 'success' &&    (window.location.href = respBuyTicket.data.data.redirect_url)
-    }, [respBuyTicket.data.message])
+    // useEffect(() => {
+    //     respBuyTicket.data.message === 'success' &&    (window.location.href = respBuyTicket.data.data.redirect_url)
+    // }, [respBuyTicket.data.message])
 
 
     
@@ -441,7 +445,8 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
                     )}
             </div>
         </div>
-        <TicketMuseumBlock/></>
+        <TicketMuseumBlock/>
+        </>
     )
 }
 

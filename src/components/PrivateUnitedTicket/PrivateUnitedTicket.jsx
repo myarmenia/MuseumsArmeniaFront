@@ -11,6 +11,9 @@ import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice'
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
 import { locationIcon, minusIcon, museumIcon, plusIcon, privateTicketIcon } from '../../iconFolder/icon'
 import { postBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketApi'
+import { selectBuyTicket, setObj } from '../../store/slices/BuyTicketSlice/BuyTicketSlice'
+import { setModalTicketIsOpen, setTicketType } from '../../store/slices/MuseumTicket/MuseumTicketSlice'
+import { TicketMuseumBlock } from '../MuseumPage/MuseumOne/Ticket'
 
 function PrivateUnitedTicket() {
     const { t, i18n } = useTranslation()
@@ -32,9 +35,11 @@ function PrivateUnitedTicket() {
     const privateRef = useRef(null)
     const museumInpRef = useRef(null)
     const isAuth = useSelector(getIsAuth)
+    const respStandartTicket = useSelector(selectprivateTicket)
+    const respBuyTicket = useSelector(selectBuyTicket)
 
     const dispatch = useDispatch()
-    const respStandartTicket = useSelector(selectprivateTicket)
+
 
 
 
@@ -188,22 +193,41 @@ function PrivateUnitedTicket() {
 
 
     const buyTicket = async(e) => {
-        if(isAuth){
-            let museumId = []
-            let typeTicket = ''
-            currentOpt.map(item => {
-            museumId.push(item.id)
-            typeTicket = item.tickets[0].type
-        })
+        e.preventDefault()
+        let museumId = []
+        let typeTicket = ''
+        currentOpt.map(item => {
+        museumId.push(item.id)
+        typeTicket = item.tickets[0].type
+    })
 
-       await dispatch(postBuyTicket({
+        if(isAuth){
+            await dispatch(postBuyTicket({
             request_name: "web",
             items: [{
                 type: typeTicket,
-                museum_ids: museumId,
+                museum_ids: [9,8],
                 quantity: ticketCount
             }]
-        }));
+        })).then(res => {
+            if(res.meta.requestStatus === "fulfilled"){
+                window.location.href = res.payload.data.redirect_url
+            }
+            
+       })
+        }
+        else{
+            dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket'}))
+            dispatch(setModalTicketIsOpen(true))
+            setTicketTypesBlock(false)
+            dispatch(setObj({
+                request_name: "web",
+                items: [{
+                    type: typeTicket,
+                    museum_ids: museumId,
+                    quantity: ticketCount
+                }]
+            }))
         }
     }
 
@@ -238,6 +262,7 @@ function PrivateUnitedTicket() {
 
 
     return (
+        <>
         <div className='private_standart_ticket'>
             {cartErrorMessage && <h3 className='cart_error_message'>{t('Ticket_type_placeholder.8')}</h3>}
             <div className='private_standart_ticket_regions' ref={regionRef} onClick={(e)=> handleRegionInpFocus(e)}>
@@ -327,6 +352,8 @@ function PrivateUnitedTicket() {
                             <span>{t('Ticket_type_placeholder.7')}   {fullValueTicket} AMD</span>
                         </div>
 
+                        {respBuyTicket?.data.success === false && <p>{respBuyTicket?.data.message}</p>}
+
                         <div className='private_standart_ticket_museums_private_block_ticket_types_buy_div'>
 
                             <button className='bay_ticket_btn' onClick={buyTicket}>{t('buttons.0')}</button>
@@ -336,6 +363,10 @@ function PrivateUnitedTicket() {
                     )}
             </div>
         </div>
+
+        <TicketMuseumBlock/>
+
+        </>
     )
 }
 
