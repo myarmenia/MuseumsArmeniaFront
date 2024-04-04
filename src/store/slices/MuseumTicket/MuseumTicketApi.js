@@ -5,7 +5,7 @@ export const postMuseumTicket = createAsyncThunk(
    'museumTicket/postMuseumTicket',
 
    async (body, thunkAPI) => {
-      console.log(body, 'body');
+      
       try {
          const config = body.userToken ? {
             method: 'post',
