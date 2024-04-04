@@ -8,6 +8,7 @@ import {
   getSearchesShop,
   getShopIconBasketDatas,
   getSingleDataShop,
+  postAllBasketDataDoingPurchase,
   postShopCardData,
   postSingleShopCardData,
   postTicketCart,
@@ -24,6 +25,7 @@ const initialState = {
   // basketData: [],
   basketAllData: [],
   productLength: 0,
+  redirectShopUrl: '',
   // searchCountLengthShop: 0,
   // storageProductId: localStorage.getItem('CardArray')
   //   ? JSON.parse(localStorage.getItem('CardArray'))
@@ -132,6 +134,9 @@ export const ShopSlice = createSlice({
         console.log('a22222222222');
         state.productLength = action.payload.params.items_count;
         console.log('a33333333333333');
+      })
+      .addCase(postAllBasketDataDoingPurchase.fulfilled, (state, action) => {
+        state.redirectShopUrl = action.payload.data.redirect_url;
       });
   },
 });
@@ -149,6 +154,7 @@ export const getSetModalIsOpenShop = (state) => state.shop.modalIsOpenShop;
 // export const getBaskettotalPrice = (state) => state.shop.totalPrice;
 export const getProductLength = (state) => state.shop.productLength;
 export const getSetAllBasketData = (state) => state.shop.basketAllData;
+export const getRedirectUrl = (state) => state.shop.redirectShopUrl;
 // export const getSearchLengthShop = (state) => state.shop.searchCountLengthShop;
 
 export const { setModalIsOpenShop, setBasketData, removeElemBasket, totalPriceBasket } =

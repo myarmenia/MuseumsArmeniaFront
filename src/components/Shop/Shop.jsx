@@ -152,7 +152,8 @@ function Shop() {
       } else {
         // setErrorText(true);
         // window.location.href()
-        window.location.pathname = `/${leng}/login`
+        // window.location.pathname = `/${leng}/login`
+        navigate(`/${leng}/login`)
       }
 
       // dispatch(

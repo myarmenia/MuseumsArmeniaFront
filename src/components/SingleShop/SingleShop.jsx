@@ -65,9 +65,10 @@ function SingleShop() {
         const count = productCount !== undefined ? productCount : 1;
         if (IsAuth) {
           dispatch(setModalIsOpenShop(true));
-          dispatch(postSingleShopCardData({ id,  productCount: count }));
+          dispatch(postSingleShopCardData({ id, productCount: count }));
         } else {
-          setErrorText(true);
+          // setErrorText(true);
+          navigate(`/${leng}/login`);
         }
         //       dispatch(
         //   setBasketData({ id: id, image: image, name: name, price: price, museumName: museumName,productCount:productCount }),
@@ -117,9 +118,9 @@ function SingleShop() {
       ) : (
         <div className="container">
           <div className="singleShop_All">
-          <div className={errorText ? 'shop_error_text' : 'shop_error_text_none'}>
-            zambyuxic ogtvelu hamar petq e grancvel{' '}
-          </div>
+            {/* <div className={errorText ? 'shop_error_text' : 'shop_error_text_none'}>
+              zambyuxic ogtvelu hamar petq e grancvel{' '}
+            </div> */}
             <div className="singleShop_top">
               <img
                 src={singleShopDatas.image}
@@ -128,6 +129,7 @@ function SingleShop() {
               />
               <div className="singleShop_top_right">
                 <h2>{singleShopDatas.name}</h2>
+                <p>առկա է - {singleShopDatas.quantity}</p>
                 <p className="singleShop_top_right_price">
                   {singleShopDatas.price}
                   {t('single_shop_page.0')}

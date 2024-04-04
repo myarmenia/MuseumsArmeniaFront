@@ -39,7 +39,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 16px;
+  margin-top: 30px;
 }
 
 .ContactWithUs_info_div_divs {
@@ -70,6 +70,9 @@
   border: 1px solid #aaaaaa99;
   padding: 7px;
 }
+.ContactWithUs_contact_name:focus {
+  outline: none;
+}
 .ContactWithUs_contact_phone_email_all {
   display: flex;
   justify-content: center;
@@ -81,14 +84,18 @@
   border: 1px solid #aaaaaa99;
   padding: 7px;
 }
-
+.ContactWithUs_contact_phone_email {
+  outline: none;
+}
 .ContactWithUs_contact_textarea {
   width: 60%;
   margin-top: 16px;
   border: 1px solid #aaaaaa99;
   padding: 7px;
 }
-
+.ContactWithUs_contact_textarea:focus {
+  outline: none;
+}
 /* // */
 .ContactWithUs_contact_button {
   background-color: #d5aa72;
