@@ -1,3 +1,6 @@
+.ReactModal__Overlay{
+   z-index: 999999;
+}
 .TicketMuseumCatalog-parent {
    padding: 0 40px 25px;
 }
@@ -167,7 +170,9 @@
    margin: 10px 0 14px;
 }
 
-// ticket form start .................................
+
+/* icket form start ................................. */
+
 
 .museumTicket-formChild-inbut > input {
    border: 1px solid #aaaaaa;
@@ -204,10 +209,13 @@
 }
 
 
-// ticket form end .................................
+
+/* icket form end ................................. */
+
 
 @media (max-width: 500px) {
    .TicketMuseumCatalog-parent {
       padding: 0 20px 25px;
    }
 }
+

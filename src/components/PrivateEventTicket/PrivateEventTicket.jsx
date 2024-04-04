@@ -246,7 +246,7 @@ function PrivateEventTicket({changeTicketType}) {
                 </div>
 
                 {
-                    openModalMuseum && (
+                  filteredMuseums.length !== 0 &&   openModalMuseum && (
 
                         <ul className='private_standart_ticket_museum_list' onClick={() => setopenModalMuseum(false)}>
                             {filteredMuseums.map(museum => (

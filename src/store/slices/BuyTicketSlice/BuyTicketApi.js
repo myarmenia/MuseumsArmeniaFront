@@ -1,22 +1,20 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../../../axios";
 
-export const getCurrentUser = createAsyncThunk(
-  'auth/getCurrentUser',
-  async (_, thunkAPI) => {
-    const leng = localStorage.getItem('lang')
+export const postBuyTicket = createAsyncThunk(
+    'buyTicket/postBuyTicket',
+    async (body, thunkAPI) => {
       try {
         const config = {
-          method: "get",
-          url: 'auth/me',
+          method: 'post',
+          url: `purchase/store`,
+          data: body,
         };
-        
         const response = await instance(config);
-       
+        console.log(response);
         return response?.data;
       } catch (error) {
-        
         return thunkAPI.rejectWithValue(error.response.data);
       }
-    }
-)
+    },
+  );

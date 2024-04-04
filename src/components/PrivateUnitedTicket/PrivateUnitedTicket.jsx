@@ -10,6 +10,7 @@ import './PrivateUnitedTicket.css'
 import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice'
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
 import { locationIcon, minusIcon, museumIcon, plusIcon, privateTicketIcon } from '../../iconFolder/icon'
+import { postBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketApi'
 
 function PrivateUnitedTicket() {
     const { t, i18n } = useTranslation()
@@ -131,7 +132,7 @@ function PrivateUnitedTicket() {
     const handleSelectRegion = (e, obj) => {
         setSelectedRegion(obj)
         dispatch(getPrivateTicket({type: 'united', startDate: null, endDate: null, museumId: null}))
-
+        setCurrentOpt([])
     }
 
     const packetCount = (op) => {
@@ -185,6 +186,27 @@ function PrivateUnitedTicket() {
          setTicketTypesBlock(false)
     }
 
+
+    const buyTicket = async(e) => {
+        if(isAuth){
+            let museumId = []
+            let typeTicket = ''
+            currentOpt.map(item => {
+            museumId.push(item.id)
+            typeTicket = item.tickets[0].type
+        })
+
+       await dispatch(postBuyTicket({
+            request_name: "web",
+            items: [{
+                type: typeTicket,
+                museum_ids: museumId,
+                quantity: ticketCount
+            }]
+        }));
+        }
+    }
+
     const  handleMuseumInpFocus = (e)=>{
         e.stopPropagation()
           setEventLineMuseum(false)
@@ -222,7 +244,7 @@ function PrivateUnitedTicket() {
                 <input type="text" onKeyDown={handleKeyDown} onClick={() => setopenModal(!openModal)} value={selectedRegion.value || ''} onChange={() => { }} placeholder={t('Ticket_type_placeholder.0')}/>
 
                 <div className='placeholder_div'>
-                    <span>{museumIcon}</span>
+                    <span>{locationIcon}</span>
                         <p>{t('Ticket_type_placeholder.1')}</p>
                 </div>
 
@@ -243,14 +265,14 @@ function PrivateUnitedTicket() {
             </div>
 
             <div className='private_standart_ticket_museums' ref={museumRef} onClick={(e)=> handleMuseumInpFocus(e)}>
-                <input type="text" onKeyDown={handleDelMuseum} value={selectedMuseum} onClick={() => setopenModalMuseum(true)} onChange={() => { }} placeholder={t('Ticket_type_placeholder.2')} />
+                <input type="text" onKeyDown={handleDelMuseum} value={currentOpt.length !== 0 ?`Ընտրված թանգարաններ ${currentOpt.length}` : ''} onClick={() => setopenModalMuseum(true)} onChange={() => { }} placeholder={t('Ticket_type_placeholder.2')} />
 
                 <div className='placeholder_div'>
                     <span>{museumIcon}</span>
                         <p>{t('Ticket_type_placeholder.3')}</p>
                 </div>
 
-                {openModalMuseum && (
+                {options.length !== 0 && openModalMuseum && (
                     <ul className='private_united_ticket_museum_list'>
                         {options && options.map(museum => (
                             <label key={museum.id}>
@@ -307,7 +329,7 @@ function PrivateUnitedTicket() {
 
                         <div className='private_standart_ticket_museums_private_block_ticket_types_buy_div'>
 
-                            <button className='bay_ticket_btn'>{t('buttons.0')}</button>
+                            <button className='bay_ticket_btn' onClick={buyTicket}>{t('buttons.0')}</button>
                             <button className='add_cart_btn' onClick={addCart}>{t('buttons.3')}</button>
                         </div>
                     </div>
