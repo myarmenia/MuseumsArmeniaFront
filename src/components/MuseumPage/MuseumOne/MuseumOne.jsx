@@ -5,6 +5,7 @@ import {
    postMuseumOnePages,
    educationalPrograms,
    getMuseumOneEvents,
+   getMuseumOneProducts,
 } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import { getAuthUserAllMessages } from '../../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +15,14 @@ import {
    setTicketType,
 } from '../../../store/slices/MuseumTicket/MuseumTicketSlice';
 
-import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
+import {
+   MuseumOneDescription,
+   OurEvents,
+   MuseumOnecontact,
+   EducationalPrograms,
+   MuseumOneShop,
+   MuseumOneVirtualTour,
+} from '../index';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import MuseumPageHeader from '../MuseumPageHeader';
 import MuseumPageMessages from '../../NewMessages/MuseumPageMessages';
@@ -36,12 +44,15 @@ const MuseumOne = () => {
       educationalProgramsLoad,
       loadingMuseumOneEvents,
       dataMuseumOneEvents,
+      dataMuseumProducts,
+      loadingMuseumProducts,
    } = useSelector((state) => state.museumPages);
 
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
       dispatch(educationalPrograms({ id }));
       dispatch(getMuseumOneEvents({ id }));
+      dispatch(getMuseumOneProducts({ museumId: id }));
       if (isAuth) {
          dispatch(getAuthUserAllMessages(id));
       }
@@ -100,9 +111,11 @@ const MuseumOne = () => {
                               />
                            </div>
                         </div>
-                        {loadingMuseumOneEvents === 'fulfilled' && (
-                           <OurEvents {...{ dataMuseumOneEvents }} />
-                        )}
+
+                        {loadingMuseumOneEvents === 'fulfilled' &&
+                           dataMuseumOneEvents.length > 0 && (
+                              <OurEvents {...{ dataMuseumOneEvents }} />
+                           )}
 
                         {educationalProgramsLoad === 'fulfilled' &&
                            dataEducationalPrograms.length > 0 && (
@@ -110,7 +123,17 @@ const MuseumOne = () => {
                                  dataEducationalPrograms={dataEducationalPrograms}
                               />
                            )}
+
+                        {loadingMuseumProducts === 'fulfilled' &&
+                           dataMuseumProducts.dataProducts.length > 0 && (
+                              <MuseumOneShop dataMuseumProducts={dataMuseumProducts} />
+                           )}
+
+                        {dataMuseumOne.links?.virtual_tour && (
+                           <MuseumOneVirtualTour virtual_tour={dataMuseumOne.links.virtual_tour} />
+                        )}
                      </div>
+
                      <TicketMuseumBlock />
                      <MuseumPageMessages museumId={id} />
                   </div>

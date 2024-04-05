@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { postMuseumTicket } from './MuseumTicketApi';
-
+import { postMuseumOnePages } from '../MuseumPagesSlice/MuseumPagesApi';
 
 const initialState = {
    modalTicketIsOpen: false,
@@ -65,6 +65,12 @@ const MuseumTicketSlice = createSlice({
          if (findDataItemsRes) {
          }
       },
+      setResetDataItems(state, { payload }) {
+         state.dataItems = []
+         state.tickets = state.tickets.map((el) => {
+            return {...el, count:0}
+         })
+      },
    },
    extraReducers: (builder) => {
       builder
@@ -83,8 +89,24 @@ const MuseumTicketSlice = createSlice({
             state.success = payload.success ?? false;
             state.responseMessages = payload.message
          })
+
+         .addCase(postMuseumOnePages.fulfilled, (state, { payload }) => {
+            if (payload.data?.tickets) {
+                state.tickets = payload.data?.tickets.map((el) => {
+                   return {...el, count: 0}
+                })
+            }
+          })
+          .addCase(postMuseumOnePages.rejected, (state, { payload }) => {
+             state.tickets = [
+                { id: 1, price: 100, min: 0, max: 10, type: 'standart', count: 0 },
+                { id: 1, price: 50, min: 0, max: 10, type: 'discount', count: 0 },
+                { id: 1, price: 0, min: 0, max: 10, type: 'free', count: 0 },
+                { id: 2, price: 20000, min: 0, max: 5, type: 'subscription', count: 0 },
+             ]
+          });
    },
 });
 
 export const MuseumTicketReducer = MuseumTicketSlice.reducer;
-export const { setModalTicketIsOpen, setTicketType, setDataItems } = MuseumTicketSlice.actions;
+export const { setModalTicketIsOpen, setTicketType, setDataItems, setResetDataItems } = MuseumTicketSlice.actions;

@@ -43,7 +43,7 @@ const TicketMuseumForm = () => {
             person.phone = phone.value;
          }
          if (age.value) {
-            person.birth_date = age.value;
+            person.age = age.value;
          }
          if (surname.value) {
             person.surname = surname.value;
