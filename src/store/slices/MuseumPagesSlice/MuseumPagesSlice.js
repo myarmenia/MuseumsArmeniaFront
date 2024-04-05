@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { postMuseumPages, postMuseumOnePages, educationalPrograms, getMuseumOneEvents } from './MuseumPagesApi';
+import {
+   postMuseumPages,
+   postMuseumOnePages,
+   educationalPrograms,
+   getMuseumOneEvents,
+   getMuseumOneProducts,
+} from './MuseumPagesApi';
 const initialState = {
    loadingStatus: 'loading',
    dataMuseum: [],
@@ -11,6 +17,11 @@ const initialState = {
    dataEducationalPrograms: [],
    loadingMuseumOneEvents: 'loading',
    dataMuseumOneEvents: [],
+   loadingMuseumProducts: 'loading',
+   dataMuseumProducts: {
+      dataProducts: [],
+      products_category: [],
+   },
 };
 
 const MuseumPagesSlice = createSlice({
@@ -85,6 +96,24 @@ const MuseumPagesSlice = createSlice({
             state.loadingMuseumOneEvents = 'rejected';
             state.dataMuseumOneEvents = [];
          })
+
+         // getMuseumOneProducts =======================
+
+         .addCase(getMuseumOneProducts.pending, (state) => {
+            state.loadingMuseumProducts = 'loading';
+            state.dataMuseumProducts.dataProducts = [];
+            state.dataMuseumProducts.products_category = [];
+         })
+         .addCase(getMuseumOneProducts.fulfilled, (state, { payload }) => {
+            state.loadingMuseumProducts = 'fulfilled';
+            state.dataMuseumProducts.dataProducts = payload.data.products;
+            state.dataMuseumProducts.products_category = payload.data.products_category;
+         })
+         .addCase(getMuseumOneProducts.rejected, (state, action) => {
+            state.loadingMuseumProducts = 'rejected';
+            state.dataMuseumProducts.dataProducts = [];
+            state.dataMuseumProducts.products_category = [];
+         });
    },
 });
 

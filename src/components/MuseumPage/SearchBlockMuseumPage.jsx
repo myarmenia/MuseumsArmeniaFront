@@ -4,20 +4,27 @@ import { useDispatch } from 'react-redux';
 import { filterRegionMuseum } from '../../store/slices/MuseumPagesSlice/MuseumPagesSlice';
 import { FilterIcon, LocationIcon } from '../../iconFolder/icon';
 
-import CustomSearshBlock from './CustomSearchBlock'
+import { CustomSearshBlock } from './index';
 
 const SearchBlockMuseumPage = ({ regions }) => {
    const dispatch = useDispatch();
    const { t, i18n } = useTranslation();
    const [activRegion, setActivRegion] = React.useState({
       name: t(`RegionsMussseum`),
-      region: null,
+      type: null,
+      id: null,
    });
-  
 
+   const region = regions.map((el, idx) => {
+      return {
+         key: el,
+         id: idx + 1,
+      };
+   });
+   console.log(region, 'region');
    const filter = React.useCallback((obj) => {
       setActivRegion(obj);
-      
+
       dispatch(filterRegionMuseum(obj));
    }, []);
 
@@ -28,7 +35,13 @@ const SearchBlockMuseumPage = ({ regions }) => {
                <FilterIcon />
                <p>{t(`musseumPage_title.1`)}</p>
             </div>
-           <CustomSearshBlock fun={filter} activ={activRegion}  arr={regions} Icon={LocationIcon} translationtxt={['RegionsMussseum','allMussseum']}/>
+            <CustomSearshBlock
+               fun={filter}
+               activ={activRegion}
+               arr={region}
+               Icon={LocationIcon}
+               translationtxt={['RegionsMussseum', 'allMussseum']}
+            />
          </div>
       </div>
    );

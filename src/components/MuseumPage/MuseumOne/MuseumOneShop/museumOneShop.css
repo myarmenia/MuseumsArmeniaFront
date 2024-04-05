@@ -1,2 +1,5 @@
-.test {
+.MuseumOneShop-parHeader {
+   display: flex;
+   justify-content: space-between;
+   align-items: start;
 }
