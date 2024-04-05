@@ -26,18 +26,16 @@ export const authSlice = createSlice({
       .addCase(postLogin.fulfilled, (state, action) => {
         state.authUser = action.payload.authUser;
         state.isAuth = true;
+        console.log(state.isAuth,'janjan');
       })
-      //   .addCase(editUser.fulfilled, (state, action) => {
-      //     state.authUser = action.payload.user
-      //     state.isAuth = true
-      // })
-     
-    // .addCase(getCurrentLesson.pending, (state, action) => {
-    //   console.log("pending")
-    // })
+      
+    .addCase(getCurrentUser.fulfilled, (state, action) => {
+        state.authUser = action.payload
+        state.isAuth = true
+    })
     .addCase(getCurrentUser.rejected, (state, action) => {
-        state.temp = true
-    });
+      state.temp = true
+  })
   },
 });
 

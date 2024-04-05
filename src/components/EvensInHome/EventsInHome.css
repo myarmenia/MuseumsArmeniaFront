@@ -1,0 +1,24 @@
+.events_in_home{
+    padding: 100px 0;
+    padding-top: 200px;
+}
+
+.events_in_home .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.events_in_home_block{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+
+
+.events_in_home_block_items{
+    display: flex;
+    flex-direction: column;
+}

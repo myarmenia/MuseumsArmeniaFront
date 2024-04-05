@@ -5,12 +5,12 @@ import NavBarForHome from '../NavBar_for_home/NavBarForHome';
 import SingleTicketSection from '../SingleTicketSection/SingleTicketSection';
 import NewsSectionInHome from '../NewsSectionInHome/NewsSectionInHome';
 import MuseumSectionSliderInHome from '../MuseumSectionSliderInHome/MuseumSectionSliderInHome';
-import AnimScroll from '../AnimScroll/AnimScroll';
 import SectionAboteUs from '../SectionAboteUs/SectionAboteUs';
 import SouvenirsSection from '../SouvenirsSection/SouvenirsSection';
 import ContactUsSection from '../ContactUsSection/ContactUsSection';
 import PrivateTicket from '../PrivateTicket/PrivateTicket';
 import CardModal from '../Shop/CardModal';
+import EventsInHome from '../EvensInHome/EventsInHome';
 
 function HomePage({ changeFonSize, changeFont }) {
   const [homeNavColor, setHomeNavColor] = useState(false);
@@ -34,7 +34,7 @@ function HomePage({ changeFonSize, changeFont }) {
       <SingleTicketSection />
       <NewsSectionInHome />
       <MuseumSectionSliderInHome />
-      <AnimScroll />
+      <EventsInHome/>
       <SectionAboteUs />
       <SouvenirsSection />
       <ContactUsSection />

@@ -12,6 +12,9 @@
     overflow: auto;
 }
 
+.private_united_ticket_museum_list input{
+    accent-color: #3F3D56;
+}
 
 .private_united_ticket_museum_list::-webkit-scrollbar {
     width: 0;
