@@ -14,7 +14,14 @@ import {
    setTicketType,
 } from '../../../store/slices/MuseumTicket/MuseumTicketSlice';
 
-import { MuseumOneDescription, OurEvents, MuseumOnecontact, EducationalPrograms } from '../index';
+import {
+   MuseumOneDescription,
+   OurEvents,
+   MuseumOnecontact,
+   EducationalPrograms,
+   MuseumOneShop,
+   MuseumOneVirtualTour,
+} from '../index';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import MuseumPageHeader from '../MuseumPageHeader';
 import MuseumPageMessages from '../../NewMessages/MuseumPageMessages';
@@ -37,7 +44,7 @@ const MuseumOne = () => {
       loadingMuseumOneEvents,
       dataMuseumOneEvents,
    } = useSelector((state) => state.museumPages);
-
+   console.log(dataMuseumOne, 'dataMuseumOne');
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
       dispatch(educationalPrograms({ id }));
@@ -100,8 +107,10 @@ const MuseumOne = () => {
                               />
                            </div>
                         </div>
-                        {loadingMuseumOneEvents === 'fulfilled' && (
-                           <OurEvents {...{ dataMuseumOneEvents }} />
+
+                        {loadingMuseumOneEvents === 'fulfilled' &&
+                           dataMuseumOneEvents.length > 0 && (
+                              <OurEvents {...{ dataMuseumOneEvents }} />
                         )}
 
                         {educationalProgramsLoad === 'fulfilled' &&
@@ -109,8 +118,16 @@ const MuseumOne = () => {
                               <EducationalPrograms
                                  dataEducationalPrograms={dataEducationalPrograms}
                               />
-                           )}
+                        )}
+
+                        <MuseumOneShop />
+
+                        {dataMuseumOne.links?.virtual_tour && (
+                           <MuseumOneVirtualTour virtual_tour={dataMuseumOne.links.virtual_tour} />
+                        )}
                      </div>
+
+                     
                      <TicketMuseumBlock />
                      <MuseumPageMessages museumId={id} />
                   </div>
