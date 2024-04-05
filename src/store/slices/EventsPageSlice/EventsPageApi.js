@@ -21,3 +21,22 @@ export const getEventsPage = createAsyncThunk(
         }
     }
 )
+// =======================Events_home=================================
+
+export const getEventsHome = createAsyncThunk(
+    'eventsHome/getEventsHome',
+    async (thunkAPI) => {
+
+        try {
+            const config = {
+                method: "get",
+                url: 'header/event-list',
+            };
+
+            const response = await instance(config);
+            return response?.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data);
+        }
+    }
+)

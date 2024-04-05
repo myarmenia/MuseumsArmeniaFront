@@ -23,7 +23,6 @@ export const postLogin = createAsyncThunk(
           localStorage.setItem("isAuth", true);
           return response?.data
         } catch (error) {
-          console.log(error.response.data,'ffddasd');
           return thunkAPI.rejectWithValue(error.response.data);
         }
       }

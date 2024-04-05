@@ -21,24 +21,26 @@ function FooterComponent() {
 
         const handleScroll = () => {
             if (pathname === `/${leng}/`) {
-                if (window.scrollY >= 5500) {
+                if (window.scrollY >= document.querySelector('.home_page').clientHeight - 1200) {
                     setOpenFooter(true);
 
                 } else {
                     setOpenFooter(false);
 
                 }
+
+                
             }
-            else{
+            // else{
 
-                if (window.scrollY >= document.body.scrollHeight-1900) {
-                    setOpenFooter(true);
+            //     if (window.scrollY >= document.body.scrollHeight-1900) {
+            //         setOpenFooter(true);
 
-                } else {
-                    setOpenFooter(false);
+            //     } else {
+            //         setOpenFooter(false);
 
-                }
-            }
+            //     }
+            // }
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -48,7 +50,7 @@ function FooterComponent() {
             window.removeEventListener('scroll', handleScroll);
             setOpenFooter(false)
         };
-    }, [document.body.scrollHeight, pathname]); // No dependencies
+    }, [pathname]); // No dependencies
 
     return (
         <footer className={pathname === `/${leng}/` ? "footerComponent" : "footerComponentStatic"} style={{ transform: openFooter  ? 'translateY(0)' : 'translateY(100%)' }}>

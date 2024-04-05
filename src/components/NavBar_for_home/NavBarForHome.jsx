@@ -64,6 +64,8 @@ function NavBarForHome({ homeNavColor, changeFonSize, changeFont }) {
           )}
 
           {isAuth && <div>{userIcon}</div>}
+
+          {console.log(isAuth, 'ffafafaf')}
           <ChangeFontSize {...{ changeFonSize, changeFont }} />
           <SelectLng />
           {!isAuth ? (

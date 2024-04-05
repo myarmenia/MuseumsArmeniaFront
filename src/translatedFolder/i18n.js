@@ -93,7 +93,7 @@ i18n.use(initReactI18next).init({
                'Գաղտնաբառը պետք է պարունակի փոքրատառեր',
                'Գաղտնաբառը պետք է պարունակի մեծատառ',
                'Պարտադիր գրել գաղտնաբառը',
-               'Գաղտնաբառները չեն համնկնում',
+               'Գաղտնաբառները չեն համընկնում',
                'Գրել միայն թվանշան',
             ],
 
@@ -530,7 +530,9 @@ i18n.use(initReactI18next).init({
                'Գնել տոմս',
                'Աբոնիմենտ տոմս',
                'Աբոնիմենտ տոմսը անսահմանափակ մուտք է 365 օր:'
-            ]
+            ],
+
+            ticket_error_message: 'Տոմսն Ընտրված չէ',
          },
       },
 
@@ -1056,7 +1058,9 @@ i18n.use(initReactI18next).init({
                'Купить билет',
                'Абонементный билет',
                'Абонементный билет — это безлимитный доступ на 365 дней.'
-            ]
+            ],
+
+            ticket_error_message: 'Билет не выбран'
          },
       },
       en: {
@@ -1574,7 +1578,9 @@ i18n.use(initReactI18next).init({
                'Buy Ticket',
                'Abonement ticket',
                'Abonement ticket is unlimited access for 365 days.'
-            ]
+            ],
+
+            ticket_error_message: 'Ticket not selected'
          },
       },
    },
