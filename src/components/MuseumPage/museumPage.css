@@ -549,6 +549,11 @@
 
 /* educationalPrograms-par end ****************************** */
 
+.museumOneVirtualTour-iframePar {
+   height: 400px;
+   max-width: 700px;
+}
+
 /*  OurEvents start ***************************  */
 
 .block_eventMuseum {
