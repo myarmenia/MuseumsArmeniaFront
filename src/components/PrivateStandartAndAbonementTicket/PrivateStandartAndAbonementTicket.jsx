@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react'
+import React, { useEffect, useState, useRef, useMemo, memo } from 'react'
 import { privateTicketsData } from '../../data/data'
 import './PrivateStandartAndAbonementTicket.css'
 import { useTranslation } from 'react-i18next'
@@ -31,6 +31,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
     const [cartErrorMessage, setCartErrorMessage] = useState(null)
     const [eventLineRegion, setEventLineRegion] = useState(true)
     const [eventLineMuseum, setEventLineMuseum] = useState(true)
+    const [errorMessageTicket, setErrorMessageTicket] = useState(false)
     const regionRef = useRef(null)
     const museumRef = useRef(null)
     const privateRef = useRef(null)
@@ -39,19 +40,24 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
     const isAuth = useSelector(getIsAuth)
     const respBuyTicket = useSelector(selectBuyTicket)
 
-    
+
     useEffect(() => {
         setSelectedMuseum('')
-        respStandartTicket.data.map(el =>{
+        respStandartTicket.data.map(el => {
             setMuseumItem(el)
         })
     }, [respStandartTicket.data])
 
-    
+
     useEffect(() => {
         setSelectedMuseum('')
-        
+
     }, [selectedRegion])
+
+    useEffect(() => {
+        setSelectedRegion({ name: 'bolor', id: '0', value: '' })
+        
+    }, [changeTicketType]);
 
     const handleKeyDown = (event) => {
         const key = event.key;
@@ -86,6 +92,11 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
             }
             if (!path3.includes(privateRef.current)) {
                 setTicketTypesBlock(false)
+                setTicketCountFree(0)
+                setTicketCountStandart(0)
+                setTicketCountDicounted(0)
+                setTicketCountSub(0)
+                setFullValueTicket(0)
             }
         }
 
@@ -106,7 +117,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
 
     const ticketsType_for_private = t('ticketsType_for_private', { returnObjects: true })
 
-   
+
     const handleMuseumItemClick = (museum) => {
         setSelectedMuseum(museum.name)
         setMuseumItem(museum)
@@ -197,25 +208,25 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
                             quantity: ticketCountStandart
                         }
                         : el.type === 'discount' && ticketCountDicounted !== 0
-                        ? {
-                            type: el.type,
-                            id: el.id,
-                            quantity: ticketCountDicounted
-                        }
-                        : el.type === 'free' && ticketCountFree !== 0
-                        ? {
-                            type: el.type,
-                            id: el.id,
-                            quantity: ticketCountFree
-                        }
-                        : el.type === 'subscription' && ticketCountSub !== 0
-                        ? {
-                            type: el.type,
-                            id: el.id,
-                            quantity: ticketCountSub
-                        }
-                        : null;
-                }).filter(ticket => ticket !== null) 
+                            ? {
+                                type: el.type,
+                                id: el.id,
+                                quantity: ticketCountDicounted
+                            }
+                            : el.type === 'free' && ticketCountFree !== 0
+                                ? {
+                                    type: el.type,
+                                    id: el.id,
+                                    quantity: ticketCountFree
+                                }
+                                : el.type === 'subscription' && ticketCountSub !== 0
+                                    ? {
+                                        type: el.type,
+                                        id: el.id,
+                                        quantity: ticketCountSub
+                                    }
+                                    : null;
+                }).filter(ticket => ticket !== null)
             }));
 
             setTicketTypesBlock(false)
@@ -230,7 +241,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
         setTicketTypesBlock(false)
     }
 
-    const buyTicket = async(e) => {
+    const buyTicket = async (e) => {
         e.preventDefault()
         if (isAuth) {
             await dispatch(postBuyTicket({
@@ -243,69 +254,76 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
                             quantity: ticketCountStandart
                         }
                         : el.type === 'discount' && ticketCountDicounted !== 0
-                        ? {
-                            type: el.type,
-                            id: el.id,
-                            quantity: ticketCountDicounted
-                        }
-                        : el.type === 'free' && ticketCountFree !== 0
-                        ? {
-                            type: el.type,
-                            id: el.id,
-                            quantity: ticketCountFree
-                        }
-                        : el.type === 'subscription' && ticketCountSub !== 0
-                        ? {
-                            type: el.type,
-                            id: el.id,
-                            quantity: ticketCountSub
-                        }
-                        : null;
-                }).filter(ticket => ticket !== null) 
+                            ? {
+                                type: el.type,
+                                id: el.id,
+                                quantity: ticketCountDicounted
+                            }
+                            : el.type === 'free' && ticketCountFree !== 0
+                                ? {
+                                    type: el.type,
+                                    id: el.id,
+                                    quantity: ticketCountFree
+                                }
+                                : el.type === 'subscription' && ticketCountSub !== 0
+                                    ? {
+                                        type: el.type,
+                                        id: el.id,
+                                        quantity: ticketCountSub
+                                    }
+                                    : null;
+                }).filter(ticket => ticket !== null)
             })).then(res => {
-                if(res.meta.requestStatus === "fulfilled"){
+                if (res.meta.requestStatus === "fulfilled") {
                     window.location.href = res.payload.data.redirect_url
                 }
             })
 
         }
-        else{
-            dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket'}))
-            dispatch(setModalTicketIsOpen(true))
-            setTicketTypesBlock(false)
-            dispatch(setObj({
-                request_name: "web",
-                items: museumItem.tickets.map(el => {
-                    return el.type === 'standart' && ticketCountStandart !== 0
-                        ? {
-                            type: el.type,
-                            id: el.id,
-                            quantity: ticketCountStandart
-                        }
-                        : el.type === 'discount' && ticketCountDicounted !== 0
-                        ? {
-                            type: el.type,
-                            id: el.id,
-                            quantity: ticketCountDicounted
-                        }
-                        : el.type === 'free' && ticketCountFree !== 0
-                        ? {
-                            type: el.type,
-                            id: el.id,
-                            quantity: ticketCountFree
-                        }
-                        : el.type === 'subscription' && ticketCountSub !== 0
-                        ? {
-                            type: el.type,
-                            id: el.id,
-                            quantity: ticketCountSub
-                        }
-                        : null;
-                }).filter(ticket => ticket !== null) 
-            }))
+        else {
+            if (ticketCountStandart === 0 && ticketCountDicounted === 0 && ticketCountFree === 0 && ticketCountSub === 0) {
+                setErrorMessageTicket(true)
+            }
+
+            else {
+                setErrorMessageTicket(false)
+                dispatch(setTicketType({ kindOf: 'form', type: 'Buy Ticket' }))
+                dispatch(setModalTicketIsOpen(true))
+                setTicketTypesBlock(false)
+                dispatch(setObj({
+                    request_name: "web",
+                    items: museumItem.tickets.map(el => {
+                        return el.type === 'standart' && ticketCountStandart !== 0
+                            ? {
+                                type: el.type,
+                                id: el.id,
+                                quantity: ticketCountStandart
+                            }
+                            : el.type === 'discount' && ticketCountDicounted !== 0
+                                ? {
+                                    type: el.type,
+                                    id: el.id,
+                                    quantity: ticketCountDicounted
+                                }
+                                : el.type === 'free' && ticketCountFree !== 0
+                                    ? {
+                                        type: el.type,
+                                        id: el.id,
+                                        quantity: ticketCountFree
+                                    }
+                                    : el.type === 'subscription' && ticketCountSub !== 0
+                                        ? {
+                                            type: el.type,
+                                            id: el.id,
+                                            quantity: ticketCountSub
+                                        }
+                                        : null;
+                    }).filter(ticket => ticket !== null)
+                }))
+            }
         }
 
-        
+
     }
 
     // useEffect(() => {
@@ -313,13 +331,18 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
     // }, [respBuyTicket.data.message])
 
 
-    
+
     const handleMuseumInpFocus = (e) => {
         e.stopPropagation()
         setEventLineMuseum(false)
         setEventLineRegion(false)
         setopenModal(false)
         setTicketTypesBlock(false)
+        setTicketCountFree(0)
+        setTicketCountStandart(0)
+        setTicketCountDicounted(0)
+        setTicketCountSub(0)
+        setFullValueTicket(0)
     }
 
     const handleRegionInpFocus = (e) => {
@@ -327,7 +350,11 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
         setEventLineRegion(false)
         setTicketTypesBlock(false)
         setopenModalMuseum(false)
-
+        setTicketCountFree(0)
+        setTicketCountStandart(0)
+        setTicketCountDicounted(0)
+        setTicketCountSub(0)
+        setFullValueTicket(0)
 
     }
 
@@ -338,7 +365,6 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
         setopenModal(false)
         setopenModalMuseum(false)
 
-
     }
 
 
@@ -347,107 +373,108 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
 
     return (
         <>
-        <div className='private_standart_ticket'>
-            {cartErrorMessage && <h3 className='cart_error_message'>{t('Ticket_type_placeholder.8')}</h3>}
-            <div className='private_standart_ticket_regions' ref={regionRef} onClick={(e) => handleRegionInpFocus(e)}>
-                <input type="text" onKeyDown={handleKeyDown} onClick={() => setopenModal(!openModal)} value={selectedRegion.value} onChange={() => { }} placeholder={t('Ticket_type_placeholder.0')} />
-                <div className='placeholder_div'>
-                    <span>{locationIcon}</span>
-                    <p>{t('Ticket_type_placeholder.1')}</p>
-                </div>
-                {
-                    openModal && (
-                        <ul className='private_standart_ticket_regions_list' onClick={() => setopenModal(false)}>
-                            {
-                                privateTicketRegions.map((region, index) => {
-
-                                    return <li key={index} onClick={() => setSelectedRegion({ name: Object.keys(region)[0], id: index + 1, value: Object.values(region)[0] })}><span>{locationIcon}</span> <p>{Object.values(region)[0]}</p></li>
-
-                                })
-                            }
-                        </ul>
-                    )
-                }
-                {eventLineRegion && <div className='line_ticket'></div>}
-            </div>
-
-            <div className='private_standart_ticket_museums' ref={museumRef} onClick={(e) => handleMuseumInpFocus(e)}>
-                <input type="text" onKeyDown={handleDelMuseum} value={selectedMuseum} onClick={() => setopenModalMuseum(true)} onChange={() => { }} placeholder={t('Ticket_type_placeholder.3')} />
-                <div className='placeholder_div'>
-                    <span>{museumIcon}</span>
-                    <p>{t('Ticket_type_placeholder.2')}</p>
-                </div>
-                {
-                  filteredMuseums.length !== 0 &&  openModalMuseum && (
-
-                        <ul className='private_standart_ticket_museum_list' onClick={() => setopenModalMuseum(false)}>
-                            {filteredMuseums.map(museum => (
-                                <li key={museum.id} onClick={() => handleMuseumItemClick(museum)}>
-                                    <span>{museumIcon}</span>
-                                    <p>{museum.name}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    )
-                }
-                {eventLineMuseum && <div className='line_ticket'></div>}
-
-            </div>
-
-            <div ref={privateRef} className='private_standart_ticket_museums_private_block' onClick={(e) => handlePrivateBlockClick(e)} style={{ boxShadow: ticketTypesBlock ? '0 0 20px rgba(0, 0, 0, 0.055)' : 'none' }}>
-                <div className='placeholder_div_ticket'>
-                    <span>{privateTicketIcon}</span>
-                    <p>{t('Ticket_type_placeholder.6')}</p>
-                </div>
-
-                {ticketTypesBlock && museumItem && selectedMuseum &&
-
-                    (<div className='private_standart_ticket_museums_private_block_ticket_types'>
-                        {
-                            museumItem && museumItem.tickets.map((el, index) => {
-                                
-                                return (
-                                    <div key={index}>
-                                        <div className='packet_div'>
-                                            {
-                                                ticketsType_for_private.map(ticket => {
-                                                    if (Object.keys(ticket)[0] === el.type) {
-                                                        return <span key={el.id}>{Object.values(ticket)[0]}</span>
-                                                    }
-                                                })
-                                            }
-                                            <span className='packet_div_price'>{el.price} AMD</span>
-
-                                            <div className='packet_div_count'>
-                                                <span onClick={() => packetCount('-', el.type, el.max, el.price)}>{minusIcon}</span>
-                                                <span className={`count_span ${(ticketCountStandart && index === 0 && 'color') || (ticketCountDicounted && index === 1 && 'color') || (index === 2 && ticketCountFree && 'color') || (index === 0 && ticketCountSub && 'color')} `}>{el.type === 'standart' ? ticketCountStandart : el.type === 'discount' ? ticketCountDicounted : el.type === 'subscription' ? ticketCountSub : ticketCountFree}</span>
-                                                <span onClick={() => packetCount('+', el.type, el.max, el.price)}>{plusIcon}</span>
-                                            </div>
-                                        </div>
-                                    </div>)
-                            }
-
-                            )
-                        }
-
-                        <div className='private_standart_ticket_museums_private_block_ticket_types_full_value'>
-                            <span><b>{t('Ticket_type_placeholder.7')} </b>{fullValueTicket} AMD</span>
-                        </div>
-
-                        {respBuyTicket?.data.success === false && <p>{respBuyTicket?.data.message}</p>}
-
-                        <div className='private_standart_ticket_museums_private_block_ticket_types_buy_div'>
-
-                            <button className='bay_ticket_btn' onClick={buyTicket}>{t('buttons.0')}</button>
-                            <button className='add_cart_btn' onClick={addCart}>{t('buttons.3')}</button>
-                        </div>
+            <div className='private_standart_ticket'>
+                {cartErrorMessage && <h3 className='cart_error_message'>{t('Ticket_type_placeholder.8')}</h3>}
+                <div className='private_standart_ticket_regions' ref={regionRef} onClick={(e) => handleRegionInpFocus(e)}>
+                    <input type="text" onKeyDown={handleKeyDown} onClick={() => setopenModal(!openModal)} value={selectedRegion.value} onChange={() => { }} placeholder={t('Ticket_type_placeholder.0')} />
+                    <div className='placeholder_div'>
+                        <span>{locationIcon}</span>
+                        <p>{t('Ticket_type_placeholder.1')}</p>
                     </div>
-                    )}
+                    {
+                        openModal && (
+                            <ul className='private_standart_ticket_regions_list' onClick={() => setopenModal(false)}>
+                                {
+                                    privateTicketRegions.map((region, index) => {
+
+                                        return <li key={index} onClick={() => setSelectedRegion({ name: Object.keys(region)[0], id: index + 1, value: Object.values(region)[0] })}><span>{locationIcon}</span> <p>{Object.values(region)[0]}</p></li>
+
+                                    })
+                                }
+                            </ul>
+                        )
+                    }
+                    {eventLineRegion && <div className='line_ticket'></div>}
+                </div>
+
+                <div className='private_standart_ticket_museums' ref={museumRef} onClick={(e) => handleMuseumInpFocus(e)}>
+                    <input type="text" onKeyDown={handleDelMuseum} value={selectedMuseum} onClick={() => setopenModalMuseum(true)} onChange={() => { }} placeholder={t('Ticket_type_placeholder.3')} />
+                    <div className='placeholder_div'>
+                        <span>{museumIcon}</span>
+                        <p>{t('Ticket_type_placeholder.2')}</p>
+                    </div>
+                    {
+                        filteredMuseums.length !== 0 && openModalMuseum && (
+
+                            <ul className='private_standart_ticket_museum_list' onClick={() => setopenModalMuseum(false)}>
+                                {filteredMuseums.map(museum => (
+                                    <li key={museum.id} onClick={() => handleMuseumItemClick(museum)}>
+                                        <span>{museumIcon}</span>
+                                        <p>{museum.name}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        )
+                    }
+                    {eventLineMuseum && <div className='line_ticket'></div>}
+
+                </div>
+
+                <div ref={privateRef} className='private_standart_ticket_museums_private_block' onClick={(e) => handlePrivateBlockClick(e)} style={{ boxShadow: ticketTypesBlock ? '0 0 20px rgba(0, 0, 0, 0.055)' : 'none' }}>
+                    <div className='placeholder_div_ticket'>
+                        <span>{privateTicketIcon}</span>
+                        <p>{t('Ticket_type_placeholder.6')}</p>
+                    </div>
+
+                    {ticketTypesBlock && museumItem && selectedMuseum &&
+
+                        (<div className='private_standart_ticket_museums_private_block_ticket_types'>
+                            {
+                                museumItem && museumItem.tickets.map((el, index) => {
+
+                                    return (
+                                        <div key={index}>
+                                            <div className='packet_div'>
+                                                {
+                                                    ticketsType_for_private.map(ticket => {
+                                                        if (Object.keys(ticket)[0] === el.type) {
+                                                            return <span key={el.id}>{Object.values(ticket)[0]}</span>
+                                                        }
+                                                    })
+                                                }
+                                                <span className='packet_div_price'>{el.price} AMD</span>
+
+                                                <div className='packet_div_count'>
+                                                    <span onClick={() => packetCount('-', el.type, el.max, el.price)}>{minusIcon}</span>
+                                                    <span className={`count_span ${(ticketCountStandart && index === 0 && 'color') || (ticketCountDicounted && index === 1 && 'color') || (index === 2 && ticketCountFree && 'color') || (index === 0 && ticketCountSub && 'color')} `}>{el.type === 'standart' ? ticketCountStandart : el.type === 'discount' ? ticketCountDicounted : el.type === 'subscription' ? ticketCountSub : ticketCountFree}</span>
+                                                    <span onClick={() => packetCount('+', el.type, el.max, el.price)}>{plusIcon}</span>
+                                                </div>
+                                            </div>
+                                        </div>)
+                                }
+
+                                )
+                            }
+
+                            <div className='private_standart_ticket_museums_private_block_ticket_types_full_value'>
+                                <span><b>{t('Ticket_type_placeholder.7')} </b>{fullValueTicket} AMD</span>
+                            </div>
+
+                            {respBuyTicket?.data.success === false && <p className='err_message_tickets'>{respBuyTicket?.data.message}</p>}
+                            {errorMessageTicket && <p className='err_message_tickets'>{t('ticket_error_message')}</p>}
+
+                            <div className='private_standart_ticket_museums_private_block_ticket_types_buy_div'>
+
+                                <button className='bay_ticket_btn' onClick={buyTicket}>{t('buttons.0')}</button>
+                                <button className='add_cart_btn' onClick={addCart}>{t('buttons.3')}</button>
+                            </div>
+                        </div>
+                        )}
+                </div>
             </div>
-        </div>
-        <TicketMuseumBlock/>
+            <TicketMuseumBlock />
         </>
     )
 }
 
-export default PrivateStandartAndAbonementTicket
+export default memo(PrivateStandartAndAbonementTicket)

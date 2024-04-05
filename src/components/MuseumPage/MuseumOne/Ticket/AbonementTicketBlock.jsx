@@ -12,7 +12,7 @@ const AbonementTicketBlock = ({ hendleClickItems }) => {
    const totalPrice = tickets.reduce((acum, item) => {
       return acum + item.price * item.count ?? 0;
    }, 0);
-
+  
    return (
       <>
          {tickets.map(

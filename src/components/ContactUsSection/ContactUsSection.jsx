@@ -34,7 +34,7 @@ function ContactUsSection() {
     if (isValid) {
       dispatch(
         postContactUsData({
-          neme: e.target[0].value,
+          name: e.target[0].value,
           phone: e.target[1].value,
           email: e.target[2].value,
           text: e.target[3].value,

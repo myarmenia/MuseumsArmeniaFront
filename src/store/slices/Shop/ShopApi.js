@@ -106,11 +106,13 @@ export const postShopCardData = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const cardData = {
-        "items" : [{
-        type: 'product',
-        product_id: body.id,
-        quantity: 1
-        }]
+        items: [
+          {
+            type: 'product',
+            product_id: body.id,
+            quantity: 1,
+          },
+        ],
       };
       const config = {
         method: 'post',
@@ -131,12 +133,13 @@ export const postSingleShopCardData = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const singleCardData = {
-        "items": [{
-             type: 'product',
-        product_id: body.id,
-        quantity: body.productCount,     
-        }]
-
+        items: [
+          {
+            type: 'product',
+            product_id: body.id,
+            quantity: body.productCount,
+          },
+        ],
       };
       const config = {
         method: 'post',
@@ -210,3 +213,22 @@ export const getShopIconBasketDatas = createAsyncThunk(
   },
 );
 // ==============================================>
+/////////////////do baskek  buy proces///////////////////////////
+export const postAllBasketDataDoingPurchase = createAsyncThunk(
+  'shop/postAllBasketDataDoingPurchase',
+  async (body, thunkAPI) => {
+    try {
+      const config = {
+        method: 'post',
+        url: `purchase/store`,
+        data: body,
+      };
+      const response = await instance(config);
+      console.log(response);
+      return response?.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error.both);
+    }
+  },
+);
+/////////////////end do baskek  buy proces///////////////////////////

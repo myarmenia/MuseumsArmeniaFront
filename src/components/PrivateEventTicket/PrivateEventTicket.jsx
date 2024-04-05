@@ -38,6 +38,7 @@ function PrivateEventTicket({changeTicketType}) {
     const [eventLineMuseum, setEventLineMuseum] = useState(true)
     const [eventLineCalendar, setEventLineCalendar] = useState(true)
     const [eventLineEvent, setEventLineEvent] = useState(true)
+    const [errorMessageTicket, setErrorMessageTicket] = useState(false)
     const regionRef = useRef(null)
     const museumRef = useRef(null)
     const privateRef = useRef(null)
@@ -51,7 +52,6 @@ function PrivateEventTicket({changeTicketType}) {
 
 
     useEffect(() => {
-        // setSelectedRegion({name: '', id: '', value: ''})
         setSelectedMuseum('')
     }, [changeTicketType])
 
@@ -105,6 +105,7 @@ function PrivateEventTicket({changeTicketType}) {
             }
             if (!path3.includes(privateRef.current)) {
                 setTicketTypesBlock(false)
+                setErrorMessageTicket(false)
             }
             if (!path4.includes(eventeRef.current)) {
                 setopenModalEvent(false)
@@ -141,6 +142,12 @@ function PrivateEventTicket({changeTicketType}) {
             setopenModalEvent(false)
             setCurrentEvent(el)
        }
+
+       const handleRegionItem = (e, el) =>{
+        setSelectedRegion(el)
+        setSelectedMuseum('')
+        setEventInpVal('')
+   }
         
 
        const addCart = async(e) => {
@@ -197,17 +204,27 @@ function PrivateEventTicket({changeTicketType}) {
                 // })
             }
             else{
-                dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket'}))
-                dispatch(setModalTicketIsOpen(true))
-
+                
                 await dispatch(setObj({
                     items: currentEvent.event_configs.map(el => ({
                         type: 'event',
                         id: el.id,
                         quantity: sessionStorage.getItem(`quantity${el.id}`)
-                    })).filter(el => el.quantity > 0)
+                    })).filter(el => {
+                        if(el.quantity > 0){
+                            dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket'}))
+                            dispatch(setModalTicketIsOpen(true))
+                            setErrorMessageTicket(false)
+                            
+                            return el
+                        }
+                        else{
+                            setErrorMessageTicket(true)
+                        }
+                    })
        
                 }))
+
 
             }
         }
@@ -228,7 +245,6 @@ function PrivateEventTicket({changeTicketType}) {
             setopenModalMuseum(false)
             setEventLineCalendar(false)
             setopenModalEvent(false)
-    
         }
 
 
@@ -272,7 +288,7 @@ function PrivateEventTicket({changeTicketType}) {
                             {
                                 privateTicketRegions.map((region, index) => {
                                      
-                                    return <li key={index} onClick={() => setSelectedRegion({ name: Object.keys(region)[0], id: index+ 1, value: Object.values(region)[0]})}><span>{locationIcon}</span> <p>{Object.values(region)[0]}</p></li>
+                                    return <li key={index} onClick={(e) => handleRegionItem(e, { name: Object.keys(region)[0], id: index+ 1, value: Object.values(region)[0]})}><span>{locationIcon}</span> <p>{Object.values(region)[0]}</p></li>
 
                             })
                             }
@@ -356,6 +372,8 @@ function PrivateEventTicket({changeTicketType}) {
                     </div>
 
                     {respBuyTicket?.data.success === false && <p>{respBuyTicket?.data.message}</p>}
+                    {errorMessageTicket && <p className='err_message_tickets'>{t('ticket_error_message')}</p>}
+
 
                     <div className='private_standart_ticket_museums_private_block_ticket_types_buy_div'>
                         

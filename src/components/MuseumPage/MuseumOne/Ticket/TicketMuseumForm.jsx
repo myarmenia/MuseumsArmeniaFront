@@ -61,7 +61,7 @@ const TicketMuseumForm = () => {
                postData: {
                   request_name: 'web',
                   person,
-                  items: respBuyTicket?.obj.items.length ? respBuyTicket?.obj.items : dataItems,
+                  items: respBuyTicket?.obj?.items ? respBuyTicket?.obj.items : dataItems,
                },
             }),
          );

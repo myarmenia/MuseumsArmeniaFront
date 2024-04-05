@@ -77,6 +77,7 @@ function PrivateUnitedTicket() {
             }
             if (!path3.includes(privateRef.current)) {
                 setTicketTypesBlock(false)
+                setTicketCount(1)
             }
         }
 
@@ -105,14 +106,14 @@ function PrivateUnitedTicket() {
         let totalPrice = 0;
         currentOpt.forEach(museum => {
 
-            totalPrice += museum.tickets[0].price
+            totalPrice += museum.tickets[0].price * ticketCount;
         })
         setFullValueTicket(totalPrice);
     };
 
     useEffect(() => {
         calculateTotalPrice();
-    }, [currentOpt]);
+    }, [currentOpt, ticketCount]);
 
 
     const handleCheckboxChange = (e, museum) => {
@@ -237,6 +238,7 @@ function PrivateUnitedTicket() {
           setEventLineRegion(false)
           setopenModal(false)
           setTicketTypesBlock(false)
+          setTicketCount(1)
        }
 
       const handleRegionInpFocus = (e) =>{
@@ -244,8 +246,7 @@ function PrivateUnitedTicket() {
         setEventLineRegion(false)
         setTicketTypesBlock(false)
         setopenModalMuseum(false)
-
-
+        setTicketCount(1)
       }
 
      const handlePrivateBlockClick = (e) =>{
@@ -254,8 +255,6 @@ function PrivateUnitedTicket() {
         setTicketTypesBlock(true)
         setopenModal(false)
         setopenModalMuseum(false)
-
-
      }
 
      console.log(options, respStandartTicket.data, 'gghsdhdjh');
