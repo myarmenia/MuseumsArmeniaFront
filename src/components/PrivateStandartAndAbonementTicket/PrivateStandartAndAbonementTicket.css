@@ -309,3 +309,7 @@ span.color{
     background-color: rgb(63, 61, 86);
 
 }
+
+.err_message_tickets{
+    color: red;
+}

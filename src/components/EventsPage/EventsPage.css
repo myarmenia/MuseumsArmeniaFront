@@ -312,6 +312,26 @@
 }
 
 
+
+
+
+.event_page_item_info_div p {
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    position: relative;
+}
+
+.event_page_item_info_div p::after {
+    content: "...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 1.5em;
+}
 @media(max-width: 730px){
     .event_page_item{
         width: 90%;
@@ -340,6 +360,14 @@
     .events_page_filter_museum{
         width: 90%;
     }
+
+    .lines_div_events >img{
+        display: none;
+    }
+
+    .App .events_page_baner h1{
+        font-size: 40px;
+    }
 }
 
 
@@ -347,7 +375,5 @@
     .event_page_item{
         width: 350px;
     }
-    .lines_div_events >img{
-        display: none;
-    }
+    
 }

@@ -93,7 +93,7 @@ i18n.use(initReactI18next).init({
                'Գաղտնաբառը պետք է պարունակի փոքրատառեր',
                'Գաղտնաբառը պետք է պարունակի մեծատառ',
                'Պարտադիր գրել գաղտնաբառը',
-               'Գաղտնաբառները չեն համնկնում',
+               'Գաղտնաբառները չեն համընկնում',
                'Գրել միայն թվանշան',
             ],
 
@@ -529,13 +529,16 @@ i18n.use(initReactI18next).init({
                'Ընդամենը',
                'Գնել տոմս',
                'Աբոնիմենտ տոմս',
-               'Աբոնիմենտ տոմսը անսահմանափակ մուտք է 365 օր:',
+
+               'Աբոնեմենտ տոմսը անսահմանափակ մուտք է 365 օր:',
             ],
 
             selectCategory: 'Ընտրեք կատեգորիա',
             book: 'Գիրք',
             souvenir: 'Հուշանվեր',
             clothes: 'Հագուստ',
+            ticket_error_message: 'Տոմսն Ընտրված չէ',
+
          },
       },
 
@@ -1060,12 +1063,17 @@ i18n.use(initReactI18next).init({
                'Общий',
                'Купить билет',
                'Абонементный билет',
+
                'Абонементный билет — это безлимитный доступ на 365 дней.',
             ],
             selectCategory: 'Выберите категорию',
             book: 'Книга',
             souvenir: 'Сувенир',
             clothes: 'Одежда',
+
+
+            ticket_error_message: 'Билет не выбран'
+
          },
       },
       en: {
@@ -1582,12 +1590,17 @@ i18n.use(initReactI18next).init({
                'Total',
                'Buy Ticket',
                'Abonement ticket',
+
                'Abonement ticket is unlimited access for 365 days.',
             ],
             selectCategory: 'Select  category',
             book: 'Book',
             souvenir: 'Souvenir',
             clothes: 'Clothes',
+
+
+            ticket_error_message: 'Ticket not selected'
+
          },
       },
    },

@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getEventsPage } from "./EventsPageApi";
+import { getEventsHome, getEventsPage } from "./EventsPageApi";
 
 const initialState = {
    data: [],
    status: 'idle',
    loading: 'pending',
+   homeList: []
    };
 
 const eventPageSlice = createSlice({
@@ -32,12 +33,17 @@ const eventPageSlice = createSlice({
                }
                state.loading = 'rejected'
                state.status = 'failed';
-          });
+          })
+          .addCase(getEventsHome.fulfilled, (state, action) => {
+            state.homeList = action.payload
+            console.log(action.payload,'gggg');
+          })
     },
  });
  
 
 export const selectEventPage = (state) => state.eventPage
+export const selectHome_list= (state) => state.eventPage.homeList
 
 export const selectEventPageLoading = (state) => state.eventPage.loading
 
