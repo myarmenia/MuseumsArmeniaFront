@@ -7,11 +7,6 @@ const MuseumOneVirtualTour = ({ virtual_tour }) => {
          <div className="educationalPrograms-par">
             <h4 className="museumOne_title">Virtual Excursion</h4>
 
-
-
-
-            
-
             <div className="museumOneVirtualTour-iframePar">
                <iframe
                   src={virtual_tour}
