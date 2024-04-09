@@ -382,19 +382,46 @@
    background-size: cover;
 }
 
+.museumOne_pageStyle-parentMinBlock {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
 .educationalPrograms-minBlock {
    display: flex;
    flex-direction: column;
    gap: 10px;
-   border: 1px solid #d5aa72;
-   border-radius: 10px;
-   padding: 10px;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+   /* border-radius: 5px; */
+   padding: 10px 0;
 }
 
-.museumOne_pageStyle-parentMinBlock {
+.educationalPrograms-minBlock-header {
    display: flex;
-   flex-direction: column;
-   gap: 30px;
+   justify-content: space-between;
+   align-items: center;
+   position: relative;
+   overflow: hidden;
+}
+
+.educationalPrograms-minBlock-header-title {
+   font-family: globalFont;
+   font-weight: 400;
+   font-size: 13px;
+   line-height: 20px;
+   color: #575757;
+}
+
+.educationalPrograms-minBlock-parDropDown p {
+   font-family: globalFont;
+   font-weight: 400;
+   font-size: 13px;
+   line-height: 20px;
+   color: #575757;
+}
+.educationalPrograms-minBlock-parDropDown p span {
+   font-weight: 700;
 }
 
 .educationalPrograms-minBlock_count {
@@ -451,7 +478,8 @@
 .OurEventsSwiper > .swiper-pagination-fraction,
 .swiper-pagination-custom,
 .OurEventsSwiper > .swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets,.swiper-pagination-horizontal {
+.swiper-pagination-bullets,
+.swiper-pagination-horizontal {
    bottom: var(--swiper-pagination-bottom, 44px) !important;
    top: var(--swiper-pagination-top, auto);
    left: 21px;
@@ -505,16 +533,26 @@
 
 /*  sviper end ******************************** */
 
-
 /* educationalPrograms-par start ****************************** */
 
 .educationalPrograms-par {
    max-width: 71%;
 }
-
+.educationalPrograms-par-txt {
+   font-family: globalFont;
+   font-weight: 400;
+   font-size: 10px;
+   line-height: 20px;
+   color: #b26705;
+   margin-bottom: 15px;
+}
 
 /* educationalPrograms-par end ****************************** */
 
+.museumOneVirtualTour-iframePar {
+   height: 400px;
+   max-width: 700px;
+}
 
 /*  OurEvents start ***************************  */
 

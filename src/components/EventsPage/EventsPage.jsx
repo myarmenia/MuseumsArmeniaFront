@@ -14,7 +14,6 @@ function EventsPage() {
     const [selectedMuseum, setSelectedMuseum] = useState({ name: '', id: null, value: '' })
     const [openModal, setopenModal] = useState(false)
     const [openMuseumModal, setOpenMuseumModal] = useState(false)
-    const [openFilterBlock, setOpenFilterBlock] = useState(false)
     const respEventPage = useSelector(selectEventPage)
     const loading = useSelector(selectEventPageLoading)
     const dispatch = useDispatch()
@@ -99,7 +98,7 @@ function EventsPage() {
             <div className='events_page_baner'>
 
                 <div className='events_page_dark'>
-                    <h1>EVENTS</h1>
+                    <h1>{t('navMenuItems.2')}</h1>
                 </div>
             </div>
             {
@@ -107,13 +106,12 @@ function EventsPage() {
                     <div className='container'>
                         <div className='lines_div_events'>
                             <img src={require('../../images/line_gold.png')} alt="" />
-                            <h1>EVENTS</h1>
+                            <h1>{t('navMenuItems.2')}</h1>
                             <img src={require('../../images/line_gold.png')} alt="" />
                         </div>
 
                         <div className='events_page_filter_div'>
-                            <span className='events_page_filter_div_filter_icon' onClick={()=> setOpenFilterBlock(!openFilterBlock)} style={{color: openFilterBlock ? 'var(--second_font_color)' : '#636363'}}>{openFilterBlock ? filterIcon2 : filterIcon1}Filter</span>
-                            {openFilterBlock && <div>
+                            <div>
                                 <div className='events_page_filter_region' ref={regionRef} >
                                     <div className='events_page_filter_region_inp_div'>
                                         <input type="text" onKeyDown={handleKeyDown} onClick={() => setopenModal(!openModal)} value={selectedRegion.value} onChange={() => { }} placeholder='regions' />
@@ -149,7 +147,7 @@ function EventsPage() {
                                         }
                                     </ul>}
                                 </div>
-                            </div>}
+                            </div>
                         </div>
                         <div className='event_page_items'>
 

@@ -13,6 +13,10 @@ import TicketCountDiv from '../TicketCountDiv/TicketCountDiv'
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
 import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice'
 import { eventIcon, locationIcon, museumIcon, privateTicketIcon } from '../../iconFolder/icon'
+import { setModalTicketIsOpen, setTicketType } from '../../store/slices/MuseumTicket/MuseumTicketSlice'
+import { TicketMuseumBlock } from '../MuseumPage/MuseumOne/Ticket'
+import { postBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketApi'
+import { selectBuyTicket, setObj } from '../../store/slices/BuyTicketSlice/BuyTicketSlice'
 
 function PrivateEventTicket({changeTicketType}) {
     const {t, i18n} = useTranslation()
@@ -34,6 +38,7 @@ function PrivateEventTicket({changeTicketType}) {
     const [eventLineMuseum, setEventLineMuseum] = useState(true)
     const [eventLineCalendar, setEventLineCalendar] = useState(true)
     const [eventLineEvent, setEventLineEvent] = useState(true)
+    const [errorMessageTicket, setErrorMessageTicket] = useState(false)
     const regionRef = useRef(null)
     const museumRef = useRef(null)
     const privateRef = useRef(null)
@@ -42,10 +47,11 @@ function PrivateEventTicket({changeTicketType}) {
     const respStandartTicket = useSelector(selectprivateTicket)
     const respEvent = useSelector(getEventsTicket)
     const isAuth = useSelector(getIsAuth)
+    const respBuyTicket = useSelector(selectBuyTicket)
+
 
 
     useEffect(() => {
-        // setSelectedRegion({name: '', id: '', value: ''})
         setSelectedMuseum('')
     }, [changeTicketType])
 
@@ -99,6 +105,7 @@ function PrivateEventTicket({changeTicketType}) {
             }
             if (!path3.includes(privateRef.current)) {
                 setTicketTypesBlock(false)
+                setErrorMessageTicket(false)
             }
             if (!path4.includes(eventeRef.current)) {
                 setopenModalEvent(false)
@@ -135,6 +142,12 @@ function PrivateEventTicket({changeTicketType}) {
             setopenModalEvent(false)
             setCurrentEvent(el)
        }
+
+       const handleRegionItem = (e, el) =>{
+        setSelectedRegion(el)
+        setSelectedMuseum('')
+        setEventInpVal('')
+   }
         
 
        const addCart = async(e) => {
@@ -164,10 +177,57 @@ function PrivateEventTicket({changeTicketType}) {
 
          setTicketTypesBlock(false)
         
-
         } 
         
 
+        const buyTicket = async(e) => {
+            e.preventDefault()
+
+            if(isAuth){
+                await  dispatch(postBuyTicket({
+                    items: currentEvent.event_configs.map(el => ({
+                        type: 'event',
+                        id: el.id,
+                        quantity: sessionStorage.getItem(`quantity${el.id}`)
+                    })).filter(el => el.quantity > 0)
+       
+                }))
+                .then(res => {
+                    if(res.meta.requestStatus === "fulfilled"){
+                        window.location.href = res.payload.data.redirect_url
+                        console.log(res,'ayo');
+                    }   
+               })
+    
+                // currentEvent.event_configs.map(item => {
+                //     sessionStorage.removeItem(`quantity${item.id}`)
+                // })
+            }
+            else{
+                
+                await dispatch(setObj({
+                    items: currentEvent.event_configs.map(el => ({
+                        type: 'event',
+                        id: el.id,
+                        quantity: sessionStorage.getItem(`quantity${el.id}`)
+                    })).filter(el => {
+                        if(el.quantity > 0){
+                            dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket'}))
+                            dispatch(setModalTicketIsOpen(true))
+                            setErrorMessageTicket(false)
+                            
+                            return el
+                        }
+                        else{
+                            setErrorMessageTicket(true)
+                        }
+                    })
+       
+                }))
+
+
+            }
+        }
 
         const handleMuseumInpFocus = (e) => {
             e.stopPropagation()
@@ -185,7 +245,6 @@ function PrivateEventTicket({changeTicketType}) {
             setopenModalMuseum(false)
             setEventLineCalendar(false)
             setopenModalEvent(false)
-    
         }
 
 
@@ -208,7 +267,8 @@ function PrivateEventTicket({changeTicketType}) {
         }
 
     return (
-        <div className='private_standart_ticket'>
+        <>
+            <div className='private_standart_ticket'>
             {cartErrorMessage && <h3 className='cart_error_message'>{t('Ticket_type_placeholder.8')}</h3>}
             <DualCalendar {...{selectedMuseum, setStartDate, setEndDate, startDate, endDate, museumItem, setEventLineCalendar}}/>
 
@@ -228,7 +288,7 @@ function PrivateEventTicket({changeTicketType}) {
                             {
                                 privateTicketRegions.map((region, index) => {
                                      
-                                    return <li key={index} onClick={() => setSelectedRegion({ name: Object.keys(region)[0], id: index+ 1, value: Object.values(region)[0]})}><span>{locationIcon}</span> <p>{Object.values(region)[0]}</p></li>
+                                    return <li key={index} onClick={(e) => handleRegionItem(e, { name: Object.keys(region)[0], id: index+ 1, value: Object.values(region)[0]})}><span>{locationIcon}</span> <p>{Object.values(region)[0]}</p></li>
 
                             })
                             }
@@ -311,15 +371,21 @@ function PrivateEventTicket({changeTicketType}) {
                         <span>{t('Ticket_type_placeholder.7')}   {fullValueTicket} AMD</span>
                     </div>
 
+                    {respBuyTicket?.data.success === false && <p>{respBuyTicket?.data.message}</p>}
+                    {errorMessageTicket && <p className='err_message_tickets'>{t('ticket_error_message')}</p>}
+
+
                     <div className='private_standart_ticket_museums_private_block_ticket_types_buy_div'>
                         
-                            <button className='bay_ticket_btn'>{t('buttons.0')}</button>
+                            <button className='bay_ticket_btn' onClick={buyTicket}>{t('buttons.0')}</button>
                             <button className='add_cart_btn' onClick={addCart}>{t('buttons.3')}</button>
                     </div>
                  </div>
                 )}
             </div>
         </div>
+         <TicketMuseumBlock/>
+        </>
     )
 }
 

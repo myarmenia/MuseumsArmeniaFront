@@ -37,7 +37,6 @@ export const educationalPrograms = createAsyncThunk(
 
          return thunkAPI.fulfillWithValue(data);
       } catch (error) {
-         console.log(error);
          return thunkAPI.rejectWithValue(error.response.data.error);
       }
    },
@@ -49,6 +48,23 @@ export const getMuseumOneEvents = createAsyncThunk(
       try {
          const { data } = await instance(`museum/${id}/events`);
 
+         return thunkAPI.fulfillWithValue(data);
+      } catch (error) {
+         console.log(error);
+         return thunkAPI.rejectWithValue(error.response.data.error);
+      }
+   },
+);
+
+export const getMuseumOneProducts = createAsyncThunk(
+   'MuseumPagesOne/getMuseumOneProducts',
+   async (body, thunkAPI) => {
+      console.log(body, 'body');
+      const museumId = body?.museumId ? `${body.museumId}` : '';
+      const productId = body?.productId ? `?product_category_id=${body.productId}` : '';
+
+      try {
+         const { data } = await instance(`museum/${museumId}/products${productId}`);
          return thunkAPI.fulfillWithValue(data);
       } catch (error) {
          console.log(error);

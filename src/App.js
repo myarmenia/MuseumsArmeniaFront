@@ -24,11 +24,9 @@ import EventsPage from './components/EventsPage/EventsPage';
 import ProfilePage from './components/ProfilePages/ProfilePage';
 import MyAccount from './components/ProfilePages/MyAccount/MyAccount';
 import OrderHistory from './components/ProfilePages/OrderHistory/OrderHistory';
-import ContactWithUs from './components/contactWithUs/contactWithUs';
 import { useSelector } from 'react-redux';
 import { getIsTemp } from './store/slices/Auth/AuthSlice';
 import ComboTicket from './components/ComboTicket/ComboTicket';
-
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('');
@@ -48,8 +46,7 @@ function App() {
       localStorage.removeItem('isAuth')
     }
 
-    console.log(respTemp,'55');
-  }, [respTemp]);
+  }, []);
 
   const changeFont = (type) => {
     setChangeFonSize(type);
