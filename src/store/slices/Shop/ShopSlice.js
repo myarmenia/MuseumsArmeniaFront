@@ -9,6 +9,7 @@ import {
   getShopIconBasketDatas,
   getSingleDataShop,
   postAllBasketDataDoingPurchase,
+  postComboTickets,
   postShopCardData,
   postSingleShopCardData,
   postTicketCart,
@@ -134,6 +135,10 @@ export const ShopSlice = createSlice({
         console.log('a22222222222');
         state.productLength = action.payload.params.items_count;
         console.log('a33333333333333');
+      })
+      .addCase(postComboTickets.fulfilled, (state,action) => {
+        state.basketAllData = action.payload.data;
+        state.productLength = action.payload.params.items_count;
       })
       .addCase(postAllBasketDataDoingPurchase.fulfilled, (state, action) => {
         state.redirectShopUrl = action.payload.data.redirect_url;
