@@ -107,7 +107,7 @@ const MuseumTicketSlice = createSlice({
    },
 });
 
-Artur Webex, [4/9/2024 4:03 PM]
+
 export const MuseumTicketReducer = MuseumTicketSlice.reducer;
 export const { setModalTicketIsOpen, setTicketType, setDataItems, setResetDataItems } =
    MuseumTicketSlice.actions;
