@@ -27,6 +27,7 @@ import OrderHistory from './components/ProfilePages/OrderHistory/OrderHistory';
 import ContactWithUs from './components/contactWithUs/contactWithUs';
 import { useSelector } from 'react-redux';
 import { getIsTemp } from './store/slices/Auth/AuthSlice';
+import ComboTicket from './components/ComboTicket/ComboTicket';
 
 
 function App() {
@@ -237,6 +238,14 @@ function App() {
               element={
                 <PrivateRouteForOutSider>
                   <ContactWithUs />
+                </PrivateRouteForOutSider>
+              }
+            />
+            <Route
+              path="comboticket"
+              element={
+                <PrivateRouteForOutSider>
+                  <ComboTicket />
                 </PrivateRouteForOutSider>
               }
             />

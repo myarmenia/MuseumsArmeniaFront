@@ -29,7 +29,8 @@ function SingleShop() {
   const singleShopDatas = useSelector(getSingleShopDatas);
   // const loading = useSelector(getSingleShopLoading);
   const loading = useSelector(getSingleShopLoading);
-  const [errorText, setErrorText] = useState(false);
+  // const [errorText, setErrorText] = useState(false);
+  // const [deactivate, setDeactivate] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -44,7 +45,7 @@ function SingleShop() {
   const [number, setNumber] = useState(1);
 
   const handleIncrement = () => {
-    setNumber((prevNumber) => (prevNumber < 100 ? prevNumber + 1 : prevNumber));
+    setNumber((prevNumber) => (prevNumber < singleShopDatas.quantity ? prevNumber + 1  : prevNumber));
   };
 
   const handleDecrement = () => {
