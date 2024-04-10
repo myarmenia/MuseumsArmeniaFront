@@ -232,3 +232,33 @@ export const postAllBasketDataDoingPurchase = createAsyncThunk(
   },
 );
 /////////////////end do baskek  buy proces///////////////////////////
+
+
+/////////////api for send combo tickets//////////////
+
+export const postComboTickets = createAsyncThunk(
+  'shop/postComboTickets',
+  async (body, thunkAPI) => {
+    try {
+      const cardData = {
+        items: [
+          {
+            type: 'united',
+            museum_ids: body.selectedItemIds,
+            quantity: body.count,
+          },
+        ],
+      };
+      const config = {
+        method: 'post',
+        url: `cart/store`,
+        data: cardData,
+      };
+      const response = await instance(config);
+      console.log(response);
+      return response?.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error.both);
+    }
+  },
+);

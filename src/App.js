@@ -31,6 +31,8 @@ import MyAccount from './components/ProfilePages/MyAccount/MyAccount';
 import OrderHistory from './components/ProfilePages/OrderHistory/OrderHistory';
 import { useSelector } from 'react-redux';
 import { getIsTemp } from './store/slices/Auth/AuthSlice';
+import ComboTicket from './components/ComboTicket/ComboTicket';
+import ContactWithUs from './components/contactWithUs/contactWithUs';
 
 function App() {
    const [changeFonSize, setChangeFonSize] = useState('');
