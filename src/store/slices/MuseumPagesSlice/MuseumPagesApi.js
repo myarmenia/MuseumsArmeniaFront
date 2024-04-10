@@ -61,9 +61,10 @@ export const getMuseumOneProducts = createAsyncThunk(
    async (body, thunkAPI) => {
       const museumId = body?.museumId ? `${body.museumId}` : '';
       const productId = body?.productId ? `?product_category_id=${body.productId}` : '';
+      const pageCoun = body?.pageCoun ? `${productId ? '&' : '?'}page_count=${body?.pageCoun}` : '';
 
       try {
-         const { data } = await instance(`museum/${museumId}/products${productId}`);
+         const { data } = await instance(`museum/${museumId}/products${productId}${pageCoun}`);
 
          return thunkAPI.fulfillWithValue(data);
       } catch (error) {

@@ -542,6 +542,7 @@ i18n.use(initReactI18next).init({
             thisMuseum: 'Այս թանգարանի խանութը',
             buy: 'Գնել',
             productsErrorMessages: 'Ապրանքներ չեն գտնվել',
+            Showing: ['Ցուցադրվում են', 'արդյունքները', 'ից'],
          },
       },
 
@@ -1079,6 +1080,7 @@ i18n.use(initReactI18next).init({
             thisMuseum: 'Магазин этого музея',
             buy: 'Купить',
             productsErrorMessages: 'Продукты не найдены',
+            Showing: ['Показаны', 'из', 'результатов'],
          },
       },
       en: {
@@ -1608,6 +1610,7 @@ i18n.use(initReactI18next).init({
             thisMuseum: 'Shop of this museum',
             buy: 'Buy',
             productsErrorMessages: 'No products found',
+            Showing: ['Showing ', 'of', 'results'],
          },
       },
    },

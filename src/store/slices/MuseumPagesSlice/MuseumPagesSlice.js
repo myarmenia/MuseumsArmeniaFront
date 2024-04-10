@@ -22,6 +22,7 @@ const initialState = {
       dataProducts: [],
       products_category: [],
       pageCount: 0,
+      totalCount: 0,
    },
 };
 
@@ -111,11 +112,14 @@ const MuseumPagesSlice = createSlice({
             state.dataMuseumProducts.dataProducts = payload.data.products;
             state.dataMuseumProducts.products_category = payload.data.products_category;
             state.dataMuseumProducts.pageCount = payload.params.page_count;
+            state.dataMuseumProducts.totalCount = payload.params.total_count;
          })
          .addCase(getMuseumOneProducts.rejected, (state, action) => {
             state.loadingMuseumProducts = 'rejected';
             state.dataMuseumProducts.dataProducts = [];
             state.dataMuseumProducts.products_category = [];
+            state.dataMuseumProducts.pageCount = 0;
+            state.dataMuseumProducts.totalCount = 0;
          });
    },
 });

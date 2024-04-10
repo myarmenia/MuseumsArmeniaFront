@@ -16,22 +16,29 @@ const MuseumOneShop = ({ museumId }) => {
       type: null,
       id: null,
    });
-
+   const [pageCount, setPageCount] = React.useState(1);
    const { dataMuseumProducts, loadingMuseumProducts } = useSelector((state) => state.museumPages);
 
    const filter = React.useCallback((obj) => {
       setActivCategoru(obj);
       dispatch(getMuseumOneProducts({ museumId: museumId, productId: obj.id }));
    }, []);
-   // console.log(dataMuseumProducts, 222222222);
+   const onChangePag = React.useCallback((count) => {
+      setActivCategoru(count);
+      // dispatch(getMuseumOneProducts({ museumId: museumId, productId: obj.id }));
+   }, []);
+
    return (
       <div className="museumOne_pageStyle">
-         {loadingMuseumProducts === 'fulfilled' ? (
+         {loadingMuseumProducts === 'fulfilled' && dataMuseumProducts.totalCount > 0 ? (
             <div className="MuseumOneShop-par">
                <div className="MuseumOneShop-parHeader">
                   <div>
                      <h4 className="museumOne_title">{t(`thisMuseum`)}</h4>
-                     <p>Showing 1-12 of 15 results</p>
+                     <p>
+                        {t(`Showing.0`)} 1-{dataMuseumProducts.dataProducts.length} {t(`Showing.1`)}{' '}
+                        {dataMuseumProducts.totalCount} {t(`Showing.2`)}
+                     </p>
                   </div>
                   <CustomSearshBlock
                      arr={dataMuseumProducts.products_category}
@@ -47,9 +54,13 @@ const MuseumOneShop = ({ museumId }) => {
                            <ProductsBlock {...item} key={item.id} />
                         ))}
                      </div>
-                     {dataMuseumProducts.dataProducts.length > 7 && (
+                     {dataMuseumProducts.totalCount > 12 && (
                         <div className="MuseumOneShop-pagination">
-                           <CustopPagination allpageCount={dataMuseumProducts.pageCount} />
+                           <CustopPagination
+                              pageCount={pageCount}
+                              allpageCount={dataMuseumProducts.pageCount}
+                              onChangePag={onChangePag}
+                           />
                         </div>
                      )}
                   </>

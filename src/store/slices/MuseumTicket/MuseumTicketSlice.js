@@ -68,6 +68,7 @@ const MuseumTicketSlice = createSlice({
          state.tickets = state.tickets.map((el) => {
             return { ...el, count: 0 };
          });
+         state.responseMessages = '';
       },
    },
    extraReducers: (builder) => {
