@@ -1,17 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { CustomSearshBlock } from '../../index';
+import ProductsBlock from './ProductsBlock';
+
 import './museumOneShop.css';
 const MuseumOneShop = ({ dataMuseumProducts }) => {
    const { t, i18n } = useTranslation();
-   console.log(dataMuseumProducts, 3333);
 
    const [activCategoru, setActivCategoru] = React.useState({
       name: t(`selectCategory`),
       type: null,
       id: null,
    });
-   console.log(activCategoru, 1111);
 
    const filter = React.useCallback((obj) => {
       setActivCategoru(obj);
@@ -33,6 +33,11 @@ const MuseumOneShop = ({ dataMuseumProducts }) => {
                   fun={filter}
                   translationtxt={['selectCategory', 'allMussseum']}
                />
+            </div>
+            <div className="MuseumOneShop-parProducts">
+               {dataMuseumProducts.dataProducts.map((item) => (
+                  <ProductsBlock {...item} key={item.id} />
+               ))}
             </div>
          </div>
       </div>

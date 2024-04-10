@@ -12,3 +12,7 @@ export { default as EducationalPrograms } from './MuseumOne/EducationalPrograms/
 export { default as MuseumOneVirtualTour } from './MuseumOne/MuseumOneVirtualTour/MuseumOneVirtualTour';
 export { default as MuseumOneShop } from './MuseumOne/MuseumOneShop/MuseumOneShop';
 export { default as CustomSearshBlock } from './CustomSearchBlock.jsx';
+export { default as MuseumOneBranch } from './MuseumOne/MuseumOneBranch/MuseumOneBranch';
+export { default as MuseumOneBranchList } from './MuseumOne/MuseumOneBranch/MuseumOneBranchList.jsx';
+export { default as MuseumOneBranchOne } from './MuseumOne/MuseumOneBranch/MuseumOneBranchOne.jsx';
+export { default as CustomSectionTitle } from './CustomSectionTitle.jsx';

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const MuseumOneVirtualTour = ({ virtual_tour }) => {
-
    return (
       <div className="museumOne_pageStyle">
          <div className="educationalPrograms-par">
@@ -18,4 +17,4 @@ const MuseumOneVirtualTour = ({ virtual_tour }) => {
    );
 };
 
-export default MuseumOneVirtualTour;
+export default React.memo(MuseumOneVirtualTour);

@@ -22,6 +22,7 @@ import {
    EducationalPrograms,
    MuseumOneShop,
    MuseumOneVirtualTour,
+   MuseumOneBranch,
 } from '../index';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import MuseumPageHeader from '../MuseumPageHeader';
@@ -75,7 +76,11 @@ const MuseumOne = () => {
             <div>
                <MuseumPageHeader headerImg={dataMuseumOne.main_photo} title={dataMuseumOne.name} />
                <div className="museumPage_section">
-                  <div className="container">
+                  <div
+                     className="container"
+                     style={{
+                        backgroundColor: '#ffffff',
+                     }}>
                      <div className="museumOne_parent">
                         <div className="museumOne_parent-section1">
                            <div className="museumOne-blockLeft">
@@ -83,6 +88,7 @@ const MuseumOne = () => {
                                  description={dataMuseumOne.description}
                                  photos={dataMuseumOne.photos}
                                  handleClickTicket={handleClickTicket}
+                                 openBtn={true}
                               />
                            </div>
                            <div className="museumOne-blockRigth ">
@@ -131,6 +137,10 @@ const MuseumOne = () => {
 
                         {dataMuseumOne.links?.virtual_tour && (
                            <MuseumOneVirtualTour virtual_tour={dataMuseumOne.links.virtual_tour} />
+                        )}
+
+                        {dataMuseumOne?.branches.length > 0 && (
+                           <MuseumOneBranch branches={dataMuseumOne.branches} />
                         )}
                      </div>
 

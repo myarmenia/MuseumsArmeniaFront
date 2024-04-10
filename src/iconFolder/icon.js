@@ -1103,27 +1103,117 @@ export const MorePlusIcons = ({ width = '16', height = '16', fill = '#3F3D56' })
       <path
          d="M6 10.6673V1.33398"
          stroke="black"
-         stroke-opacity="0.8"
-         stroke-linecap="round"
-         stroke-linejoin="round"
+         strokeOpacity="0.8"
+         strokeLinecap="round"
+         strokeLinejoin="round"
       />
       <path
          d="M1.33325 6H10.6666"
          stroke="black"
-         stroke-opacity="0.8"
-         stroke-linecap="round"
-         stroke-linejoin="round"
+         strokeOpacity="0.8"
+         strokeLinecap="round"
+         strokeLinejoin="round"
       />
    </svg>
 );
 export const MoreMinusIcons = ({ width = '16', height = '16', fill = '#3F3D56' }) => (
-   <svg width={width} height={height} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <svg
+      width={width}
+      height={height}
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
       <path
          d="M3.3335 8H12.6668"
          stroke="black"
-         stroke-opacity="0.8"
-         stroke-linecap="round"
-         stroke-linejoin="round"
+         strokeOpacity="0.8"
+         strokeLinecap="round"
+         strokeLinejoin="round"
       />
+   </svg>
+);
+
+export const ShopMinIcons = ({
+   width = '14',
+   height = '14',
+   fill = '#3F3D56',
+   stroke = '#3F3D56',
+}) => (
+   <svg
+      width={width}
+      height={height}
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M11.0107 11.6406H2.48881C2.385 11.6401 2.28493 11.6019 2.20728 11.533C2.12964 11.464 2.07975 11.3692 2.06694 11.2662L1.31811 4.51621C1.31145 4.4574 1.31724 4.39784 1.3351 4.34141C1.35297 4.28499 1.3825 4.23295 1.4218 4.18868C1.46109 4.14442 1.50925 4.10892 1.56316 4.08448C1.61708 4.06005 1.67552 4.04724 1.73471 4.04688H11.7648C11.824 4.04724 11.8824 4.06005 11.9363 4.08448C11.9902 4.10892 12.0384 4.14442 12.0777 4.18868C12.117 4.23295 12.1465 4.28499 12.1644 4.34141C12.1823 4.39784 12.1881 4.4574 12.1814 4.51621L11.4326 11.2662C11.4197 11.3692 11.3699 11.464 11.2922 11.533C11.2146 11.6019 11.1145 11.6401 11.0107 11.6406V11.6406Z"
+         stroke={stroke}
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M4.64062 5.73438V4.04688C4.64063 3.48743 4.86286 2.95091 5.25845 2.55532C5.65403 2.15974 6.19056 1.9375 6.75 1.9375C7.30944 1.9375 7.84597 2.15974 8.24155 2.55532C8.63714 2.95091 8.85938 3.48743 8.85938 4.04688V5.73438"
+         stroke={stroke}
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+   </svg>
+);
+
+export const EmailIcons = ({
+   width = '20',
+   height = '20',
+   fill = '#3F3D56',
+   stroke = '#3F3D56',
+}) => (
+   <svg
+      width={width}
+      height={height}
+      viewBox="0 0 22 22"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <g filter="url(#filter0_d_907_24448)">
+         <circle cx="11" cy="10" r="10" fill={fill} />
+         <path
+            d="M7.25 7.1875H14.75V12.5C14.75 12.5829 14.7171 12.6624 14.6585 12.721C14.5999 12.7796 14.5204 12.8125 14.4375 12.8125H7.5625C7.47962 12.8125 7.40013 12.7796 7.34153 12.721C7.28292 12.6624 7.25 12.5829 7.25 12.5V7.1875Z"
+            stroke="white"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+         />
+         <path
+            d="M14.75 7.1875L11 10.625L7.25 7.1875"
+            stroke="white"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+         />
+      </g>
+      <defs>
+         <filter
+            id="filter0_d_907_24448"
+            x="0"
+            y="0"
+            width="22"
+            height="22"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix
+               in="SourceAlpha"
+               type="matrix"
+               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+               result="hardAlpha"
+            />
+            <feOffset dy="1" />
+            <feGaussianBlur stdDeviation="0.5" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_907_24448" />
+            <feBlend
+               mode="normal"
+               in="SourceGraphic"
+               in2="effect1_dropShadow_907_24448"
+               result="shape"
+            />
+         </filter>
+      </defs>
    </svg>
 );
