@@ -3,7 +3,6 @@ import React from 'react';
 import { MuseumOneBranchList } from '../../index';
 
 const MuseumOneBranch = ({ branches }) => {
-   console.log(branches, 'branches');
    return (
       <div className="museumOne_pageStyle">
          <div className="museumOneBranch-par">

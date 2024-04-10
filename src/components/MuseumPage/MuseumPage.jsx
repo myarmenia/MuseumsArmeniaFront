@@ -1,4 +1,4 @@
-import React, { useEffect, memo } from 'react';
+import React, { useEffect, memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import {
@@ -6,6 +6,7 @@ import {
    SearchBlockMuseumPage,
    PaginationExample,
    CustomSectionTitle,
+   MuseumMinBlock,
 } from './index';
 import { postMuseumPages } from '../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import LoadSpinner from '../LoadSpinner/LoadSpinner';
@@ -23,8 +24,6 @@ const MuseumPage = () => {
       dispatch(postMuseumPages());
    }, []);
 
-   console.log(params, 'params');
-
    return (
       <>
          {loadingStatus === 'loading' ? (
@@ -35,7 +34,9 @@ const MuseumPage = () => {
                <div className="museumPage_section">
                   <CustomSectionTitle
                      text={t(`musseumPage_title.0`)}
-                     text2={'All museums of Armenia on one platform'}
+                     text2={t(`mintitle`)}
+                     color="#FFFFFF"
+                     colorSvg="#FFFFFF"
                   />
                   <div
                      className="container section"
@@ -43,7 +44,12 @@ const MuseumPage = () => {
                         backgroundColor: '#ffffff',
                      }}>
                      <SearchBlockMuseumPage regions={regions} />
-                     <PaginationExample filterDataMuseum={filterDataMuseum} />
+                     <div className="par_museumList">
+                        {filterDataMuseum.map((item, index) => (
+                           <MuseumMinBlock {...item} key={item.id} />
+                        ))}
+                     </div>
+                     {/* <PaginationExample filterDataMuseum={filterDataMuseum} /> */}
                   </div>
                </div>
             </div>

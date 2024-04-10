@@ -75,7 +75,7 @@ const MuseumOne = () => {
          ) : loadingdataMuseumOne === 'fulfilled' ? (
             <div>
                <MuseumPageHeader headerImg={dataMuseumOne.main_photo} title={dataMuseumOne.name} />
-               <div className="museumPage_section">
+               <div className="museumPage_sectionOne">
                   <div
                      className="container"
                      style={{
@@ -130,10 +130,10 @@ const MuseumOne = () => {
                               />
                            )}
 
-                        {loadingMuseumProducts === 'fulfilled' &&
-                           dataMuseumProducts.dataProducts.length > 0 && (
-                              <MuseumOneShop dataMuseumProducts={dataMuseumProducts} />
-                           )}
+                        {/* {loadingMuseumProducts === 'fulfilled' && (
+                           <MuseumOneShop dataMuseumProducts={dataMuseumProducts}  museumId={id} />
+                        )} */}
+                        <MuseumOneShop dataMuseumProducts={dataMuseumProducts} museumId={id} />
 
                         {dataMuseumOne.links?.virtual_tour && (
                            <MuseumOneVirtualTour virtual_tour={dataMuseumOne.links.virtual_tour} />

@@ -59,12 +59,12 @@ export const getMuseumOneEvents = createAsyncThunk(
 export const getMuseumOneProducts = createAsyncThunk(
    'MuseumPagesOne/getMuseumOneProducts',
    async (body, thunkAPI) => {
-      console.log(body, 'body');
       const museumId = body?.museumId ? `${body.museumId}` : '';
       const productId = body?.productId ? `?product_category_id=${body.productId}` : '';
 
       try {
          const { data } = await instance(`museum/${museumId}/products${productId}`);
+
          return thunkAPI.fulfillWithValue(data);
       } catch (error) {
          console.log(error);

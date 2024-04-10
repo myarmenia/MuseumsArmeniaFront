@@ -7,7 +7,7 @@
 .MuseumOneShop-parProducts {
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-between;
+   justify-content: flex-start;
    align-items: center;
    gap: 50px 10px;
    margin: 24px 0;
@@ -58,4 +58,48 @@
    width: 100%;
    padding: 10px;
    cursor: pointer;
+}
+
+.productsErrorMessages {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100px;
+   font-family: globalFont;
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 21px;
+   color: #3f3d56;
+}
+
+.MuseumOneShop-pagination {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 40px 0;
+}
+.MuseumOneShop-pagination > .CustopPagination {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
+.MuseumOneShop-pagination > .CustopPagination > li {
+   cursor: pointer;
+}
+.MuseumOneShop-pagination > .CustopPagination > li > a {
+   font-family: globalFont;
+   font-weight: 400;
+   font-size: 20px;
+   line-height: 24px;
+}
+.MuseumOneShop-pagination > .CustopPagination > .previous > a,
+.MuseumOneShop-pagination > .CustopPagination > .next > a {
+   font-family: globalFont;
+   font-weight: 600;
+   font-size: 20px;
+   line-height: 24px;
+}
+.MuseumOneShop-pagination > .CustopPagination > .selected {
+   color: #b26705;
 }

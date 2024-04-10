@@ -1178,13 +1178,13 @@ export const EmailIcons = ({
             d="M7.25 7.1875H14.75V12.5C14.75 12.5829 14.7171 12.6624 14.6585 12.721C14.5999 12.7796 14.5204 12.8125 14.4375 12.8125H7.5625C7.47962 12.8125 7.40013 12.7796 7.34153 12.721C7.28292 12.6624 7.25 12.5829 7.25 12.5V7.1875Z"
             stroke="white"
             stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
          />
          <path
             d="M14.75 7.1875L11 10.625L7.25 7.1875"
             stroke="white"
             stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
          />
       </g>
       <defs>
@@ -1195,8 +1195,8 @@ export const EmailIcons = ({
             width="22"
             height="22"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
                in="SourceAlpha"
                type="matrix"
@@ -1215,5 +1215,17 @@ export const EmailIcons = ({
             />
          </filter>
       </defs>
+   </svg>
+);
+export const LineeIcons = ({
+   width = '20',
+   height = '20',
+   fill = '#FFFFFF',
+   stroke = '#3F3D56',
+}) => (
+   <svg width="160" height="2" viewBox="0 0 160 2" fill={fill} xmlns="http://www.w3.org/2000/svg">
+      <line x1="2.63361e-07" y1="1" x2="160" y2="1.00004" stroke="black" stroke-width="2" />
+      <line x1="2.63361e-07" y1="1" x2="160" y2="1.00004" stroke="black" stroke-width="2" />
+      <line x1="2.63361e-07" y1="1" x2="160" y2="1.00004" stroke={fill} stroke-width="2" />
    </svg>
 );
