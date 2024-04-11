@@ -3,6 +3,7 @@
     height: 740px;
     overflow: hidden;
     position: relative;
+    top: -100px;
   }
   .slider .wrapper {
     height: 100vh;

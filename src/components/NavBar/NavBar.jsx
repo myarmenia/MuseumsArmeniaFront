@@ -4,7 +4,7 @@ import { logo } from '../../images/images';
 import './NavBar.css';
 import ChangeFontSize from '../ChangeFontSize/ChangeFontSize';
 import SelectLng from '../SelectLng/SelectLng';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLogOut } from '../../store/slices/LogOutSlice/LogOutApi';
@@ -18,13 +18,16 @@ import {
 } from '../../store/slices/Shop/ShopSlice';
 import { getShopIconBasketDatas } from '../../store/slices/Shop/ShopApi';
 
-function NavBar({ changeFonSize, changeFont }) {
+function NavBar({ changeFonSize, changeFont, homeNavColor }) {
   const { t, i18n } = useTranslation();
   const isAuth = useSelector(getIsAuth);
   const isAuthCount = useSelector(getAuthUser);
   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
   const dispatch = useDispatch();
+  const {pathname} = useLocation()
 
+
+  console.log(pathname, 'jan', `/${leng}/`);
   // /////////////shop length/////////////////
   const productLength = useSelector(getProductLength);
   // //////////////end shop length///////////////////////
@@ -40,7 +43,10 @@ function NavBar({ changeFonSize, changeFont }) {
 
   console.log('isAuthCount', isAuthCount.card_count);
   return (
-    <div className="nav_bar">
+    <div className="nav_bar" style={pathname === `/${leng}/` ? {
+      background: homeNavColor ? 'black' : 'transparent',
+      opacity: homeNavColor ? '.7' : '1',
+    } : {}}>
       <div className="container">
         <div className="nav_bar_left_div">
           <NavLink to={`/${leng}/`}>

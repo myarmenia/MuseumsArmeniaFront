@@ -5,7 +5,7 @@ import { postMuseumOnePages } from '../MuseumPagesSlice/MuseumPagesApi';
 
 const initialState = {
    modalTicketIsOpen: false,
-   ticketType: { kindOf: null, type: null },
+   ticketType: { kindOf: null, type: null, ticketType: '' },
    tickets: [
       { id: 1, price: 100, min: 0, max: 10, type: 'standart', count: 0 },
       { id: 1, price: 50, min: 0, max: 10, type: 'discount', count: 0 },

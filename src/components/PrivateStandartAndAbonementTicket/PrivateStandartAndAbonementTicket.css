@@ -313,3 +313,7 @@ span.color{
 .err_message_tickets{
     color: red;
 }
+
+.App .placeholder_div p{
+    font-size: 13px;
+}

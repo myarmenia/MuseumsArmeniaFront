@@ -1,12 +1,14 @@
 .events_in_home{
     padding: 100px 0;
     padding-top: 200px;
+    width: 100%;
 }
 
 .events_in_home .container{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 
@@ -14,6 +16,8 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
+    width: 100%;
+    align-items: center;
 }
 
 
@@ -21,4 +25,9 @@
 .events_in_home_block_items{
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+
+.events_in_home_block .lines_div_events h1{
+    color: #3F3D56 ;
 }

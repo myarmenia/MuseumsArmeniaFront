@@ -1,9 +1,12 @@
 import Item from 'antd/es/list/Item';
 import React, { useEffect, useState } from 'react'
 import { minusIcon, plusIcon } from '../../iconFolder/icon';
+import { useLocation } from 'react-router-dom';
 
 function TicketCountDiv({max, min, price, setFullValueTicket, setQuantityEvent, quantityEvent, item}) {
+  const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
     const [ticketCountSub, setTicketCountSub] = useState(0)
+    const {pathname} = useLocation()
 
     const handleClick = (op) =>{
         let newTicketCountSub = ticketCountSub;
@@ -31,7 +34,7 @@ function TicketCountDiv({max, min, price, setFullValueTicket, setQuantityEvent, 
   return (
        <div className='Events_ticket_price'>
 
-            <p>{price} AMD</p>
+            {pathname === `/${leng}/` && <p>{price} AMD</p>}
 
             <div className='packet_div_count'>
                 <span id='minus' onClick={()=> handleClick('-')}>{minusIcon}</span>

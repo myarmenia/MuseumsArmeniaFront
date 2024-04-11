@@ -26,6 +26,7 @@ import MyAccount from './components/ProfilePages/MyAccount/MyAccount';
 import OrderHistory from './components/ProfilePages/OrderHistory/OrderHistory';
 import { useSelector } from 'react-redux';
 import { getIsTemp } from './store/slices/Auth/AuthSlice';
+import EventSinglePage from './components/EventSinglePage/EventSinglePage';
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('');
@@ -180,14 +181,17 @@ function App() {
                 </PrivateRouteForOutSider>
               }
             />
-            <Route
-              path="events"
-              element={
-                <PrivateRouteForOutSider>
-                  <EventsPage />
-                </PrivateRouteForOutSider>
-              }
-            />
+            <Route path='events'>
+                <Route
+                  index
+                  element={
+                    <PrivateRouteForOutSider>
+                      <EventsPage />
+                    </PrivateRouteForOutSider>
+                  }
+                />
+                <Route path=':id' element={<PrivateRouteForOutSider><EventSinglePage/></PrivateRouteForOutSider>}/> 
+            </Route>
 
             <Route
               path="profilePage"

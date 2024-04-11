@@ -26,7 +26,7 @@ i18n.use(initReactI18next).init({
                'Գնել հիմա',
                'Տեսնել Բոլորը',
                'Ուղարկել',
-               'Ավելացնել',
+               'Զամբյուղ',
                'Դիմել',
                'ՈՒղարկել',
                'Այո',
@@ -39,14 +39,14 @@ i18n.use(initReactI18next).init({
             ],
 
             footer_title:
-               'Հայաստանի Հանրապետության Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
+               'ՀՀ Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
 
             news_section_title: 'ՎԵՐՋԻՆ ՆՈՐՈՒԹՅՈՒՆՆԵՐ',
 
             aboute_us_section_title: ['ԿԱՐԴԱՑԵՔ', 'ՄԵՐ ՄԱՍԻՆ'],
 
             abouteUs_section_info:
-               'Հայաստանի պատմության թանգարանը ազգային նշանակության մշակութային կազմակերպություն է, որն ավելի քան մեկ դար ձեռք է բերել, հավաքել, հայտնաբերել, հաշվառել, պահպանել, ուսումնասիրել, մեկնաբանել և ցուցադրել Հայաստանին և հայ ժողովրդին առնչվող շոշափելի և ոչ նյութական մշակութային արժեքներ։ , նպաստելով գիտությանը, կրթությանը, զբոսաշրջությանը։ զարգացում. Հիմնվելով մոտ չորս հարյուր հազար հնագիտական, ազգագրական, դրամագիտական և այլ հավաքածուների վրա՝ թանգարանը փորձում է կամրջել անցյալն ու ապագան։ Թանգարանային հավաքածուն արտացոլում է Հայաստանի մշակույթի և պատմության ամբողջական պատկերը՝ սկսած նախապատմական ժամանակներից (մեկ միլիոն ութ հարյուր հազար տարիներ առաջ) առ այսօր։ Թանգարանը ստեղծվել է Հայաստանի Առաջին Հանրապետության խորհրդարանի 439 օրենքով (09.09.1919 թ.)։ Այն կոչվել է Ազգագրական-մարդաբանական թանգարան-գրադարան։ Այն բացվել է այցելուների համար 1921թ. օգոստոսի 20-ին։ Անվանափոխության ենթարկվել։ Հայաստանի պետական կենտրոնական (1922), մշակութային-պատմական (1931), պատմական (1935), Հայաստանի պատմության պետական թանգարան (1962) և Հայաստանի պատմության թանգարան (2003 թ.)։',
+               'Թանգարան, գիտական, գիտալուսավորական կառույց է, որտեղ հավաքագրվում, պահպանվում, ուսումնասիրվում, մասսայականացվում են բնապատմական, նյութական և հոգևոր մշակութային հուշարձանները՝ բնության և մարդկային հասարակության զարգացման մասին գիտելիքների մասին սկզբնաղբյուրները։ Թանգարանների ֆոնդերում հիմնականում կենտրոնացվում են իրեղեն առարկաներ, գրավոր աղբյուրներ և արվեստի ստեղծագործություններ։ Ժամանակակից գիտական դասակարգմամբ թանգարանները տարբերվում են ըստ տիպերի և ուղղվածության։ Ըստ տիպերի լինում են գիտահետազոտական և ուսումնական, ըստ ուղղվածության՝ պատմության, բնագիտության, արվեստագիտության, գրականության, տեխնիկայի և այլն։ Առանձին խումբ են կազմում հուշային (մեմորիալ), ինչպես նաև կոմպլեքս թանգարանները։ Հայաստանում թանգարանների նախատիպեր կային դեռևս ուրարտական շրջանում (մ.թ.ա. 9-ից 6-րդ դարեր) Ուրարտուի մայրաքաղաք Տուշպայում և այլ քաղաք-ամրոցներում։ Միջնադարյան Հայաստանում երևան եկան իսկական թանգարանները։ Հովհաննես Դրասխանակերտցին 9-ից 10-դ դարերում իր «Հայոց պատմություն» աշխատության մեջ երեք տիպի թանգարան է հիշատակում՝ արքունի, իշխանական տների և եկեղեցական։ Հայկական թանգարանների կազմակերպման գործը զգալի չափով ընդլայնվեց 19-րդ դարում։',
 
             museum_slide_title: ['Ընտրեք թանգարաննները', 'ՄԵՐ ԹԱՆԳԱՐԱՆՆԵՐԸ'],
 
@@ -507,7 +507,7 @@ i18n.use(initReactI18next).init({
                'Ընտրել միջոցառում',
                'Պատվիրել տոմս',
                'Ընդամենը - ',
-               'Խնդրում ենք մուտք գործել՝ ձեր զամբյուղին տոմս կամ ապրանք ավելացնելու համար:',
+               'Մուտք գործել՝ զամբյուղին տոմս կամ ապրանք ավելացնելու համար:',
             ],
 
             musseumPage_title: ['ՀԱՅԿԱԿԱՆ ԹԱՆԳԱՐԱՆՆԵՐ', 'Զտել', 'Կարդալ ավելին'],
@@ -538,6 +538,29 @@ i18n.use(initReactI18next).init({
             clothes: 'Հագուստ',
             ticket_error_message: 'Տոմսն Ընտրված չէ',
 
+            eventPageTitle: 'Հայաստանի բոլոր թանգարանների միջոցառումները',
+
+            location_name: 'ՀՀ, Երևան 0010, Վազգեն Սարգսյան 3 Կառավարական տուն 2',
+
+            app_stor_and_google_play: 'Ներբեռնեք մեր Հավելվածը',
+
+            footer_botom: '2024 Հայաստանի  Թանգարաններ: Հեղինակային իրավունքները պաշտպանված են: Կայքը ստեղծել է',
+
+            event_single_page: [
+               'Տեսնել ավելին',
+               'Գնել տոմս',
+               'Նկարագրություն',
+               'Հրավիրել'
+            ],
+
+            event_single_page_modal: [
+               'Ամսաթիվ',
+               'Ժամանակ',
+               'Գին',
+               'Հասանելի տոմսերի քանակը'
+            ],
+            more_events: 'Նմանատիպ թանգարաններ',
+
          },
       },
 
@@ -564,7 +587,7 @@ i18n.use(initReactI18next).init({
                'Купить сейчас',
                'Увидеть все',
                'Отправлять',
-               'Добавлять',
+               'Корзина',
                'Применять',
                'Отправлять',
                'Да',
@@ -583,7 +606,7 @@ i18n.use(initReactI18next).init({
             aboute_us_section_title: ['ЧИТАТЬ', 'О НАС'],
 
             abouteUs_section_info:
-               'Музей истории Армении – культурная организация национального значения, которая на протяжении более века приобретала, собирала, открывала, записывала, сохраняла, изучала, интерпретировала и экспонировала материальные и нематериальные культурные ценности, связанные с Арменией и армянством. люди. , вклад в науку, образование, туризм. разработка. Основываясь на около четырехстах тысячах археологических, этнографических, нумизматических и других коллекций, музей пытается соединить прошлое и будущее. Коллекция музея отражает полную картину культуры и истории Армении, начиная с доисторических времен (миллион восемьсот тысяч лет назад) и до наших дней. Музей был основан Законом 439 Парламента Первой Республики Армения (09.09.1919). Он назывался Этнографо-антропологический музей-библиотека. Он был открыт для посетителей в 1921 году. 20 августа. Происходит смена имени. Государственный центр Армении (1922 г.), Культурно-исторический (1931 г.), Исторический (1935 г.), Государственный музей истории Армении (1962 г.) и Музей истории Армении (2003 г.).',
+               'Музей представляет собой научно-просветительскую структуру, в которой собираются, сохраняются, изучаются и распространяются природно-исторические, материальные и духовные памятники культуры - первоисточники знаний о природе и развитии человеческого общества. В музейных коллекциях в основном представлены материальные предметы, письменные источники и произведения искусства. Согласно современной научной классификации музеи различаются по типам и направлениям. По типам бывают научно-исследовательские и учебные, по направлению - исторические, естествознательные, искусствоведческие, литературоведческие, технические и т.д. Мемориальные и комплексные музеи образуют отдельную группу. Прообразы музеев в Армении существовали еще в урартский период (9-6 вв. до н.э.) в Тушпе, столице Урарту, и в других городах-крепостях. В средневековой Армении появились настоящие музеи. Ованес Драсханакерци в своем труде «История армян» IX-X веков упоминает три типа музеев: царские, княжеские и церковные. В XIX веке работа по организации армянских музеев значительно расширилась.',
 
             museum_slide_title: ['Выбирайте музеи', 'НАШИ МУЗЕИ'],
 
@@ -1048,7 +1071,7 @@ i18n.use(initReactI18next).init({
                'Выбрать событие',
                'Заказать билет',
                'Итого - ',
-               'Пожалуйста, войдите, чтобы добавить билет или товар в корзину.',
+               'Войдите, чтобы добавить билет или товар в корзину.',
             ],
             standart: 'Стандарт',
             discount: 'Скидка',
@@ -1071,8 +1094,32 @@ i18n.use(initReactI18next).init({
             clothes: 'Одежда',
 
 
-            ticket_error_message: 'Билет не выбран'
+            ticket_error_message: 'Билет не выбран',
 
+            eventPageTitle: 'Мероприятия всех музеев Армении',
+
+            location_name: "Дом Правительства 2, Вазген Саргсян 3, Ереван 0010, Армения",
+
+            app_stor_and_google_play: 'Загрузите наше приложение',
+
+
+            footer_botom: '2024 Музеи Армении. Авторские права защищены. Сайт создан',
+
+            event_single_page: [
+               'Узнать больше',
+               'Купить билет',
+               'Описание',
+               'Приглашать'
+            ],
+
+            event_single_page_modal: [
+               'Дата',
+               'Время',
+               'Цена',
+               'Количество доступных билетов'
+            ],
+
+            more_events: 'Похожие музеи',
          },
       },
       en: {
@@ -1098,7 +1145,7 @@ i18n.use(initReactI18next).init({
                'Buy now',
                'See All',
                'Send',
-               'Add',
+               'Basket',
                'Apply',
                'Send',
                'Yes',
@@ -1118,7 +1165,7 @@ i18n.use(initReactI18next).init({
             aboute_us_section_title: ['READ', 'ABOUT US'],
 
             abouteUs_section_info:
-               'The Museum of the History of Armenia is a cultural organization of national importance, which for more than a century has acquired, collected, discovered, recorded, preserved, studied, interpreted, and exhibited tangible and intangible cultural values related to Armenia and the Armenian people. , contributing to science, education, tourism. development. Based on about four hundred thousand archaeological, ethnographic, numismatic, and other collections, the museum tries to bridge the past and the future. The museum collection reflects the complete picture of the culture and history of Armenia, starting from prehistoric times (one million eight hundred thousand years ago) until today. The museum was established by Law 439 of the Parliament of the First Republic of Armenia (09.09.1919). It was called the Ethnographic-Anthropological Museum-Library. It was opened for visitors in 1921. on August 20. Undergoing a name change. State Central of Armenia (1922), Cultural-Historical (1931), Historical (1935), State Museum of the History of Armenia (1962) and Museum of the History of Armenia (2003).',
+               'The museum is a scientific and educational structure, where natural historical, material and spiritual cultural monuments are collected, preserved, studied, and disseminated - the primary sources of knowledge about nature and the development of human society. Museum collections mainly focus on material objects, written sources and works of art. According to the modern scientific classification, museums differ according to types and direction. According to the types, there are research and educational ones, according to the direction - history, natural science, art science, literature, technology, etc. Memorial and complex museums form a separate group. There were prototypes of museums in Armenia as early as the Urartian period (9th to 6th centuries BC) in Tushpa, the capital of Urartu, and in other city-fortresses. Real museums appeared in medieval Armenia. Hovhannes Draskhanakertsi in his work "History of Armenians" in the 9th to 10th centuries mentions three types of museums: royal, princely, and church. The work of organizing Armenian museums expanded significantly in the 19th century.',
 
             museum_slide_title: ['Choose museums', 'OUR MUSEUMS'],
 
@@ -1575,7 +1622,7 @@ i18n.use(initReactI18next).init({
                'Choose Event',
                'Order ticket',
                'Summary - ',
-               'Please login to add a ticket or item to your cart.',
+               'Sign in to add a ticket or item to cart.',
             ],
             standart: 'Standart',
             discount: 'Discount',
@@ -1598,7 +1645,31 @@ i18n.use(initReactI18next).init({
             clothes: 'Clothes',
 
 
-            ticket_error_message: 'Ticket not selected'
+            ticket_error_message: 'Ticket not selected',
+
+            eventPageTitle: 'Events of all museums in Armenia',
+
+            location_name: "Government House 2, Vazgen Sargsyan 3, Yerevan 0010, Armenia",
+
+            app_stor_and_google_play: 'Download our App',
+
+            footer_botom: '2024 Museums of Armenia. Copyright reserved. Site created by',
+
+            event_single_page: [
+               'See more',
+               'Buy ticket',
+               'Description',
+               'Invite'
+            ],
+
+            event_single_page_modal: [
+               'Date',
+               'Time',
+               'Price',
+               'Number of tickets available'
+            ],
+
+            more_events: 'Similar museums',
 
          },
       },

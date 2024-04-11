@@ -14,6 +14,7 @@ import { postBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketApi'
 import { selectBuyTicket, setObj } from '../../store/slices/BuyTicketSlice/BuyTicketSlice'
 import { setModalTicketIsOpen, setTicketType } from '../../store/slices/MuseumTicket/MuseumTicketSlice'
 import { MuseumTicketModal, TicketMuseumBlock } from '../MuseumPage/MuseumOne/Ticket'
+import OutSideErrorModal from '../OutSideErrorModal/OutSideErrorModal'
 
 function PrivateStandartAndAbonementTicket({ changeTicketType }) {
     const { t, i18n } = useTranslation()
@@ -287,7 +288,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
 
             else {
                 setErrorMessageTicket(false)
-                dispatch(setTicketType({ kindOf: 'form', type: 'Buy Ticket' }))
+                dispatch(setTicketType({ kindOf: 'form', type: 'Buy Ticket', ticketType: 'standart' }))
                 dispatch(setModalTicketIsOpen(true))
                 setTicketTypesBlock(false)
                 dispatch(setObj({
@@ -374,7 +375,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
     return (
         <>
             <div className='private_standart_ticket'>
-                {cartErrorMessage && <h3 className='cart_error_message'>{t('Ticket_type_placeholder.8')}</h3>}
+                 {cartErrorMessage && <OutSideErrorModal txt={t('Ticket_type_placeholder.8')}/>}
                 <div className='private_standart_ticket_regions' ref={regionRef} onClick={(e) => handleRegionInpFocus(e)}>
                     <input type="text" onKeyDown={handleKeyDown} onClick={() => setopenModal(!openModal)} value={selectedRegion.value} onChange={() => { }} placeholder={t('Ticket_type_placeholder.0')} />
                     <div className='placeholder_div'>
