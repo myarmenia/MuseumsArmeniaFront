@@ -107,7 +107,6 @@ const MuseumPagesSlice = createSlice({
             state.dataMuseumProducts.products_category = [];
          })
          .addCase(getMuseumOneProducts.fulfilled, (state, { payload }) => {
-            console.log(payload, 222222222222);
             state.loadingMuseumProducts = 'fulfilled';
             state.dataMuseumProducts.dataProducts = payload.data.products;
             state.dataMuseumProducts.products_category = payload.data.products_category;

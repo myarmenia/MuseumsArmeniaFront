@@ -7,6 +7,7 @@ import {
    PaginationExample,
    CustomSectionTitle,
    MuseumMinBlock,
+   IsWrong,
 } from './index';
 import { postMuseumPages } from '../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import LoadSpinner from '../LoadSpinner/LoadSpinner';
@@ -54,15 +55,7 @@ const MuseumPage = () => {
                </div>
             </div>
          ) : (
-            <div
-               style={{
-                  height: '100vh',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-               }}>
-               <h3>Ինչ որ բան այն չէ !</h3>
-            </div>
+            <IsWrong text={t(`isWrong`)} />
          )}
       </>
    );

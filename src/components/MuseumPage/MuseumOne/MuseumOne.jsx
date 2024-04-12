@@ -36,7 +36,7 @@ const MuseumOne = () => {
    const { id } = useParams();
    const dispatch = useDispatch();
    const { isAuth, authUser } = useSelector((store) => store.auth);
-
+   console.log(id, 'iddddd');
    const {
       loadingStatus,
       loadingdataMuseumOne,

@@ -72,6 +72,24 @@
    margin-bottom: 24px;
 }
 
+.goBack {
+   padding: 15px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   cursor: pointer;
+}
+.goBack > p {
+   border: none;
+   background-color: inherit;
+   font-family: globalFont;
+   font-weight: 600;
+   font-size: 17px;
+   line-height: 20px;
+   color: rgb(206, 166, 112);
+   padding: 0;
+}
+
 @media (max-width: 1000px) {
    .MuseumOneBranch-parList {
       flex-wrap: wrap;

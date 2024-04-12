@@ -25,9 +25,7 @@ const MuseumMinBlock = ({ id, address, name, photo, region, description }) => {
                </div>
                <div className="par_MuseumMinBlock-description">
                   <div className="block-description">
-                     <Link to={`museum/${id}`}>
-                        <h5 className="museum_name">{name}</h5>
-                     </Link>
+                     <h5 className="museum_name">{name}</h5>
 
                      {/* <p className="museum_description">{description.slice(0, 40)}...</p> */}
                      <p className="museum_region">

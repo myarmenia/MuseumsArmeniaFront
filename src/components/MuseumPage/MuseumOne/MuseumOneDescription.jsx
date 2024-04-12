@@ -50,7 +50,7 @@ const MuseumOneDescription = ({
                newClass="newStyleBtn"
             />
          )}
-         <h4 className="museumOne_title">{t(`description_museum`)}...</h4>
+         {/* <h4 className="museumOne_title">{t(`description_museum`)}...</h4> */}
          <p>{description}</p>
          {photos.length > 0 && (
             <div className="MuseumOne_parent-imgList">

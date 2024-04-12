@@ -21,12 +21,18 @@ const MuseumOneShop = ({ museumId }) => {
 
    const filter = React.useCallback((obj) => {
       setActivCategoru(obj);
-      dispatch(getMuseumOneProducts({ museumId: museumId, productId: obj.id }));
+      setPageCount(1);
    }, []);
    const onChangePag = React.useCallback((count) => {
-      setActivCategoru(count);
+      setPageCount(count);
       // dispatch(getMuseumOneProducts({ museumId: museumId, productId: obj.id }));
    }, []);
+
+   React.useEffect(() => {
+      dispatch(
+         getMuseumOneProducts({ museumId: museumId, productId: activCategoru.id, pageCount }),
+      );
+   }, [pageCount, activCategoru]);
 
    return (
       <div className="museumOne_pageStyle">

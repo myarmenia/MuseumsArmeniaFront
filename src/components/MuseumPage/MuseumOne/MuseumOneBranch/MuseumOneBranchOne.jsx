@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { postMuseumOnePages } from '../../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
-import { CustomSectionTitle, MuseumOneDescription, MuseumOnecontact } from '../../index';
+import { CustomSectionTitle, MuseumOneDescription, MuseumOnecontact, IsWrong } from '../../index';
 import LoadSpinner from '../../../LoadSpinner/LoadSpinner';
+import { GoBackIcons } from '../../../../iconFolder/icon';
 const MuseumOneBranchOne = () => {
+   const [t, i18n] = useTranslation();
    const { id, branchId } = useParams();
    const { dataMuseumOne, loadingdataMuseumOne } = useSelector((state) => state.museumPages);
    const dispatch = useDispatch();
@@ -21,20 +24,30 @@ const MuseumOneBranchOne = () => {
       }
    }, [dataMuseumOne]);
 
-   console.log(branch, 'dataMuseumOneeeeee');
+   const navigate = useNavigate();
+
+   const goBack = () => {
+      navigate(-1);
+   };
    return (
       <div className="container">
          {loadingdataMuseumOne === 'loading' && !branch ? (
             <LoadSpinner />
          ) : loadingdataMuseumOne === 'fulfilled' && branch ? (
             <div>
-               <CustomSectionTitle text={'The name of the museum branch'} />
+               <CustomSectionTitle text={branch.name} />
                <div className="MuseumOneBranchOne-section">
                   <div className="BranchOne-img">
                      <img src={branch.photo} alt="" />
                   </div>
                   <div className="museumOne_parent-section1">
                      <div className="museumOne-blockLeft">
+                        <div onClick={goBack} className="goBack">
+                           <GoBackIcons />
+                           <p className="goBack" onClick={goBack}>
+                              {dataMuseumOne.name}
+                           </p>
+                        </div>
                         <MuseumOneDescription description={branch.description} openBtn={false} />
                      </div>
                      <div className="museumOne-blockRigth ">
@@ -48,7 +61,7 @@ const MuseumOneBranchOne = () => {
                </div>
             </div>
          ) : (
-            <div>ինչվոր մի բան այն չի</div>
+            <IsWrong text={t(`isWrong`)} />
          )}
       </div>
    );
