@@ -21,6 +21,8 @@ const initialState = {
    dataMuseumProducts: {
       dataProducts: [],
       products_category: [],
+      pageCount: 0,
+      totalCount: 0,
    },
 };
 
@@ -29,8 +31,8 @@ const MuseumPagesSlice = createSlice({
    initialState,
    reducers: {
       filterRegionMuseum(state, { payload }) {
-         if (payload.region) {
-            state.filterDataMuseum = state.dataMuseum.filter((el) => el.region === payload.region);
+         if (payload.type) {
+            state.filterDataMuseum = state.dataMuseum.filter((el) => el.region === payload.type);
          } else {
             state.filterDataMuseum = state.dataMuseum;
          }
@@ -108,11 +110,15 @@ const MuseumPagesSlice = createSlice({
             state.loadingMuseumProducts = 'fulfilled';
             state.dataMuseumProducts.dataProducts = payload.data.products;
             state.dataMuseumProducts.products_category = payload.data.products_category;
+            state.dataMuseumProducts.pageCount = payload.params.page_count;
+            state.dataMuseumProducts.totalCount = payload.params.total_count;
          })
          .addCase(getMuseumOneProducts.rejected, (state, action) => {
             state.loadingMuseumProducts = 'rejected';
             state.dataMuseumProducts.dataProducts = [];
             state.dataMuseumProducts.products_category = [];
+            state.dataMuseumProducts.pageCount = 0;
+            state.dataMuseumProducts.totalCount = 0;
          });
    },
 });

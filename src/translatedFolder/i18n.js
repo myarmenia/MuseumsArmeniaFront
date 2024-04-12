@@ -33,7 +33,7 @@ i18n.use(initReactI18next).init({
                'Ոչ',
                'Սկսեք զրուցել',
                'Գնել տոմս',
-               'Աբոնիմենտ տոմս',
+               'Աբոնիմենտ',
                'Գրեք մեզ',
                'Զամբյուղում',
             ],
@@ -93,7 +93,7 @@ i18n.use(initReactI18next).init({
                'Գաղտնաբառը պետք է պարունակի փոքրատառեր',
                'Գաղտնաբառը պետք է պարունակի մեծատառ',
                'Պարտադիր գրել գաղտնաբառը',
-               'Գաղտնաբառները չեն համընկնում',
+               'Գաղտնաբառները չեն համնկնում',
                'Գրել միայն թվանշան',
             ],
 
@@ -510,10 +510,10 @@ i18n.use(initReactI18next).init({
                'Խնդրում ենք մուտք գործել՝ ձեր զամբյուղին տոմս կամ ապրանք ավելացնելու համար:',
             ],
 
-            musseumPage_title: ['ՀԱՅԿԱԿԱՆ ԹԱՆԳԱՐԱՆՆԵՐ', 'Զտել', 'Կարդալ ավելին'],
-            webSideMusum: ['ՎԵԲ ԿԱՅՔ', 'հրավիրել', 'Թանգարանի բացատ'],
+            musseumPage_title: ['ՀԱՅԱՍՏԱՆԻ ԹԱՆԳԱՐԱՆՆԵՐ', 'Զտել', 'Կարդալ ավելին'],
+            webSideMusum: ['ՎԵԲ ԿԱՅՔ', 'հրավիրել', 'Թանգարանի Աբոնեմենտ'],
             ButtonBlock: [
-               'Անսահմանափակ մուտք 365 օր',
+               'Գնելով Աբոնեմենտ կարող եք 365 օրվա ընթացքում անսահմանափակ անգամ այցելել թանգարան:',
                'Զբոսավարի, կրթական ծրագրերի և այլ հարցերի համար գրեք',
             ],
 
@@ -529,15 +529,23 @@ i18n.use(initReactI18next).init({
                'Ընդամենը',
                'Գնել տոմս',
                'Աբոնիմենտ տոմս',
-
-               'Աբոնեմենտ տոմսը անսահմանափակ մուտք է 365 օր:',
+               'Աբոնիմենտ տոմսը անսահմանափակ մուտք է 365 օր:',
             ],
             selectCategory: 'Ընտրեք կատեգորիա',
             book: 'Գիրք',
             souvenir: 'Հուշանվեր',
             clothes: 'Հագուստ',
             ticket_error_message: 'Տոմսն Ընտրված չէ',
-
+            mintitle: 'Հայաստանի թանգարանները մեկ հարթակում',
+            educationTitle:
+               'Կապվեք թանգարանի հետ ՝ կրթական ծրագրերի Տոմսեր պատվիրելու համար ՝ հաղորդագրություն ուղարկելով կամ զանգահարելով:',
+            thisMuseum: 'Այս թանգարանի խանութը',
+            buy: 'Գնել',
+            productsErrorMessages: 'Ապրանքներ չեն գտնվել',
+            Showing: ['Ցուցադրվում են', 'արդյունքները', 'ից'],
+            virtualExcursion: 'Վիրտուալ էքսկուրսիա',
+            museumBranch: 'Թանգարանի մասնաճյուղերը',
+            isWrong: 'Ինչ - որ բան սխալ է !',
          },
       },
 
@@ -571,7 +579,7 @@ i18n.use(initReactI18next).init({
                'нет',
                'Начать Чат',
                'Купить билет',
-               'Абонементный билет',
+               'Абонементный',
                'Напишите нам',
                'В корзину',
             ],
@@ -668,7 +676,7 @@ i18n.use(initReactI18next).init({
             director: 'Директор',
             phone: 'телефоны',
             educationalPrograms: 'ПОСТОЯННЫЕ ВЫСТАВКИ ИЛИ ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ',
-            haveQuestions: 'У тебя есть вопросы?',
+            haveQuestions: 'Есть вопросы?',
             NumberOfVisitors: 'Количество посетителей',
             minCount: 'минимум',
             maxCount: 'Максимум',
@@ -1023,11 +1031,11 @@ i18n.use(initReactI18next).init({
                'Если вы не зарегистрированы, напишите нам свой адрес электронной почты. письмо для получения ответного письма от музея',
                'Привет. Приятно видеть тебя здесь. Нажимая кнопку «Начать чат», вы соглашаетесь на обработку ваших персональных данных, как описано в нашей Политике конфиденциальности.',
             ],
-            musseumPage_title: ['АРМЯНСКИЕ МУЗЕИ', 'Фильтр', 'Читать далее'],
+            musseumPage_title: ['МУЗЕИ АРМЕНИИ', 'Фильтр', 'Читать далее'],
             webSideMusum: ['ВЕБ-САЙТ', 'приглашать', 'Музейный абонемент'],
             ButtonBlock: [
-               'Безлимитный доступ на 365 дней',
-               'Напишите гиду, образовательным программам и другим вопросам.',
+               'Купив абонемент, вы можете посещать музей неограниченное количество раз в течение 365 дней:',
+               'Напишите нам для бронирования гида, образовательных программ и по другим вопросам.',
             ],
 
             ticketsType: ['Стандартный билет', 'Абонемент', 'Единый билет', 'События'],
@@ -1062,17 +1070,23 @@ i18n.use(initReactI18next).init({
                'Общий',
                'Купить билет',
                'Абонементный билет',
-
                'Абонементный билет — это безлимитный доступ на 365 дней.',
             ],
             selectCategory: 'Выберите категорию',
             book: 'Книга',
             souvenir: 'Сувенир',
             clothes: 'Одежда',
-
-
-            ticket_error_message: 'Билет не выбран'
-
+            ticket_error_message: 'Билет не выбран',
+            mintitle: 'Музеи Армении на одной платформе',
+            educationTitle:
+               'Свяжитесь с музеем, чтобы заказать билеты на образовательные программы, отправив сообщение или позвонив по телефону.',
+            thisMuseum: 'Магазин этого музея',
+            buy: 'Купить',
+            productsErrorMessages: 'Продукты не найдены',
+            Showing: ['Показаны', 'из', 'результатов'],
+            virtualExcursion: 'Виртуальная экскурсия',
+            museumBranch: 'Филиалы музея',
+            isWrong: 'Что-то не так !',
          },
       },
       en: {
@@ -1105,7 +1119,7 @@ i18n.use(initReactI18next).init({
                'No',
                'Start Chat',
                'Buy Ticket',
-               'Abonement ticket',
+               'Abonement',
                'Write to us',
                'Add to cart',
             ],
@@ -1551,10 +1565,10 @@ i18n.use(initReactI18next).init({
                'If you are not registered, please write us your email address. letter to receive a response letter from the museum',
                'Hello. Nice to see you here. By clicking the Start Chat button, you agree to the processing of your personal data as described in our Privacy Policy.',
             ],
-            musseumPage_title: ['ARMENIAN MUSEUMS', 'Filter', 'Read more'],
+            musseumPage_title: ['MUSEUMS OF ARMENIA', 'Filter', 'Read more'],
             webSideMusum: ['WEB SITE', 'invate', 'Museum abonement'],
             ButtonBlock: [
-               'Unlimited access for 365 days',
+               'By purchasing a subscription, you can visit the museum an unlimited number of times for 365 days:',
                'Write for tour guide, educational programs and other questions',
             ],
             ticketsType: ['Standard ticket', 'Abonement', 'United ticket', 'Events'],
@@ -1589,17 +1603,23 @@ i18n.use(initReactI18next).init({
                'Total',
                'Buy Ticket',
                'Abonement ticket',
-
                'Abonement ticket is unlimited access for 365 days.',
             ],
             selectCategory: 'Select  category',
             book: 'Book',
             souvenir: 'Souvenir',
             clothes: 'Clothes',
-
-
-            ticket_error_message: 'Ticket not selected'
-
+            ticket_error_message: 'Ticket not selected',
+            mintitle: 'Museums of Armenia on one platform',
+            educationTitle:
+               'Contact the museum to order tickets for educational programs by message or call.',
+            thisMuseum: 'Shop of this museum',
+            buy: 'Buy',
+            productsErrorMessages: 'No products found',
+            Showing: ['Showing ', 'of', 'results'],
+            virtualExcursion: 'Virtual Excursion',
+            museumBranch: 'Branches of the museum',
+            isWrong: 'Something is wrong !',
          },
       },
    },

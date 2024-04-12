@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 
 import { postMuseumTicket } from './MuseumTicketApi';
@@ -69,6 +68,7 @@ const MuseumTicketSlice = createSlice({
          state.tickets = state.tickets.map((el) => {
             return { ...el, count: 0 };
          });
+         state.responseMessages = '';
       },
    },
    extraReducers: (builder) => {
@@ -106,7 +106,6 @@ const MuseumTicketSlice = createSlice({
          });
    },
 });
-
 
 export const MuseumTicketReducer = MuseumTicketSlice.reducer;
 export const { setModalTicketIsOpen, setTicketType, setDataItems, setResetDataItems } =
