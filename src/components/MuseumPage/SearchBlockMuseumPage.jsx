@@ -21,20 +21,19 @@ const SearchBlockMuseumPage = ({ regions }) => {
          id: idx + 1,
       };
    });
-   console.log(region, 'region');
+
    const filter = React.useCallback((obj) => {
       setActivRegion(obj);
-
       dispatch(filterRegionMuseum(obj));
    }, []);
 
    return (
       <div className="parent_searchBlock">
          <div style={{ width: '100%', position: 'relative' }}>
-            <div className="parent_searchBlock-title">
+            {/* <div className="parent_searchBlock-title">
                <FilterIcon />
                <p>{t(`musseumPage_title.1`)}</p>
-            </div>
+            </div> */}
             <CustomSearshBlock
                fun={filter}
                activ={activRegion}

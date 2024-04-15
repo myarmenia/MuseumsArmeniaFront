@@ -8,33 +8,34 @@ const MuseumMinBlock = ({ id, address, name, photo, region, description }) => {
    const { t, i18n } = useTranslation();
    return (
       <div className="par_MuseumMinBlock">
-         {/* <Link to={`museum/${id}`}> */}
+         <Link to={`museum/${id}`}>
             <div className="MuseumMinBlock">
                <div className="MuseumMinBlock-parImg">
                   <div
                      className="MuseumMinBlock_img"
                      style={{
                         backgroundImage: `url(${photo})`,
-                     }}
-                     >
-                       <div className="MuseumMinBlock_img-parLink">
-                           <Link className="MuseumMinBlock_img-link" to={`museum/${id}`}>
-                              {t(`musseumPage_title.2`)}
-                           </Link>
-                       </div>
-                     </div>
+                     }}>
+                     {/* <div className="MuseumMinBlock_img-parLink">
+                     <Link className="MuseumMinBlock_img-link" to={`museum/${id}`}>
+                        {t(`musseumPage_title.2`)}
+                     </Link>
+                  </div> */}
+                  </div>
                </div>
                <div className="par_MuseumMinBlock-description">
                   <div className="block-description">
                      <h5 className="museum_name">{name}</h5>
-                     <p className="museum_description">{description.slice(0, 40)}...</p>
+
+                     {/* <p className="museum_description">{description.slice(0, 40)}...</p> */}
                      <p className="museum_region">
-                        <LocationIcon  width={10} height={14} fill={'#575757'}/>
-                        {t(`${region}`)}</p>
+                        <LocationIcon width={10} height={14} fill={'#575757'} />
+                        {t(`${region}`)}
+                     </p>
                   </div>
                </div>
             </div>
-         {/* </Link> */}
+         </Link>
       </div>
    );
 };

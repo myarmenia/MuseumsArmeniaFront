@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
    setDataItems,
    setTicketType,
-   setResetDataItems,
 } from '../../../../store/slices/MuseumTicket/MuseumTicketSlice';
 import { postMuseumTicket } from '../../../../store/slices/MuseumTicket/MuseumTicketApi';
 import { useTranslation } from 'react-i18next';
@@ -20,10 +19,6 @@ const TicketMuseumCatalog = () => {
    const { isAuth } = useSelector((store) => store.auth);
    const hendleClickItems = useCallback((dovnUp, obj) => {
       dispatch(setDataItems({ dovnUp, obj }));
-   }, []);
-
-   useEffect(() => {
-      return () => dispatch(setResetDataItems());
    }, []);
 
    const HendleBuyTicket = useCallback(() => {
