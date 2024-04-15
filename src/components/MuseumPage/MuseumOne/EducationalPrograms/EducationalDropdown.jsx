@@ -22,14 +22,10 @@ const EducationalDropdown = ({ description, name, min_quantity, max_quantity, id
       <div key={id} className="educationalPrograms-minBlock">
          <div className="educationalPrograms-minBlock-header">
             <p className="educationalPrograms-minBlock-header-title">{name}</p>
-            <span onClick={handleToggle}>
-                {
-                  isOpen ? <MoreMinusIcons/> : <MorePlusIcons />
-                }
-            </span>
+            <span onClick={handleToggle}>{isOpen ? <MoreMinusIcons /> : <MorePlusIcons />}</span>
          </div>
          <div className="educationalPrograms-minBlock-parDropDown" style={contentStyle}>
-            <p>{description.slice(0, 350)} ...</p>
+            <p>{description}</p>
 
             <p>{t(`NumberOfVisitors`)}</p>
 

@@ -17,6 +17,7 @@ import { setModalTicketIsOpen, setTicketType } from '../../store/slices/MuseumTi
 import { TicketMuseumBlock } from '../MuseumPage/MuseumOne/Ticket'
 import { postBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketApi'
 import { selectBuyTicket, setObj } from '../../store/slices/BuyTicketSlice/BuyTicketSlice'
+import OutSideErrorModal from '../OutSideErrorModal/OutSideErrorModal'
 
 function PrivateEventTicket({changeTicketType}) {
     const {t, i18n} = useTranslation()
@@ -212,7 +213,7 @@ function PrivateEventTicket({changeTicketType}) {
                         quantity: sessionStorage.getItem(`quantity${el.id}`)
                     })).filter(el => {
                         if(el.quantity > 0){
-                            dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket'}))
+                            dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket', ticketType: 'standart'}))
                             dispatch(setModalTicketIsOpen(true))
                             setErrorMessageTicket(false)
                             
@@ -269,7 +270,7 @@ function PrivateEventTicket({changeTicketType}) {
     return (
         <>
             <div className='private_standart_ticket'>
-            {cartErrorMessage && <h3 className='cart_error_message'>{t('Ticket_type_placeholder.8')}</h3>}
+            {cartErrorMessage && <OutSideErrorModal txt={t('Ticket_type_placeholder.8')}/>}
             <DualCalendar {...{selectedMuseum, setStartDate, setEndDate, startDate, endDate, museumItem, setEventLineCalendar}}/>
 
             <div className='private_standart_ticket_regions' ref={regionRef} onClick={(e) => handleRegionInpFocus(e)}>

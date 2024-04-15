@@ -1,6 +1,9 @@
 .contact_us_section {
   /* margin: 250px 0; */
-  background-color: #f8f8f8;
+  background-image: url('../../images/contact_us_back.png');
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 1000px;
   padding-top: 150px;
 }
@@ -93,7 +96,7 @@
   .contact_us_section_block {
     flex-direction: column;
     gap: 50px;
-    height: 600px;
+    height: 700px;
   }
   .phone_email_div {
     flex-direction: column;

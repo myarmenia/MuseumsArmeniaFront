@@ -15,7 +15,12 @@ import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage'
 
 import AbouteUsPage from './components/AbouteUsPage/AbouteUsPage';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
-import { MuseumLayouts, MuseumPage, MuseumOne } from '../src/components/MuseumPage/index';
+import {
+  MuseumLayouts,
+  MuseumPage,
+  MuseumOne,
+  MuseumOneBranchOne,
+} from '../src/components/MuseumPage/index';
 import SaleTicketPage from './components/SaleTicketPage/SaleTicketPage';
 import Shop from './components/Shop/Shop';
 import SingleShop from './components/SingleShop/SingleShop';
@@ -26,6 +31,7 @@ import MyAccount from './components/ProfilePages/MyAccount/MyAccount';
 import OrderHistory from './components/ProfilePages/OrderHistory/OrderHistory';
 import { useSelector } from 'react-redux';
 import { getIsTemp } from './store/slices/Auth/AuthSlice';
+import EventSinglePage from './components/EventSinglePage/EventSinglePage';
 import ComboTicket from './components/ComboTicket/ComboTicket';
 import ContactWithUs from './components/contactWithUs/contactWithUs';
 import ChatProfile from './components/ProfilePages/ChatProfile/ChatProfile';
@@ -33,7 +39,7 @@ import QrCode from './components/ProfilePages/QrCode/QrCode';
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('');
-  const respTemp = useSelector(getIsTemp)
+  const respTemp = useSelector(getIsTemp);
 
   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
 
@@ -43,12 +49,11 @@ function App() {
 
   useEffect(() => {
     pathname == '/' && navigate(`/${leng}/`);
-    if(respTemp){
-      navigate(`/${leng}/login`)
-      localStorage.removeItem('token')
-      localStorage.removeItem('isAuth')
+    if (respTemp) {
+      navigate(`/${leng}/login`);
+      localStorage.removeItem('token');
+      localStorage.removeItem('isAuth');
     }
-
   }, []);
 
   const changeFont = (type) => {
@@ -121,6 +126,14 @@ function App() {
                 element={
                   <PrivateRouteForOutSider>
                     <MuseumOne />
+                  </PrivateRouteForOutSider>
+                }
+              />
+              <Route
+                path="museum/:id/branch/:branchId"
+                element={
+                  <PrivateRouteForOutSider>
+                    <MuseumOneBranchOne />
                   </PrivateRouteForOutSider>
                 }
               />
@@ -228,7 +241,7 @@ function App() {
                 path="orderhistory"
                 element={
                   <PrivateRoute>
-                    <OrderHistory/>
+                    <OrderHistory />
                   </PrivateRoute>
                 }
               />
@@ -242,21 +255,13 @@ function App() {
               />
             </Route>
             <Route
-              path="contact"
-              element={
-                <PrivateRouteForOutSider>
-                  <ContactWithUs />
-                </PrivateRouteForOutSider>
-              }
-            />
-            <Route
-              path="comboticket"
-              element={
-                <PrivateRouteForOutSider>
-                  <ComboTicket />
-                </PrivateRouteForOutSider>
-              }
-            />
+                path="comboticket"
+                element={
+                  <PrivateRouteForOutSider>
+                    <ComboTicket />
+                  </PrivateRouteForOutSider>
+                }
+              />
           </Route>
         </Route>
       </Routes>

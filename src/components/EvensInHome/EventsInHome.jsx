@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getEventsHome } from '../../store/slices/EventsPageSlice/EventsPageApi'
 import { selectHome_list } from '../../store/slices/EventsPageSlice/EventsPageSlice'
 import EventsInHomeItem from '../EventsInHomeItem/EventsInHomeItem'
+import ButtonSecond from '../ButtonSecond/ButtonSecond';
+
 
 function EventsInHome() {
     const {t, i18n} = useTranslation()
@@ -16,25 +18,26 @@ function EventsInHome() {
         dispatch(getEventsHome())
     },[])
 
-    console.log(respHome_list,'ayoadastacvec');
   return (
     <div className='events_in_home'>
         <div className='container'>
             <div className='events_in_home_block'>
                 <div className='lines_div_events'>
                      <img src={require('../../images/line_gold.png')} alt="" />
-                     <h1>{t('navMenuItems.2')}</h1>
+                     <h2>{t('navMenuItems.2')}</h2>
                      <img src={require('../../images/line_gold.png')} alt="" />
                 </div>
 
                 <div className='events_in_home_block_items'>
                     {
-                    respHome_list?.data  && respHome_list?.data.map(el => 
+                    respHome_list?.data  && respHome_list?.data.map((el, index) => 
 
-                            <EventsInHomeItem key={el.id} el={el}/>
+                            <EventsInHomeItem key={el.id} el={el} index={index}/>
                         )
                     }
                 </div>
+
+                <ButtonSecond txt="1" path="events"/>
             </div>
         </div>
     </div>

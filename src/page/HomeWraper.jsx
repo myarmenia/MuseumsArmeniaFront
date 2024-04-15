@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import NavBar from '../components/NavBar/NavBar';
 import BurgerMenu from '../components/BurgerMenu/BurgerMenu';
@@ -11,10 +11,22 @@ function HomeWraper({ changeFonSize, changeFont }) {
   const { pathname } = useLocation();
   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
   const ModalIsOpenShop = useSelector(getSetModalIsOpenShop);
+  const [homeNavColor, setHomeNavColor] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('scroll', (e) => {
+        if (window.scrollY > 0) {
+          setHomeNavColor(true);
+        } else {
+          setHomeNavColor(false);
+        }
+    });
+    window.scrollTo(0, 0);
+  }, [homeNavColor]);
 
   return (
     <div className="home_wraper">
-      {pathname !== `/${leng}/` && <NavBar {...{ changeFonSize, changeFont }} />}
+      <NavBar {...{ changeFonSize, changeFont, homeNavColor}}/>
       {ModalIsOpenShop && <CardModal />}
       <BurgerMenu />
       <Outlet />

@@ -22,6 +22,7 @@ import {
    EducationalPrograms,
    MuseumOneShop,
    MuseumOneVirtualTour,
+   MuseumOneBranch,
 } from '../index';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import MuseumPageHeader from '../MuseumPageHeader';
@@ -35,7 +36,7 @@ const MuseumOne = () => {
    const { id } = useParams();
    const dispatch = useDispatch();
    const { isAuth, authUser } = useSelector((store) => store.auth);
-
+   console.log(id, 'iddddd');
    const {
       loadingStatus,
       loadingdataMuseumOne,
@@ -74,8 +75,12 @@ const MuseumOne = () => {
          ) : loadingdataMuseumOne === 'fulfilled' ? (
             <div>
                <MuseumPageHeader headerImg={dataMuseumOne.main_photo} title={dataMuseumOne.name} />
-               <div className="museumPage_section">
-                  <div className="container">
+               <div className="museumPage_sectionOne">
+                  <div
+                     className="container"
+                     style={{
+                        backgroundColor: '#ffffff',
+                     }}>
                      <div className="museumOne_parent">
                         <div className="museumOne_parent-section1">
                            <div className="museumOne-blockLeft">
@@ -83,6 +88,7 @@ const MuseumOne = () => {
                                  description={dataMuseumOne.description}
                                  photos={dataMuseumOne.photos}
                                  handleClickTicket={handleClickTicket}
+                                 openBtn={true}
                               />
                            </div>
                            <div className="museumOne-blockRigth ">
@@ -124,13 +130,17 @@ const MuseumOne = () => {
                               />
                            )}
 
-                        {loadingMuseumProducts === 'fulfilled' &&
-                           dataMuseumProducts.dataProducts.length > 0 && (
-                              <MuseumOneShop dataMuseumProducts={dataMuseumProducts} />
-                           )}
+                        {/* {loadingMuseumProducts === 'fulfilled' && (
+                           <MuseumOneShop dataMuseumProducts={dataMuseumProducts}  museumId={id} />
+                        )} */}
+                        <MuseumOneShop dataMuseumProducts={dataMuseumProducts} museumId={id} />
 
                         {dataMuseumOne.links?.virtual_tour && (
                            <MuseumOneVirtualTour virtual_tour={dataMuseumOne.links.virtual_tour} />
+                        )}
+
+                        {dataMuseumOne?.branches.length > 0 && (
+                           <MuseumOneBranch branches={dataMuseumOne.branches} />
                         )}
                      </div>
 

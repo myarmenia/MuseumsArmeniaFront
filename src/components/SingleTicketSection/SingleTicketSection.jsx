@@ -17,7 +17,11 @@ function SingleTicketSection() {
           <div className="darck_fon">
             <div className="container">
               <h2>{item.title}</h2>
-              <p>{item.txt}</p>
+              <div className='line_div_darck_fon'>
+                <img src={require('../../images/Line 108.png')} alt="" />
+                <p>{item.txt}</p>
+                <img src={require('../../images/Line 108.png')} alt="" />
+              </div>
               <Button txt="0" onClick={() => navigate(`/${leng}/comboticket`)} />
             </div>
           </div>

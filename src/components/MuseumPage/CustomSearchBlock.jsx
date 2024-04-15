@@ -38,7 +38,7 @@ const CustomSearshBlock = ({
                   backgroundColor: `${activ.type === null ? '#F6F5F5' : ''}`,
                }}>
                <Icon width={15} height={15} fill={'#3F3D56'} />
-               {translationtxt.length ? t(`${translationtxt[1]}`) : 'All'}
+               {translationtxt.length ? t(`${translationtxt[1]}`) : ''}
             </p>
             <div className="listRegion">
                {arr.map((el, idx) => (

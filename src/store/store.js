@@ -23,6 +23,7 @@ import { eventPageReducer } from './slices/EventsPageSlice/EventsPageSlice';
 import { buyTicketReducer } from './slices/BuyTicketSlice/BuyTicketSlice';
 import { MuseumTicketReducer } from './slices/MuseumTicket/MuseumTicketSlice';
 import { ContactUsReducer } from './slices/ContactUs/ContactUsSlice';
+import { singleEventReducer } from './slices/SingleEventSlice/SingleEventSlice';
 import { ComboTicketsReducer } from './slices/ComboTicket/ComboTicketSlice';
 import { ChatProfileReducer } from './slices/ChatProfile/ChatProfileSlice';
 
@@ -54,7 +55,8 @@ const store = configureStore({
       museumTicket: MuseumTicketReducer,
       contactus:ContactUsReducer,
       combotickets:ComboTicketsReducer,
-      chatprofile:ChatProfileReducer
+      chatprofile:ChatProfileReducer,
+      singleEvent: singleEventReducer,
    },
    // middleware: (getDefaultMiddlware)=>[
    //     ...getDefaultMiddlware(),

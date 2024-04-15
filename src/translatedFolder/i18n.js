@@ -26,29 +26,29 @@ i18n.use(initReactI18next).init({
                'Գնել հիմա',
                'Տեսնել Բոլորը',
                'Ուղարկել',
-               'Ավելացնել',
+               'Զամբյուղ',
                'Դիմել',
                'ՈՒղարկել',
                'Այո',
                'Ոչ',
                'Սկսեք զրուցել',
                'Գնել տոմս',
-               'Աբոնիմենտ տոմս',
+               'Աբոնիմենտ',
                'Գրեք մեզ',
                'Զամբյուղում',
             ],
 
             footer_title:
-               'Հայաստանի Հանրապետության Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
+               'ՀՀ Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
 
-            news_section_title: 'ՎԵՐՋԻՆ ՆՈՐՈՒԹՅՈՒՆՆԵՐ',
+            news_section_title: 'ՆՈՐՈՒԹՅՈՒՆՆԵՐ',
 
             aboute_us_section_title: ['ԿԱՐԴԱՑԵՔ', 'ՄԵՐ ՄԱՍԻՆ'],
 
             abouteUs_section_info:
-               'Հայաստանի պատմության թանգարանը ազգային նշանակության մշակութային կազմակերպություն է, որն ավելի քան մեկ դար ձեռք է բերել, հավաքել, հայտնաբերել, հաշվառել, պահպանել, ուսումնասիրել, մեկնաբանել և ցուցադրել Հայաստանին և հայ ժողովրդին առնչվող շոշափելի և ոչ նյութական մշակութային արժեքներ։ , նպաստելով գիտությանը, կրթությանը, զբոսաշրջությանը։ զարգացում. Հիմնվելով մոտ չորս հարյուր հազար հնագիտական, ազգագրական, դրամագիտական և այլ հավաքածուների վրա՝ թանգարանը փորձում է կամրջել անցյալն ու ապագան։ Թանգարանային հավաքածուն արտացոլում է Հայաստանի մշակույթի և պատմության ամբողջական պատկերը՝ սկսած նախապատմական ժամանակներից (մեկ միլիոն ութ հարյուր հազար տարիներ առաջ) առ այսօր։ Թանգարանը ստեղծվել է Հայաստանի Առաջին Հանրապետության խորհրդարանի 439 օրենքով (09.09.1919 թ.)։ Այն կոչվել է Ազգագրական-մարդաբանական թանգարան-գրադարան։ Այն բացվել է այցելուների համար 1921թ. օգոստոսի 20-ին։ Անվանափոխության ենթարկվել։ Հայաստանի պետական կենտրոնական (1922), մշակութային-պատմական (1931), պատմական (1935), Հայաստանի պատմության պետական թանգարան (1962) և Հայաստանի պատմության թանգարան (2003 թ.)։',
+               'Թանգարան, գիտական, գիտալուսավորական կառույց է, որտեղ հավաքագրվում, պահպանվում, ուսումնասիրվում, մասսայականացվում են բնապատմական, նյութական և հոգևոր մշակութային հուշարձանները՝ բնության և մարդկային հասարակության զարգացման մասին գիտելիքների մասին սկզբնաղբյուրները։ Թանգարանների ֆոնդերում հիմնականում կենտրոնացվում են իրեղեն առարկաներ, գրավոր աղբյուրներ և արվեստի ստեղծագործություններ։ Ժամանակակից գիտական դասակարգմամբ թանգարանները տարբերվում են ըստ տիպերի և ուղղվածության։ Ըստ տիպերի լինում են գիտահետազոտական և ուսումնական, ըստ ուղղվածության՝ պատմության, բնագիտության, արվեստագիտության, գրականության, տեխնիկայի և այլն։ Առանձին խումբ են կազմում հուշային (մեմորիալ), ինչպես նաև կոմպլեքս թանգարանները։ Հայաստանում թանգարանների նախատիպեր կային դեռևս ուրարտական շրջանում (մ.թ.ա. 9-ից 6-րդ դարեր) Ուրարտուի մայրաքաղաք Տուշպայում և այլ քաղաք-ամրոցներում։ Միջնադարյան Հայաստանում երևան եկան իսկական թանգարանները։ Հովհաննես Դրասխանակերտցին 9-ից 10-դ դարերում իր «Հայոց պատմություն» աշխատության մեջ երեք տիպի թանգարան է հիշատակում՝ արքունի, իշխանական տների և եկեղեցական։ Հայկական թանգարանների կազմակերպման գործը զգալի չափով ընդլայնվեց 19-րդ դարում։',
 
-            museum_slide_title: ['Ընտրեք թանգարաննները', 'ՄԵՐ ԹԱՆԳԱՐԱՆՆԵՐԸ'],
+            museum_slide_title: ['Թանգարանները', 'ՄԵՐ ԹԱՆԳԱՐԱՆՆԵՐԸ'],
 
             contact_us_section: ['ԿԱՊ ՄԵԶ ՀԵՏ', 'Անուն', 'Հեռախոս', 'Էլ. փոստ'],
 
@@ -93,7 +93,7 @@ i18n.use(initReactI18next).init({
                'Գաղտնաբառը պետք է պարունակի փոքրատառեր',
                'Գաղտնաբառը պետք է պարունակի մեծատառ',
                'Պարտադիր գրել գաղտնաբառը',
-               'Գաղտնաբառները չեն համընկնում',
+               'Գաղտնաբառները չեն համնկնում',
                'Գրել միայն թվանշան',
             ],
 
@@ -507,13 +507,13 @@ i18n.use(initReactI18next).init({
                'Ընտրել միջոցառում',
                'Պատվիրել տոմս',
                'Ընդամենը - ',
-               'Խնդրում ենք մուտք գործել՝ ձեր զամբյուղին տոմս կամ ապրանք ավելացնելու համար:',
+               'Մուտք գործել՝ զամբյուղին տոմս կամ ապրանք ավելացնելու համար:',
             ],
 
-            musseumPage_title: ['ՀԱՅԿԱԿԱՆ ԹԱՆԳԱՐԱՆՆԵՐ', 'Զտել', 'Կարդալ ավելին'],
-            webSideMusum: ['ՎԵԲ ԿԱՅՔ', 'հրավիրել', 'Թանգարանի բացատ'],
+            musseumPage_title: ['ՀԱՅԱՍՏԱՆԻ ԹԱՆԳԱՐԱՆՆԵՐ', 'Զտել', 'Կարդալ ավելին'],
+            webSideMusum: ['ՎԵԲ ԿԱՅՔ', 'հրավիրել', 'Թանգարանի Աբոնեմենտ'],
             ButtonBlock: [
-               'Անսահմանափակ մուտք 365 օր',
+               'Գնելով Աբոնեմենտ կարող եք 365 օրվա ընթացքում անսահմանափակ անգամ այցելել թանգարան:',
                'Զբոսավարի, կրթական ծրագրերի և այլ հարցերի համար գրեք',
             ],
 
@@ -529,8 +529,7 @@ i18n.use(initReactI18next).init({
                'Ընդամենը',
                'Գնել տոմս',
                'Աբոնիմենտ տոմս',
-
-               'Աբոնեմենտ տոմսը անսահմանափակ մուտք է 365 օր:',
+               'Աբոնիմենտ տոմսը անսահմանափակ մուտք է 365 օր:',
             ],
             selectCategory: 'Ընտրեք կատեգորիա',
             book: 'Գիրք',
@@ -538,6 +537,39 @@ i18n.use(initReactI18next).init({
             clothes: 'Հագուստ',
             ticket_error_message: 'Տոմսն Ընտրված չէ',
 
+            eventPageTitle: 'Հայաստանի թանգարանների միջոցառումները',
+
+            location_name: 'ՀՀ, Երևան 0010, Վազգեն Սարգսյան 3 Կառավարական տուն 2',
+
+            app_stor_and_google_play: 'Ներբեռնեք մեր Հավելվածը',
+
+            footer_botom: '2024 Հայաստանի  Թանգարաններ: Հեղինակային իրավունքները պաշտպանված են: Կայքը ստեղծել է',
+
+            event_single_page: [
+               'Տեսնել ավելին',
+               'Գնել տոմս',
+               'Նկարագրություն',
+               'Հրավիրել'
+            ],
+
+            event_single_page_modal: [
+               'Ամսաթիվ',
+               'Ժամանակ',
+               'Գին',
+               'Հասանելի տոմսերի քանակը'
+            ],
+            more_events: 'Նմանատիպ միջոցառումներ',
+
+            mintitle: 'Հայաստանի թանգարանները մեկ հարթակում',
+            educationTitle:
+               'Կապվեք թանգարանի հետ ՝ կրթական ծրագրերի Տոմսեր պատվիրելու համար ՝ հաղորդագրություն ուղարկելով կամ զանգահարելով:',
+            thisMuseum: 'Այս թանգարանի խանութը',
+            buy: 'Գնել',
+            productsErrorMessages: 'Ապրանքներ չեն գտնվել',
+            Showing: ['Ցուցադրվում են', 'արդյունքները', 'ից'],
+            virtualExcursion: 'Վիրտուալ էքսկուրսիա',
+            museumBranch: 'Թանգարանի մասնաճյուղերը',
+            isWrong: 'Ինչ - որ բան սխալ է !',
          },
       },
 
@@ -564,28 +596,28 @@ i18n.use(initReactI18next).init({
                'Купить сейчас',
                'Увидеть все',
                'Отправлять',
-               'Добавлять',
+               'Корзина',
                'Применять',
                'Отправлять',
                'Да',
                'нет',
                'Начать Чат',
                'Купить билет',
-               'Абонементный билет',
+               'Абонементный',
                'Напишите нам',
                'В корзину',
             ],
 
             footer_title: 'Министерство образования, науки, культуры и спорта Республики Армения',
 
-            news_section_title: 'ПОСЛЕДНИЕ НОВОСТИ',
+            news_section_title: 'НОВОСТИ',
 
             aboute_us_section_title: ['ЧИТАТЬ', 'О НАС'],
 
             abouteUs_section_info:
-               'Музей истории Армении – культурная организация национального значения, которая на протяжении более века приобретала, собирала, открывала, записывала, сохраняла, изучала, интерпретировала и экспонировала материальные и нематериальные культурные ценности, связанные с Арменией и армянством. люди. , вклад в науку, образование, туризм. разработка. Основываясь на около четырехстах тысячах археологических, этнографических, нумизматических и других коллекций, музей пытается соединить прошлое и будущее. Коллекция музея отражает полную картину культуры и истории Армении, начиная с доисторических времен (миллион восемьсот тысяч лет назад) и до наших дней. Музей был основан Законом 439 Парламента Первой Республики Армения (09.09.1919). Он назывался Этнографо-антропологический музей-библиотека. Он был открыт для посетителей в 1921 году. 20 августа. Происходит смена имени. Государственный центр Армении (1922 г.), Культурно-исторический (1931 г.), Исторический (1935 г.), Государственный музей истории Армении (1962 г.) и Музей истории Армении (2003 г.).',
+               'Музей представляет собой научно-просветительскую структуру, в которой собираются, сохраняются, изучаются и распространяются природно-исторические, материальные и духовные памятники культуры - первоисточники знаний о природе и развитии человеческого общества. В музейных коллекциях в основном представлены материальные предметы, письменные источники и произведения искусства. Согласно современной научной классификации музеи различаются по типам и направлениям. По типам бывают научно-исследовательские и учебные, по направлению - исторические, естествознательные, искусствоведческие, литературоведческие, технические и т.д. Мемориальные и комплексные музеи образуют отдельную группу. Прообразы музеев в Армении существовали еще в урартский период (9-6 вв. до н.э.) в Тушпе, столице Урарту, и в других городах-крепостях. В средневековой Армении появились настоящие музеи. Ованес Драсханакерци в своем труде «История армян» IX-X веков упоминает три типа музеев: царские, княжеские и церковные. В XIX веке работа по организации армянских музеев значительно расширилась.',
 
-            museum_slide_title: ['Выбирайте музеи', 'НАШИ МУЗЕИ'],
+            museum_slide_title: ['МУЗЕИ', 'НАШИ МУЗЕИ'],
 
             contact_us_section: ['КОНТАКТЫ С НАМИ', 'Имя', 'Телефон', 'Электронная почта'],
 
@@ -668,7 +700,7 @@ i18n.use(initReactI18next).init({
             director: 'Директор',
             phone: 'телефоны',
             educationalPrograms: 'ПОСТОЯННЫЕ ВЫСТАВКИ ИЛИ ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ',
-            haveQuestions: 'У тебя есть вопросы?',
+            haveQuestions: 'Есть вопросы?',
             NumberOfVisitors: 'Количество посетителей',
             minCount: 'минимум',
             maxCount: 'Максимум',
@@ -1023,11 +1055,11 @@ i18n.use(initReactI18next).init({
                'Если вы не зарегистрированы, напишите нам свой адрес электронной почты. письмо для получения ответного письма от музея',
                'Привет. Приятно видеть тебя здесь. Нажимая кнопку «Начать чат», вы соглашаетесь на обработку ваших персональных данных, как описано в нашей Политике конфиденциальности.',
             ],
-            musseumPage_title: ['АРМЯНСКИЕ МУЗЕИ', 'Фильтр', 'Читать далее'],
+            musseumPage_title: ['МУЗЕИ АРМЕНИИ', 'Фильтр', 'Читать далее'],
             webSideMusum: ['ВЕБ-САЙТ', 'приглашать', 'Музейный абонемент'],
             ButtonBlock: [
-               'Безлимитный доступ на 365 дней',
-               'Напишите гиду, образовательным программам и другим вопросам.',
+               'Купив абонемент, вы можете посещать музей неограниченное количество раз в течение 365 дней:',
+               'Напишите нам для бронирования гида, образовательных программ и по другим вопросам.',
             ],
 
             ticketsType: ['Стандартный билет', 'Абонемент', 'Единый билет', 'События'],
@@ -1048,7 +1080,7 @@ i18n.use(initReactI18next).init({
                'Выбрать событие',
                'Заказать билет',
                'Итого - ',
-               'Пожалуйста, войдите, чтобы добавить билет или товар в корзину.',
+               'Войдите, чтобы добавить билет или товар в корзину.',
             ],
             standart: 'Стандарт',
             discount: 'Скидка',
@@ -1062,7 +1094,6 @@ i18n.use(initReactI18next).init({
                'Общий',
                'Купить билет',
                'Абонементный билет',
-
                'Абонементный билет — это безлимитный доступ на 365 дней.',
             ],
             selectCategory: 'Выберите категорию',
@@ -1070,9 +1101,44 @@ i18n.use(initReactI18next).init({
             souvenir: 'Сувенир',
             clothes: 'Одежда',
 
+            ticket_error_message: 'Билет не выбран',
 
-            ticket_error_message: 'Билет не выбран'
+            eventPageTitle: 'Мероприятия музеев Армении',
 
+            location_name: "Дом Правительства 2, Вазген Саргсян 3, Ереван 0010, Армения",
+
+            app_stor_and_google_play: 'Загрузите наше приложение',
+
+
+            footer_botom: '2024 Музеи Армении. Авторские права защищены. Сайт создан',
+
+            event_single_page: [
+               'Узнать больше',
+               'Купить билет',
+               'Описание',
+               'Приглашать'
+            ],
+
+            event_single_page_modal: [
+               'Дата',
+               'Время',
+               'Цена',
+               'Количество доступных билетов'
+            ],
+
+            more_events: 'Подобные события',
+
+            ticket_error_message: 'Билет не выбран',
+            mintitle: 'Музеи Армении на одной платформе',
+            educationTitle:
+               'Свяжитесь с музеем, чтобы заказать билеты на образовательные программы, отправив сообщение или позвонив по телефону.',
+            thisMuseum: 'Магазин этого музея',
+            buy: 'Купить',
+            productsErrorMessages: 'Продукты не найдены',
+            Showing: ['Показаны', 'из', 'результатов'],
+            virtualExcursion: 'Виртуальная экскурсия',
+            museumBranch: 'Филиалы музея',
+            isWrong: 'Что-то не так !',
          },
       },
       en: {
@@ -1098,14 +1164,14 @@ i18n.use(initReactI18next).init({
                'Buy now',
                'See All',
                'Send',
-               'Add',
+               'Basket',
                'Apply',
                'Send',
                'Yes',
                'No',
                'Start Chat',
                'Buy Ticket',
-               'Abonement ticket',
+               'Abonement',
                'Write to us',
                'Add to cart',
             ],
@@ -1113,14 +1179,14 @@ i18n.use(initReactI18next).init({
             footer_title:
                'Ministry of Education, Science, Culture and Sports of the Republic of Armenia',
 
-            news_section_title: 'LATEST NEWS',
+            news_section_title: 'NEWS',
 
             aboute_us_section_title: ['READ', 'ABOUT US'],
 
             abouteUs_section_info:
-               'The Museum of the History of Armenia is a cultural organization of national importance, which for more than a century has acquired, collected, discovered, recorded, preserved, studied, interpreted, and exhibited tangible and intangible cultural values related to Armenia and the Armenian people. , contributing to science, education, tourism. development. Based on about four hundred thousand archaeological, ethnographic, numismatic, and other collections, the museum tries to bridge the past and the future. The museum collection reflects the complete picture of the culture and history of Armenia, starting from prehistoric times (one million eight hundred thousand years ago) until today. The museum was established by Law 439 of the Parliament of the First Republic of Armenia (09.09.1919). It was called the Ethnographic-Anthropological Museum-Library. It was opened for visitors in 1921. on August 20. Undergoing a name change. State Central of Armenia (1922), Cultural-Historical (1931), Historical (1935), State Museum of the History of Armenia (1962) and Museum of the History of Armenia (2003).',
+               'The museum is a scientific and educational structure, where natural historical, material and spiritual cultural monuments are collected, preserved, studied, and disseminated - the primary sources of knowledge about nature and the development of human society. Museum collections mainly focus on material objects, written sources and works of art. According to the modern scientific classification, museums differ according to types and direction. According to the types, there are research and educational ones, according to the direction - history, natural science, art science, literature, technology, etc. Memorial and complex museums form a separate group. There were prototypes of museums in Armenia as early as the Urartian period (9th to 6th centuries BC) in Tushpa, the capital of Urartu, and in other city-fortresses. Real museums appeared in medieval Armenia. Hovhannes Draskhanakertsi in his work "History of Armenians" in the 9th to 10th centuries mentions three types of museums: royal, princely, and church. The work of organizing Armenian museums expanded significantly in the 19th century.',
 
-            museum_slide_title: ['Choose museums', 'OUR MUSEUMS'],
+            museum_slide_title: ['MUSEUMS', 'OUR MUSEUMS'],
 
             contact_us_section: ['CONTACT US', 'Name', 'Phone', 'Email'],
 
@@ -1551,10 +1617,10 @@ i18n.use(initReactI18next).init({
                'If you are not registered, please write us your email address. letter to receive a response letter from the museum',
                'Hello. Nice to see you here. By clicking the Start Chat button, you agree to the processing of your personal data as described in our Privacy Policy.',
             ],
-            musseumPage_title: ['ARMENIAN MUSEUMS', 'Filter', 'Read more'],
+            musseumPage_title: ['MUSEUMS OF ARMENIA', 'Filter', 'Read more'],
             webSideMusum: ['WEB SITE', 'invate', 'Museum abonement'],
             ButtonBlock: [
-               'Unlimited access for 365 days',
+               'By purchasing a subscription, you can visit the museum an unlimited number of times for 365 days:',
                'Write for tour guide, educational programs and other questions',
             ],
             ticketsType: ['Standard ticket', 'Abonement', 'United ticket', 'Events'],
@@ -1575,7 +1641,7 @@ i18n.use(initReactI18next).init({
                'Choose Event',
                'Order ticket',
                'Summary - ',
-               'Please login to add a ticket or item to your cart.',
+               'Sign in to add a ticket or item to cart.',
             ],
             standart: 'Standart',
             discount: 'Discount',
@@ -1589,7 +1655,6 @@ i18n.use(initReactI18next).init({
                'Total',
                'Buy Ticket',
                'Abonement ticket',
-
                'Abonement ticket is unlimited access for 365 days.',
             ],
             selectCategory: 'Select  category',
@@ -1597,9 +1662,43 @@ i18n.use(initReactI18next).init({
             souvenir: 'Souvenir',
             clothes: 'Clothes',
 
+            ticket_error_message: 'Ticket not selected',
 
-            ticket_error_message: 'Ticket not selected'
+            eventPageTitle: 'Events of museums of Armenia',
 
+            location_name: "Government House 2, Vazgen Sargsyan 3, Yerevan 0010, Armenia",
+
+            app_stor_and_google_play: 'Download our App',
+
+            footer_botom: '2024 Museums of Armenia. Copyright reserved. Site created by',
+
+            event_single_page: [
+               'See more',
+               'Buy ticket',
+               'Description',
+               'Invite'
+            ],
+
+            event_single_page_modal: [
+               'Date',
+               'Time',
+               'Price',
+               'Number of tickets available'
+            ],
+
+            more_events: 'Similar events',
+
+            ticket_error_message: 'Ticket not selected',
+            mintitle: 'Museums of Armenia on one platform',
+            educationTitle:
+               'Contact the museum to order tickets for educational programs by message or call.',
+            thisMuseum: 'Shop of this museum',
+            buy: 'Buy',
+            productsErrorMessages: 'No products found',
+            Showing: ['Showing ', 'of', 'results'],
+            virtualExcursion: 'Virtual Excursion',
+            museumBranch: 'Branches of the museum',
+            isWrong: 'Something is wrong !',
          },
       },
    },

@@ -9,34 +9,34 @@
   }
   
   .font_list{
-      position: absolute;
-      top: 30px;
-      left: -25px;
-      background-color:  white;
-      backdrop-filter: blur(50px);
-      transform: rotateX(90deg);
-      transition: all .5s;
-      transform-origin: top center;
-      width: 80px;
-      padding-inline-start : 0;
-      /* padding: 5px 20px; */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 5px;
-      overflow: hidden;
+    position: absolute;
+    top: 58px;
+    left: -20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.563);
+    border-radius: 8px;
+    transform: rotateX(90deg);
+    transition: all .5s;
+    transform-origin: top center;
+    width: 100px;
+    padding-inline-start : 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
   }
   .font_list li{
-    color: var(--second_font_color);
+    color: black;
     transition: all .6s;
     width: 100%;
     text-align: center;
+    padding: 5px 20px;
+    border-bottom: 1px solid #ECEBEB;
   }
   
   .font_list li:hover{
-    transform: scale(1.2);
-    background-color: #cea670;
-    color: var(--main_font_color);
+    transform: scale(1.1);
+    background-color: #F6F5F5;
   }
   
   .change_font:hover ul {
