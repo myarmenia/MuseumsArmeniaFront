@@ -18,9 +18,9 @@ function HomePage({ changeFonSize, changeFont }) {
     <div className="home_page">
       <SliderInHome />
       <PrivateTicket />
-      <SingleTicketSection />
       <NewsSectionInHome />
       <MuseumSectionSliderInHome />
+      <SingleTicketSection />
       <EventsInHome/>
       <SectionAboteUs />
       <SouvenirsSection />

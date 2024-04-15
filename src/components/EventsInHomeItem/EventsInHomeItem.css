@@ -101,7 +101,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 300px;
+    max-width: 340px;
 }
 
 .event_location_div{
@@ -129,6 +129,15 @@
     width: 100%;
     height: 1.5em;
 }
+
+.events_in_home_item_info_block_txt_div_info_div_event_name{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 .line_div_event_left{
     position: absolute;

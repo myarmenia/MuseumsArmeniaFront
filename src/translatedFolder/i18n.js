@@ -41,14 +41,14 @@ i18n.use(initReactI18next).init({
             footer_title:
                'ՀՀ Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
 
-            news_section_title: 'ՎԵՐՋԻՆ ՆՈՐՈՒԹՅՈՒՆՆԵՐ',
+            news_section_title: 'ՆՈՐՈՒԹՅՈՒՆՆԵՐ',
 
             aboute_us_section_title: ['ԿԱՐԴԱՑԵՔ', 'ՄԵՐ ՄԱՍԻՆ'],
 
             abouteUs_section_info:
                'Թանգարան, գիտական, գիտալուսավորական կառույց է, որտեղ հավաքագրվում, պահպանվում, ուսումնասիրվում, մասսայականացվում են բնապատմական, նյութական և հոգևոր մշակութային հուշարձանները՝ բնության և մարդկային հասարակության զարգացման մասին գիտելիքների մասին սկզբնաղբյուրները։ Թանգարանների ֆոնդերում հիմնականում կենտրոնացվում են իրեղեն առարկաներ, գրավոր աղբյուրներ և արվեստի ստեղծագործություններ։ Ժամանակակից գիտական դասակարգմամբ թանգարանները տարբերվում են ըստ տիպերի և ուղղվածության։ Ըստ տիպերի լինում են գիտահետազոտական և ուսումնական, ըստ ուղղվածության՝ պատմության, բնագիտության, արվեստագիտության, գրականության, տեխնիկայի և այլն։ Առանձին խումբ են կազմում հուշային (մեմորիալ), ինչպես նաև կոմպլեքս թանգարանները։ Հայաստանում թանգարանների նախատիպեր կային դեռևս ուրարտական շրջանում (մ.թ.ա. 9-ից 6-րդ դարեր) Ուրարտուի մայրաքաղաք Տուշպայում և այլ քաղաք-ամրոցներում։ Միջնադարյան Հայաստանում երևան եկան իսկական թանգարանները։ Հովհաննես Դրասխանակերտցին 9-ից 10-դ դարերում իր «Հայոց պատմություն» աշխատության մեջ երեք տիպի թանգարան է հիշատակում՝ արքունի, իշխանական տների և եկեղեցական։ Հայկական թանգարանների կազմակերպման գործը զգալի չափով ընդլայնվեց 19-րդ դարում։',
 
-            museum_slide_title: ['Ընտրեք թանգարաննները', 'ՄԵՐ ԹԱՆԳԱՐԱՆՆԵՐԸ'],
+            museum_slide_title: ['Թանգարանները', 'ՄԵՐ ԹԱՆԳԱՐԱՆՆԵՐԸ'],
 
             contact_us_section: ['ԿԱՊ ՄԵԶ ՀԵՏ', 'Անուն', 'Հեռախոս', 'Էլ. փոստ'],
 
@@ -538,7 +538,7 @@ i18n.use(initReactI18next).init({
             clothes: 'Հագուստ',
             ticket_error_message: 'Տոմսն Ընտրված չէ',
 
-            eventPageTitle: 'Հայաստանի բոլոր թանգարանների միջոցառումները',
+            eventPageTitle: 'Հայաստանի թանգարանների միջոցառումները',
 
             location_name: 'ՀՀ, Երևան 0010, Վազգեն Սարգսյան 3 Կառավարական տուն 2',
 
@@ -559,7 +559,7 @@ i18n.use(initReactI18next).init({
                'Գին',
                'Հասանելի տոմսերի քանակը'
             ],
-            more_events: 'Նմանատիպ թանգարաններ',
+            more_events: 'Նմանատիպ միջոցառումներ',
 
          },
       },
@@ -601,14 +601,14 @@ i18n.use(initReactI18next).init({
 
             footer_title: 'Министерство образования, науки, культуры и спорта Республики Армения',
 
-            news_section_title: 'ПОСЛЕДНИЕ НОВОСТИ',
+            news_section_title: 'НОВОСТИ',
 
             aboute_us_section_title: ['ЧИТАТЬ', 'О НАС'],
 
             abouteUs_section_info:
                'Музей представляет собой научно-просветительскую структуру, в которой собираются, сохраняются, изучаются и распространяются природно-исторические, материальные и духовные памятники культуры - первоисточники знаний о природе и развитии человеческого общества. В музейных коллекциях в основном представлены материальные предметы, письменные источники и произведения искусства. Согласно современной научной классификации музеи различаются по типам и направлениям. По типам бывают научно-исследовательские и учебные, по направлению - исторические, естествознательные, искусствоведческие, литературоведческие, технические и т.д. Мемориальные и комплексные музеи образуют отдельную группу. Прообразы музеев в Армении существовали еще в урартский период (9-6 вв. до н.э.) в Тушпе, столице Урарту, и в других городах-крепостях. В средневековой Армении появились настоящие музеи. Ованес Драсханакерци в своем труде «История армян» IX-X веков упоминает три типа музеев: царские, княжеские и церковные. В XIX веке работа по организации армянских музеев значительно расширилась.',
 
-            museum_slide_title: ['Выбирайте музеи', 'НАШИ МУЗЕИ'],
+            museum_slide_title: ['МУЗЕИ', 'НАШИ МУЗЕИ'],
 
             contact_us_section: ['КОНТАКТЫ С НАМИ', 'Имя', 'Телефон', 'Электронная почта'],
 
@@ -1096,7 +1096,7 @@ i18n.use(initReactI18next).init({
 
             ticket_error_message: 'Билет не выбран',
 
-            eventPageTitle: 'Мероприятия всех музеев Армении',
+            eventPageTitle: 'Мероприятия музеев Армении',
 
             location_name: "Дом Правительства 2, Вазген Саргсян 3, Ереван 0010, Армения",
 
@@ -1119,7 +1119,7 @@ i18n.use(initReactI18next).init({
                'Количество доступных билетов'
             ],
 
-            more_events: 'Похожие музеи',
+            more_events: 'Подобные события',
          },
       },
       en: {
@@ -1160,14 +1160,14 @@ i18n.use(initReactI18next).init({
             footer_title:
                'Ministry of Education, Science, Culture and Sports of the Republic of Armenia',
 
-            news_section_title: 'LATEST NEWS',
+            news_section_title: 'NEWS',
 
             aboute_us_section_title: ['READ', 'ABOUT US'],
 
             abouteUs_section_info:
                'The museum is a scientific and educational structure, where natural historical, material and spiritual cultural monuments are collected, preserved, studied, and disseminated - the primary sources of knowledge about nature and the development of human society. Museum collections mainly focus on material objects, written sources and works of art. According to the modern scientific classification, museums differ according to types and direction. According to the types, there are research and educational ones, according to the direction - history, natural science, art science, literature, technology, etc. Memorial and complex museums form a separate group. There were prototypes of museums in Armenia as early as the Urartian period (9th to 6th centuries BC) in Tushpa, the capital of Urartu, and in other city-fortresses. Real museums appeared in medieval Armenia. Hovhannes Draskhanakertsi in his work "History of Armenians" in the 9th to 10th centuries mentions three types of museums: royal, princely, and church. The work of organizing Armenian museums expanded significantly in the 19th century.',
 
-            museum_slide_title: ['Choose museums', 'OUR MUSEUMS'],
+            museum_slide_title: ['MUSEUMS', 'OUR MUSEUMS'],
 
             contact_us_section: ['CONTACT US', 'Name', 'Phone', 'Email'],
 
@@ -1647,7 +1647,7 @@ i18n.use(initReactI18next).init({
 
             ticket_error_message: 'Ticket not selected',
 
-            eventPageTitle: 'Events of all museums in Armenia',
+            eventPageTitle: 'Events of museums of Armenia',
 
             location_name: "Government House 2, Vazgen Sargsyan 3, Yerevan 0010, Armenia",
 
@@ -1669,7 +1669,7 @@ i18n.use(initReactI18next).init({
                'Number of tickets available'
             ],
 
-            more_events: 'Similar museums',
+            more_events: 'Similar events',
 
          },
       },

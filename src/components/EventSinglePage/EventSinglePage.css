@@ -174,7 +174,6 @@
 
 .more_event{
     width: 256px;
-    cursor: pointer;
 }
 .more_event:hover .more_event_img_div .event__reade_more_div{
     display: flex;
@@ -206,6 +205,7 @@
     border: none;
     outline: none;
     color: var(--main_font_color);
+    cursor: pointer;
 }
 
 .event__reade_more_div button:hover{
@@ -225,6 +225,11 @@
 
 .more_event_botom >span{
     color: var(--second_font_color);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .more_event_botom div{
@@ -253,6 +258,10 @@
     gap: 10px;
 }
 
+.lines_div_events h1 {
+    color: var(--second_font_color);
+    font-weight: 400;
+}
 
 
 @media(max-width: 1024px){

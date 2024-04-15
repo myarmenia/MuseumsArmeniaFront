@@ -4,7 +4,7 @@ import './EventsInHomeItem.css'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
-function EventsInHomeItem({ el }) {
+function EventsInHomeItem({ el, index }) {
     const { t, i18n } = useTranslation()
     const privateTicketRegions = t('privateTicketRegions', { returnObjects: true })
     const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
@@ -26,7 +26,7 @@ function EventsInHomeItem({ el }) {
                         </div>
 
                         <div className='events_in_home_item_info_block_txt_div_info_div'>
-                            <p>{el.name}</p>
+                            <p className='events_in_home_item_info_block_txt_div_info_div_event_name' title={el.name}>{el.name}</p>
                             <span>{el.description}</span>
                             <p>{el.museum_name}</p>
                             <div className='event_location_div'>
@@ -41,8 +41,8 @@ function EventsInHomeItem({ el }) {
                     <button className='event_inHome_btn' onClick={() => navigate(`/${leng}/events/${el.id}`)}>{t('buttons.9')}</button>
                 </div>
 
-                {el.id % 2 === 0 &&<div className='line_div_event_left'>{right_event_line}</div>}
-                {el.id % 2 !== 0 &&<div className='line_div_event_right'>{left_event_line}</div>}
+                {index % 2 === 0 &&<div className='line_div_event_left'>{right_event_line}</div>}
+                {index % 2 !== 0 &&<div className='line_div_event_right'>{left_event_line}</div>}
             </div>
         </div>
     )

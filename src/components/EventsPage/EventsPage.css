@@ -14,6 +14,7 @@
     flex-direction: column;
     gap: 50px;
     align-items: center;
+    width: 100%;
 }
 
 .events_page .container{
@@ -54,6 +55,7 @@
 
 .event_page_item_img_div img{
     height: 100%;
+    object-fit: contain;
 }
 
 .event_page_item_info_div{
@@ -65,6 +67,11 @@
 
 .event_page_item_info_div_title{
     color: var(--second_font_color);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .event_page_item_navigate_div{
@@ -413,7 +420,7 @@
 
 @media(max-width: 485px){
     .event_page_item{
-        width: 350px;
+        width: 320px;
     }
     
 

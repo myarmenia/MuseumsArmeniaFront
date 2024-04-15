@@ -1,3 +1,4 @@
+
 import { createSlice } from '@reduxjs/toolkit';
 
 import { postMuseumTicket } from './MuseumTicketApi';
@@ -16,8 +17,7 @@ const initialState = {
    ticketLoading: '',
    success: null,
    responseMessages: '',
-   paymentsUrl: ''
-
+   paymentsUrl: '',
 };
 
 const MuseumTicketSlice = createSlice({
@@ -31,7 +31,6 @@ const MuseumTicketSlice = createSlice({
          state.ticketType = payload;
       },
       setDataItems(state, { payload }) {
-         
          const findticketsRes = state.tickets.find((el) => el.type === payload.obj.type);
          const findDataItemsRes = state.dataItems.find((el) => el.type === payload.obj.type);
          if (findticketsRes) {
@@ -45,7 +44,7 @@ const MuseumTicketSlice = createSlice({
                }
 
                if (payload.dovnUp === 'down' && findticketsRes.count === 0) {
-                 state.dataItems = state.dataItems.filter((el)=> el.type !== payload.obj.type)
+                  state.dataItems = state.dataItems.filter((el) => el.type !== payload.obj.type);
                }
             } else {
                if (payload.dovnUp === 'up' && findticketsRes.count < findticketsRes.max) {
@@ -66,10 +65,10 @@ const MuseumTicketSlice = createSlice({
          }
       },
       setResetDataItems(state, { payload }) {
-         state.dataItems = []
+         state.dataItems = [];
          state.tickets = state.tickets.map((el) => {
-            return {...el, count:0}
-         })
+            return { ...el, count: 0 };
+         });
       },
    },
    extraReducers: (builder) => {
@@ -83,30 +82,32 @@ const MuseumTicketSlice = createSlice({
             state.paymentsUrl = payload.data.redirect_url;
             state.success = payload.success;
          })
-         .addCase(postMuseumTicket.rejected, (state, {payload}) => {
+         .addCase(postMuseumTicket.rejected, (state, { payload }) => {
             // console.log(payload, 'payload');
             state.ticketLoading = 'rejected';
             state.success = payload.success ?? false;
-            state.responseMessages = payload.message
+            state.responseMessages = payload.message;
          })
 
          .addCase(postMuseumOnePages.fulfilled, (state, { payload }) => {
             if (payload.data?.tickets) {
-                state.tickets = payload.data?.tickets.map((el) => {
-                   return {...el, count: 0}
-                })
+               state.tickets = payload.data?.tickets.map((el) => {
+                  return { ...el, count: 0 };
+               });
             }
-          })
-          .addCase(postMuseumOnePages.rejected, (state, { payload }) => {
-             state.tickets = [
-                { id: 1, price: 100, min: 0, max: 10, type: 'standart', count: 0 },
-                { id: 1, price: 50, min: 0, max: 10, type: 'discount', count: 0 },
-                { id: 1, price: 0, min: 0, max: 10, type: 'free', count: 0 },
-                { id: 2, price: 20000, min: 0, max: 5, type: 'subscription', count: 0 },
-             ]
-          });
+         })
+         .addCase(postMuseumOnePages.rejected, (state, { payload }) => {
+            state.tickets = [
+               { id: 1, price: 100, min: 0, max: 10, type: 'standart', count: 0 },
+               { id: 1, price: 50, min: 0, max: 10, type: 'discount', count: 0 },
+               { id: 1, price: 0, min: 0, max: 10, type: 'free', count: 0 },
+               { id: 2, price: 20000, min: 0, max: 5, type: 'subscription', count: 0 },
+            ];
+         });
    },
 });
 
+
 export const MuseumTicketReducer = MuseumTicketSlice.reducer;
-export const { setModalTicketIsOpen, setTicketType, setDataItems, setResetDataItems } = MuseumTicketSlice.actions;
+export const { setModalTicketIsOpen, setTicketType, setDataItems, setResetDataItems } =
+   MuseumTicketSlice.actions;

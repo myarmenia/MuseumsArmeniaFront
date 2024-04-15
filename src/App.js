@@ -27,6 +27,8 @@ import OrderHistory from './components/ProfilePages/OrderHistory/OrderHistory';
 import { useSelector } from 'react-redux';
 import { getIsTemp } from './store/slices/Auth/AuthSlice';
 import EventSinglePage from './components/EventSinglePage/EventSinglePage';
+import ComboTicket from './components/ComboTicket/ComboTicket';
+import ContactWithUs from './components/contactWithUs/contactWithUs';
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('');
@@ -233,6 +235,22 @@ function App() {
                 }
               />
             </Route>
+            <Route
+              path="contact"
+              element={
+                <PrivateRouteForOutSider>
+                  <ContactWithUs />
+                </PrivateRouteForOutSider>
+              }
+            />
+            <Route
+              path="comboticket"
+              element={
+                <PrivateRouteForOutSider>
+                  <ComboTicket />
+                </PrivateRouteForOutSider>
+              }
+            />
           </Route>
         </Route>
       </Routes>

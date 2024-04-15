@@ -94,6 +94,7 @@ function EventsPage() {
     const handleRegionItem = (region) => {
         setSelectedRegion(region)
         dispatch(getEventsPage({ region: region.id !== 0 ? region.id : null, museum: selectedMuseum.id, pageIndex: '1', }))
+        setSelectedMuseum('')
     }
 
 
@@ -143,6 +144,7 @@ function EventsPage() {
                                         </div>
 
                                         {openMuseumModal && <ul className='events_page_filter_museum_list' onClick={() => setOpenMuseumModal(false)}>
+                                            <li onClick={() => handleMuseumItem({name: t('allMussseum'), id: null})}><span>{museumIcon}</span> <p>{t('allMussseum')}</p></li>
                                             {
                                                 filteredMuseums.map(museum =>
                                                     <li key={museum.id} onClick={() => handleMuseumItem(museum)}><span>{museumIcon}</span> <p>{museum.name}</p></li>
@@ -165,10 +167,10 @@ function EventsPage() {
                                             </div>
 
                                             <div className='event_page_item_info_div'>
-                                                <span className='event_page_item_info_div_title'>{item.name}</span>
+                                                <span className='event_page_item_info_div_title' title={item.name}>{item.name}</span>
                                                 <p>{item.museum_name}</p>
                                                 {
-                                                    privateTicketRegions.map((el, index) => Object.keys(el)[0] === item.region ? <span key={index}>{locationIcon2}  {Object.values(el)[0]}</span> : '')
+                                                    privateTicketRegions.map((el, index) => Object.keys(el)[0] === item.region ? <span key={index} >{locationIcon2}  {Object.values(el)[0]}</span> : '')
                                                 }
 
                                                 <div className='data_and_price_div_events'>

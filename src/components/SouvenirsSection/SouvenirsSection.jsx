@@ -55,13 +55,14 @@ function SouvenirsSection() {
           <img src={el.image} alt="souvenir" />
 
           <div className="souvenir_item_add_cart_div">
-            <ButtonSecond txt="3" onClick={handleClickOpenModal(el.id)} />
+            {/* <ButtonSecond txt="3"  /> */}
+            <button className='souviner_item_btn'  onClick={handleClickOpenModal(el.id)}>{t('buttons.' + 3)}</button>
           </div>
         </div>
 
         <div className="souvenir_item_info_div">
-          <p>{el.name}</p>
-          <p>{el.price} AMD</p>
+          <p className='souvenir_item_info_div_name'>{el.name}</p>
+          <p className='souvenir_item_info_div_price'>{el.price} AMD</p>
         </div>
       </div>
     );
@@ -69,10 +70,14 @@ function SouvenirsSection() {
   return (
     <div className="souvenirss_section">
       <div className="container">
-        <div className="souvinirs_title_div">
-          <h3>{t('souvenirs_title.0')}</h3>
-          <h2>{t('souvenirs_title.1')}</h2>
+        
+
+        <div className='lines_div_souviners'>
+            <img src={require('../../images/line_gold.png')} alt="line" />
+            <h2>{t('souvenirs_title.1')}</h2>
+            <img src={require('../../images/line_gold.png')} alt="line" />
         </div>
+
         <div className="souvenir_items">
           <Carousel
             showDots={true}
@@ -89,6 +94,7 @@ function SouvenirsSection() {
         </div>
         <div className="souvenir_items_seeMore_button">
           <ButtonSecond txt="1" path={'store'} />
+
         </div>
       </div>
     </div>

@@ -29,8 +29,14 @@ function EventSinglePage() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        openConfigModal ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
-    }, [openConfigModal])
+        if (respSingleEvent && respSingleEvent.data && respSingleEvent.data.event_configs) {
+            if (respSingleEvent.data.event_configs.length > 0 && openConfigModal) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+    }, [openConfigModal, respSingleEvent]);
 
     useEffect(() => {
          dispatch(getSingleEvent(id))
@@ -52,7 +58,7 @@ function EventSinglePage() {
                 </div>
             </div>
             <div className='more_event_botom'>
-                <span>{museum.name}</span>
+                <span title={museum.name}>{museum.name}</span>
                 <div>
                     <span className='more_event_botom_date'>{museum.start_date} - {museum.end_date}</span>
                     <span className='more_event_botom_price'>{museum.price} AMD</span>
