@@ -197,14 +197,24 @@ function App() {
                 </PrivateRouteForOutSider>
               }
             />
-            <Route
-              path="events"
-              element={
-                <PrivateRouteForOutSider>
-                  <EventsPage />
-                </PrivateRouteForOutSider>
-              }
-            />
+            <Route path="events">
+              <Route
+                index
+                element={
+                  <PrivateRouteForOutSider>
+                    <EventsPage />
+                  </PrivateRouteForOutSider>
+                }
+              />
+              <Route
+                path=":id"
+                element={
+                  <PrivateRouteForOutSider>
+                    <EventSinglePage />
+                  </PrivateRouteForOutSider>
+                }
+              />
+            </Route>
 
             <Route
               path="profilePage"
@@ -233,7 +243,7 @@ function App() {
                 path="chat"
                 element={
                   <PrivateRoute>
-                    <ChatProfile/>
+                    <ChatProfile />
                   </PrivateRoute>
                 }
               />
@@ -249,19 +259,19 @@ function App() {
                 path="qrcode"
                 element={
                   <PrivateRoute>
-                     <QrCode/>
+                    <QrCode />
                   </PrivateRoute>
                 }
               />
             </Route>
             <Route
-                path="comboticket"
-                element={
-                  <PrivateRouteForOutSider>
-                    <ComboTicket />
-                  </PrivateRouteForOutSider>
-                }
-              />
+              path="comboticket"
+              element={
+                <PrivateRouteForOutSider>
+                  <ComboTicket />
+                </PrivateRouteForOutSider>
+              }
+            />
           </Route>
         </Route>
       </Routes>
