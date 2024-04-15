@@ -28,6 +28,8 @@ import { useSelector } from 'react-redux';
 import { getIsTemp } from './store/slices/Auth/AuthSlice';
 import ComboTicket from './components/ComboTicket/ComboTicket';
 import ContactWithUs from './components/contactWithUs/contactWithUs';
+import ChatProfile from './components/ProfilePages/ChatProfile/ChatProfile';
+import QrCode from './components/ProfilePages/QrCode/QrCode';
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('');
@@ -218,7 +220,7 @@ function App() {
                 path="chat"
                 element={
                   <PrivateRoute>
-                    <div>chat</div>
+                    <ChatProfile/>
                   </PrivateRoute>
                 }
               />
@@ -227,6 +229,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <OrderHistory/>
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="qrcode"
+                element={
+                  <PrivateRoute>
+                     <QrCode/>
                   </PrivateRoute>
                 }
               />

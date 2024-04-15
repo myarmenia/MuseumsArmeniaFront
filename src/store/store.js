@@ -24,6 +24,7 @@ import { buyTicketReducer } from './slices/BuyTicketSlice/BuyTicketSlice';
 import { MuseumTicketReducer } from './slices/MuseumTicket/MuseumTicketSlice';
 import { ContactUsReducer } from './slices/ContactUs/ContactUsSlice';
 import { ComboTicketsReducer } from './slices/ComboTicket/ComboTicketSlice';
+import { ChatProfileReducer } from './slices/ChatProfile/ChatProfileSlice';
 
 
 const store = configureStore({
@@ -52,7 +53,8 @@ const store = configureStore({
       buyTicket: buyTicketReducer,
       museumTicket: MuseumTicketReducer,
       contactus:ContactUsReducer,
-      combotickets:ComboTicketsReducer
+      combotickets:ComboTicketsReducer,
+      chatprofile:ChatProfileReducer
    },
    // middleware: (getDefaultMiddlware)=>[
    //     ...getDefaultMiddlware(),

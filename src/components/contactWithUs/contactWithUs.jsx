@@ -22,7 +22,7 @@ function ContactWithUs() {
 
           <div className="contactWithUs_page_block_infoo">
             <p className="contactWithUs_title">
-              Կրթության, գիտության, մշակույթի ևՎ սպորտի նախարարություն
+              Կրթության, գիտության, մշակույթի և սպորտի նախարարություն
             </p>
             <div className="ContactWithUs_map">
               <img src={ContactWithUsmap} alt="ContactWithUsmap" />
