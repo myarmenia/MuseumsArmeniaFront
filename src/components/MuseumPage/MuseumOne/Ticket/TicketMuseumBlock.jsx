@@ -25,6 +25,10 @@ const TicketMuseumBlock = () => {
       if (success) {
          window.location.assign(`${paymentsUrl}`);
       }
+      return () => {
+         dispatch(setModalTicketIsOpen(false));
+         dispatch(setResetDataItems());
+      };
    }, [success]);
 
    return (

@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 import {
    setDataItems,
    setTicketType,
@@ -14,7 +14,8 @@ import ButtonSecond from '../../../ButtonSecond/ButtonSecond';
 const TicketMuseumCatalog = () => {
    const dispatch = useDispatch();
    const [t, i18n] = useTranslation();
-
+   const navigate = useNavigate();
+   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
    const { ticketType, dataItems } = useSelector((state) => state.museumTicket);
    const { isAuth } = useSelector((store) => store.auth);
    const hendleClickItems = useCallback((dovnUp, obj) => {
@@ -49,7 +50,7 @@ const TicketMuseumCatalog = () => {
             };
             dispatch(postTicketCart(obj));
          } else {
-            console.log('cka');
+            navigate(`/${leng}/login`);
          }
       }
    }, [dataItems]);

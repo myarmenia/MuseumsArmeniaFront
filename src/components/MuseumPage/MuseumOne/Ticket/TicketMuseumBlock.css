@@ -1,4 +1,4 @@
-.ReactModal__Overlay{
+.ReactModal__Overlay {
    z-index: 999999;
 }
 .TicketMuseumCatalog-parent {
@@ -47,6 +47,10 @@
    color: #b26705;
    width: 100%;
    padding: 10px 11px;
+}
+
+.museumTicket-formChild {
+   max-width: 400px;
 }
 
 .attention {
@@ -170,9 +174,7 @@
    margin: 10px 0 14px;
 }
 
-
 /* icket form start ................................. */
-
 
 .museumTicket-formChild-inbut > input {
    border: 1px solid #aaaaaa;
@@ -198,7 +200,7 @@
    min-width: 300px;
 }
 .ticketForm-blockradio > label {
-   color: #AAAAAA;
+   color: #aaaaaa;
    display: flex;
    align-items: center;
    gap: 8px;
@@ -208,14 +210,10 @@
    line-height: 20px;
 }
 
-
-
 /* icket form end ................................. */
-
 
 @media (max-width: 500px) {
    .TicketMuseumCatalog-parent {
       padding: 0 20px 25px;
    }
 }
-
