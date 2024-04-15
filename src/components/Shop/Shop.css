@@ -1,6 +1,14 @@
 .shop_all {
   min-height: 100vh;
   position: relative;
+  background-image: url('../../images/shopBackPhoto.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+}
+.shop_top_titels{
+  margin-bottom: 80px;
 }
 
 .backImage_shop {
@@ -191,6 +199,12 @@
   display: none;
 }
 /* ////////////////// */
+
+
+.all_Shop_Content{
+  background-color: goldenrod;
+  padding: 50px;
+}
 
 @media screen and (max-width: 910px) {
   .shopess_start {

@@ -34,6 +34,8 @@ import { getIsTemp } from './store/slices/Auth/AuthSlice';
 import EventSinglePage from './components/EventSinglePage/EventSinglePage';
 import ComboTicket from './components/ComboTicket/ComboTicket';
 import ContactWithUs from './components/contactWithUs/contactWithUs';
+import ChatProfile from './components/ProfilePages/ChatProfile/ChatProfile';
+import QrCode from './components/ProfilePages/QrCode/QrCode';
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('');
@@ -195,14 +197,24 @@ function App() {
                 </PrivateRouteForOutSider>
               }
             />
-            <Route
-              path="events"
-              element={
-                <PrivateRouteForOutSider>
-                  <EventsPage />
-                </PrivateRouteForOutSider>
-              }
-            />
+            <Route path="events">
+              <Route
+                index
+                element={
+                  <PrivateRouteForOutSider>
+                    <EventsPage />
+                  </PrivateRouteForOutSider>
+                }
+              />
+              <Route
+                path=":id"
+                element={
+                  <PrivateRouteForOutSider>
+                    <EventSinglePage />
+                  </PrivateRouteForOutSider>
+                }
+              />
+            </Route>
 
             <Route
               path="profilePage"
@@ -231,7 +243,7 @@ function App() {
                 path="chat"
                 element={
                   <PrivateRoute>
-                    <div>chat</div>
+                    <ChatProfile />
                   </PrivateRoute>
                 }
               />
@@ -243,134 +255,23 @@ function App() {
                   </PrivateRoute>
                 }
               />
-
               <Route
-                path="news"
-                element={
-                  <PrivateRouteForOutSider>
-                    <Newses {...{ changeFonSize }} />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              <Route
-                path="news/:id"
-                element={
-                  <PrivateRouteForOutSider>
-                    <SingleNews />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              <Route path="privacy-policy" element={<PrivacyPolicy />} />
-              <Route
-                path="store"
-                element={
-                  <PrivateRouteForOutSider>
-                    <Shop />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              <Route
-                path="store/:id"
-                element={
-                  <PrivateRouteForOutSider>
-                    <SingleShop />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              <Route
-                path="aboute-us"
-                element={
-                  <PrivateRouteForOutSider>
-                    <AbouteUsPage />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              <Route
-                path="ticket-sale"
-                element={
-                  <PrivateRouteForOutSider>
-                    <SaleTicketPage />
-                  </PrivateRouteForOutSider>
-                }
-              />
-
-              <Route
-                path="FAQ"
-                element={
-                  <PrivateRouteForOutSider>
-                    <FaqPage />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              <Route path='events'>
-                <Route
-                  index
-                  element={
-                    <PrivateRouteForOutSider>
-                      <EventsPage />
-                    </PrivateRouteForOutSider>
-                  }
-                />
-                <Route path=':id' element={<PrivateRouteForOutSider><EventSinglePage /></PrivateRouteForOutSider>} />
-              </Route>
-
-              <Route
-                path="profilePage"
+                path="qrcode"
                 element={
                   <PrivateRoute>
-                    <ProfilePage />
+                    <QrCode />
                   </PrivateRoute>
-                }>
-                <Route
-                  index
-                  element={
-                    <PrivateRoute>
-                      <MyAccount />
-                    </PrivateRoute>
-                  }
-                />
-                <Route
-                  path="myaccount"
-                  element={
-                    <PrivateRoute>
-                      <MyAccount />
-                    </PrivateRoute>
-                  }
-                />
-                <Route
-                  path="chat"
-                  element={
-                    <PrivateRoute>
-                      <div>chat</div>
-                    </PrivateRoute>
-                  }
-                />
-                <Route
-                  path="orderhistory"
-                  element={
-                    <PrivateRoute>
-                      <OrderHistory />
-                    </PrivateRoute>
-                  }
-                />
-              </Route>
-              <Route
-                path="contact"
-                element={
-                  <PrivateRouteForOutSider>
-                    <ContactWithUs />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              <Route
-                path="comboticket"
-                element={
-                  <PrivateRouteForOutSider>
-                    <ComboTicket />
-                  </PrivateRouteForOutSider>
                 }
               />
             </Route>
+            <Route
+              path="comboticket"
+              element={
+                <PrivateRouteForOutSider>
+                  <ComboTicket />
+                </PrivateRouteForOutSider>
+              }
+            />
           </Route>
         </Route>
       </Routes>
