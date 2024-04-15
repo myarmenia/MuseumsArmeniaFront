@@ -1,6 +1,5 @@
 .section_aboute_us{
-    height: 900px;
-    margin-bottom: 100px;
+    min-height: 650px;
 }
 
 
@@ -10,7 +9,6 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-    gap: 30px;
 }
 
 .section_aboute_us_title_div{
@@ -62,10 +60,30 @@
 }
 
 
+.lines_div_section_about_us{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 50px;
+}
+
+.lines_div_section_about_us h2{
+    color: var(--second_font_color);
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+.section_aboute_us_right_div {
+    height: 400px !important;
+}
 
 @media(max-width: 1440px){
     .section_aboute_us{
-        height: 1150px;
+        /* height: 1150px; */
     }
 }
 
@@ -73,7 +91,7 @@
 @media(max-width: 1024px){
 
     .section_aboute_us{
-        height: 1500px;
+        /* height: 1500px; */
     }
 
     .section_aboute_us .section_aboute_us_info{
@@ -84,13 +102,17 @@
         width: 90%;
     }
 
+    .lines_div_section_about_us >img{
+        display: none;
+    }
+
 }
 
 
 @media(max-width: 780px){
 
     .section_aboute_us{
-        height: 2000px;
+        /* height: 2000px; */
     }
 
     .section_aboute_us .section_aboute_us_info{

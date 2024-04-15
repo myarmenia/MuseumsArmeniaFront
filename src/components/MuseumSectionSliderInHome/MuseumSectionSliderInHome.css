@@ -1,8 +1,9 @@
 
 .slide-section{
-    height: 600px;
-    padding: 50px 0;
+    height: 500px;
+    padding-top: 80px;
 }
+
 
 
 .slide-section .container {
@@ -14,7 +15,17 @@
 }
 
 .slide-section h2, .slide-section p{
-    color: var(--main_font_color);
+    color: var(--second_font_color);
+}
+
+.museum_section_item_info_div >div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.museum_section_item_info_div >div span{
+    color: black;
 }
 .slide-section .react-multiple-carousel__arrow{
     display: none;
@@ -35,7 +46,7 @@
 
 
 .react-multi-carousel-dot-list{
-    bottom: -15px;
+    bottom: -60px;
 }
 
 
@@ -54,7 +65,7 @@
 
 
 .museum_section_item{
-    width: 400px;
+    width: 300px;
     position: relative;
     cursor: pointer;
 }
@@ -77,7 +88,7 @@
 .museum_section_item_info_div{
     background-color: white;
     padding: 10px;
-    min-height: 150px;
+    min-height: 100px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.253);
     display: flex;
     flex-direction: column;
@@ -108,4 +119,31 @@
     color: var(--second_font_color);
     letter-spacing: 2px;
     text-align: center;
+}
+
+
+.lines_div_section_museum{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 50px;
+}
+
+.lines_div_section_museum h2{
+    color: var(--second_font_color);
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.slide-section  .react-multi-carousel-item  {
+    width: 390px !important;
+}
+
+@media(max-width:1024px){
+    .lines_div_section_museum >img{
+        display: none;
+    }
 }

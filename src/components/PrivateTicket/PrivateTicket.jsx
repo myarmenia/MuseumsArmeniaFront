@@ -57,7 +57,7 @@ function PrivateTicket() {
             <div className='private_ticket_type_div'>
                 {
                     ticketsType.map(item => 
-                        <button key={item.id} style={{color: changeTicketType === item.id ? '#3F3D56' : 'gray'}} onClick={() => handleChangeTicket(item.id, item.type)}><span>{changeTicketType === item.id && dotIcon}</span><p>{item.type_name}</p></button>
+                        <button key={item.id}  style={{color: changeTicketType === item.id ? '#3F3D56' : 'gray'}} onClick={() => handleChangeTicket(item.id, item.type)}><span>{changeTicketType === item.id && dotIcon}</span><p>{item.type_name}</p></button>
                     )
                 }
             </div>

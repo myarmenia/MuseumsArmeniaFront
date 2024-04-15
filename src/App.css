@@ -24,6 +24,14 @@ ul,ol{
     list-style: none;
 }
 
+.react-multi-carousel-dot button{
+    border: 2px solid var(--second_font_color) !important;
+}
+
+.react-multi-carousel-dot--active button{
+    background-color: var(--second_font_color) !important;
+}
+
 
 :root {
     --main_font_color: white;

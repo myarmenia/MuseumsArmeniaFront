@@ -1,22 +1,37 @@
 .events_page{
     min-height: 100vh;
+    background-image: url('../../images/previcyPolicyBackground_img.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+}
+
+.events_page_block{
+    background-color: white;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    width: 100%;
 }
 
 .events_page .container{
     display: flex;
     flex-direction: column;
     gap: 32px;
-    padding-top: 32px;
     padding-bottom: 100px;
     padding-left: 86px;
     padding-right: 86px;
+    align-items: center;
 }
 
 .event_page_items{
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    gap: 50px;
+    gap: 40px;
 }
 
 .event_page_item{
@@ -40,6 +55,7 @@
 
 .event_page_item_img_div img{
     height: 100%;
+    object-fit: contain;
 }
 
 .event_page_item_info_div{
@@ -51,6 +67,11 @@
 
 .event_page_item_info_div_title{
     color: var(--second_font_color);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .event_page_item_navigate_div{
@@ -124,10 +145,7 @@
     gap: 30px;
 }
 
-.lines_div_events h1{
-    color: var(--second_font_color);
-    font-weight: 500;
-}
+
 
 
 .events_page_filter_div >div{
@@ -151,7 +169,7 @@
 .events_page_filter_region_inp_div >span{
     position: absolute;
     top: 13px;
-    right: 10px;
+    right: 15px;
 }
 
 .events_page_filter_region_inp_div >input{
@@ -173,7 +191,13 @@
     z-index: 99;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.184);
     padding: 20px;
+    height: 230px;
+    overflow: auto;
     
+}
+
+.events_page_filter_region_list::-webkit-scrollbar{
+    width: 0;
 }
 
 .events_page_filter_region_list li{
@@ -193,23 +217,18 @@
 .pagination_ul{
     list-style-type: none;
     display: flex;
-    gap: 20px;
+    gap: 16px;
     margin: 0 auto;
 }
 
 .pagination_ul li{
-    padding: 7px 15px;
+    padding: 2px 8px;
     color: black;
-    background-color: #d9d9d989;
     cursor: pointer;
     border-radius: 5px;
 }
 
-.pagination_ul li:first-of-type, .pagination_ul li:last-of-type{
-    background-color: white ;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.408);
-}
+
 
 .events_page_filter_div{
  width: 96%;
@@ -233,7 +252,7 @@
 .events_page_filter_museum_inp_div span{
     position: absolute;
     top: 13px;
-    right: 10px;
+    right: 15px;
 }
 
 .events_page_filter_museum_inp_div >input{
@@ -280,13 +299,19 @@
     z-index: 99;
     padding: 20px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.184);
+    height: 230px;
+    overflow: auto;
+}
+
+.events_page_filter_museum_list::-webkit-scrollbar{
+    width: 0;
 }
 
 .events_page_filter_museum_list li{
     display: flex;
     align-items: center;
     gap: 16px;
-    height: 30px;
+    min-height: 30px;
     padding: 20px 10px;
     cursor: pointer;
     color: #636363;
@@ -317,21 +342,39 @@
 
 .event_page_item_info_div p {
     font-size: 14px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    position: relative;
 }
 
-.event_page_item_info_div p::after {
-    content: "...";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 1.5em;
+.lines_div_event{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
+.lines_div_event > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:50px
+}
+
+.lines_div_event h2{
+    font-weight: 500;
+    letter-spacing: 5px;
+    color: var(--main_font_color);
+    text-transform: uppercase;
+    
+}
+
+.lines_div_event h3{
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--main_font_color);
+    text-align: center;
+}
+
+
+
 @media(max-width: 730px){
     .event_page_item{
         width: 90%;
@@ -361,19 +404,31 @@
         width: 90%;
     }
 
-    .lines_div_events >img{
-        display: none;
-    }
 
     .App .events_page_baner h1{
         font-size: 40px;
+    }
+
+    .events_page_block{
+        padding: 40px 10 ;
+    }
+    .lines_div_event img{
+        display: none;
     }
 }
 
 
 @media(max-width: 485px){
     .event_page_item{
-        width: 350px;
+        width: 320px;
     }
     
+
+    .events_page_block{
+        padding: 30px 10px;
+    }
+
+    .event_page_item_img_div{
+        height: 300px;
+    }
 }

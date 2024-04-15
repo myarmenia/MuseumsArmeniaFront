@@ -23,24 +23,14 @@ function NewsSectionInHome() {
   return (
     <div className="news_section_in_home">
       <div className="container">
-        <h2 className="news_section_in_home_title">{t('news_section_title')}</h2>
+        <div className='lines_div_section_news_section'>
+                <img src={require('../../images/line_gold.png')} alt="line" />
+                <h2>{t('news_section_title')}</h2>
+                <img src={require('../../images/line_gold.png')} alt="line" />
+        </div>
 
         <div className="news_section_in_home_block">
-          {/* <div className="news_section_in_home_items">
-            {home_page_news_section_data.map((item) => (
-              <div key={item.id} className="news_section_in_home_item">
-                <div className="news_section_in_home_item_img_div">
-                  <img src={item.img} alt ="news" />
-                </div>
-
-                <div className="news_section_in_home_item_info_div">
-                  <span className="news_section_in_home_item_info_div_date">{item.date}</span>
-                  <p>{item.txt}</p>
-                </div>
-              </div>
-            ))}
-          </div> */}
-
+        
           <div className="newsess_home_page">
             {DataAllNews.length !== 0
               ? DataAllNews.slice(0, 3).map((el, index) => (
@@ -52,8 +42,8 @@ function NewsSectionInHome() {
                       <img src={el.image} alt={el.title} />
                     </div>
                     <div className="news_box_title">
-                      <span>{el.created_at}</span>
-                      <p>{el.title.length > 58 ? el.title.slice(0, 58) + ' ...' : el.title}</p>
+                      <span className='created_at_news_box'>{el.created_at}</span>
+                      <span className='desc_news_box'>{el.title.length > 58 ? el.title.slice(0, 58) + ' ...' : el.title}</span>
                     </div>
                   </div>
                 ))

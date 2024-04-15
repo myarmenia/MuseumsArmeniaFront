@@ -3,7 +3,6 @@
    width: 100%;
    background-color: #333;
    color: #fff;
-   padding: 20px;
    position: fixed;
    bottom: 0;
    height: 300px;
@@ -15,7 +14,6 @@
   width: 100%;
   background-color: #333;
   color: #fff;
-  padding: 20px;
   position: static;
   bottom: 0;
   height: 300px;
@@ -38,22 +36,23 @@
 }
 
 .footer_menu {
-   width: 50%;
+   width: 100%;
 }
 
 .footerComponent_img_div {
-   width: 30%;
-   padding: 20px 50px;
+   width: 25%;
    display: flex;
+   padding: 20px;
    flex-direction: column;
-   gap: 16px;
+   gap: 8px;
+   padding-top: 50px;
 }
 .footerComponent_img_div img {
    width: 54px;
 }
 
 .footerComponent_img_div p {
-   line-height: 30px;
+   line-height: 24px;
 }
 
 .footer_menu {
@@ -64,7 +63,7 @@
 .footer_menu ul {
    display: flex;
    flex-direction: column;
-   gap: 16px;
+   gap: 8px;
 }
 
 .footer_menu .footer_menu_part_3 a:hover {
@@ -84,6 +83,71 @@
    gap: 20px;
 }
 
+.apple_and_play_market{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.apple_and_play_market div{
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.apple_and_play_market a{
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   color: white;
+}
+
+.footer_mail_div{
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.footer_botom{
+   width: 100%;
+   height: 35px;
+   background-color: #383737;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.footer_botom .container{
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.footer_botom_text{
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   color: #ffffffb1;
+}
+
+.footer_botom_text a{
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   color: #ffffffb1;
+   text-decoration: underline;
+}
+
+.footer_botom_text >div{
+   display: flex;
+   align-items: center;
+   gap: 5px;
+}
+
+.cIcon{
+   padding-top: 3px;
+}
 @media (max-width: 1024px) {
    .footerComponent{
       position: static;
