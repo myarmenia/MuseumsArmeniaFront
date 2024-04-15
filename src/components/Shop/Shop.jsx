@@ -153,7 +153,7 @@ function Shop() {
         // setErrorText(true);
         // window.location.href()
         // window.location.pathname = `/${leng}/login`
-        navigate(`/${leng}/login`)
+        navigate(`/${leng}/login`);
       }
 
       // dispatch(
@@ -204,13 +204,22 @@ function Shop() {
         </div>
       ) : (
         <div className="shop_all">
+          <div className="shop_top_titels">
+            <div className="lines_div">
+              <img className="border_1" src={require('../../images/Line 106.png')} alt="" />
+              <h2 style={{ textTransform: 'uppercase' }}>SHOPE</h2>
+              <img className="border_2" src={require('../../images/Line 106.png')} alt="" />
+            </div>
+              <p style={{textAlign:"center",color:"white",marginTop:"20px"}}>All Armenia museums products</p>
+          </div>
           {/* <div className={errorText ? 'shop_error_text' : 'shop_error_text_none'}>
             zambyuxic ogtvelu hamar petq e grancvel{' '}
           </div> */}
-          <div className="backImage_shop">
+          {/* <div className="backImage_shop">
             <h1>{t('shop_page_data.0')}</h1>
-          </div>
+          </div> */}
           <div className="container">
+            <div className="all_Shop_Content">
             <div className="input_and_filteres">
               <form className="form_shop" onSubmit={(e) => searchShop(e)}>
                 <div className="input-container-shop">
@@ -324,6 +333,7 @@ function Shop() {
                 breakClassName={'break-item'}
                 activeClassName={'active-itemm'}
               />
+            </div>
             </div>
           </div>
           <CardModal />

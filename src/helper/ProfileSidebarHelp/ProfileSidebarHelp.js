@@ -27,13 +27,13 @@ export const ProfileSidebarArrll = () => {
     {
       icon: QrCode,
       name: 'Qr_code',
-      slug: 'qrCode',
+      slug: 'qrcode',
     },
-    {
-      icon: Card,
-      name: 'Card',
-      slug: 'card',
-    },
+    // {
+    //   icon: Card,
+    //   name: 'Card',
+    //   slug: 'card',
+    // },
     {
       icon: Notificationn,
       name: 'Notificationn',

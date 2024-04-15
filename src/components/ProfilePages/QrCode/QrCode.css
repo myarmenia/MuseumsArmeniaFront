@@ -1,0 +1,10 @@
+.QrCode_all{
+  padding: 32px;
+}
+
+.QrCode_title{
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 600;
+}
