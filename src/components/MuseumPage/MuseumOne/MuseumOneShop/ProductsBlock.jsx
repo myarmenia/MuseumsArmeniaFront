@@ -16,7 +16,7 @@ const ProductsBlock = ({ id, image, product_category_id, price, name }) => {
             <div className="ProductsBlock-description-parPrice">
                <p className="ProductsBlock-description-price">{price}AMD</p>
 
-               <ShopMinIcons />
+               {/* <ShopMinIcons /> */}
             </div>
             <Link>
                <button className="ProductsBlock-description-btn">{t(`buy`)} </button>
