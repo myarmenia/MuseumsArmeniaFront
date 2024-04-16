@@ -40,4 +40,4 @@ const TicketMuseumBlock = () => {
    );
 };
 
-export default TicketMuseumBlock;
+export default React.memo(TicketMuseumBlock);

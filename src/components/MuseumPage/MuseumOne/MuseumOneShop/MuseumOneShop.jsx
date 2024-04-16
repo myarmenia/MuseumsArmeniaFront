@@ -85,4 +85,4 @@ const MuseumOneShop = ({ museumId }) => {
    );
 };
 
-export default MuseumOneShop;
+export default React.memo(MuseumOneShop);

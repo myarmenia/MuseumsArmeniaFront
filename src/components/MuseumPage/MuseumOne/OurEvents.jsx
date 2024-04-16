@@ -77,4 +77,4 @@ const OurEvents = ({ dataMuseumOneEvents }) => {
    );
 };
 
-export default OurEvents;
+export default React.memo(OurEvents);

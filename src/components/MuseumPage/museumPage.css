@@ -356,7 +356,7 @@
 .Invate_par {
    position: relative;
    cursor: pointer;
-   overflow: hidden;
+   /* overflow: hidden; */
 }
 .Invate_child {
    position: absolute;
@@ -448,6 +448,14 @@
    font-size: 13px;
    line-height: 20px;
    color: #575757;
+}
+
+.educationalPrograms-minBlock-parDropDown::-webkit-scrollbar {
+   width: 7px;
+}
+.educationalPrograms-minBlock-parDropDown::-webkit-scrollbar-thumb {
+   background: #d9d9d9;
+   border-radius: 10px;
 }
 
 .educationalPrograms-minBlock-parDropDown p {

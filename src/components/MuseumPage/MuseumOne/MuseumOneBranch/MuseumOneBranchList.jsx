@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './museumOneBranch.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const MuseumOneBranchList = ({ address, working_days, email, phone_number, photo, name, id }) => {
    return (
@@ -32,4 +32,4 @@ const MuseumOneBranchList = ({ address, working_days, email, phone_number, photo
    );
 };
 
-export default MuseumOneBranchList;
+export default React.memo(MuseumOneBranchList);

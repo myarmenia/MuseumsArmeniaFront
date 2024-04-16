@@ -13,7 +13,7 @@ const MuseumOneBranchOne = () => {
    const { dataMuseumOne, loadingdataMuseumOne } = useSelector((state) => state.museumPages);
    const dispatch = useDispatch();
    const [branch, setBranch] = useState(null);
-
+   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
    useEffect(() => {
       dispatch(postMuseumOnePages({ id }));
    }, [id]);
@@ -27,11 +27,11 @@ const MuseumOneBranchOne = () => {
    const navigate = useNavigate();
 
    const goBack = () => {
-      navigate(-1);
+      navigate(`/${leng}/museums/museum/${id}`);
    };
    return (
       <div className="container">
-         {loadingdataMuseumOne === 'loading' && !branch ? (
+         {loadingdataMuseumOne === 'loading' ? (
             <LoadSpinner />
          ) : loadingdataMuseumOne === 'fulfilled' && branch ? (
             <div>
@@ -61,10 +61,10 @@ const MuseumOneBranchOne = () => {
                </div>
             </div>
          ) : (
-            <IsWrong text={t(`isWrong`)} />
+            <IsWrong text={t(`isWrong.0`)} />
          )}
       </div>
    );
 };
 
-export default MuseumOneBranchOne;
+export default React.memo(MuseumOneBranchOne);

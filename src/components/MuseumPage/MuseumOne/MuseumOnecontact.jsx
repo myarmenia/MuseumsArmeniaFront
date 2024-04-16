@@ -50,8 +50,8 @@ const MuseumOnecontact = ({
                <h4>{t(`our_address`)}</h4>
                <p className="par-contactMinBlock">
                   <LocationIcon width={20} height={20} fill="#3F3D56" />
-                  {region && t(`${region}`)}
-                  {address}
+                  {region && t(`${region} ,`)}
+                  {address && address}
                </p>
             </div>
          )}
@@ -111,7 +111,7 @@ const MuseumOnecontact = ({
                   className="Invate_child"
                   style={{
                      opacity: copySuccess ? '1' : '0',
-                     transform: copySuccess ? 'translateX(35px)' : 'translateX(315px)',
+                     transform: copySuccess ? 'translateX(35px)' : 'translateX(370px)',
                   }}>
                   <p>{t(`webSideMusum.3`)}</p>
                </div>

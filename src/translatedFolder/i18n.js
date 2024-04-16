@@ -564,7 +564,11 @@ i18n.use(initReactI18next).init({
             Showing: ['Ցուցադրվում են', 'արդյունքները', 'ից'],
             virtualExcursion: 'Վիրտուալ էքսկուրսիա',
             museumBranch: 'Թանգարանի մասնաճյուղերը',
-            isWrong: 'Ինչ - որ բան սխալ է !',
+            isWrong: [
+               'Ինչ - որ բան սխալ է !',
+               'Այս պահին տոմսեր չկան',
+               'Ապրանքներ ավելացված են զամբյուղում',
+            ],
          },
       },
 
@@ -1127,7 +1131,11 @@ i18n.use(initReactI18next).init({
             Showing: ['Показаны', 'из', 'результатов'],
             virtualExcursion: 'Виртуальная экскурсия',
             museumBranch: 'Филиалы музея',
-            isWrong: 'Что-то не так !',
+            isWrong: [
+               'Ինչ - որ բան սխալ է !',
+               'На данный момент билетов нет в наличии',
+               'Товары добавлены в корзину',
+            ],
          },
       },
       en: {
@@ -1677,7 +1685,11 @@ i18n.use(initReactI18next).init({
             Showing: ['Showing ', 'of', 'results'],
             virtualExcursion: 'Virtual Excursion',
             museumBranch: 'Branches of the museum',
-            isWrong: 'Something is wrong !',
+            isWrong: [
+               'Ինչ - որ բան սխալ է !',
+               'There are currently no tickets available',
+               'Products added to cart',
+            ],
          },
       },
    },

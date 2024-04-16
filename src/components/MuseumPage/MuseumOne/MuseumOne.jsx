@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
@@ -23,6 +23,7 @@ import {
    MuseumOneShop,
    MuseumOneVirtualTour,
    MuseumOneBranch,
+   IsWrong,
 } from '../index';
 import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 import MuseumPageHeader from '../MuseumPageHeader';
@@ -30,15 +31,15 @@ import MuseumPageMessages from '../../NewMessages/MuseumPageMessages';
 import CustomButtonBlock from './CustomButtonBlock';
 import { MuseumAbonementIcons } from '../../../iconFolder/icon';
 import { TicketMuseumBlock } from './Ticket';
+import OutSideErrorModal from '../../OutSideErrorModal/OutSideErrorModal';
 
 const MuseumOne = () => {
    const { t, i18n } = useTranslation();
    const { id } = useParams();
    const dispatch = useDispatch();
-   const { isAuth, authUser } = useSelector((store) => store.auth);
-   console.log(id, 'iddddd');
+   const { isAuth } = useSelector((store) => store.auth);
+   const { statusInfoModal, ticketType } = useSelector((state) => state.museumTicket);
    const {
-      loadingStatus,
       loadingdataMuseumOne,
       dataMuseumOne,
       dataEducationalPrograms,
@@ -46,7 +47,6 @@ const MuseumOne = () => {
       loadingMuseumOneEvents,
       dataMuseumOneEvents,
       dataMuseumProducts,
-      loadingMuseumProducts,
    } = useSelector((state) => state.museumPages);
 
    useEffect(() => {
@@ -65,11 +65,12 @@ const MuseumOne = () => {
 
    const handleClickTicket = useCallback((kindOf, type) => {
       dispatch(setModalTicketIsOpen(true));
-      dispatch(setTicketType({ kindOf, type }));
+      dispatch(setTicketType({ kindOf, type, ticketType: '' }));
    }, []);
 
    return (
       <>
+         {statusInfoModal.status && <OutSideErrorModal txt={statusInfoModal.text} />}
          {loadingdataMuseumOne === 'loading' ? (
             <LoadSpinner />
          ) : loadingdataMuseumOne === 'fulfilled' ? (
@@ -89,6 +90,7 @@ const MuseumOne = () => {
                                  photos={dataMuseumOne.photos}
                                  handleClickTicket={handleClickTicket}
                                  openBtn={true}
+                                 ticketType={ticketType}
                               />
                            </div>
                            <div className="museumOne-blockRigth ">
@@ -97,7 +99,9 @@ const MuseumOne = () => {
                                  icon={<MuseumAbonementIcons />}
                                  title={'webSideMusum.2'}
                                  text={'ButtonBlock.0'}
-                                 background={'#D5AA72'}
+                                 background={
+                                    ticketType.type === 'Abonement ticket' ? '#3F3D56' : '#D5AA72'
+                                 }
                                  color={'#FFFFFF'}
                                  textBtn="10"
                                  onClick={() => handleClickTicket('ticket', 'Abonement ticket')}
@@ -150,7 +154,7 @@ const MuseumOne = () => {
                </div>
             </div>
          ) : (
-            <div>ինչվոր մի բան այն չի</div>
+            <IsWrong text={t(`isWrong.0`)} />
          )}
       </>
    );

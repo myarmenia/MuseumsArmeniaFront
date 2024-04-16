@@ -3,6 +3,7 @@
 }
 .TicketMuseumCatalog-parent {
    padding: 0 40px 25px;
+   max-width: 430px;
 }
 
 .BuyTicketBlock-listPar {
@@ -38,7 +39,7 @@
 
 .ticketModal-close {
    width: 30px;
-   height: 3px;
+   height: 35px;
    border-radius: 50px;
    display: flex;
    justify-content: flex-end;

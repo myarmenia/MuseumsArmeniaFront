@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import ButtonSecond from '../../ButtonSecond/ButtonSecond';
 
@@ -10,8 +9,8 @@ const MuseumOneDescription = ({
    photos = [],
    handleClickTicket = () => {},
    openBtn = false,
+   ticketType = {},
 }) => {
-   const { t, i18n } = useTranslation();
    const [activImg, setActivImg] = React.useState(photos[0] || reserveImg);
    const [img1, setImg1] = React.useState(photos[1] || reserveImg);
    const [img2, setImg2] = React.useState(photos[2] || reserveImg);
@@ -43,7 +42,7 @@ const MuseumOneDescription = ({
             <ButtonSecond
                txt="9"
                minWidth="210px"
-               background={'#D5AA72'}
+               background={ticketType.type === 'Buy Ticket' ? '#3F3D56' : '#D5AA72'}
                color={'#FFFFFF'}
                maxWidth={'250px'}
                onClick={() => handleClickTicket('ticket', 'Buy Ticket')}
