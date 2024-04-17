@@ -564,11 +564,22 @@ i18n.use(initReactI18next).init({
             Showing: ['Ցուցադրվում են', 'արդյունքները', 'ից'],
             virtualExcursion: 'Վիրտուալ էքսկուրսիա',
             museumBranch: 'Թանգարանի մասնաճյուղերը',
+
             isWrong: [
                'Ինչ - որ բան սխալ է !',
                'Այս պահին տոմսեր չկան',
                'Ապրանքներ ավելացված են զամբյուղում',
                'Տոմս գնելու համար լրացրեք դաշտերը',
+
+            ],
+
+            profil_side_bar: [
+               'Իմ հաշիվը',
+               'Հաղորդագրություններ',
+               'Պատվերներ',
+               'QR Code',
+               'Ծանուցումներ'
+
             ],
          },
       },
@@ -1132,11 +1143,22 @@ i18n.use(initReactI18next).init({
             Showing: ['Показаны', 'из', 'результатов'],
             virtualExcursion: 'Виртуальная экскурсия',
             museumBranch: 'Филиалы музея',
+
             isWrong: [
                'Ինչ - որ բան սխալ է !',
                'На данный момент билетов нет в наличии',
                'Товары добавлены в корзину',
                'Заполните поля, чтобы купить билет',
+
+           ],
+
+            profil_side_bar: [
+               'Мой аккаунт',
+               'Сообщения',
+               'Заказы',
+               'QR код',
+               'Уведомления'
+
             ],
          },
       },
@@ -1687,12 +1709,25 @@ i18n.use(initReactI18next).init({
             Showing: ['Showing ', 'of', 'results'],
             virtualExcursion: 'Virtual Excursion',
             museumBranch: 'Branches of the museum',
+
             isWrong: [
                'Ինչ - որ բան սխալ է !',
                'There are currently no tickets available',
                'Products added to cart',
                'Fill in the fields to buy a ticket',
             ],
+
+            
+
+            profil_side_bar: [
+               'Мой аккаунт',
+               'Сообщения',
+               'Заказы',
+               'QR код',
+               'Уведомления'
+            ],
+
+
          },
       },
    },
