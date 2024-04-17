@@ -1,6 +1,5 @@
-import React, { useState, memo } from 'react';
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import EducationalDropdown from './EducationalDropdown';
 
 const EducationalPrograms = ({ dataEducationalPrograms }) => {

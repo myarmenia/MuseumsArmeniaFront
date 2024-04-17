@@ -19,4 +19,4 @@ const MuseumOneBranch = ({ branches }) => {
    );
 };
 
-export default MuseumOneBranch;
+export default React.memo(MuseumOneBranch);

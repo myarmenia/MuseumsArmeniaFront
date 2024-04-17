@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { LocationIcon } from '../../iconFolder/icon';
 
-const MuseumMinBlock = ({ id, address, name, photo, region, description }) => {
+const MuseumMinBlock = ({ id, name, photo, region }) => {
    const { t, i18n } = useTranslation();
    return (
       <div className="par_MuseumMinBlock">

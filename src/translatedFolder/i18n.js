@@ -38,8 +38,7 @@ i18n.use(initReactI18next).init({
                'Զամբյուղում',
             ],
 
-            footer_title:
-               'ՀՀ Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
+            footer_title: 'ՀՀ Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
 
             news_section_title: 'ՆՈՐՈՒԹՅՈՒՆՆԵՐ',
 
@@ -511,7 +510,12 @@ i18n.use(initReactI18next).init({
             ],
 
             musseumPage_title: ['ՀԱՅԱՍՏԱՆԻ ԹԱՆԳԱՐԱՆՆԵՐ', 'Զտել', 'Կարդալ ավելին'],
-            webSideMusum: ['ՎԵԲ ԿԱՅՔ', 'հրավիրել', 'Թանգարանի Աբոնեմենտ'],
+            webSideMusum: [
+               'ՎԵԲ ԿԱՅՔ',
+               'հրավիրել',
+               'Թանգարանի Աբոնեմենտ',
+               'Հղումը պատճենվեց սեղմատախտակին',
+            ],
             ButtonBlock: [
                'Գնելով Աբոնեմենտ կարող եք 365 օրվա ընթացքում անսահմանափակ անգամ այցելել թանգարան:',
                'Զբոսավարի, կրթական ծրագրերի և այլ հարցերի համար գրեք',
@@ -543,21 +547,12 @@ i18n.use(initReactI18next).init({
 
             app_stor_and_google_play: 'Ներբեռնեք մեր Հավելվածը',
 
-            footer_botom: '2024 Հայաստանի  Թանգարաններ: Հեղինակային իրավունքները պաշտպանված են: Կայքը ստեղծել է',
+            footer_botom:
+               '2024 Հայաստանի  Թանգարաններ: Հեղինակային իրավունքները պաշտպանված են: Կայքը ստեղծել է',
 
-            event_single_page: [
-               'Տեսնել ավելին',
-               'Գնել տոմս',
-               'Նկարագրություն',
-               'Հրավիրել'
-            ],
+            event_single_page: ['Տեսնել ավելին', 'Գնել տոմս', 'Նկարագրություն', 'Հրավիրել'],
 
-            event_single_page_modal: [
-               'Ամսաթիվ',
-               'Ժամանակ',
-               'Գին',
-               'Հասանելի տոմսերի քանակը'
-            ],
+            event_single_page_modal: ['Ամսաթիվ', 'Ժամանակ', 'Գին', 'Հասանելի տոմսերի քանակը'],
             more_events: 'Նմանատիպ միջոցառումներ',
 
             mintitle: 'Հայաստանի թանգարանները մեկ հարթակում',
@@ -569,7 +564,14 @@ i18n.use(initReactI18next).init({
             Showing: ['Ցուցադրվում են', 'արդյունքները', 'ից'],
             virtualExcursion: 'Վիրտուալ էքսկուրսիա',
             museumBranch: 'Թանգարանի մասնաճյուղերը',
-            isWrong: 'Ինչ - որ բան սխալ է !',
+
+            isWrong: [
+               'Ինչ - որ բան սխալ է !',
+               'Այս պահին տոմսեր չկան',
+               'Ապրանքներ ավելացված են զամբյուղում',
+               'Տոմս գնելու համար լրացրեք դաշտերը',
+
+            ],
 
             profil_side_bar: [
                'Իմ հաշիվը',
@@ -577,6 +579,7 @@ i18n.use(initReactI18next).init({
                'Պատվերներ',
                'QR Code',
                'Ծանուցումներ'
+
             ],
          },
       },
@@ -1064,7 +1067,12 @@ i18n.use(initReactI18next).init({
                'Привет. Приятно видеть тебя здесь. Нажимая кнопку «Начать чат», вы соглашаетесь на обработку ваших персональных данных, как описано в нашей Политике конфиденциальности.',
             ],
             musseumPage_title: ['МУЗЕИ АРМЕНИИ', 'Фильтр', 'Читать далее'],
-            webSideMusum: ['ВЕБ-САЙТ', 'приглашать', 'Музейный абонемент'],
+            webSideMusum: [
+               'ВЕБ-САЙТ',
+               'приглашать',
+               'Музейный абонемент',
+               'Сылка копирован  в буфер обмена',
+            ],
             ButtonBlock: [
                'Купив абонемент, вы можете посещать музей неограниченное количество раз в течение 365 дней:',
                'Напишите нам для бронирования гида, образовательных программ и по другим вопросам.',
@@ -1113,26 +1121,15 @@ i18n.use(initReactI18next).init({
 
             eventPageTitle: 'Мероприятия музеев Армении',
 
-            location_name: "Дом Правительства 2, Вазген Саргсян 3, Ереван 0010, Армения",
+            location_name: 'Дом Правительства 2, Вазген Саргсян 3, Ереван 0010, Армения',
 
             app_stor_and_google_play: 'Загрузите наше приложение',
 
-
             footer_botom: '2024 Музеи Армении. Авторские права защищены. Сайт создан',
 
-            event_single_page: [
-               'Узнать больше',
-               'Купить билет',
-               'Описание',
-               'Приглашать'
-            ],
+            event_single_page: ['Узнать больше', 'Купить билет', 'Описание', 'Приглашать'],
 
-            event_single_page_modal: [
-               'Дата',
-               'Время',
-               'Цена',
-               'Количество доступных билетов'
-            ],
+            event_single_page_modal: ['Дата', 'Время', 'Цена', 'Количество доступных билетов'],
 
             more_events: 'Подобные события',
 
@@ -1146,7 +1143,14 @@ i18n.use(initReactI18next).init({
             Showing: ['Показаны', 'из', 'результатов'],
             virtualExcursion: 'Виртуальная экскурсия',
             museumBranch: 'Филиалы музея',
-            isWrong: 'Что-то не так !',
+
+            isWrong: [
+               'Ինչ - որ բան սխալ է !',
+               'На данный момент билетов нет в наличии',
+               'Товары добавлены в корзину',
+               'Заполните поля, чтобы купить билет',
+
+           ],
 
             profil_side_bar: [
                'Мой аккаунт',
@@ -1154,6 +1158,7 @@ i18n.use(initReactI18next).init({
                'Заказы',
                'QR код',
                'Уведомления'
+
             ],
          },
       },
@@ -1634,7 +1639,7 @@ i18n.use(initReactI18next).init({
                'Hello. Nice to see you here. By clicking the Start Chat button, you agree to the processing of your personal data as described in our Privacy Policy.',
             ],
             musseumPage_title: ['MUSEUMS OF ARMENIA', 'Filter', 'Read more'],
-            webSideMusum: ['WEB SITE', 'invate', 'Museum abonement'],
+            webSideMusum: ['WEB SITE', 'invate', 'Museum abonement', 'Link copied to clipboard'],
             ButtonBlock: [
                'By purchasing a subscription, you can visit the museum an unlimited number of times for 365 days:',
                'Write for tour guide, educational programs and other questions',
@@ -1682,25 +1687,15 @@ i18n.use(initReactI18next).init({
 
             eventPageTitle: 'Events of museums of Armenia',
 
-            location_name: "Government House 2, Vazgen Sargsyan 3, Yerevan 0010, Armenia",
+            location_name: 'Government House 2, Vazgen Sargsyan 3, Yerevan 0010, Armenia',
 
             app_stor_and_google_play: 'Download our App',
 
             footer_botom: '2024 Museums of Armenia. Copyright reserved. Site created by',
 
-            event_single_page: [
-               'See more',
-               'Buy ticket',
-               'Description',
-               'Invite'
-            ],
+            event_single_page: ['See more', 'Buy ticket', 'Description', 'Invite'],
 
-            event_single_page_modal: [
-               'Date',
-               'Time',
-               'Price',
-               'Number of tickets available'
-            ],
+            event_single_page_modal: ['Date', 'Time', 'Price', 'Number of tickets available'],
 
             more_events: 'Similar events',
 
@@ -1714,7 +1709,15 @@ i18n.use(initReactI18next).init({
             Showing: ['Showing ', 'of', 'results'],
             virtualExcursion: 'Virtual Excursion',
             museumBranch: 'Branches of the museum',
-            isWrong: 'Something is wrong !',
+
+            isWrong: [
+               'Ինչ - որ բան սխալ է !',
+               'There are currently no tickets available',
+               'Products added to cart',
+               'Fill in the fields to buy a ticket',
+            ],
+
+            
 
             profil_side_bar: [
                'Мой аккаунт',
@@ -1724,7 +1727,7 @@ i18n.use(initReactI18next).init({
                'Уведомления'
             ],
 
-            
+
          },
       },
    },

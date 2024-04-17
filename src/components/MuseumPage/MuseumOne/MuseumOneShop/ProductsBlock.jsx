@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ShopMinIcons } from '../../../../iconFolder/icon';
 
-const ProductsBlock = ({ id, image, product_category_id, price, name }) => {
+const ProductsBlock = ({ id, image, price, name }) => {
    const { t, i18n } = useTranslation();
+   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
    return (
       <div className="ProductsBlock">
          <div className="ProductsBlock-img">
@@ -18,7 +18,7 @@ const ProductsBlock = ({ id, image, product_category_id, price, name }) => {
 
                {/* <ShopMinIcons /> */}
             </div>
-            <Link>
+            <Link to={`/${leng}/store/${id}`}>
                <button className="ProductsBlock-description-btn">{t(`buy`)} </button>
             </Link>
          </div>
@@ -26,4 +26,4 @@ const ProductsBlock = ({ id, image, product_category_id, price, name }) => {
    );
 };
 
-export default ProductsBlock;
+export default React.memo(ProductsBlock);
