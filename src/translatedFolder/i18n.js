@@ -570,6 +570,14 @@ i18n.use(initReactI18next).init({
             virtualExcursion: 'Վիրտուալ էքսկուրսիա',
             museumBranch: 'Թանգարանի մասնաճյուղերը',
             isWrong: 'Ինչ - որ բան սխալ է !',
+
+            profil_side_bar: [
+               'Իմ հաշիվը',
+               'Հաղորդագրություններ',
+               'Պատվերներ',
+               'QR Code',
+               'Ծանուցումներ'
+            ],
          },
       },
 
@@ -1139,6 +1147,14 @@ i18n.use(initReactI18next).init({
             virtualExcursion: 'Виртуальная экскурсия',
             museumBranch: 'Филиалы музея',
             isWrong: 'Что-то не так !',
+
+            profil_side_bar: [
+               'Мой аккаунт',
+               'Сообщения',
+               'Заказы',
+               'QR код',
+               'Уведомления'
+            ],
          },
       },
       en: {
@@ -1699,6 +1715,16 @@ i18n.use(initReactI18next).init({
             virtualExcursion: 'Virtual Excursion',
             museumBranch: 'Branches of the museum',
             isWrong: 'Something is wrong !',
+
+            profil_side_bar: [
+               'Мой аккаунт',
+               'Сообщения',
+               'Заказы',
+               'QR код',
+               'Уведомления'
+            ],
+
+            
          },
       },
    },
