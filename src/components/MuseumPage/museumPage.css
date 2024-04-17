@@ -613,18 +613,21 @@
 }
 .block_eventMuseum-desc {
    width: 50%;
-   padding: 24px;
+   padding: 15px 24px;
    display: flex;
    justify-content: center;
    align-items: center;
    background-color: #f6f5f5;
+   box-sizing: content-box;
 }
 .block_eventMuseum-desc > div {
    width: 180px;
    display: flex;
    flex-direction: column;
-   gap: 16px;
+   /* gap: 16px; */
    align-items: start;
+   justify-content: space-between;
+   height: 100%;
 }
 .block_eventMuseum-desc p {
    font-family: globalFont;

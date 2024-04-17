@@ -54,6 +54,15 @@
    max-width: 400px;
 }
 
+.museumTicket-formChild-header > p {
+   font-family: globalFont;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 24px;
+   color: #000000;
+   text-align: center;
+}
+
 .attention {
    display: flex;
    align-items: center;
