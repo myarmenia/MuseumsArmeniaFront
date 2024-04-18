@@ -12,10 +12,10 @@ const EducationalDropdown = ({ description, name, min_quantity, max_quantity, id
    };
 
    const contentStyle = {
-      height: isOpen ? '200px' : 0,
+      height: isOpen ? '250px' : '0',
       transition: 'height 0.5s ease-in-out, opacity 0.6s ease-in-out',
       opacity: isOpen ? 1 : 0,
-      overflow: 'hidden',
+      overflow: 'auto',
    };
 
    return (

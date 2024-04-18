@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { filterRegionMuseum } from '../../store/slices/MuseumPagesSlice/MuseumPagesSlice';
-import { FilterIcon, LocationIcon } from '../../iconFolder/icon';
+import { LocationIcon } from '../../iconFolder/icon';
 
 import { CustomSearshBlock } from './index';
 

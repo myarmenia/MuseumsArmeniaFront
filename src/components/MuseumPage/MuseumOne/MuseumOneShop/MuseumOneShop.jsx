@@ -36,13 +36,14 @@ const MuseumOneShop = ({ museumId }) => {
 
    return (
       <div className="museumOne_pageStyle">
-         {loadingMuseumProducts === 'fulfilled' && dataMuseumProducts.totalCount > 0 ? (
+         {loadingMuseumProducts === 'fulfilled' ? (
             <div className="MuseumOneShop-par">
                <div className="MuseumOneShop-parHeader">
                   <div>
                      <h4 className="museumOne_title">{t(`thisMuseum`)}</h4>
                      <p>
-                        {t(`Showing.0`)} 1-{dataMuseumProducts.dataProducts.length} {t(`Showing.1`)}{' '}
+                        {t(`Showing.0`)} {dataMuseumProducts.dataProducts.length > 0 ? '1-' : ''}
+                        {dataMuseumProducts.dataProducts.length} {t(`Showing.1`)}{' '}
                         {dataMuseumProducts.totalCount} {t(`Showing.2`)}
                      </p>
                   </div>
@@ -85,4 +86,4 @@ const MuseumOneShop = ({ museumId }) => {
    );
 };
 
-export default MuseumOneShop;
+export default React.memo(MuseumOneShop);

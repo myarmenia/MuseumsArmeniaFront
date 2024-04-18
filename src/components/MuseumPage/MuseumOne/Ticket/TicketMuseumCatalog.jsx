@@ -1,9 +1,12 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 import {
    setDataItems,
    setTicketType,
+   setStatusInfoModal,
+   setModalTicketIsOpen,
+   setResetDataItems,
 } from '../../../../store/slices/MuseumTicket/MuseumTicketSlice';
 import { postMuseumTicket } from '../../../../store/slices/MuseumTicket/MuseumTicketApi';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +17,8 @@ import ButtonSecond from '../../../ButtonSecond/ButtonSecond';
 const TicketMuseumCatalog = () => {
    const dispatch = useDispatch();
    const [t, i18n] = useTranslation();
-
+   const navigate = useNavigate();
+   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
    const { ticketType, dataItems } = useSelector((state) => state.museumTicket);
    const { isAuth } = useSelector((store) => store.auth);
    const hendleClickItems = useCallback((dovnUp, obj) => {
@@ -39,8 +43,8 @@ const TicketMuseumCatalog = () => {
          }
       }
    }, [dataItems]);
+
    const HendleAddCart = useCallback(() => {
-      const userToken = localStorage.getItem('token');
       if (dataItems.length) {
          if (isAuth) {
             const obj = {
@@ -48,8 +52,12 @@ const TicketMuseumCatalog = () => {
                items: dataItems,
             };
             dispatch(postTicketCart(obj));
+            dispatch(setStatusInfoModal({ status: true, text: t(`isWrong.2`) }));
+            dispatch(setModalTicketIsOpen(false));
+            dispatch(setResetDataItems());
+            setTimeout(() => dispatch(setStatusInfoModal({ status: false, text: '' })), 2000);
          } else {
-            console.log('cka');
+            navigate(`/${leng}/login`);
          }
       }
    }, [dataItems]);

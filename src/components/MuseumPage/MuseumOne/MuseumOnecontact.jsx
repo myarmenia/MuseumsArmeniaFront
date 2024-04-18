@@ -19,11 +19,17 @@ const MuseumOnecontact = ({
    email = '',
 }) => {
    const { t, i18n } = useTranslation();
-
+   const [copySuccess, setCopySuccess] = React.useState(false);
    const getBaseUrl = React.useCallback((url) => {
       const regex = /^(?:([^\:]+)\:\/\/)?([^\/]+)/;
       const match = url.match(regex);
       return match?.[2];
+   }, []);
+
+   const copyToClipboard = React.useCallback(() => {
+      navigator.clipboard.writeText(window.location.href);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
    }, []);
 
    return (
@@ -44,8 +50,8 @@ const MuseumOnecontact = ({
                <h4>{t(`our_address`)}</h4>
                <p className="par-contactMinBlock">
                   <LocationIcon width={20} height={20} fill="#3F3D56" />
-                  {region && t(`${region}`)}
-                  {address}
+                  {region && t(`${region} ,`)}
+                  {address && address}
                </p>
             </div>
          )}
@@ -95,9 +101,20 @@ const MuseumOnecontact = ({
             </div>
          )}
          <div>
-            <div className="blockRigth_styles-parPhone">
+            <div
+               style={{ cursor: 'pointer' }}
+               onClick={copyToClipboard}
+               className="blockRigth_styles-parPhone Invate_par">
                <InvateIcons width={22} />
                <p>{t(`webSideMusum.1`)}</p>
+               <div
+                  className="Invate_child"
+                  style={{
+                     opacity: copySuccess ? '1' : '0',
+                     transform: copySuccess ? 'translateX(35px)' : 'translateX(370px)',
+                  }}>
+                  <p>{t(`webSideMusum.3`)}</p>
+               </div>
             </div>
          </div>
          {links?.instagram && (
