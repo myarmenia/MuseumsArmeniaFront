@@ -58,6 +58,7 @@ function CardModal() {
 
   useEffect(() => {
     document.body.style.overflow = ModalIsOpenShop ? 'hidden' : 'visible';
+    // return document.body.style.overflow = "auto"
   }, [ModalIsOpenShop]);
 
   const [windowWidth, setWindowWidth] = useState(2000);
