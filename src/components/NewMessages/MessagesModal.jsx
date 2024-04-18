@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -44,16 +44,12 @@ const MessagesModal = ({ children }) => {
    //  customStyles.content.width = windowWidth > 1200 ? '40%' : windowWidth < 800 ? '80%' : '60%'
 
    const dispatch = useDispatch();
-   let subtitle;
-   function afterOpenModal() {
-      // references are now sync'd and can be accessed.
-      subtitle.style.color = '#000';
-   }
-   function closeModal() {
+
+   const closeModal = useCallback(() => {
       dispatch(setIsOpen(false));
       dispatch(setMessagesType(null));
       dispatch(setEducationProgramType(null));
-   }
+   }, []);
 
    useEffect(() => {
       return () => closeModal();
@@ -80,4 +76,4 @@ const MessagesModal = ({ children }) => {
    );
 };
 
-export default MessagesModal;
+export default React.memo(MessagesModal);

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, memo } from 'react';
 
 const UserChatList = ({ messagesUser, dataMuseumMessages }) => {
    const divRef = useRef();
@@ -36,4 +36,4 @@ const UserChatList = ({ messagesUser, dataMuseumMessages }) => {
    );
 };
 
-export default UserChatList;
+export default memo(UserChatList);

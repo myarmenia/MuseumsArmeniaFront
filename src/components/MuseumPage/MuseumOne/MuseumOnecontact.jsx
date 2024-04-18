@@ -7,6 +7,7 @@ import {
    InvateIcons,
    InstaIcons,
    EmailIcons,
+   FbIcon,
 } from '../../../iconFolder/icon';
 import { NavLink } from 'react-router-dom';
 const MuseumOnecontact = ({
@@ -27,7 +28,17 @@ const MuseumOnecontact = ({
    }, []);
 
    const copyToClipboard = React.useCallback(() => {
-      navigator.clipboard.writeText(window.location.href);
+      if (navigator.clipboard.writeText) {
+         navigator.clipboard.writeText(window.location.href);
+      } else {
+         const el = document.createElement('textarea');
+         el.value = window.location.href;
+         document.body.appendChild(el);
+         el.select();
+         document.execCommand('copy');
+         document.body.removeChild(el);
+      }
+
       setCopySuccess(true);
       setTimeout(() => setCopySuccess(false), 2000);
    }, []);
@@ -117,6 +128,18 @@ const MuseumOnecontact = ({
                </div>
             </div>
          </div>
+         {links?.facebook && (
+            <div>
+               <div className="blockRigth_styles-parPhone">
+                  <FbIcon />
+                  <p>
+                     <a href={links?.facebook} rel="noopener noreferrer" target="_blank">
+                        Facebook
+                     </a>
+                  </p>
+               </div>
+            </div>
+         )}
          {links?.instagram && (
             <div>
                <div className="blockRigth_styles-parPhone">
