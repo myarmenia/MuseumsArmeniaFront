@@ -28,9 +28,10 @@ const MuseumOnecontact = ({
    }, []);
 
    const copyToClipboard = React.useCallback(() => {
-      if (navigator.clipboard.writeText) {
+      if (navigator.clipboard?.writeText) {
          navigator.clipboard.writeText(window.location.href);
       } else {
+         console.log('ok');
          const el = document.createElement('textarea');
          el.value = window.location.href;
          document.body.appendChild(el);
@@ -61,7 +62,7 @@ const MuseumOnecontact = ({
                <h4>{t(`our_address`)}</h4>
                <p className="par-contactMinBlock">
                   <LocationIcon width={20} height={20} fill="#3F3D56" />
-                  {region && t(`${region} ,`)}
+                  {region && `${t(`${region}`)}, `}
                   {address && address}
                </p>
             </div>

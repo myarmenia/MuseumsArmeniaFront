@@ -14,7 +14,7 @@ const ProductsBlock = ({ id, image, price, name }) => {
             <p className="ProductsBlock-description-title">{name.slice(0, 30)}</p>
             <p className="ProductsBlock-description-categoru"></p>
             <div className="ProductsBlock-description-parPrice">
-               <p className="ProductsBlock-description-price">{price}AMD</p>
+               <p className="ProductsBlock-description-price">{price} ֏</p>
 
                {/* <ShopMinIcons /> */}
             </div>
