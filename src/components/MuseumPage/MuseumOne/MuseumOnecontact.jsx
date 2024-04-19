@@ -28,7 +28,7 @@ const MuseumOnecontact = ({
    }, []);
 
    const copyToClipboard = React.useCallback(() => {
-      if (navigator.clipboard?.writeText) {
+      if (navigator?.clipboard?.writeText) {
          navigator.clipboard.writeText(window.location.href);
       } else {
          console.log('ok');
