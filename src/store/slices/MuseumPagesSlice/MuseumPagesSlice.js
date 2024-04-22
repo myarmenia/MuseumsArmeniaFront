@@ -59,6 +59,7 @@ const MuseumPagesSlice = createSlice({
          // postMuseumOnePages ========================
          .addCase(postMuseumOnePages.pending, (state) => {
             state.loadingdataMuseumOne = 'loading';
+            state.dataMuseumOne = {};
          })
          .addCase(postMuseumOnePages.fulfilled, (state, { payload }) => {
             state.loadingdataMuseumOne = 'fulfilled';

@@ -30,8 +30,9 @@ const MuseumOnecontact = ({
    const copyToClipboard = React.useCallback(() => {
       if (navigator?.clipboard?.writeText) {
          navigator.clipboard.writeText(window.location.href);
+         console.log(' test Clipboard live variant 1');
       } else {
-         console.log('ok');
+         console.log('test Clipboard live variant 2');
          const el = document.createElement('textarea');
          el.value = window.location.href;
          document.body.appendChild(el);

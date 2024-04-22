@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 const AbonementTicketBlock = ({ hendleClickItems }) => {
    const [t, i18n] = useTranslation();
    const { tickets } = useSelector((state) => state.museumTicket);
-
    const totalPrice = tickets.reduce((acum, item) => {
       return acum + item.price * item.count ?? 0;
    }, 0);

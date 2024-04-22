@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
@@ -37,6 +37,7 @@ const MuseumOne = () => {
    const { t, i18n } = useTranslation();
    const { id } = useParams();
    const dispatch = useDispatch();
+   const [openAboniment, setOpenAboniment] = useState(null);
    const { isAuth } = useSelector((store) => store.auth);
    const { statusInfoModal, ticketType } = useSelector((state) => state.museumTicket);
    const {
@@ -68,6 +69,12 @@ const MuseumOne = () => {
       dispatch(setTicketType({ kindOf, type, ticketType: '' }));
    }, []);
 
+   useEffect(() => {
+      if (dataMuseumOne?.tickets) {
+         setOpenAboniment(dataMuseumOne?.tickets.find((el) => el.type.includes('subscription')));
+      }
+   }, [dataMuseumOne]);
+
    return (
       <>
          {statusInfoModal.status && <OutSideErrorModal txt={statusInfoModal.text} />}
@@ -95,18 +102,22 @@ const MuseumOne = () => {
                            </div>
                            <div className="museumOne-blockRigth ">
                               <MuseumOnecontact {...dataMuseumOne} />
-                              <CustomButtonBlock
-                                 icon={<MuseumAbonementIcons />}
-                                 title={'webSideMusum.2'}
-                                 text={'ButtonBlock.0'}
-                                 background={
-                                    ticketType.type === 'Abonement ticket' ? '#3F3D56' : '#D5AA72'
-                                 }
-                                 color={'#FFFFFF'}
-                                 textBtn="10"
-                                 onClick={() => handleClickTicket('ticket', 'Abonement ticket')}
-                                 newClass="newStyleBtn"
-                              />
+                              {openAboniment && (
+                                 <CustomButtonBlock
+                                    icon={<MuseumAbonementIcons />}
+                                    title={'webSideMusum.2'}
+                                    text={'ButtonBlock.0'}
+                                    background={
+                                       ticketType.type === 'Abonement ticket'
+                                          ? '#3F3D56'
+                                          : '#D5AA72'
+                                    }
+                                    color={'#FFFFFF'}
+                                    textBtn="10"
+                                    onClick={() => handleClickTicket('ticket', 'Abonement ticket')}
+                                    newClass="newStyleBtn"
+                                 />
+                              )}
 
                               <CustomButtonBlock
                                  icon={<MuseumAbonementIcons />}

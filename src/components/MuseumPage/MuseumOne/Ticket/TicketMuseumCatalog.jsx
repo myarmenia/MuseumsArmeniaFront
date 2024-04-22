@@ -1,6 +1,7 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
    setDataItems,
    setTicketType,
@@ -8,8 +9,10 @@ import {
    setModalTicketIsOpen,
    setResetDataItems,
 } from '../../../../store/slices/MuseumTicket/MuseumTicketSlice';
+
+import { setModalIsOpenShop } from '../../../../store/slices/Shop/ShopSlice';
+import { getShopIconBasketDatas } from '../../../../store/slices/Shop/ShopApi';
 import { postMuseumTicket } from '../../../../store/slices/MuseumTicket/MuseumTicketApi';
-import { useTranslation } from 'react-i18next';
 import { postTicketCart } from '../../../../store/slices/Shop/ShopApi';
 import { BuyTicketBlock, AbonementTicketBlock } from './index';
 import ButtonSecond from '../../../ButtonSecond/ButtonSecond';
@@ -52,10 +55,14 @@ const TicketMuseumCatalog = () => {
                items: dataItems,
             };
             dispatch(postTicketCart(obj));
-            dispatch(setStatusInfoModal({ status: true, text: t(`isWrong.2`) }));
             dispatch(setModalTicketIsOpen(false));
             dispatch(setResetDataItems());
-            setTimeout(() => dispatch(setStatusInfoModal({ status: false, text: '' })), 2000);
+
+            dispatch(setModalIsOpenShop(true));
+
+            // dispatch(getShopIconBasketDatas());
+            // dispatch(setStatusInfoModal({ status: true, text: t(`isWrong.2`) }));
+            // setTimeout(() => dispatch(setStatusInfoModal({ status: false, text: '' })), 2000);
          } else {
             navigate(`/${leng}/login`);
          }

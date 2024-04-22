@@ -1126,7 +1126,6 @@ i18n.use(initReactI18next).init({
 
             more_events: 'Подобные события',
 
-            ticket_error_message: 'Билет не выбран',
             mintitle: 'Музеи Армении на одной платформе',
             educationTitle:
                'Свяжитесь с музеем, чтобы заказать билеты на образовательные программы, отправив сообщение или позвонив по телефону.',
@@ -1684,7 +1683,6 @@ i18n.use(initReactI18next).init({
 
             more_events: 'Similar events',
 
-            ticket_error_message: 'Ticket not selected',
             mintitle: 'Museums of Armenia on one platform',
             educationTitle:
                'Contact the museum to order tickets for educational programs by message or call.',
