@@ -4,6 +4,8 @@
     position: relative;
     margin-top: -20px;
 }
+
+
 .souvenirss_section .container > button{
     position: absolute;
     bottom: -150px;
@@ -146,6 +148,13 @@
     background-color: #B28851;
 }
 
+.souvenirss_section  .react-multi-carousel-item  {
+    width: 390px !important;
+}
+
+.souvenirss_section  .react-multiple-carousel__arrow  {
+     display: none !important;
+}
 @media(max-width: 1024px){
     .lines_div_souviners >img{
         display: none;

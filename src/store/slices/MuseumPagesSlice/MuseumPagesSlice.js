@@ -123,5 +123,7 @@ const MuseumPagesSlice = createSlice({
    },
 });
 
+export const selectMuseum = (state) => state.museumPages.filterDataMuseum
+
 export const MuseumPagesReducer = MuseumPagesSlice.reducer;
 export const { filterRegionMuseum } = MuseumPagesSlice.actions;

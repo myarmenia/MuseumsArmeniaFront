@@ -18,11 +18,11 @@ function ProfilePage() {
 
   return (
     <div className="ProfilePage_all">
-      <div className="ProfilePage_bigDiv">
-        <ProfileSidebar />
-        <div style={{ width: '100%' }}>
-          <Outlet />
-        </div>
+        <div className="ProfilePage_bigDiv">
+          <ProfileSidebar />
+          <div className='ProfilePage_bigDiv_right'>
+            <Outlet />
+          </div>
       </div>
     </div>
   );

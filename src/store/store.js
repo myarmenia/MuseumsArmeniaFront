@@ -26,6 +26,7 @@ import { ContactUsReducer } from './slices/ContactUs/ContactUsSlice';
 import { singleEventReducer } from './slices/SingleEventSlice/SingleEventSlice';
 import { ComboTicketsReducer } from './slices/ComboTicket/ComboTicketSlice';
 import { ChatProfileReducer } from './slices/ChatProfile/ChatProfileSlice';
+import { profilePageReducer } from './slices/ProfilePageSlice/ProfilePageSlice';
 
 
 const store = configureStore({
@@ -57,6 +58,7 @@ const store = configureStore({
       combotickets:ComboTicketsReducer,
       chatprofile:ChatProfileReducer,
       singleEvent: singleEventReducer,
+      profilePage: profilePageReducer
    },
    // middleware: (getDefaultMiddlware)=>[
    //     ...getDefaultMiddlware(),

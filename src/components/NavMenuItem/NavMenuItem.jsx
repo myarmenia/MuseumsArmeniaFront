@@ -15,6 +15,7 @@ function NavMenuItem({ txt, path }) {
       top: 0,
       left: 100,
     });
+
   };
 
   return (

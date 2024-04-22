@@ -6,6 +6,7 @@ import FooterComponent from '../components/FooterComponent/FooterComponent';
 import CardModal from '../components/Shop/CardModal';
 import { getSetModalIsOpenShop } from '../store/slices/Shop/ShopSlice';
 import { useSelector } from 'react-redux';
+import ScrollUpButton from '../components/ScrollUpButton/ScrollUpButton';
 
 function HomeWraper({ changeFonSize, changeFont }) {
   const { pathname } = useLocation();
@@ -24,13 +25,16 @@ function HomeWraper({ changeFonSize, changeFont }) {
     window.scrollTo(0, 0);
   }, [homeNavColor]);
 
+
   return (
     <div className="home_wraper">
       <NavBar {...{ changeFonSize, changeFont, homeNavColor}}/>
       {ModalIsOpenShop && <CardModal />}
-      <BurgerMenu />
+      <BurgerMenu/>
       <Outlet />
+      <ScrollUpButton/>
       <FooterComponent />
+      
     </div>
   );
 }
