@@ -3,6 +3,7 @@ import React from 'react';
 import ButtonSecond from '../../ButtonSecond/ButtonSecond';
 
 import reserveImg from '../../../images/reserveImg.png';
+import reserveImg2 from '../../../images/reserveImg2.png';
 
 const MuseumOneDescription = ({
    description = '',
@@ -13,7 +14,7 @@ const MuseumOneDescription = ({
 }) => {
    const [activImg, setActivImg] = React.useState(photos[0] || reserveImg);
    const [img1, setImg1] = React.useState(photos[1] || reserveImg);
-   const [img2, setImg2] = React.useState(photos[2] || reserveImg);
+   const [img2, setImg2] = React.useState(photos[2] || reserveImg2);
 
    const setClickImg = React.useCallback(
       (x) => {

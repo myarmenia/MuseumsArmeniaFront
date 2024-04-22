@@ -54,7 +54,7 @@ const OurEvents = ({ dataMuseumOneEvents }) => {
                               <div>
                                  <p>{item.name.slice(0, 30)} ...</p>
                                  <p>
-                                    {item.start_date}-{item.end_date}| {item.price}
+                                    {item.start_date}-{item.end_date}| {item.price} ֏
                                  </p>
                                  <ButtonSecond
                                     txt="9"
@@ -64,6 +64,7 @@ const OurEvents = ({ dataMuseumOneEvents }) => {
                                     maxWidth={'160px'}
                                     fontSize="12px"
                                     onClick={() => navigate(`/${leng}/events/${item.id}`)}
+                                    newClass="newStyleBtn"
                                  />
                               </div>
                            </div>
