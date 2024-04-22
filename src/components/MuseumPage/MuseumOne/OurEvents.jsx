@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ButtonSecond from '../../ButtonSecond/ButtonSecond';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useNavigate } from 'react-router-dom';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -10,9 +11,9 @@ import { Keyboard, Pagination, Navigation } from 'swiper/modules';
 
 const OurEvents = ({ dataMuseumOneEvents }) => {
    const { t, i18n } = useTranslation();
-  const [windowWidth, setWindowWidth] = React.useState(2000);
-   
-
+   const navigate = useNavigate();
+   const [windowWidth, setWindowWidth] = React.useState(2000);
+   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
    React.useEffect(() => {
       const handleResize = () => {
          setWindowWidth(window.innerWidth);
@@ -21,17 +22,18 @@ const OurEvents = ({ dataMuseumOneEvents }) => {
 
       return () => {
          window.removeEventListener('resize', handleResize);
-        
       };
    }, []);
 
    return (
       <div className="museumOne_pageStyle">
          <h4 className="museumOne_title">{t(`ourEvents`)}</h4>
-         <div style={{marginTop: '10px'}}>
+         <div style={{ marginTop: '10px' }}>
             <>
                <Swiper
-                  slidesPerView={windowWidth <= 900 &&  windowWidth > 620 ? 2 : windowWidth <= 620 ? 1 : 3}
+                  slidesPerView={
+                     windowWidth <= 900 && windowWidth > 620 ? 2 : windowWidth <= 620 ? 1 : 3
+                  }
                   spaceBetween={10}
                   keyboard={{
                      enabled: true,
@@ -60,7 +62,8 @@ const OurEvents = ({ dataMuseumOneEvents }) => {
                                     background={'#D5AA72'}
                                     color={'#FFFFFF'}
                                     maxWidth={'160px'}
-                                    fontSize='12px'
+                                    fontSize="12px"
+                                    onClick={() => navigate(`/${leng}/events/${item.id}`)}
                                  />
                               </div>
                            </div>
@@ -74,4 +77,4 @@ const OurEvents = ({ dataMuseumOneEvents }) => {
    );
 };
 
-export default OurEvents;
+export default React.memo(OurEvents);

@@ -1,4 +1,4 @@
-import React, { memo, useRef, useState, useEffect } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
@@ -15,18 +15,16 @@ import { SendButtonMessages } from '../../iconFolder/icon';
 import ButtonSecond from '../ButtonSecond/ButtonSecond';
 import StartMessagesBlock from './StartMessagesBlock';
 
-
 const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
    const { t, i18n } = useTranslation();
    const { dataEducationalPrograms, dataMuseumOne } = useSelector((store) => store.museumPages);
    const { messagesType, educationProgramType } = useSelector((store) => store.messagesBot);
-   const { statusPostUserMessages,responseUsersMessages} = useSelector((store) => store.messages);
    const [startChat, setStartChst] = useState(false);
    const [disabled, setDisabled] = useState(true);
    const [messagesUser, setMssagesUser] = useState([]);
    const [statusMessages, setStatusMessages] = useState(null);
    const dispatch = useDispatch();
-  
+
    useEffect(() => {
       if (dataEducationalPrograms.length) {
          if (messagesType === 'educational_program' && educationProgramType) {
@@ -45,11 +43,9 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
       dispatch(getAuthUserAllMessages(dataMuseumOne.id));
    }, []);
 
-
    const onClickButtonStart = React.useCallback(() => {
       setStartChst(true);
    }, []);
-
 
    const resetMessages = React.useCallback(() => {
       setMssagesUser([]);
@@ -80,7 +76,7 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
    //    })
    // }
 
-   const handleLogin = (e, handleSubmit, isValid) => {
+   const handleLogin = React.useCallback((e, handleSubmit, isValid) => {
       handleSubmit();
       e.preventDefault();
       const { messages } = e.target;
@@ -96,27 +92,36 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
          setMssagesUser([...messagesUser, messages.value]);
          dispatch(postUserMessages(newMessages));
       }
-   };
+   }, []);
 
    return (
       <>
-         <div className="messages_chatList" style={{height: '100%'}}>
+         <div className="messages_chatList" style={{ height: '100%' }}>
             {dataMuseumMessages?.messages && statusMessages === null ? (
                <div className="warring_messages">
                   <h3>{t(`warningMessages`)}</h3>
                   <div className="warring_messages-button">
-                     <ButtonSecond txt={6} minWidth='120px' onClick={() => clearMessagesUser(true)} />
-                     <ButtonSecond txt={7} minWidth='120px' onClick={() => clearMessagesUser(false)}/>
+                     <ButtonSecond
+                        txt={6}
+                        minWidth="120px"
+                        onClick={() => clearMessagesUser(true)}
+                     />
+                     <ButtonSecond
+                        txt={7}
+                        minWidth="120px"
+                        onClick={() => clearMessagesUser(false)}
+                     />
                      {/* <button onClick={() => clearMessagesUser(true)}>ayo</button>
                      <button onClick={() => clearMessagesUser(false)}>voch</button> */}
                   </div>
                </div>
             ) : statusMessages ? (
-               <UserChatList messagesUser={messagesUser} dataMuseumMessages={dataMuseumMessages}/>
-            ) :  startChat ?  <MessagesBotBlock messagesUser={messagesUser} resetMessages={resetMessages} />
-               : <StartMessagesBlock onClick={onClickButtonStart}  txt={'startMessages.0'}/>
-         
-         }
+               <UserChatList messagesUser={messagesUser} dataMuseumMessages={dataMuseumMessages} />
+            ) : startChat ? (
+               <MessagesBotBlock messagesUser={messagesUser} resetMessages={resetMessages} />
+            ) : (
+               <StartMessagesBlock onClick={onClickButtonStart} txt={'startMessages.0'} />
+            )}
          </div>
          <Formik
             initialValues={{

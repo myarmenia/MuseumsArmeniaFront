@@ -104,7 +104,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 20px;
+  font-weight: 600;
+  color: #3F3D56;
 }
 .page-items {
   padding: 6px 10px;
@@ -133,8 +135,8 @@
   cursor: pointer;
 }
 .active-itemm {
-  background-color: var(--second_font_color);
-  color: white;
+  /* background-color: var(--second_font_color); */
+  color: #B26705;
   font-weight: 600;
 }
 .page-link {

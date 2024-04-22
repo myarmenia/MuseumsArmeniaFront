@@ -117,10 +117,19 @@ export const selectIcon = (
 
 export const userIcon = (
    <svg width={24} height={25} viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 15.5C15.3137 15.5 18 12.8137 18 9.5C18 6.18629 15.3137 3.5 12 3.5C8.68629 3.5 6 6.18629 6 9.5C6 12.8137 8.68629 15.5 12 15.5Z" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-  <path d="M2.90625 20.7499C3.82775 19.1534 5.15328 17.8277 6.74958 16.906C8.34588 15.9843 10.1567 15.499 12 15.499C13.8433 15.499 15.6541 15.9843 17.2504 16.906C18.8467 17.8277 20.1722 19.1534 21.0937 20.7499" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-</svg>
-
+      <path
+         d="M12 15.5C15.3137 15.5 18 12.8137 18 9.5C18 6.18629 15.3137 3.5 12 3.5C8.68629 3.5 6 6.18629 6 9.5C6 12.8137 8.68629 15.5 12 15.5Z"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M2.90625 20.7499C3.82775 19.1534 5.15328 17.8277 6.74958 16.906C8.34588 15.9843 10.1567 15.499 12 15.499C13.8433 15.499 15.6541 15.9843 17.2504 16.906C18.8467 17.8277 20.1722 19.1534 21.0937 20.7499"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+   </svg>
 );
 
 export const changeFontIcon = (
@@ -1246,58 +1255,110 @@ export const GoBackIcons = ({
    </svg>
 );
 
+export const locationEventIcon = (
+   <svg width={10} height={15} viewBox="0 0 10 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M5.00049 0.0507812C2.37464 0.0507812 0.246094 2.17974 0.246094 4.80602C0.246094 7.4319 4.47541 14.0508 5.00049 14.0508C5.52601 14.0508 9.75488 7.43187 9.75488 4.80602C9.75488 2.17974 7.62634 0.0507812 5.00049 0.0507812ZM5.00049 6.62438C3.99645 6.62438 3.18213 5.81006 3.18213 4.80602C3.18213 3.80114 3.99645 2.98682 5.00049 2.98682C6.00452 2.98682 6.81928 3.80114 6.81928 4.80602C6.81928 5.81006 6.00452 6.62438 5.00049 6.62438Z"
+         fill="#B26705"
+      />
+   </svg>
+);
 
+export const globIcon = (
+   <svg width={24} height={25} viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M12 21.5C16.9706 21.5 21 17.4706 21 12.5C21 7.52944 16.9706 3.5 12 3.5C7.02944 3.5 3 7.52944 3 12.5C3 17.4706 7.02944 21.5 12 21.5Z"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path d="M3.51562 9.5H20.4844" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3.51562 15.5H20.4844" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+         d="M12 21.2562C14.0711 21.2562 15.75 17.3358 15.75 12.4999C15.75 7.66396 14.0711 3.74365 12 3.74365C9.92893 3.74365 8.25 7.66396 8.25 12.4999C8.25 17.3358 9.92893 21.2562 12 21.2562Z"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+   </svg>
+);
 
-export const locationEventIcon =  <svg width={10} height={15} viewBox="0 0 10 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.00049 0.0507812C2.37464 0.0507812 0.246094 2.17974 0.246094 4.80602C0.246094 7.4319 4.47541 14.0508 5.00049 14.0508C5.52601 14.0508 9.75488 7.43187 9.75488 4.80602C9.75488 2.17974 7.62634 0.0507812 5.00049 0.0507812ZM5.00049 6.62438C3.99645 6.62438 3.18213 5.81006 3.18213 4.80602C3.18213 3.80114 3.99645 2.98682 5.00049 2.98682C6.00452 2.98682 6.81928 3.80114 6.81928 4.80602C6.81928 5.81006 6.00452 6.62438 5.00049 6.62438Z" fill="#B26705" />
-</svg>
+export const right_event_line = (
+   <svg width={131} height={12} viewBox="0 0 131 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx={6} cy={6} r={6} fill="#D5AA72" />
+      <line x1={6} y1="5.5" x2={131} y2="5.5" stroke="#D5AA72" />
+   </svg>
+);
 
+export const left_event_line = (
+   <svg width={129} height={12} viewBox="0 0 129 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="123.008" cy={6} r={6} fill="#D5AA72" />
+      <line y1="5.46094" x2={125} y2="5.46094" stroke="#D5AA72" />
+   </svg>
+);
 
-export const globIcon = <svg width={24} height={25} viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 21.5C16.9706 21.5 21 17.4706 21 12.5C21 7.52944 16.9706 3.5 12 3.5C7.02944 3.5 3 7.52944 3 12.5C3 17.4706 7.02944 21.5 12 21.5Z" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-<path d="M3.51562 9.5H20.4844" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-<path d="M3.51562 15.5H20.4844" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-<path d="M12 21.2562C14.0711 21.2562 15.75 17.3358 15.75 12.4999C15.75 7.66396 14.0711 3.74365 12 3.74365C9.92893 3.74365 8.25 7.66396 8.25 12.4999C8.25 17.3358 9.92893 21.2562 12 21.2562Z" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-</svg>
+export const priceIcon = (
+   <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M18.75 9.91361L10.586 1.74954C10.4415 1.60375 10.2631 1.49604 10.0667 1.43606C9.87042 1.37607 9.66229 1.36567 9.46097 1.40579L3.15628 2.67142C3.03673 2.69529 2.92693 2.75403 2.84073 2.84024C2.75452 2.92644 2.69578 3.03624 2.67191 3.15579L1.40628 9.46048C1.36616 9.6618 1.37656 9.86993 1.43654 10.0662C1.49653 10.2626 1.60424 10.441 1.75003 10.5855L9.91409 18.7495C10.0296 18.8662 10.1671 18.9589 10.3186 19.0221C10.4702 19.0853 10.6327 19.1178 10.7969 19.1178C10.9611 19.1178 11.1237 19.0853 11.2752 19.0221C11.4267 18.9589 11.5642 18.8662 11.6797 18.7495L18.75 11.6792C18.8667 11.5637 18.9594 11.4262 19.0226 11.2747C19.0858 11.1232 19.1183 10.9606 19.1183 10.7964C19.1183 10.6322 19.0858 10.4697 19.0226 10.3181C18.9594 10.1666 18.8667 10.0291 18.75 9.91361ZM6.56253 7.49954C6.37711 7.49954 6.19586 7.44456 6.04168 7.34155C5.88751 7.23853 5.76735 7.09211 5.69639 6.92081C5.62544 6.7495 5.60687 6.561 5.64304 6.37915C5.67922 6.19729 5.76851 6.03024 5.89962 5.89913C6.03073 5.76802 6.19778 5.67873 6.37963 5.64256C6.56149 5.60638 6.74999 5.62495 6.9213 5.69591C7.0926 5.76686 7.23902 5.88702 7.34203 6.0412C7.44505 6.19537 7.50003 6.37662 7.50003 6.56204C7.50003 6.81068 7.40126 7.04914 7.22544 7.22496C7.04963 7.40077 6.81117 7.49954 6.56253 7.49954Z"
+         fill="#3F3D56"
+      />
+   </svg>
+);
 
+export const inviteIcon = (
+   <svg width={22} height={22} viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g filter="">
+         <circle cx={11} cy={10} r={10} fill="#3F3D56" />
+         <path
+            d="M9.35938 6.26562L11 4.625L12.6406 6.26562"
+            stroke="white"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+         />
+         <path d="M11 9V4.625" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+         <path
+            d="M12.875 7.75H13.8125C13.8954 7.75 13.9749 7.78292 14.0335 7.84153C14.0921 7.90013 14.125 7.97962 14.125 8.0625V12.125C14.125 12.2079 14.0921 12.2874 14.0335 12.346C13.9749 12.4046 13.8954 12.4375 13.8125 12.4375H8.1875C8.10462 12.4375 8.02513 12.4046 7.96653 12.346C7.90792 12.2874 7.875 12.2079 7.875 12.125V8.0625C7.875 7.97962 7.90792 7.90013 7.96653 7.84153C8.02513 7.78292 8.10462 7.75 8.1875 7.75H9.125"
+            stroke="white"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+         />
+      </g>
+      <defs>
+         <filter
+            id="filter0_d_1284_22474"
+            x={0}
+            y={0}
+            width={22}
+            height={22}
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity={0} result="BackgroundImageFix" />
+            <feColorMatrix
+               in="SourceAlpha"
+               type="matrix"
+               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+               result="hardAlpha"
+            />
+            <feOffset dy={1} />
+            <feGaussianBlur stdDeviation="0.5" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0" />
+            <feBlend
+               mode="normal"
+               in2="BackgroundImageFix"
+               result="effect1_dropShadow_1284_22474"
+            />
+            <feBlend
+               mode="normal"
+               in="SourceGraphic"
+               in2="effect1_dropShadow_1284_22474"
+               result="shape"
+            />
+         </filter>
+      </defs>
+   </svg>
+);
 
-
-export const right_event_line = <svg width={131} height={12} viewBox="0 0 131 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx={6} cy={6} r={6} fill="#D5AA72" />
-<line x1={6} y1="5.5" x2={131} y2="5.5" stroke="#D5AA72" />
-</svg>
-
-
-export const left_event_line = <svg width={129} height={12} viewBox="0 0 129 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="123.008" cy={6} r={6} fill="#D5AA72" />
-<line y1="5.46094" x2={125} y2="5.46094" stroke="#D5AA72" />
-</svg>
-
-
-export const priceIcon = <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18.75 9.91361L10.586 1.74954C10.4415 1.60375 10.2631 1.49604 10.0667 1.43606C9.87042 1.37607 9.66229 1.36567 9.46097 1.40579L3.15628 2.67142C3.03673 2.69529 2.92693 2.75403 2.84073 2.84024C2.75452 2.92644 2.69578 3.03624 2.67191 3.15579L1.40628 9.46048C1.36616 9.6618 1.37656 9.86993 1.43654 10.0662C1.49653 10.2626 1.60424 10.441 1.75003 10.5855L9.91409 18.7495C10.0296 18.8662 10.1671 18.9589 10.3186 19.0221C10.4702 19.0853 10.6327 19.1178 10.7969 19.1178C10.9611 19.1178 11.1237 19.0853 11.2752 19.0221C11.4267 18.9589 11.5642 18.8662 11.6797 18.7495L18.75 11.6792C18.8667 11.5637 18.9594 11.4262 19.0226 11.2747C19.0858 11.1232 19.1183 10.9606 19.1183 10.7964C19.1183 10.6322 19.0858 10.4697 19.0226 10.3181C18.9594 10.1666 18.8667 10.0291 18.75 9.91361ZM6.56253 7.49954C6.37711 7.49954 6.19586 7.44456 6.04168 7.34155C5.88751 7.23853 5.76735 7.09211 5.69639 6.92081C5.62544 6.7495 5.60687 6.561 5.64304 6.37915C5.67922 6.19729 5.76851 6.03024 5.89962 5.89913C6.03073 5.76802 6.19778 5.67873 6.37963 5.64256C6.56149 5.60638 6.74999 5.62495 6.9213 5.69591C7.0926 5.76686 7.23902 5.88702 7.34203 6.0412C7.44505 6.19537 7.50003 6.37662 7.50003 6.56204C7.50003 6.81068 7.40126 7.04914 7.22544 7.22496C7.04963 7.40077 6.81117 7.49954 6.56253 7.49954Z" fill="#3F3D56" />
-</svg>
-
-
-export const inviteIcon = <svg width={22} height={22} viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="">
-  <circle cx={11} cy={10} r={10} fill="#3F3D56" />
-  <path d="M9.35938 6.26562L11 4.625L12.6406 6.26562" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-  <path d="M11 9V4.625" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-  <path d="M12.875 7.75H13.8125C13.8954 7.75 13.9749 7.78292 14.0335 7.84153C14.0921 7.90013 14.125 7.97962 14.125 8.0625V12.125C14.125 12.2079 14.0921 12.2874 14.0335 12.346C13.9749 12.4046 13.8954 12.4375 13.8125 12.4375H8.1875C8.10462 12.4375 8.02513 12.4046 7.96653 12.346C7.90792 12.2874 7.875 12.2079 7.875 12.125V8.0625C7.875 7.97962 7.90792 7.90013 7.96653 7.84153C8.02513 7.78292 8.10462 7.75 8.1875 7.75H9.125" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
-</g>
-<defs>
-  <filter id="filter0_d_1284_22474" x={0} y={0} width={22} height={22} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-    <feFlood floodOpacity={0} result="BackgroundImageFix" />
-    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-    <feOffset dy={1} />
-    <feGaussianBlur stdDeviation="0.5" />
-    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0" />
-    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1284_22474" />
-    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1284_22474" result="shape" />
-  </filter>
-</defs>
-</svg>
 
 
 
@@ -1485,3 +1546,51 @@ export const rightArowIcon = <svg width={24} height={24} viewBox="0 0 24 24" fil
 <path d="M14.3085 5.93018L20.075 12.0002L14.3085 18.0702" stroke="#121212" strokeMiterlimit={10} strokeLinecap="round" strokeLinejoin="round" />
 <path d="M3.92483 12H19.9133" stroke="#121212" strokeMiterlimit={10} strokeLinecap="round" strokeLinejoin="round" />
 </svg>
+
+
+export const FbIcon = ({ width = '20', height = '20', fill = '#3F3D56' }) => (
+   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g filter="url(#filter0_d_1145_17962)">
+         <circle cx="11" cy="10" r="10" fill="#3F3D56" />
+      </g>
+      <path
+         fillRule="evenodd"
+         clipRule="evenodd"
+         d="M10.7658 6.64083C11.176 6.23058 11.7324 6.00007 12.3125 6H13.4375C13.5204 6 13.5999 6.03292 13.6585 6.09153C13.7171 6.15013 13.75 6.22962 13.75 6.3125V7.8125C13.75 7.89538 13.7171 7.97487 13.6585 8.03347C13.5999 8.09208 13.5204 8.125 13.4375 8.125H12.3125C12.3043 8.125 12.2962 8.12662 12.2886 8.12976C12.281 8.1329 12.2741 8.1375 12.2683 8.14331C12.2625 8.14911 12.2579 8.156 12.2548 8.16358C12.2516 8.17116 12.25 8.17929 12.25 8.1875V9H13.4375C13.485 8.99997 13.5319 9.01078 13.5746 9.0316C13.6173 9.05241 13.6547 9.08269 13.6839 9.12013C13.7132 9.15757 13.7335 9.20119 13.7434 9.24766C13.7532 9.29414 13.7524 9.34225 13.7408 9.38833L13.3658 10.8883C13.3489 10.956 13.3099 11.016 13.2549 11.0589C13.1999 11.1018 13.1322 11.125 13.0625 11.125H12.25V13.8125C12.25 13.8954 12.2171 13.9749 12.1585 14.0335C12.0999 14.0921 12.0204 14.125 11.9375 14.125H10.4375C10.3546 14.125 10.2751 14.0921 10.2165 14.0335C10.1579 13.9749 10.125 13.8954 10.125 13.8125V11.125H9.3125C9.22962 11.125 9.15013 11.0921 9.09153 11.0335C9.03292 10.9749 9 10.8954 9 10.8125V9.3125C9 9.27146 9.00808 9.23083 9.02379 9.19291C9.03949 9.155 9.06251 9.12055 9.09153 9.09153C9.12055 9.06251 9.155 9.03949 9.19291 9.02379C9.23083 9.00808 9.27146 9 9.3125 9H10.125V8.1875C10.1251 7.60737 10.3556 7.05102 10.7658 6.64083ZM12.3125 6.625C11.8981 6.625 11.5007 6.78962 11.2076 7.08265C10.9146 7.37567 10.75 7.7731 10.75 8.1875V9.3125C10.75 9.39538 10.7171 9.47487 10.6585 9.53347C10.5999 9.59208 10.5204 9.625 10.4375 9.625H9.625V10.5H10.4375C10.5204 10.5 10.5999 10.5329 10.6585 10.5915C10.7171 10.6501 10.75 10.7296 10.75 10.8125V13.5H11.625V10.8125C11.625 10.7296 11.6579 10.6501 11.7165 10.5915C11.7751 10.5329 11.8546 10.5 11.9375 10.5H12.8183L13.0371 9.625H11.9375C11.8546 9.625 11.7751 9.59208 11.7165 9.53347C11.6579 9.47487 11.625 9.39538 11.625 9.3125V8.1875C11.625 8.00516 11.6974 7.8303 11.8264 7.70136C11.9553 7.57243 12.1302 7.5 12.3125 7.5H13.125V6.625H12.3125Z"
+         fill="#FFFEFE"
+      />
+      <defs>
+         <filter
+            id="filter0_d_1145_17962"
+            x="0"
+            y="0"
+            width="22"
+            height="22"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feColorMatrix
+               in="SourceAlpha"
+               type="matrix"
+               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+               result="hardAlpha"
+            />
+            <feOffset dy="1" />
+            <feGaussianBlur stdDeviation="0.5" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0" />
+            <feBlend
+               mode="normal"
+               in2="BackgroundImageFix"
+               result="effect1_dropShadow_1145_17962"
+            />
+            <feBlend
+               mode="normal"
+               in="SourceGraphic"
+               in2="effect1_dropShadow_1145_17962"
+               result="shape"
+            />
+         </filter>
+      </defs>
+   </svg>
+);
+

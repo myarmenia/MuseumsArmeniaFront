@@ -17,4 +17,7 @@ const CustomSectionTitle = ({ text, text2 = '', color = '#cea670', colorSvg = '#
    );
 };
 
-export default CustomSectionTitle;
+export default React.memo(
+   CustomSectionTitle,
+   (prev, next) => JSON.stringify(prev) === JSON.stringify(next),
+);

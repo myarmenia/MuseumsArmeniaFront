@@ -41,7 +41,7 @@ const MuseumTicketModal = ({ children, modalIsOpen, handleClickCloseModal }) => 
             contentLabel="Example Modal">
             <div className="child_modallTicket">
                <div onClick={handleClickCloseModal} className="ticketModal-close">
-                  <CloseMessagesBtn width="15px" height="15px" />
+                  <CloseMessagesBtn width="20px" height="20px" />
                </div>
                {children}
             </div>
@@ -50,4 +50,4 @@ const MuseumTicketModal = ({ children, modalIsOpen, handleClickCloseModal }) => 
    );
 };
 
-export default MuseumTicketModal;
+export default React.memo(MuseumTicketModal);

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { responsive, homePage_museum_section_data } from '../../data/data'
+import { responsive } from '../../data/data'
 import "react-multi-carousel/lib/styles.css";
 import './MuseumSectionSliderInHome.css'
 
@@ -75,4 +75,3 @@ function MuseumSectionSliderInHome() {
 }
 
 export default MuseumSectionSliderInHome
-

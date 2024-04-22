@@ -276,14 +276,6 @@ function App() {
 
             </Route>
 
-            <Route
-              path="contact"
-              element={
-                <PrivateRouteForOutSider>
-                  <ContactWithUs />
-                </PrivateRouteForOutSider>
-              }
-            />
 
             <Route
               path="comboticket"
@@ -293,6 +285,17 @@ function App() {
                 </PrivateRouteForOutSider>
               }
             />
+
+
+              <Route
+                path="contact"
+                element={
+                  <PrivateRouteForOutSider>
+                    <ContactWithUs />
+                  </PrivateRouteForOutSider>
+                }
+              />
+              
           </Route>
         </Route>
       </Routes>

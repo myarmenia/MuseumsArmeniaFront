@@ -210,7 +210,9 @@ function Shop() {
               <h2 style={{ textTransform: 'uppercase' }}>SHOPE</h2>
               <img className="border_2" src={require('../../images/Line 106.png')} alt="" />
             </div>
-              <p style={{textAlign:"center",color:"white",marginTop:"20px"}}>All Armenia museums products</p>
+            <p style={{ textAlign: 'center', color: 'white', marginTop: '20px' }}>
+              All Armenia museums products
+            </p>
           </div>
           {/* <div className={errorText ? 'shop_error_text' : 'shop_error_text_none'}>
             zambyuxic ogtvelu hamar petq e grancvel{' '}
@@ -220,74 +222,80 @@ function Shop() {
           </div> */}
           <div className="container">
             <div className="all_Shop_Content">
-            <div className="input_and_filteres">
-              <form className="form_shop" onSubmit={(e) => searchShop(e)}>
-                <div className="input-container-shop">
-                  <input type="text" ref={searchTextShopRef} className="input-search-searchIcon" />
-                  <button type="submit" className="input-search-shop-button">
+              <div className="input_and_filteres">
+                <form className="form_shop" onSubmit={(e) => searchShop(e)}>
+                  <div className="input-container-shop">
+                    <input
+                      type="text"
+                      ref={searchTextShopRef}
+                      className="input-search-searchIcon"
+                      placeholder="Search"
+                    />
+                    <button className="input-search-buttonn">Search</button>
+                    {/* <button type="submit" className="input-search-shop-button">
                     <img src={SearchIcon} alt="pencleEdit" className="input-search-shop-img" />
-                  </button>
-                </div>
-              </form>
+                  </button> */}
+                  </div>
+                </form>
 
-              <div className="fileress">
-                <div className="custom-select-container">
-                  <select
-                    className="custom-select"
-                    onChange={handleChangeCategory}
-                    value={selectedCategory}>
-                    <option value="" disabled hidden>
-                      {t('shop_page_data.1')}
-                    </option>
-                    <option value="" key="">
-                      bolor kategoria
-                    </option>
-                    {allCategories.map((option, index) => (
-                      <option key={index} value={option.id}>
-                        {option.key}
+                <div className="fileress">
+                  <div className="custom-select-container">
+                    <select
+                      className="custom-select"
+                      onChange={handleChangeCategory}
+                      value={selectedCategory}>
+                      <option value="" disabled hidden>
+                        {t('shop_page_data.1')}
                       </option>
-                    ))}
-                  </select>
-                </div>
+                      <option value="" key="">
+                        bolor kategoria
+                      </option>
+                      {allCategories.map((option, index) => (
+                        <option key={index} value={option.id}>
+                          {option.key}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-                {/* //// */}
-                <div className="custom-select-container">
-                  <select
-                    className="custom-select"
-                    onChange={handleChangeMuseum}
-                    value={selectedMuseum}>
-                    <option value="" disabled hidden>
-                      {t('shop_page_data.2')}
-                    </option>
-                    <option value="" key="">
-                      bolor tangaranner
-                    </option>
-                    {allmuseumNames.map((option, index) => (
-                      <option key={index} value={option.id}>
-                        {option.name}
+                  {/* //// */}
+                  <div className="custom-select-container">
+                    <select
+                      className="custom-select"
+                      onChange={handleChangeMuseum}
+                      value={selectedMuseum}>
+                      <option value="" disabled hidden>
+                        {t('shop_page_data.2')}
                       </option>
-                    ))}
-                  </select>
+                      <option value="" key="">
+                        bolor tangaranner
+                      </option>
+                      {allmuseumNames.map((option, index) => (
+                        <option key={index} value={option.id}>
+                          {option.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div
-              className={
-                AllShopData.data?.length === 0 || AllShopData.data?.length > 2
-                  ? 'shopess'
-                  : 'shopess_start'
-              }>
-              {AllShopData && AllShopData.data?.length !== 0
-                ? AllShopData.data?.map((el, index) => (
-                    <div
-                      className="shop-box"
-                      key={index}
-                      onClick={() => navigate(`/${leng}/store/${el.id}`)}>
-                      <div className="shop-box_img">
-                        <img src={el.image} alt={el.image} />
-                        <div className="souvenir_item_add_cart_div">
-                          <ButtonSecond
+              <div
+                className={
+                  AllShopData.data?.length === 0 || AllShopData.data?.length > 2
+                    ? 'shopess'
+                    : 'shopess_start'
+                }>
+                {AllShopData && AllShopData.data?.length !== 0
+                  ? AllShopData.data?.map((el, index) => (
+                      <div
+                        className="shop-box"
+                        key={index}
+                        onClick={() => navigate(`/${leng}/store/${el.id}`)}>
+                        <div className="shop-box_img">
+                          <img src={el.image} alt={el.image} />
+                          <div className="souvenir_item_add_cart_div">
+                            {/* <ButtonSecond
                             txt="3"
                             onClick={handleClickOpenModal(
                               el.id,
@@ -296,44 +304,57 @@ function Shop() {
                               el.price,
                               el.museum_name,
                             )}
-                          />
+                          /> */}
+                            <div
+                              className="shop-box_button"
+                              onClick={handleClickOpenModal(
+                                el.id,
+                                el.image,
+                                el.name,
+                                el.price,
+                                el.museum_name,
+                              )}>
+                              Add to card
+                            </div>
+                          </div>
+                        </div>
+                        <div className="shop-box_texts_div">
+                          <p className="shop-box-title">
+                            {el.name?.length > 45 ? el.name.slice(0, 45) + '...' : el.name}
+                          </p>
+                          <p className="shop-box-price">{el.price}</p>
                         </div>
                       </div>
-                      <div className="shop-box_texts_div">
-                        <p className="shop-box-title">
-                          {el.name?.length > 45 ? el.name.slice(0, 45) + '...' : el.name}
-                        </p>
-                        <p className="shop-box-price">{el.price}</p>
-                      </div>
-                    </div>
-                  ))
-                : t('shop_page_data.3')}
-            </div>
-            <div
-              className={
-                AllShopData.data?.length !== 0 &&
-                AllShopData.meta?.per_page < AllShopData.meta?.total
-                  ? 'shop-paginate'
-                  : 'shop-paginate-none'
-              }>
-              <ReactPaginate
-                previousLabel={'<<'}
-                nextLabel={'>>'}
-                breakLabel={'...'}
-                forcePage={AllShopData.meta?.current_page - 1}
-                pageCount={AllShopData.meta?.last_page !== null ? AllShopData.meta?.last_page : ''}
-                marginPagesDisplayed={3}
-                // onPageChange={(selected) => sendShopPage(selected.selected)}
-                onPageChange={sendShopPage}
-                containerClassName={'paginationn'}
-                pageClassName={'page-items'}
-                pageLinkClassName={'page-link'}
-                previousClassName={'prev-item'}
-                nextClassName={'next-item'}
-                breakClassName={'break-item'}
-                activeClassName={'active-itemm'}
-              />
-            </div>
+                    ))
+                  : t('shop_page_data.3')}
+              </div>
+              <div
+                className={
+                  AllShopData.data?.length !== 0 &&
+                  AllShopData.meta?.per_page < AllShopData.meta?.total
+                    ? 'shop-paginate'
+                    : 'shop-paginate-none'
+                }>
+                <ReactPaginate
+                  previousLabel={'<'}
+                  nextLabel={'>'}
+                  breakLabel={'...'}
+                  forcePage={AllShopData.meta?.current_page - 1}
+                  pageCount={
+                    AllShopData.meta?.last_page !== null ? AllShopData.meta?.last_page : ''
+                  }
+                  marginPagesDisplayed={3}
+                  // onPageChange={(selected) => sendShopPage(selected.selected)}
+                  onPageChange={sendShopPage}
+                  containerClassName={'paginationn'}
+                  pageClassName={'page-items'}
+                  pageLinkClassName={'page-link'}
+                  previousClassName={'prev-item'}
+                  nextClassName={'next-item'}
+                  breakClassName={'break-item'}
+                  activeClassName={'active-itemm'}
+                />
+              </div>
             </div>
           </div>
           <CardModal />

@@ -17,6 +17,7 @@ const initialState = {
    success: null,
    responseMessages: '',
    paymentsUrl: '',
+   statusInfoModal: { status: false, text: '' },
 };
 
 const MuseumTicketSlice = createSlice({
@@ -28,6 +29,9 @@ const MuseumTicketSlice = createSlice({
       },
       setTicketType(state, { payload }) {
          state.ticketType = payload;
+      },
+      setStatusInfoModal(state, { payload }) {
+         state.statusInfoModal = payload;
       },
       setDataItems(state, { payload }) {
          const findticketsRes = state.tickets.find((el) => el.type === payload.obj.type);
@@ -69,6 +73,7 @@ const MuseumTicketSlice = createSlice({
             return { ...el, count: 0 };
          });
          state.responseMessages = '';
+         state.ticketType = { kindOf: null, type: null, ticketType: '' };
       },
    },
    extraReducers: (builder) => {
@@ -108,5 +113,10 @@ const MuseumTicketSlice = createSlice({
 });
 
 export const MuseumTicketReducer = MuseumTicketSlice.reducer;
-export const { setModalTicketIsOpen, setTicketType, setDataItems, setResetDataItems } =
-   MuseumTicketSlice.actions;
+export const {
+   setModalTicketIsOpen,
+   setTicketType,
+   setDataItems,
+   setResetDataItems,
+   setStatusInfoModal,
+} = MuseumTicketSlice.actions;

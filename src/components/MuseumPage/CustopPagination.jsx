@@ -18,4 +18,4 @@ const CustopPagination = ({ pageCount = 0, onChangePag = () => {}, allpageCount 
    );
 };
 
-export default CustopPagination;
+export default React.memo(CustopPagination);

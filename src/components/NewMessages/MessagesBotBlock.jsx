@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef, useEffect } from 'react';
+import React, { useCallback, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -14,7 +14,7 @@ const MessagesBotBlock = ({ messagesUser, resetMessages }) => {
 
    const dispatch = useDispatch();
 
-   const { dataEducationalPrograms, dataMuseumOne } = useSelector((store) => store.museumPages);
+   const { dataEducationalPrograms } = useSelector((store) => store.museumPages);
    const { messagesType, educationProgramType } = useSelector((store) => store.messagesBot);
 
    const onClickMessagesType = useCallback((item) => {
@@ -43,95 +43,98 @@ const MessagesBotBlock = ({ messagesUser, resetMessages }) => {
                   style={{ background: `url(${dataMuseumOne.main_photo})` }}></div>
                <p>{dataMuseumOne.name}</p>
             </div> */}
-           
-               <ul className="chatList-ul">
-                  <li className="admin_messages">
-                     <span style={{ cursor: 'inherit' }} className="">
-                        {t(`typeMessages`)}
+
+            <ul className="chatList-ul">
+               <li className="admin_messages">
+                  <span style={{ cursor: 'inherit' }} className="">
+                     {t(`typeMessages`)}
+                  </span>
+                  {dataTypeMessages.map((item, idx) => (
+                     <span
+                        onClick={() => onClickMessagesType(item)}
+                        key={idx}
+                        style={{
+                           display:
+                              item === 'educational_program' && !dataEducationalPrograms.length
+                                 ? 'none'
+                                 : '',
+                        }}
+                        className="">
+                        {idx + 1}.{t(`${item}`)}
                      </span>
-                     {dataTypeMessages.map((item, idx) => (
-                        <span
-                           onClick={() => onClickMessagesType(item)}
-                           key={idx}
-                           style={{
-                              display:
-                                 item === 'educational_program' && !dataEducationalPrograms.length
-                                    ? 'none'
-                                    : '',
-                           }}
-                           className="">
-                           {idx + 1}.{t(`${item}`)}
+                  ))}
+               </li>
+
+               {messagesType && (
+                  <li className="user_messages">
+                     <span className="">{t(`${messagesType}`)}</span>
+                  </li>
+               )}
+
+               {messagesType === 'educational_program' ? (
+                  <li className="admin_messages">
+                     {dataEducationalPrograms.map((el, idx) => (
+                        <span key={el.id} onClick={() => onClickEducationProgramType(el.name)}>
+                           {idx + 1}.{el.name}
                         </span>
                      ))}
                   </li>
-
-                  {messagesType && (
-                     <li className="user_messages">
-                        <span className="">{t(`${messagesType}`)}</span>
-                     </li>
-                  )}
-
-                  {messagesType === 'educational_program' ? (
-                     <li className="admin_messages">
-                        {dataEducationalPrograms.map((el, idx) => (
-                           <span key={el.id} onClick={() => onClickEducationProgramType(el.name)}>
-                              {idx + 1}.{el.name}
-                           </span>
-                        ))}
-                     </li>
-                  ) : (
-                     ''
-                  )}
-                  {educationProgramType ? (
-                     <li className="user_messages">
-                        <span className="">{educationProgramType}</span>
-                     </li>
-                  ) : ''
-               }
-                  {dataEducationalPrograms.length && messagesType === 'educational_program' ? (
-                     educationProgramType ? (
-                        <li className="admin_messages">
-                           <ul className="chatBotHint_list">
-                              {chatBotHint.map((_, idx) => (
-                                 <li key={idx}>
-                                    {idx !== 6
-                                       ? `${idx > 0 ? `${idx}.` : ''} ${t(`chatBotHint.${idx}`)}`
-                                       : ''}
-                                 </li>
-                              ))}
-                           </ul>
-                        </li>
-                     ) : ''
-                  ) : messagesType === 'excursion' ? (
+               ) : (
+                  ''
+               )}
+               {educationProgramType ? (
+                  <li className="user_messages">
+                     <span className="">{educationProgramType}</span>
+                  </li>
+               ) : (
+                  ''
+               )}
+               {dataEducationalPrograms.length && messagesType === 'educational_program' ? (
+                  educationProgramType ? (
                      <li className="admin_messages">
                         <ul className="chatBotHint_list">
                            {chatBotHint.map((_, idx) => (
                               <li key={idx}>
-                                 {idx > 0 ? `${idx}.` : ''}
-                                 {t(`chatBotHint.${idx}`)}
+                                 {idx !== 6
+                                    ? `${idx > 0 ? `${idx}.` : ''} ${t(`chatBotHint.${idx}`)}`
+                                    : ''}
                               </li>
                            ))}
                         </ul>
                      </li>
-                  ) : messagesType === 'other'? (
-                     <li className="admin_messages">
-                        <span className="">{t(`otherMessagesBot`)}</span>
-                     </li>
-                  ) : ''
-               }
+                  ) : (
+                     ''
+                  )
+               ) : messagesType === 'excursion' ? (
+                  <li className="admin_messages">
+                     <ul className="chatBotHint_list">
+                        {chatBotHint.map((_, idx) => (
+                           <li key={idx}>
+                              {idx > 0 ? `${idx}.` : ''}
+                              {t(`chatBotHint.${idx}`)}
+                           </li>
+                        ))}
+                     </ul>
+                  </li>
+               ) : messagesType === 'other' ? (
+                  <li className="admin_messages">
+                     <span className="">{t(`otherMessagesBot`)}</span>
+                  </li>
+               ) : (
+                  ''
+               )}
 
-                  {messagesUser.length
-                     ? messagesUser.map((el, idx) => (
-                          <li key={idx} className="user_messages">
-                             <span className="">{el}</span>
-                          </li>
-                       ))
-                     : ''}
-               </ul>
-          
+               {messagesUser.length
+                  ? messagesUser.map((el, idx) => (
+                       <li key={idx} className="user_messages">
+                          <span className="">{el}</span>
+                       </li>
+                    ))
+                  : ''}
+            </ul>
          </div>
       </>
    );
 };
 
-export default MessagesBotBlock;
+export default React.memo(MessagesBotBlock);

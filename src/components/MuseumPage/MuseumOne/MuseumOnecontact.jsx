@@ -7,6 +7,7 @@ import {
    InvateIcons,
    InstaIcons,
    EmailIcons,
+   FbIcon,
 } from '../../../iconFolder/icon';
 import { NavLink } from 'react-router-dom';
 const MuseumOnecontact = ({
@@ -19,11 +20,27 @@ const MuseumOnecontact = ({
    email = '',
 }) => {
    const { t, i18n } = useTranslation();
-
+   const [copySuccess, setCopySuccess] = React.useState(false);
    const getBaseUrl = React.useCallback((url) => {
       const regex = /^(?:([^\:]+)\:\/\/)?([^\/]+)/;
       const match = url.match(regex);
       return match?.[2];
+   }, []);
+
+   const copyToClipboard = React.useCallback(() => {
+      if (navigator.clipboard.writeText) {
+         navigator.clipboard.writeText(window.location.href);
+      } else {
+         const el = document.createElement('textarea');
+         el.value = window.location.href;
+         document.body.appendChild(el);
+         el.select();
+         document.execCommand('copy');
+         document.body.removeChild(el);
+      }
+
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
    }, []);
 
    return (
@@ -44,8 +61,8 @@ const MuseumOnecontact = ({
                <h4>{t(`our_address`)}</h4>
                <p className="par-contactMinBlock">
                   <LocationIcon width={20} height={20} fill="#3F3D56" />
-                  {region && t(`${region}`)}
-                  {address}
+                  {region && t(`${region} ,`)}
+                  {address && address}
                </p>
             </div>
          )}
@@ -95,11 +112,34 @@ const MuseumOnecontact = ({
             </div>
          )}
          <div>
-            <div className="blockRigth_styles-parPhone">
+            <div
+               style={{ cursor: 'pointer' }}
+               onClick={copyToClipboard}
+               className="blockRigth_styles-parPhone Invate_par">
                <InvateIcons width={22} />
                <p>{t(`webSideMusum.1`)}</p>
+               <div
+                  className="Invate_child"
+                  style={{
+                     opacity: copySuccess ? '1' : '0',
+                     transform: copySuccess ? 'translateX(35px)' : 'translateX(370px)',
+                  }}>
+                  <p>{t(`webSideMusum.3`)}</p>
+               </div>
             </div>
          </div>
+         {links?.facebook && (
+            <div>
+               <div className="blockRigth_styles-parPhone">
+                  <FbIcon />
+                  <p>
+                     <a href={links?.facebook} rel="noopener noreferrer" target="_blank">
+                        Facebook
+                     </a>
+                  </p>
+               </div>
+            </div>
+         )}
          {links?.instagram && (
             <div>
                <div className="blockRigth_styles-parPhone">
