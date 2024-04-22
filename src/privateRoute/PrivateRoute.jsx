@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { getAuthUser, getIsAuth } from '../store/slices/Auth/AuthSlice';
 import { getCurrentUser } from '../store/slices/Auth/AuthApi';
 import './PrivateRoute.css'
+import LoadSpinner from '../components/LoadSpinner/LoadSpinner';
 
 const PrivateRoute = ({ children }) => {
     const lang = localStorage.getItem('lang');
@@ -23,7 +24,7 @@ const PrivateRoute = ({ children }) => {
     }, [dispatch, isAuth]);
   
     if (loading) {
-      return <div class="lds-ring">Loader</div>
+      return <LoadSpinner fullBackColor="white"/>
     }
   
     return isAuth ? children : <Navigate to={`/${lang}/login`} />;

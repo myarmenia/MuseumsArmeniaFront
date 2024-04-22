@@ -4,7 +4,7 @@ import { logo } from '../../images/images';
 import './NavBar.css';
 import ChangeFontSize from '../ChangeFontSize/ChangeFontSize';
 import SelectLng from '../SelectLng/SelectLng';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLogOut } from '../../store/slices/LogOutSlice/LogOutApi';
@@ -26,39 +26,33 @@ function NavBar({ changeFonSize, changeFont, homeNavColor }) {
    const dispatch = useDispatch();
    const { pathname } = useLocation();
 
-   console.log(pathname, 'jan', `/${leng}/`);
-   // /////////////shop length/////////////////
-   const productLength = useSelector(getProductLength);
-   // //////////////end shop length///////////////////////
 
-   const handleLogOut = async () => {
-      dispatch(getLogOut());
-   };
-   const handleClickOpenModal = useCallback((e) => {
-      e.stopPropagation();
-      dispatch(setModalIsOpenShop(true));
-      dispatch(getShopIconBasketDatas());
-   }, []);
+  // /////////////shop length/////////////////
+  const productLength = useSelector(getProductLength);
+  // //////////////end shop length///////////////////////
 
-   console.log('isAuthCount', isAuthCount.card_count);
-   return (
-      <div
-         className="nav_bar"
-         style={
-            pathname === `/${leng}/`
-               ? {
-                    background: homeNavColor ? 'black' : 'transparent',
-                    opacity: homeNavColor ? '.7' : '1',
-                 }
-               : {}
-         }>
-         <div className="container">
-            <div className="nav_bar_left_div">
-               <NavLink to={`/${leng}/`}>
-                  <img src={logo} alt="logo" className="nav_bar_logo_" />
-               </NavLink>
-               <NavMenu />
-            </div>
+  const handleLogOut = async () => {
+    dispatch(getLogOut());
+  };
+  const handleClickOpenModal = useCallback((e) => {
+    e.stopPropagation();
+    dispatch(setModalIsOpenShop(true));
+    dispatch(getShopIconBasketDatas());
+  }, []);
+
+  return (
+    <div className="nav_bar" style={pathname === `/${leng}/` ? {
+      background: homeNavColor ? 'black' : 'transparent',
+      opacity: homeNavColor ? '.7' : '1',
+    } : {}}>
+      <div className="container">
+        <div className="nav_bar_left_div">
+          <NavLink to={`/${leng}/`}>
+            <img src={logo} alt="logo" className="nav_bar_logo_" />
+          </NavLink>
+          <NavMenu />
+        </div>
+
 
             <div className="nav_bar_right_div">
                {isAuth && (
@@ -69,13 +63,14 @@ function NavBar({ changeFonSize, changeFont, homeNavColor }) {
                      <img src={ShopCard} alt="shop-card" className="shop-card" />
                   </div>
                )}
-               {isAuth && <div>{userIcon}</div>}
-               <ChangeFontSize {...{ changeFonSize, changeFont }} />
-               <SelectLng />
-               {!isAuth && <NavLink to={`/${leng}/login`}>{t('login_btn')}</NavLink>}
-               {isAuth && <span onClick={handleLogOut}>{logOutIcon}</span>}
-            </div>
-         </div>
+               
+          {isAuth && <Link to={`/${leng}/profilePage`}><div>{userIcon}</div></Link>}
+          <ChangeFontSize {...{ changeFonSize, changeFont }} />
+          <SelectLng />
+          {!isAuth && <NavLink to={`/${leng}/login`}>{t('login_btn')}</NavLink>}
+          {isAuth && <span onClick={handleLogOut}>{logOutIcon}</span>}
+        </div>
+      </div>
       </div>
    );
 }

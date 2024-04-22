@@ -36,6 +36,7 @@ import ComboTicket from './components/ComboTicket/ComboTicket';
 import ContactWithUs from './components/contactWithUs/contactWithUs';
 import ChatProfile from './components/ProfilePages/ChatProfile/ChatProfile';
 import QrCode from './components/ProfilePages/QrCode/QrCode';
+import Notification from './components/Notification/Notification';
 
 function App() {
    const [changeFonSize, setChangeFonSize] = useState('');
@@ -216,75 +217,92 @@ function App() {
                      />
                   </Route>
 
-                  <Route
-                     path="profilePage"
-                     element={
-                        <PrivateRoute>
-                           <ProfilePage />
-                        </PrivateRoute>
-                     }>
-                     <Route
-                        index
-                        element={
-                           <PrivateRoute>
-                              <MyAccount />
-                           </PrivateRoute>
-                        }
-                     />
-                     <Route
-                        path="myaccount"
-                        element={
-                           <PrivateRoute>
-                              <MyAccount />
-                           </PrivateRoute>
-                        }
-                     />
-                     <Route
-                        path="chat"
-                        element={
-                           <PrivateRoute>
-                              <ChatProfile />
-                           </PrivateRoute>
-                        }
-                     />
-                     <Route
-                        path="orderhistory"
-                        element={
-                           <PrivateRoute>
-                              <OrderHistory />
-                           </PrivateRoute>
-                        }
-                     />
-                     <Route
-                        path="qrcode"
-                        element={
-                           <PrivateRoute>
-                              <QrCode />
-                           </PrivateRoute>
-                        }
-                     />
-                  </Route>
-                  <Route
-                     path="comboticket"
-                     element={
-                        <PrivateRouteForOutSider>
-                           <ComboTicket />
-                        </PrivateRouteForOutSider>
-                     }
-                  />
-                  <Route
-                     path="contact"
-                     element={
-                        <PrivateRouteForOutSider>
-                           <ContactWithUs />
-                        </PrivateRouteForOutSider>
-                     }
-                  />
-               </Route>
+
+            <Route
+              path="profilePage"
+              element={
+                <PrivateRoute>
+                  <ProfilePage />
+                </PrivateRoute>
+              }>
+              <Route
+                index
+                element={
+                  <PrivateRoute>
+                    <MyAccount />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="myaccount"
+                element={
+                  <PrivateRoute>
+                    <MyAccount />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="chat"
+                element={
+                  <PrivateRoute>
+                    <ChatProfile />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="orderhistory"
+                element={
+                  <PrivateRoute>
+                    <OrderHistory />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="qrcode"
+                element={
+                  <PrivateRoute>
+                    <QrCode />
+                  </PrivateRoute>
+                }
+              />
+
+              <Route
+                path="notification"
+                element={
+                  <PrivateRoute>
+                    <Notification />
+                  </PrivateRoute>
+                }
+              />
+
             </Route>
-         </Routes>
-      </div>
-   );
+
+
+            <Route
+              path="comboticket"
+              element={
+                <PrivateRouteForOutSider>
+                  <ComboTicket />
+                </PrivateRouteForOutSider>
+              }
+            />
+
+
+              <Route
+                path="contact"
+                element={
+                  <PrivateRouteForOutSider>
+                    <ContactWithUs />
+                  </PrivateRouteForOutSider>
+                }
+              />
+              
+          </Route>
+        </Route>
+      </Routes>
+    </div>
+  );
+
 }
 
 export default App;

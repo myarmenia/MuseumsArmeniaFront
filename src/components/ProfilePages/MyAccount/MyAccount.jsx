@@ -22,7 +22,7 @@ function MyAccount() {
           <input type="text" className="MyAccount_input-phone" />
           <select className="MyAccount_select-country">
             <option value="vvvv" key="aa"></option>
-            <option value="aaaa" key="aa"></option>
+            <option value="aaaa" key="bb"></option>
           </select>
           <input
             type="date"
