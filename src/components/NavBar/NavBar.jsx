@@ -4,7 +4,7 @@ import { logo } from '../../images/images';
 import './NavBar.css';
 import ChangeFontSize from '../ChangeFontSize/ChangeFontSize';
 import SelectLng from '../SelectLng/SelectLng';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLogOut } from '../../store/slices/LogOutSlice/LogOutApi';
@@ -26,8 +26,6 @@ function NavBar({ changeFonSize, changeFont, homeNavColor }) {
   const dispatch = useDispatch();
   const {pathname} = useLocation()
 
-
-  console.log(pathname, 'jan', `/${leng}/`);
   // /////////////shop length/////////////////
   const productLength = useSelector(getProductLength);
   // //////////////end shop length///////////////////////
@@ -41,7 +39,6 @@ function NavBar({ changeFonSize, changeFont, homeNavColor }) {
     dispatch(getShopIconBasketDatas());
   }, []);
 
-  console.log('isAuthCount', isAuthCount.card_count);
   return (
     <div className="nav_bar" style={pathname === `/${leng}/` ? {
       background: homeNavColor ? 'black' : 'transparent',
@@ -67,7 +64,7 @@ function NavBar({ changeFonSize, changeFont, homeNavColor }) {
               />
             </div>
           )}
-          {isAuth && <div>{userIcon}</div>}
+          {isAuth && <Link to={`/${leng}/profilePage`}><div>{userIcon}</div></Link>}
           <ChangeFontSize {...{ changeFonSize, changeFont }} />
           <SelectLng />
           {!isAuth && <NavLink to={`/${leng}/login`}>{t('login_btn')}</NavLink>}

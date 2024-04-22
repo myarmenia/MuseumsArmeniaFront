@@ -54,3 +54,28 @@ export const deleteMuseumMessages = createAsyncThunk(
       }
    },
 );
+
+
+
+
+export const postMessageProfile = createAsyncThunk(
+   'messageProfile/postMessageProfile',
+
+   async (body, thunkAPI) => {
+      try {
+         const config = {
+            method: 'post',
+            url: 'chat/add-profile-message',
+            data: body,
+         };
+
+         const {data} = await instance(config);
+
+          return data.message;
+
+      } catch (error) {
+         console.log(error, 'error');
+         return thunkAPI.rejectWithValue(error.response.data);
+      }
+   },
+);

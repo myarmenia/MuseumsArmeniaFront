@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { responsive, homePage_museum_section_data } from '../../data/data'
 import "react-multi-carousel/lib/styles.css";
 import './MuseumSectionSliderInHome.css'
@@ -6,25 +6,38 @@ import './MuseumSectionSliderInHome.css'
 import Carousel from 'react-multi-carousel';
 import { useTranslation } from 'react-i18next';
 import { locationIcon } from '../../iconFolder/icon';
+import { useDispatch, useSelector } from 'react-redux';
+import { postMuseumPages } from '../../store/slices/MuseumPagesSlice/MuseumPagesApi';
+import { selectMuseum } from '../../store/slices/MuseumPagesSlice/MuseumPagesSlice';
 
 function MuseumSectionSliderInHome() {
 
     const { t, i18n } = useTranslation()
+    const dispatch = useDispatch()
+    const respMuseum = useSelector(selectMuseum)
+    const privateTicketRegions = t('privateTicketRegions', { returnObjects: true })
+
+
+    useEffect(() => {
+        dispatch(postMuseumPages())
+    }, [])
 
     const product =
-        homePage_museum_section_data.map(el => {
+        respMuseum && respMuseum.map(item => {
 
-            return <div key={el.id} className='museum_section_item'>
+            return <div key={item.id} className='museum_section_item'>
                 <div className='museum_section_item_img_div'>
-                    <img src={el.img} alt="news" />
+                    <img src={item.photo} alt="news" />
                 </div>
 
                 <div className='museum_section_item_info_div'>
-                    <p>{el.name}</p>
-                   <div>
+                    <p>{item.name}</p>
+                    <div>
                         <span>{locationIcon}</span>
-                        <span className='museum_section_item_info_div_location'>{el.location}</span>
-                   </div>
+                        {
+                            privateTicketRegions.map((el, index) => Object.keys(el)[0] === item.region ? <span className='museum_section_item_info_div_location' key={index} >{Object.values(el)[0]}</span> : '')
+                        }
+                    </div>
                 </div>
             </div>
         }
@@ -37,11 +50,6 @@ function MuseumSectionSliderInHome() {
 
 
             <div className='container'>
-                {/* <div className='slide_section_title'>
-                    <h2>{t('museum_slide_title.0')}</h2>
-                    <p>{t('museum_slide_title.1')}</p>
-            </div> */}
-
                 <div className='lines_div_section_museum'>
                     <img src={require('../../images/line_gold.png')} alt="line" />
                     <h2>{t('museum_slide_title.0')}</h2>

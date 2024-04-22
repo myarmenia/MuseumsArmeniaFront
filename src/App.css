@@ -33,6 +33,7 @@ ul,ol{
 }
 
 
+
 :root {
     --main_font_color: white;
     --second_font_color: #cea670;
@@ -42,6 +43,10 @@ ul,ol{
     font-family: 'AnimFont';
     src: url('../src/fonts/BigShouldersInlineText-ExtraBold.ttf') format('truetype');
    
+  }
+
+  body{
+    overflow-x: hidden !important;
   }
 
 

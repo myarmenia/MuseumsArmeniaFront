@@ -15,10 +15,10 @@ function ProfileSidebar() {
             <NavLink
               className={({ isActive }) => (isActive ? 'line_div  line_divActive' : 'line_div')}
               to={el.slug}>
-              <img src={el.icon} alt={el.name} />
+              <span className='line_div_profile_icon'>{el.icon}</span>
               <span>{el.name}</span>
             </NavLink>
-          </div>
+          </div>  
         ))}
       </div>
     </div>

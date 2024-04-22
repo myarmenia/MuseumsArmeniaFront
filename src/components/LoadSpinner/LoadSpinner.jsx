@@ -1,9 +1,9 @@
 import React from 'react'
 import './LoadSpinner.css'
 
-function LoadSpinner() {
+function LoadSpinner({fullBackColor}) {
   return (
-    <div className='load_div'><span className="loader"></span></div>
+    <div className='load_div' style={{backgroundColor: fullBackColor && fullBackColor }}><span className="loader"></span></div>
   )
 }
 

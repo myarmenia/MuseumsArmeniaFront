@@ -36,6 +36,7 @@ import ComboTicket from './components/ComboTicket/ComboTicket';
 import ContactWithUs from './components/contactWithUs/contactWithUs';
 import ChatProfile from './components/ProfilePages/ChatProfile/ChatProfile';
 import QrCode from './components/ProfilePages/QrCode/QrCode';
+import Notification from './components/Notification/Notification';
 
 function App() {
   const [changeFonSize, setChangeFonSize] = useState('');
@@ -263,7 +264,27 @@ function App() {
                   </PrivateRoute>
                 }
               />
+
+              <Route
+                path="notification"
+                element={
+                  <PrivateRoute>
+                    <Notification />
+                  </PrivateRoute>
+                }
+              />
+
             </Route>
+
+            <Route
+              path="contact"
+              element={
+                <PrivateRouteForOutSider>
+                  <ContactWithUs />
+                </PrivateRouteForOutSider>
+              }
+            />
+
             <Route
               path="comboticket"
               element={
