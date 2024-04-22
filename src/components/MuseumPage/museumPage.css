@@ -409,6 +409,7 @@
    height: 220px;
    background-position: center;
    background-size: cover;
+   cursor: pointer;
 }
 
 .MuseumOne_parent-imgList_imgCenter {
