@@ -9,12 +9,15 @@ import { locationIcon } from '../../iconFolder/icon';
 import { useDispatch, useSelector } from 'react-redux';
 import { postMuseumPages } from '../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import { selectMuseum } from '../../store/slices/MuseumPagesSlice/MuseumPagesSlice';
+import { useNavigate } from 'react-router-dom';
 
 function MuseumSectionSliderInHome() {
 
     const { t, i18n } = useTranslation()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const respMuseum = useSelector(selectMuseum)
+   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
     const privateTicketRegions = t('privateTicketRegions', { returnObjects: true })
 
 
@@ -25,7 +28,7 @@ function MuseumSectionSliderInHome() {
     const product =
         respMuseum && respMuseum.map(item => {
 
-            return <div key={item.id} className='museum_section_item'>
+            return <div key={item.id} className='museum_section_item' onClick={() => navigate(`/${leng}/museums/museum/${item.id}`)}>
                 <div className='museum_section_item_img_div'>
                     <img src={item.photo} alt="news" />
                 </div>

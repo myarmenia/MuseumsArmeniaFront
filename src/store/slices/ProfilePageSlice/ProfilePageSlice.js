@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getNotification } from './ProfilePageApi';
+import { getNotification, postChangeUserPass, postEditUser } from './ProfilePageApi';
 
 const initialState = {
   notification: [],
+  editUser: {},
+  editPassword: {},
   loading: 'pending'
 };
 
@@ -24,6 +26,37 @@ export const profilePageSlice = createSlice({
       })
 
       .addCase(getNotification.rejected, (state, action) => {
+        state.loading = 'rejected'
+      })
+
+      // =============================================
+
+      .addCase(postEditUser.fulfilled, (state, action) => {
+        state.loading = 'fulfilled'
+        state.editUser = action.payload
+      })
+      .addCase(postEditUser.pending, (state, action) => {
+        console.log('pending');
+      })
+
+      .addCase(postEditUser.rejected, (state, action) => {
+        state.loading = 'rejected'
+      })
+
+
+
+      // ====================================================
+
+
+      .addCase(postChangeUserPass.fulfilled, (state, action) => {
+        state.loading = 'fulfilled'
+        state.editPassword = action.payload
+      })
+      .addCase(postChangeUserPass.pending, (state, action) => {
+        console.log('pending');
+      })
+
+      .addCase(postChangeUserPass.rejected, (state, action) => {
         state.loading = 'rejected'
       });
   },

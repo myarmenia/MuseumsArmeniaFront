@@ -196,6 +196,7 @@ function ChatProfile() {
                   )}
                </div>
             )}
+
          </div>
       );
    }
@@ -225,7 +226,9 @@ function ChatProfile() {
             })}
          </div>
 
+        
          <div className="chat_right">
+           
             <div ref={chatRef} className="chat_right_content">
                {loading !== 'fulfilled' ? (
                   <LoadSpinner />

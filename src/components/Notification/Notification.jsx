@@ -5,8 +5,10 @@ import { getNotification } from '../../store/slices/ProfilePageSlice/ProfilePage
 import { selectNotification } from '../../store/slices/ProfilePageSlice/ProfilePageSlice'
 import { rightArowIcon } from '../../iconFolder/icon'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 function Notification() {
+    const {t, i18n} = useTranslation()
    const dispatch = useDispatch()
    const respNotification = useSelector(selectNotification)
    const navigate = useNavigate()
@@ -18,7 +20,7 @@ function Notification() {
   return (
     <div className='notification_page'>
         <div className='container'>
-            <h3 className='notification_page_title'>Notification</h3>
+            <h3 className='notification_page_title'>{t('profil_side_bar.4')}</h3>
             <div className='notification_page_items'>
                 {
                     respNotification && respNotification.map(not => (
