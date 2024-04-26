@@ -23,3 +23,23 @@ export const getPrivateTicket = createAsyncThunk(
       }
     }
 )
+
+
+
+export const getUnitedCount = createAsyncThunk(
+  'unitedCount/getUnitedCount',
+  async (body, thunkAPI) => {
+
+      try {
+        const config = {
+          method: "get",
+          url: 'tickets/united',
+        };
+        
+        const response = await instance(config); 
+        return response?.data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data.error.both);
+      }
+    }
+)
