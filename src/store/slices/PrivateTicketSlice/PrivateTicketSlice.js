@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getPrivateTicket } from "./PrivateTicketApi";
+import { getPrivateTicket, getUnitedCount } from "./PrivateTicketApi";
 
 const initialState = {
    data: [],
    status: 'idle',
    loading: 'pending',
-   params: {}
+   params: {},
+   unitedCount: {}
    };
 
 const privateTicketSlice = createSlice({
@@ -27,7 +28,6 @@ const privateTicketSlice = createSlice({
             state.params = action.payload.params
             state.loading = 'fulfilled'
              state.status = 'succes';
-             console.log(66666);
           })
           .addCase(getPrivateTicket.rejected, (state, action) => {
              if(action.payload){
@@ -37,12 +37,19 @@ const privateTicketSlice = createSlice({
                state.status = 'failed'; 
 
                console.log('oooo');
-          });
+          })
+
+          .addCase(getUnitedCount.fulfilled, (state, action) => {
+            state.unitedCount = action.payload
+            state.loading = 'fulfilled'
+             
+          })
     },
  });
  
 
 export const selectprivateTicket = (state) => state.privateTicket
+export const selectUnitedCount = (state) => state.privateTicket.unitedCount
 
 export const selectPrivateTicketLoading = (state) => state.privateTicket.loading
 

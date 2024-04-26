@@ -193,6 +193,7 @@ function RegisterPage() {
                                                                 ))
 
                                                                 }
+                                                                
                                                     </div>
                                                     {touched.country && errors.country && <p className="error">{errors.country}</p>}
 
