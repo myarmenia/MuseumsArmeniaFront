@@ -280,4 +280,3 @@ function ChatProfile() {
 }
 
 export default ChatProfile;
-

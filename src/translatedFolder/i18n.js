@@ -561,7 +561,6 @@ i18n.use(initReactI18next).init({
             virtualExcursion: 'Վիրտուալ էքսկուրսիա',
             museumBranch: 'Թանգարանի մասնաճյուղերը',
 
-
             isWrong: [
                'Ինչ - որ բան սխալ է !',
                'Այս պահին տոմսեր չկան',
@@ -574,16 +573,14 @@ i18n.use(initReactI18next).init({
                'Հաղորդագրություններ',
                'Պատվերներ',
                'QR Code',
-               'Ծանուցումներ'
-
+               'Ծանուցումներ',
             ],
 
-            section_united_ticket:[
+            section_united_ticket: [
                'Գնեք',
                'և ավելի թանգարանների միասնական տոմս և ստացեք',
-               'տոկոս զեղչ:'
-            ]
-
+               'տոկոս զեղչ:',
+            ],
          },
       },
 
@@ -1142,30 +1139,20 @@ i18n.use(initReactI18next).init({
             virtualExcursion: 'Виртуальная экскурсия',
             museumBranch: 'Филиалы музея',
 
-
             isWrong: [
                'Что-то не так!',
                'На данный момент билетов нет в наличии',
                'Товары добавлены в корзину',
                'Заполните поля, чтобы купить билет',
-
             ],
 
+            profil_side_bar: ['Мой аккаунт', 'Сообщения', 'Заказы', 'QR код', 'Уведомления'],
 
-            profil_side_bar: [
-               'Мой аккаунт',
-               'Сообщения',
-               'Заказы',
-               'QR код',
-               'Уведомления'
-            ],
-
-            section_united_ticket:[
+            section_united_ticket: [
                'Купить',
                'и получите единый билет в большее количество музеев',
-               'процентная скидка.'
-            ]
-
+               'процентная скидка.',
+            ],
          },
       },
       en: {
@@ -1723,10 +1710,7 @@ i18n.use(initReactI18next).init({
                'Fill in the fields to buy a ticket',
             ],
 
-
             
-
-
             profil_side_bar: [
                "My account",
                'Messages',
@@ -1736,11 +1720,11 @@ i18n.use(initReactI18next).init({
             ],
 
             section_united_ticket:[
+
                'Buy',
                'and get a single ticket for more museums',
-               'percent discount.'
-            ]
-
+               'percent discount.',
+            ],
          },
       },
    },
