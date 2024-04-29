@@ -65,7 +65,9 @@ i18n.use(initReactI18next).init({
                'Հաստատել գաղտնաբառը',
                'Հեռախոսահամար',
                'Հաղորդագրություն',
-               'Գործող գաղտնաբառ'
+               'Գործող գաղտնաբառ',
+               'Երկիր',
+               'Տարիք',
             ],
 
             reset_password_btn: ['Մոռացել եմ գաղտնաբառը', 'Վերականգնել'],
@@ -646,7 +648,9 @@ i18n.use(initReactI18next).init({
                'Подтвердите пароль',
                'Номер телефона',
                'Сообщение',
-               'Действующий пароль.'
+               'Действующий пароль.',
+               'Страна',
+               'Возраст',
             ],
 
             reset_password_btn: ['Я забыл пароль', ' Восстановить'],
@@ -1217,7 +1221,9 @@ i18n.use(initReactI18next).init({
                'E-mail',
                'Confirm password',
                'Phone number',
-               'A valid password'
+               'A valid password',
+               'Country',
+               'Age',
             ],
 
             reset_password_btn: ['I forgot my password', 'Restore'],
@@ -1710,17 +1716,9 @@ i18n.use(initReactI18next).init({
                'Fill in the fields to buy a ticket',
             ],
 
-            
-            profil_side_bar: [
-               "My account",
-               'Messages',
-               "Orders",
-               'QR code',
-               'Notifications'
-            ],
+            profil_side_bar: ['My account', 'Messages', 'Orders', 'QR code', 'Notifications'],
 
-            section_united_ticket:[
-
+            section_united_ticket: [
                'Buy',
                'and get a single ticket for more museums',
                'percent discount.',

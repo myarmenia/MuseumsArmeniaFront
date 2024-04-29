@@ -130,7 +130,11 @@ const TicketMuseumForm = () => {
                            onBlur={handleBlur}
                            className="formChild-inbut"
                         />
-                        {touched.email && errors.email && <p className="error">{errors.email}</p>}
+                        {touched.email && errors.email && (
+                           <p className="error" style={{ color: 'red' }}>
+                              {errors.email}
+                           </p>
+                        )}
                      </div>
                      <div className="museumTicket-formChild-inbut">
                         <input
@@ -178,7 +182,7 @@ const TicketMuseumForm = () => {
                            <input
                               type="text"
                               name="country"
-                              placeholder="country"
+                              placeholder={t('placeholder.10')}
                               value={countryVal}
                               onChange={handleChange}
                               onBlur={handleBlur}
@@ -208,9 +212,9 @@ const TicketMuseumForm = () => {
 
                      <div className="age-inp museumTicket-formChild-inbut">
                         <input
-                           type="date"
+                           type="number"
                            name="age"
-                           placeholder="age"
+                           placeholder={t('placeholder.11')}
                            value={values.age}
                            onChange={handleChange}
                            onBlur={handleBlur}
@@ -242,7 +246,7 @@ const TicketMuseumForm = () => {
                         </div>
                      )}
                      <button type="submit" className="register_btn">
-                        {t('register_btn')}
+                        {t('buy')}
                      </button>
                   </form>
                )}
