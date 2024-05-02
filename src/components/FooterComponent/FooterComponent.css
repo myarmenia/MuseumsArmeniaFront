@@ -22,17 +22,19 @@
 }
 /* App.css */
 
-.footerComponent .container {
+.footerComponent >.container {
    height: 100%;
    display: flex;
    align-items: center;
    justify-content: center;
+   padding: 20px;
 }
-.footerComponentStatic .container {
+.footerComponentStatic >.container {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
 .footer_menu {
@@ -57,7 +59,7 @@
 
 .footer_menu {
    display: flex;
-   gap: 70px;
+   justify-content: space-between;
 }
 
 .footer_menu ul {
@@ -110,7 +112,7 @@
 
 .footer_botom{
    width: 100%;
-   height: 35px;
+   min-height: 35px;
    background-color: #383737;
    display: flex;
    justify-content: center;
@@ -122,6 +124,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
+   padding:0  20px;
 }
 
 .footer_botom_text{
@@ -129,6 +132,7 @@
    align-items: center;
    gap: 10px;
    color: #ffffffb1;
+   height: 100%;
 }
 
 .footer_botom_text a{
@@ -143,6 +147,11 @@
    display: flex;
    align-items: center;
    gap: 5px;
+   
+}
+
+.footer_botom_text >div span{
+   text-align: center !important;
 }
 
 .cIcon{
@@ -155,10 +164,12 @@
    .footerComponent .container {
       flex-direction: column;
       gap: 30px;
+
    }
+   
    .footerComponentStatic .container {
-    flex-direction: column;
-    gap: 30px;
+      flex-direction: column;
+      gap: 30px;
  }
 
    .footerComponent {
@@ -180,6 +191,13 @@
    .footerComponent_img_div {
       width: 80%;
    }
+
+   .footer_botom .container .footer_botom_text{
+      flex-direction: column;
+      align-items: center;
+   }
+
+
 }
 
 @media (max-width: 720px) {
@@ -193,10 +211,10 @@
  }
 
    .footerComponent {
-      height: 800px;
+      height: 700px;
    }
    .footerComponentStatic {
-    height: 800px;
+    height: 700px;
  }
   .footer_menu {
       width: 98%;
@@ -240,11 +258,11 @@
  } */
 
    .footerComponent {
-      height: 800px;
+      height: 650px;
    }
 
    .footerComponentStatic {
-    height: 800px;
+    height: 650p;
  }
 
 

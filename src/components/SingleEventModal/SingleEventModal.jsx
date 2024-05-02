@@ -104,7 +104,7 @@ function SingleEventModal({ setOpenConfigModal, cartErrorMessage, setCartErrorMe
 
                                         <div>
                                             <span>{t('event_single_page_modal.1')}</span>
-                                            <span>{config.start_time}</span>
+                                            <span>{config.start_time.slice(0,5)}</span>
                                         </div>
                                     </div>
 
@@ -116,7 +116,7 @@ function SingleEventModal({ setOpenConfigModal, cartErrorMessage, setCartErrorMe
 
                                         <div className='single_event_modal_item_left_count'>
                                             <span>{t('event_single_page_modal.3')}</span>
-                                            <span className='single_event_modal_item_left_count_number'>{config.visitors_quantity_limitation}</span>
+                                            <span className='single_event_modal_item_left_count_number'>{config.tickets.max}</span>
                                         </div>
                                     </div>
                                 </div>

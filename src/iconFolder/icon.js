@@ -1656,6 +1656,154 @@ export const cIcon = (
    </svg>
 );
 
+export const chatLeftArrow = (
+   <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M9.57 5.92969L3.5 11.9997L9.57 18.0697"
+         stroke="#121212"
+         strokeMiterlimit={10}
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M20.4999 12H3.66992"
+         stroke="#121212"
+         strokeMiterlimit={10}
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+   </svg>
+);
+
+export const myAccountIcon = (
+   <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M10 12.5C12.7614 12.5 15 10.2614 15 7.5C15 4.73858 12.7614 2.5 10 2.5C7.23858 2.5 5 4.73858 5 7.5C5 10.2614 7.23858 12.5 10 12.5Z"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M2.42188 16.8747C3.18979 15.5444 4.2944 14.4396 5.62465 13.6715C6.9549 12.9034 8.46392 12.499 10 12.499C11.5361 12.499 13.0451 12.9034 14.3753 13.6715C15.7056 14.4396 16.8102 15.5444 17.5781 16.8747"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+   </svg>
+);
+
+export const notficationIcon = (
+   <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M19.5 12V19.5C19.5 19.6989 19.421 19.8897 19.2803 20.0303C19.1397 20.171 18.9489 20.25 18.75 20.25H4.5C4.30109 20.25 4.11032 20.171 3.96967 20.0303C3.82902 19.8897 3.75 19.6989 3.75 19.5V5.25C3.75 5.05109 3.82902 4.86032 3.96967 4.71967C4.11032 4.57902 4.30109 4.5 4.5 4.5H12"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M18.375 8.25C19.8247 8.25 21 7.07475 21 5.625C21 4.17525 19.8247 3 18.375 3C16.9253 3 15.75 4.17525 15.75 5.625C15.75 7.07475 16.9253 8.25 18.375 8.25Z"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+   </svg>
+);
+
+export const orderHistoryIcon = (
+   <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M16.875 3.75H3.125C2.77982 3.75 2.5 4.02982 2.5 4.375V15.625C2.5 15.9702 2.77982 16.25 3.125 16.25H16.875C17.2202 16.25 17.5 15.9702 17.5 15.625V4.375C17.5 4.02982 17.2202 3.75 16.875 3.75Z"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path d="M5.9375 7.5H14.0625" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5.9375 10H14.0625" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5.9375 12.5H14.0625" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+   </svg>
+);
+
+export const chatIcon = (
+   <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M3.5466 13.8279C2.61604 12.2579 2.29054 10.4023 2.63121 8.60931C2.97188 6.81633 3.95529 5.20936 5.39682 4.09007C6.83835 2.97078 8.63886 2.41615 10.4603 2.5303C12.2818 2.64446 13.999 3.41954 15.2895 4.71004C16.58 6.00055 17.3551 7.71773 17.4692 9.53921C17.5834 11.3607 17.0288 13.1612 15.9095 14.6027C14.7902 16.0442 13.1832 17.0277 11.3902 17.3683C9.59726 17.709 7.74159 17.3835 6.1716 16.4529V16.4529L3.57785 17.1873C3.47158 17.2184 3.35891 17.2203 3.25164 17.1929C3.14438 17.1654 3.04647 17.1097 2.96818 17.0314C2.88989 16.9531 2.8341 16.8552 2.80666 16.7479C2.77922 16.6406 2.78114 16.528 2.81222 16.4217L3.5466 13.8279Z"
+         stroke="#EDEDED"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M10 10.625C10.3452 10.625 10.625 10.3452 10.625 10C10.625 9.65482 10.3452 9.375 10 9.375C9.65482 9.375 9.375 9.65482 9.375 10C9.375 10.3452 9.65482 10.625 10 10.625Z"
+         fill="#EDEDED"
+      />
+      <path
+         d="M6.25 10.625C6.59518 10.625 6.875 10.3452 6.875 10C6.875 9.65482 6.59518 9.375 6.25 9.375C5.90482 9.375 5.625 9.65482 5.625 10C5.625 10.3452 5.90482 10.625 6.25 10.625Z"
+         fill="#EDEDED"
+      />
+      <path
+         d="M13.75 10.625C14.0952 10.625 14.375 10.3452 14.375 10C14.375 9.65482 14.0952 9.375 13.75 9.375C13.4048 9.375 13.125 9.65482 13.125 10C13.125 10.3452 13.4048 10.625 13.75 10.625Z"
+         fill="#EDEDED"
+      />
+   </svg>
+);
+
+export const qrCodeIcon = (
+   <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M9.75 4.5H5.25C4.83579 4.5 4.5 4.83579 4.5 5.25V9.75C4.5 10.1642 4.83579 10.5 5.25 10.5H9.75C10.1642 10.5 10.5 10.1642 10.5 9.75V5.25C10.5 4.83579 10.1642 4.5 9.75 4.5Z"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M9.75 13.5H5.25C4.83579 13.5 4.5 13.8358 4.5 14.25V18.75C4.5 19.1642 4.83579 19.5 5.25 19.5H9.75C10.1642 19.5 10.5 19.1642 10.5 18.75V14.25C10.5 13.8358 10.1642 13.5 9.75 13.5Z"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M18.75 4.5H14.25C13.8358 4.5 13.5 4.83579 13.5 5.25V9.75C13.5 10.1642 13.8358 10.5 14.25 10.5H18.75C19.1642 10.5 19.5 10.1642 19.5 9.75V5.25C19.5 4.83579 19.1642 4.5 18.75 4.5Z"
+         stroke="white"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path d="M13.5 13.5V16.5" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M13.5 19.5H16.5V13.5" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M16.5 15H19.5" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M19.5 18V19.5" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
+   </svg>
+);
+
+export const ArowwTopIcon = (
+   <svg width={28} height={28} viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M5.25 17.5L14 8.75L22.75 17.5"
+         stroke="#B26705"
+         strokeWidth={2}
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+   </svg>
+);
+
+export const rightArowIcon = (
+   <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+         d="M14.3085 5.93018L20.075 12.0002L14.3085 18.0702"
+         stroke="#121212"
+         strokeMiterlimit={10}
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M3.92483 12H19.9133"
+         stroke="#121212"
+         strokeMiterlimit={10}
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+   </svg>
+);
+
 export const FbIcon = ({ width = '20', height = '20', fill = '#3F3D56' }) => (
    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_d_1145_17962)">
@@ -1701,3 +1849,56 @@ export const FbIcon = ({ width = '20', height = '20', fill = '#3F3D56' }) => (
       </defs>
    </svg>
 );
+
+
+
+
+export const setingIcon = <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12Z" stroke="black" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+<path d="M20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12Z" stroke="black" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+<path d="M6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12Z" stroke="black" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+</svg>
+
+export const CrossIcon = ({ width = '25', height = '25', fill = '#ED5756' }) => (
+   <svg
+      width={width}
+      height={height}
+      viewBox="0 0 25 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="12.5" cy="12" rx="12.5" ry="12" fill={fill} />
+      <path
+         d="M17.5 7.5L8.5 16.5"
+         stroke="white"
+         strokeWidth="2"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+      <path
+         d="M17.5 16.5L8.5 7.5"
+         stroke="white"
+         strokeWidth="2"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+   </svg>
+);
+
+export const CheckMarkIcon = ({ width = '25', height = '25', fill = '#58C34D' }) => (
+   <svg
+      width={width}
+      height={height}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="12.5" cy="12.5" rx="12.5" ry="12" fill="#58C34D" />
+      <path
+         d="M18 10.5L13 15.5L8 10.5"
+         stroke="white"
+         strokeWidth="2"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      />
+   </svg>
+);
+

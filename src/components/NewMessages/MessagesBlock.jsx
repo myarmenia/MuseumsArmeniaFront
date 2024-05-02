@@ -76,23 +76,26 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
    //    })
    // }
 
-   const handleLogin = React.useCallback((e, handleSubmit, isValid) => {
-      handleSubmit();
-      e.preventDefault();
-      const { messages } = e.target;
+   const handleLogin = React.useCallback(
+      (e, handleSubmit, isValid) => {
+         handleSubmit();
+         e.preventDefault();
+         const { messages } = e.target;
 
-      if (messages.value && isValid) {
-         const newMessages = {
-            email: authUser.email,
-            text: messages.value,
-            museum_id: dataMuseumOne.id,
-            title: messagesType || dataMuseumMessages.title,
-            education_program_type: educationProgramType,
-         };
-         setMssagesUser([...messagesUser, messages.value]);
-         dispatch(postUserMessages(newMessages));
-      }
-   }, []);
+         if (messages.value && isValid) {
+            const newMessages = {
+               email: authUser.email,
+               text: messages.value,
+               museum_id: dataMuseumOne.id,
+               title: messagesType || dataMuseumMessages.title,
+               education_program_type: educationProgramType,
+            };
+            setMssagesUser([...messagesUser, messages.value]);
+            dispatch(postUserMessages(newMessages));
+         }
+      },
+      [messagesType, dataMuseumMessages.title, educationProgramType],
+   );
 
    return (
       <>

@@ -33,7 +33,6 @@ const MuseumOneShop = ({ museumId }) => {
          getMuseumOneProducts({ museumId: museumId, productId: activCategoru.id, pageCount }),
       );
    }, [pageCount, activCategoru]);
-
    return (
       <div className="museumOne_pageStyle">
          {loadingMuseumProducts === 'fulfilled' ? (

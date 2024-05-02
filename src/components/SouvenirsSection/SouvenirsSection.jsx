@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { responsive2, souvenirsData } from '../../data/data';
+import { responsive, responsive2, souvenirsData } from '../../data/data';
 import 'react-multi-carousel/lib/styles.css';
 import './SouvenirsSection.css';
 import Carousel from 'react-multi-carousel';
@@ -44,7 +44,6 @@ function SouvenirsSection() {
     };
   }, []);
 
-  console.log(respProd.data, 'fffff');
   const product = respProd.data.map((el) => {
     return (
       <div
@@ -55,7 +54,6 @@ function SouvenirsSection() {
           <img src={el.image} alt="souvenir" />
 
           <div className="souvenir_item_add_cart_div">
-            {/* <ButtonSecond txt="3"  /> */}
             <button className='souviner_item_btn'  onClick={handleClickOpenModal(el.id)}>{t('buttons.' + 3)}</button>
           </div>
         </div>
@@ -81,7 +79,7 @@ function SouvenirsSection() {
         <div className="souvenir_items">
           <Carousel
             showDots={true}
-            responsive={responsive2}
+            responsive={responsive}
             infinite={true}
             autoPlay={true}
             autoPlaySpeed={4000}

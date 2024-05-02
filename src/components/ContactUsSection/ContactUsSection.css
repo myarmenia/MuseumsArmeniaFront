@@ -127,6 +127,7 @@
 }
 
 @media (max-width: 480px) {
+  
   .feedBack .name-inp input {
     width: 200px;
   }
@@ -144,5 +145,14 @@
   }
   #message {
     width: 200px;
+  }
+
+  .contact_us_section_block{
+    padding: 50px 0;
+    /* height: 600px; */
+  }
+
+  .contact_us_section{
+    height: 900px;
   }
 }

@@ -1,6 +1,7 @@
 .nav_bar {
   background-color: black;
   position: sticky;
+  left: 0;
   top: 0;
   z-index: 99999999;
   opacity: 0.8;
@@ -62,6 +63,28 @@
 }
 
 /* //////////////// */
+
+
+@media (max-width: 1440px) {
+  .nav_bar_left_div{
+    gap: 10px;
+  }
+
+  .nav_bar .container{
+    gap: 10px;
+  }
+
+}
+
+@media (max-width: 1140px) {
+  
+  .nav_bar_logo_{
+    width: 70px;
+  }
+}
+
+
+
 @media (max-width: 1024px) {
   .nav_bar {
     display: none;

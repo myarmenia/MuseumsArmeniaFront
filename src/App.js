@@ -16,10 +16,10 @@ import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage'
 import AbouteUsPage from './components/AbouteUsPage/AbouteUsPage';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import {
-  MuseumLayouts,
-  MuseumPage,
-  MuseumOne,
-  MuseumOneBranchOne,
+   MuseumLayouts,
+   MuseumPage,
+   MuseumOne,
+   MuseumOneBranchOne,
 } from '../src/components/MuseumPage/index';
 import SaleTicketPage from './components/SaleTicketPage/SaleTicketPage';
 import Shop from './components/Shop/Shop';
@@ -36,185 +36,187 @@ import ComboTicket from './components/ComboTicket/ComboTicket';
 import ContactWithUs from './components/contactWithUs/contactWithUs';
 import ChatProfile from './components/ProfilePages/ChatProfile/ChatProfile';
 import QrCode from './components/ProfilePages/QrCode/QrCode';
+import Notification from './components/Notification/Notification';
 
 function App() {
-  const [changeFonSize, setChangeFonSize] = useState('');
-  const respTemp = useSelector(getIsTemp);
+   const [changeFonSize, setChangeFonSize] = useState('');
+   const respTemp = useSelector(getIsTemp);
 
-  const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
+   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
 
-  const navigate = useNavigate();
+   const navigate = useNavigate();
 
-  const { pathname } = useLocation();
+   const { pathname } = useLocation();
 
-  useEffect(() => {4
-    pathname == '/' && navigate(`/${leng}/`);
-    if (respTemp) {
-      navigate(`/${leng}/login`);
-      localStorage.removeItem('token');
-      localStorage.removeItem('isAuth');
-    }
-  }, []);
+   useEffect(() => {
+      pathname == '/' && navigate(`/${leng}/`);
+      if (respTemp) {
+         navigate(`/${leng}/login`);
+         localStorage.removeItem('token');
+         localStorage.removeItem('isAuth');
+      }
+   }, []);
 
-  const changeFont = (type) => {
-    setChangeFonSize(type);
-  };
+   const changeFont = (type) => {
+      setChangeFonSize(type);
+   };
 
-  return (
-    <div className={`App  ${changeFonSize}`}>
-      <Routes>
-        <Route path="/" element={<HomeWraper {...{ changeFonSize, changeFont }} />}>
-          <Route path=":leng">
-            <Route
-              path="login"
-              element={
-                <PrivateRouteForRegAndLog>
-                  <LoginPage />
-                </PrivateRouteForRegAndLog>
-              }
-            />
-            <Route
-              path="register"
-              element={
-                <PrivateRouteForRegAndLog>
-                  <RegisterPage />
-                </PrivateRouteForRegAndLog>
-              }
-            />
-            <Route
-              path="reset-password-send-email"
-              element={
-                <PrivateRouteForRegAndLog>
-                  <ResetSendEmailPage />
-                </PrivateRouteForRegAndLog>
-              }
-            />
-            <Route
-              path="reset-password"
-              element={
-                <PrivateRouteForRegAndLog>
-                  <ResetPasswordPage />
-                </PrivateRouteForRegAndLog>
-              }
-            />
+   return (
+      <div className={`App  ${changeFonSize}`}>
+         <Routes>
+            <Route path="/" element={<HomeWraper {...{ changeFonSize, changeFont }} />}>
+               <Route path=":leng">
+                  <Route
+                     path="login"
+                     element={
+                        <PrivateRouteForRegAndLog>
+                           <LoginPage />
+                        </PrivateRouteForRegAndLog>
+                     }
+                  />
+                  <Route
+                     path="register"
+                     element={
+                        <PrivateRouteForRegAndLog>
+                           <RegisterPage />
+                        </PrivateRouteForRegAndLog>
+                     }
+                  />
+                  <Route
+                     path="reset-password-send-email"
+                     element={
+                        <PrivateRouteForRegAndLog>
+                           <ResetSendEmailPage />
+                        </PrivateRouteForRegAndLog>
+                     }
+                  />
+                  <Route
+                     path="reset-password"
+                     element={
+                        <PrivateRouteForRegAndLog>
+                           <ResetPasswordPage />
+                        </PrivateRouteForRegAndLog>
+                     }
+                  />
 
-            <Route
-              index
-              element={
-                <PrivateRouteForOutSider>
-                  <HomePage {...{ changeFonSize, changeFont }} />
-                </PrivateRouteForOutSider>
-              }
-            />
-            <Route
-              path="museums"
-              element={
-                <PrivateRouteForOutSider>
-                  <MuseumLayouts />
-                </PrivateRouteForOutSider>
-              }>
-              <Route
-                index
-                element={
-                  <PrivateRouteForOutSider>
-                    <MuseumPage />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              <Route
-                path="museum/:id"
-                element={
-                  <PrivateRouteForOutSider>
-                    <MuseumOne />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              <Route
-                path="museum/:id/branch/:branchId"
-                element={
-                  <PrivateRouteForOutSider>
-                    <MuseumOneBranchOne />
-                  </PrivateRouteForOutSider>
-                }
-              />
-            </Route>
+                  <Route
+                     index
+                     element={
+                        <PrivateRouteForOutSider>
+                           <HomePage {...{ changeFonSize, changeFont }} />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+                  <Route
+                     path="museums"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <MuseumLayouts />
+                        </PrivateRouteForOutSider>
+                     }>
+                     <Route
+                        index
+                        element={
+                           <PrivateRouteForOutSider>
+                              <MuseumPage />
+                           </PrivateRouteForOutSider>
+                        }
+                     />
+                     <Route
+                        path="museum/:id"
+                        element={
+                           <PrivateRouteForOutSider>
+                              <MuseumOne />
+                           </PrivateRouteForOutSider>
+                        }
+                     />
+                     <Route
+                        path="museum/:id/branch/:branchId"
+                        element={
+                           <PrivateRouteForOutSider>
+                              <MuseumOneBranchOne />
+                           </PrivateRouteForOutSider>
+                        }
+                     />
+                  </Route>
 
-            <Route
-              path="news"
-              element={
-                <PrivateRouteForOutSider>
-                  <Newses {...{ changeFonSize }} />
-                </PrivateRouteForOutSider>
-              }
-            />
-            <Route
-              path="news/:id"
-              element={
-                <PrivateRouteForOutSider>
-                  <SingleNews />
-                </PrivateRouteForOutSider>
-              }
-            />
-            <Route path="privacy-policy" element={<PrivacyPolicy />} />
-            <Route
-              path="store"
-              element={
-                <PrivateRouteForOutSider>
-                  <Shop />
-                </PrivateRouteForOutSider>
-              }
-            />
-            <Route
-              path="store/:id"
-              element={
-                <PrivateRouteForOutSider>
-                  <SingleShop />
-                </PrivateRouteForOutSider>
-              }
-            />
-            <Route
-              path="aboute-us"
-              element={
-                <PrivateRouteForOutSider>
-                  <AbouteUsPage />
-                </PrivateRouteForOutSider>
-              }
-            />
-            <Route
-              path="ticket-sale"
-              element={
-                <PrivateRouteForOutSider>
-                  <SaleTicketPage />
-                </PrivateRouteForOutSider>
-              }
-            />
+                  <Route
+                     path="news"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <Newses {...{ changeFonSize }} />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+                  <Route
+                     path="news/:id"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <SingleNews />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+                  <Route path="privacy-policy" element={<PrivacyPolicy />} />
+                  <Route
+                     path="store"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <Shop />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+                  <Route
+                     path="store/:id"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <SingleShop />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+                  <Route
+                     path="aboute-us"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <AbouteUsPage />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+                  <Route
+                     path="ticket-sale"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <SaleTicketPage />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
 
-            <Route
-              path="FAQ"
-              element={
-                <PrivateRouteForOutSider>
-                  <FaqPage />
-                </PrivateRouteForOutSider>
-              }
-            />
-            <Route path="events">
-              <Route
-                index
-                element={
-                  <PrivateRouteForOutSider>
-                    <EventsPage />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              <Route
-                path=":id"
-                element={
-                  <PrivateRouteForOutSider>
-                    <EventSinglePage />
-                  </PrivateRouteForOutSider>
-                }
-              />
-            </Route>
+                  <Route
+                     path="FAQ"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <FaqPage />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+                  <Route path="events">
+                     <Route
+                        index
+                        element={
+                           <PrivateRouteForOutSider>
+                              <EventsPage />
+                           </PrivateRouteForOutSider>
+                        }
+                     />
+                     <Route
+                        path=":id"
+                        element={
+                           <PrivateRouteForOutSider>
+                              <EventSinglePage />
+                           </PrivateRouteForOutSider>
+                        }
+                     />
+                  </Route>
+
 
             <Route
               path="profilePage"
@@ -263,7 +265,19 @@ function App() {
                   </PrivateRoute>
                 }
               />
+
+              <Route
+                path="notification"
+                element={
+                  <PrivateRoute>
+                    <Notification />
+                  </PrivateRoute>
+                }
+              />
+
             </Route>
+
+
             <Route
               path="comboticket"
               element={
@@ -272,11 +286,23 @@ function App() {
                 </PrivateRouteForOutSider>
               }
             />
+
+
+              <Route
+                path="contact"
+                element={
+                  <PrivateRouteForOutSider>
+                    <ContactWithUs />
+                  </PrivateRouteForOutSider>
+                }
+              />
+              
           </Route>
         </Route>
       </Routes>
     </div>
   );
+
 }
 
 export default App;
