@@ -47,7 +47,7 @@ function App() {
 
   const { pathname } = useLocation();
 
-  useEffect(() => {
+  useEffect(() => {4
     pathname == '/' && navigate(`/${leng}/`);
     if (respTemp) {
       navigate(`/${leng}/login`);

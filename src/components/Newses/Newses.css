@@ -1,4 +1,32 @@
-.backImage {
+.all_news {
+  position: relative;
+  background-image: url('../../images/shopBackPhoto.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+}
+
+.all_news_contain{
+  /* background-color: rgb(141, 7, 7); */
+  background-color: #FFFFFF;
+  padding: 50px;
+}
+.news-box_texts_div {
+  margin: 8px 0 8px;
+  text-align: start;
+}
+
+.input-search-buttonn_news{
+  background-color: #D5AA72;
+  color: #FFFFFF;
+  padding: 10px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin-left: 25px;
+}
+/* .backImage {
   background-image: url('./../../images/news_backImage.jpg');
   background-repeat: no-repeat;
   height: 70vh;
@@ -8,13 +36,13 @@
   align-items: center;
   color: white;
   margin-bottom: 40px;
-}
+} */
 /* .backImage_title {
   font-size: 28px;
 } */
 
 .form_newses {
-  text-align: center;
+  text-align: start;
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -23,7 +51,7 @@
   color: #000;
   border: 0;
   padding: 7px 25px;
-  margin-left: 28px;
+  margin-left: 22px;
   cursor: pointer;
 }
 
@@ -106,7 +134,7 @@
   justify-content: center;
   gap: 20px;
   font-weight: 600;
-  color: #3F3D56;
+  color: #3f3d56;
 }
 .page-items {
   padding: 6px 10px;
@@ -136,7 +164,7 @@
 }
 .active-itemm {
   /* background-color: var(--second_font_color); */
-  color: #B26705;
+  color: #b26705;
   font-weight: 600;
 }
 .page-link {

@@ -62,7 +62,17 @@ function Newses() {
         <div style={{ display: 'flex', justifyContent: 'center',minHeight: '100vh' }}>loading...</div>
       ) : (
         <div className="all_news">
-          <div className="backImage">
+                    <div className="shop_top_titels">
+            <div className="lines_div">
+              <img className="border_1" src={require('../../images/Line 106.png')} alt="" />
+              <h2 style={{ textTransform: 'uppercase' }}>NEWS</h2>
+              <img className="border_2" src={require('../../images/Line 106.png')} alt="" />
+            </div>
+            <p style={{ textAlign: 'center', color: 'white', marginTop: '20px' }}>
+            Armenian cultural news
+            </p>
+          </div>
+          {/* <div className="backImage">
             <h1
             // className="backImage_title"
             // style={{
@@ -71,14 +81,16 @@ function Newses() {
             >
               {t('newses_page_data.0')}
             </h1>
-          </div>
+          </div> */}
+          <div className="container">
+          <div className="all_news_contain">
           <form onSubmit={(e) => searchNews(e)} className="form_newses">
             <input type="text" name="text" ref={textInputRef} className="form_input" />
-            <button type="submit" className="form_button">
+            {/* <button type="submit" className="form_button">
             {t('newses_page_data.1')}
-            </button>
+            </button> */}
+            <button className="input-search-buttonn_news">Search</button>
           </form>
-          <div className="container">
             <div
               className={
                 DataAllNews.length === 0 || DataAllNews.length > 4 ? 'newsess' : 'newsess_start'
@@ -92,10 +104,16 @@ function Newses() {
                       <div className="news_box_image">
                         <img src={el.image} alt={el.title} />
                       </div>
-                      <div className="news_box_title">
-                        <span>{el.created_at}</span>
+                      <div className="news-box_texts_div">
+                          <p className="shop-box-title">
+                            {el.title?.length > 45 ? el.title.slice(0, 45) + '...' : el.title}
+                          </p>
+                          <p className="shop-box-price">{el.price}</p>
+                        <span style={{color:"#666666"}}>{el.created_at}</span>
+                        </div>
+                      {/* <div className="news_box_title">
                         <p>{el.title.length > 58 ? el.title.slice(0, 58) + ' ...' : el.title}</p>
-                      </div>
+                      </div> */}
                     </div>
                   ))
                 : 'Տվյալներ չեն գտնվել'}
@@ -105,8 +123,8 @@ function Newses() {
                 DataAllNews.length !== 0 && !newsSearch ? 'pagination' : 'pagination_none'
               }>
               <ReactPaginate
-                previousLabel={'<<'}
-                nextLabel={'>>'}
+                previousLabel={'<'}
+                nextLabel={'>'}
                 breakLabel={'...'}
                 pageCount={paginateLength !== null ? paginateLength : ''}
                 marginPagesDisplayed={3}
@@ -120,6 +138,7 @@ function Newses() {
                 activeClassName={'active-itemm'}
               />
             </div>
+          </div>
           </div>
         </div>
       )}
