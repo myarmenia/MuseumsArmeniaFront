@@ -65,7 +65,9 @@ i18n.use(initReactI18next).init({
                'Հաստատել գաղտնաբառը',
                'Հեռախոսահամար',
                'Հաղորդագրություն',
-               'Գործող գաղտնաբառ'
+               'Գործող գաղտնաբառ',
+               'Երկիր',
+               'Տարիք',
             ],
 
             reset_password_btn: ['Մոռացել եմ գաղտնաբառը', 'Վերականգնել'],
@@ -581,6 +583,10 @@ i18n.use(initReactI18next).init({
                'և ավելի թանգարանների միասնական տոմս և ստացեք',
                'տոկոս զեղչ:',
             ],
+            notificationMessages: [
+               'Ձեր փոփոխությունները հաջողությամբ պահպանվել են։',
+               'Ձեր փոփոխություններն այս պահին չեն կարող պահպանվել:Խնդրում եմ փորձեք մի փոքր ուշ.',
+            ],
          },
       },
 
@@ -646,7 +652,9 @@ i18n.use(initReactI18next).init({
                'Подтвердите пароль',
                'Номер телефона',
                'Сообщение',
-               'Действующий пароль.'
+               'Действующий пароль.',
+               'Страна',
+               'Возраст',
             ],
 
             reset_password_btn: ['Я забыл пароль', ' Восстановить'],
@@ -1153,6 +1161,10 @@ i18n.use(initReactI18next).init({
                'и получите единый билет в большее количество музеев',
                'процентная скидка.',
             ],
+            notificationMessages: [
+               'Ваши изменения успешно сохранены․',
+               'В настоящее время ваши изменения не могут быть сохранены.Пожалуйста, повторите попытку позже.',
+            ],
          },
       },
       en: {
@@ -1217,7 +1229,9 @@ i18n.use(initReactI18next).init({
                'E-mail',
                'Confirm password',
                'Phone number',
-               'A valid password'
+               'A valid password',
+               'Country',
+               'Age',
             ],
 
             reset_password_btn: ['I forgot my password', 'Restore'],
@@ -1710,20 +1724,16 @@ i18n.use(initReactI18next).init({
                'Fill in the fields to buy a ticket',
             ],
 
-            
-            profil_side_bar: [
-               "My account",
-               'Messages',
-               "Orders",
-               'QR code',
-               'Notifications'
-            ],
+            profil_side_bar: ['My account', 'Messages', 'Orders', 'QR code', 'Notifications'],
 
-            section_united_ticket:[
-
+            section_united_ticket: [
                'Buy',
                'and get a single ticket for more museums',
                'percent discount.',
+            ],
+            notificationMessages: [
+               'Your changes have been successfully saved.',
+               'Your changes cannot be saved at this time.Please try again later.',
             ],
          },
       },

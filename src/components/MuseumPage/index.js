@@ -17,3 +17,4 @@ export { default as MuseumOneBranchList } from './MuseumOne/MuseumOneBranch/Muse
 export { default as MuseumOneBranchOne } from './MuseumOne/MuseumOneBranch/MuseumOneBranchOne.jsx';
 export { default as CustomSectionTitle } from './CustomSectionTitle.jsx';
 export { default as IsWrong } from './IsWrong.jsx';
+export { default as CustomNotification } from './CustomNotification.jsx';
