@@ -84,7 +84,7 @@ const MuseumOne = () => {
          setTimeout(() => {
             dispatch(
                setNotificationStatus({
-                  params: params.result === 'OK',
+                  species: params.result === 'OK',
                   open: true,
                   messages:
                      params.result === 'OK'
