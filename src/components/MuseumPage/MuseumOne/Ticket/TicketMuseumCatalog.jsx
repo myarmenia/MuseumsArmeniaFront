@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect } from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +9,7 @@ import {
    setModalTicketIsOpen,
    setResetDataItems,
 } from '../../../../store/slices/MuseumTicket/MuseumTicketSlice';
-
+import { customBasesUrlFunc } from '../../customBasesUrlFunc';
 import { setModalIsOpenShop } from '../../../../store/slices/Shop/ShopSlice';
 import { getShopIconBasketDatas } from '../../../../store/slices/Shop/ShopApi';
 import { postMuseumTicket } from '../../../../store/slices/MuseumTicket/MuseumTicketApi';
@@ -38,6 +38,7 @@ const TicketMuseumCatalog = () => {
                   postData: {
                      request_name: 'web',
                      items: dataItems,
+                     redirect_url: customBasesUrlFunc().baseUrl,
                   },
                }),
             );

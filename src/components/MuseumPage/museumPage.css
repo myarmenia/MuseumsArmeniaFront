@@ -642,6 +642,44 @@
 
 /*  museumOne end ****************** */
 
+/*   CustomNotification start****************** */
+
+.CustomNotification-par {
+   width: 320px;
+   height: 100px;
+   display: flex;
+   gap: 14px;
+   align-items: center;
+   border-radius: 10px;
+   box-shadow: 0 0 33px -20px;
+   position: fixed;
+   top: 100px;
+   right: 50px;
+   background-color: aliceblue;
+   transition: 1s;
+   transform: translateX(400px);
+   z-index: 9999999;
+}
+.CustomNotification-block_left {
+   height: 100%;
+   border-radius: 10px 0 0 10px;
+   width: 15px;
+}
+.CustomNotification-block_right {
+   display: flex;
+   /* height: 100%; */
+   /* width: 109%; */
+   justify-content: center;
+   align-items: center;
+   gap: 12px;
+   padding: 10px 10px 10px 0px;
+}
+.CustomNotification-block_right > p {
+   max-width: 220px;
+}
+
+/*   CustomNotification end****************** */
+
 @media (max-width: 1400px) {
    .museumPageHeader {
       height: 320px;
@@ -709,5 +747,31 @@
 
    .museumPage_section-title h2 {
       font-size: 35px;
+   }
+}
+
+:root {
+   --status-color: teal;
+}
+
+.status {
+   position: fixed;
+   width: 30px;
+   height: 30px;
+   background-color: var(--status-color);
+   border-radius: 50%;
+   animation: status 3s ease infinite;
+   z-index: 20000;
+}
+
+@keyframes status {
+   0% {
+      box-shadow: none;
+   }
+   50% {
+      box-shadow: 0 0 5px 3px var(--status-color), 0 0 25px 7px var(--status-color);
+   }
+   100% {
+      box-shadow: none;
    }
 }

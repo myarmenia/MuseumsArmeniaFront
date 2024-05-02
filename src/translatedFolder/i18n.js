@@ -66,7 +66,9 @@ i18n.use(initReactI18next).init({
                'Հեռախոսահամար',
                'Հաղորդագրություն',
                'Գործող գաղտնաբառ',
-               'Երկիր'
+               'Երկիր',
+               'Տարիք',
+
             ],
 
             reset_password_btn: ['Մոռացել եմ գաղտնաբառը', 'Վերականգնել'],
@@ -586,6 +588,7 @@ i18n.use(initReactI18next).init({
                'տոկոս զեղչ:',
             ],
 
+
             my_account_page: [
                'Իմ հաշիվը',
                'Սեռ',
@@ -610,6 +613,12 @@ i18n.use(initReactI18next).init({
             ],
 
          
+
+
+            notificationMessages: [
+               'Ձեր փոփոխությունները հաջողությամբ պահպանվել են։',
+               'Ձեր փոփոխություններն այս պահին չեն կարող պահպանվել:Խնդրում եմ փորձեք մի փոքր ուշ.',
+            ],
 
          },
       },
@@ -677,7 +686,9 @@ i18n.use(initReactI18next).init({
                'Номер телефона',
                'Сообщение',
                'Действующий пароль.',
-               'Страна'
+               'Страна',
+               'Возраст',
+
             ],
 
             reset_password_btn: ['Я забыл пароль', ' Восстановить'],
@@ -1198,6 +1209,7 @@ i18n.use(initReactI18next).init({
                'Выйти'
             ],
 
+
             order_history: [
                'Номер заказа',
                'Название музея',
@@ -1213,6 +1225,12 @@ i18n.use(initReactI18next).init({
 
 
 
+
+
+            notificationMessages: [
+               'Ваши изменения успешно сохранены․',
+               'В настоящее время ваши изменения не могут быть сохранены.Пожалуйста, повторите попытку позже.',
+            ],
 
          },
       },
@@ -1279,7 +1297,9 @@ i18n.use(initReactI18next).init({
                'Confirm password',
                'Phone number',
                'A valid password',
-               'Country'
+               'Country',
+               'Age',
+
             ],
 
             reset_password_btn: ['I forgot my password', 'Restore'],
@@ -1775,14 +1795,6 @@ i18n.use(initReactI18next).init({
                'Fill in the fields to buy a ticket',
             ],
 
-            
-            profil_side_bar: [
-               "My account",
-               'Messages',
-               "Orders",
-               'QR code',
-               'Notifications'
-            ],
 
             section_united_ticket:[
                'BUY A UNITED TICKET FOR',
@@ -1812,6 +1824,15 @@ i18n.use(initReactI18next).init({
                'Confirmed',
                'Order History'
             ]
+
+            profil_side_bar: ['My account', 'Messages', 'Orders', 'QR code', 'Notifications'],
+
+            
+            notificationMessages: [
+               'Your changes have been successfully saved.',
+               'Your changes cannot be saved at this time.Please try again later.',
+            ],
+
          },
       },
    },
