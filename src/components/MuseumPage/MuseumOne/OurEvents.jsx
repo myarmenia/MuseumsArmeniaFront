@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import ButtonSecond from '../../ButtonSecond/ButtonSecond';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,7 +14,7 @@ const OurEvents = ({ dataMuseumOneEvents }) => {
    const navigate = useNavigate();
    const [windowWidth, setWindowWidth] = React.useState(2000);
    const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
-   React.useEffect(() => {
+   useEffect(() => {
       const handleResize = () => {
          setWindowWidth(window.innerWidth);
       };

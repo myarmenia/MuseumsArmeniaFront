@@ -186,6 +186,8 @@ function PrivateEventTicket({changeTicketType}) {
 
             if(isAuth){
                 await  dispatch(postBuyTicket({
+                    redirect_url: window.location.href,
+                    request_name: "web",
                     items: currentEvent.event_configs.map(el => ({
                         type: 'event',
                         id: el.id,
@@ -196,7 +198,6 @@ function PrivateEventTicket({changeTicketType}) {
                 .then(res => {
                     if(res.meta.requestStatus === "fulfilled"){
                         window.location.href = res.payload.data.redirect_url
-                        console.log(res,'ayo');
                     }   
                })
     

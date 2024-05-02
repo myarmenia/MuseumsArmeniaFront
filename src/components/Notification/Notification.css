@@ -44,3 +44,14 @@
 .notification_page_title{
     font-weight: 400;
 }
+
+
+@media(max-width: 720px){
+    .App .notification_page_title{
+        font-size: 16px;
+    }
+
+    .notification_page .container{
+        padding: 20px;
+    }
+}

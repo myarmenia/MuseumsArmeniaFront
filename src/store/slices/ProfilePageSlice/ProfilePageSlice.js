@@ -1,10 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getNotification, postChangeUserPass, postEditUser } from './ProfilePageApi';
+import { getNotification, getOrders, getQr, postChangeUserPass, postEditUser } from './ProfilePageApi';
 
 const initialState = {
   notification: [],
   editUser: {},
   editPassword: {},
+  orderHistory: {},
+  qrData: {},
+  activeSideBar : false,
   loading: 'pending'
 };
 
@@ -12,7 +15,9 @@ export const profilePageSlice = createSlice({
   name: 'profilePage',
   initialState,
   reducers: {
-    
+    setSideBar(state, { payload }) {
+      state.activeSideBar = payload;
+   },
   },
 
   extraReducers: (builder) => {
@@ -58,6 +63,37 @@ export const profilePageSlice = createSlice({
 
       .addCase(postChangeUserPass.rejected, (state, action) => {
         state.loading = 'rejected'
+      })
+
+
+      // ========================================================
+
+      .addCase(getOrders.fulfilled, (state, action) => {
+        state.loading = 'fulfilled'
+        state.orderHistory = action.payload
+      })
+      .addCase(getOrders.pending, (state, action) => {
+        console.log('pending');
+      })
+
+      .addCase(getOrders.rejected, (state, action) => {
+        state.loading = 'rejected'
+      })
+
+
+
+      // ===================================================
+
+      .addCase(getQr.fulfilled, (state, action) => {
+        state.loading = 'fulfilled'
+        state.qrData = action.payload
+      })
+      .addCase(getQr.pending, (state, action) => {
+        console.log('pending');
+      })
+
+      .addCase(getQr.rejected, (state, action) => {
+        state.loading = 'rejected'
       });
   },
 });
@@ -68,5 +104,12 @@ export const getChatProfileDates = (state) => state.profilePage;
 
 export const profilePageLoading = (state) => state.profilePage.loading
 export const selectNotification = (state) => state.profilePage.notification
+export const selectOrders = (state) => state.profilePage.orderHistory
+export const selectQrData = (state) => state.profilePage.qrData
+export const selectSideBar = (state) => state.profilePage.activeSideBar
+
+export const {
+  setSideBar
+} = profilePageSlice.actions;
 
 export const profilePageReducer = profilePageSlice.reducer;

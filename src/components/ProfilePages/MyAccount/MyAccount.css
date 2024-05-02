@@ -1,11 +1,12 @@
 
 
 .MyAccount_big_div {
-  width: 25vw;
+  width: 100%;
   padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  /* padding-left: 60px; */
 }
 .MyAccount_title {
   min-width: 100px;
@@ -20,7 +21,7 @@
   align-items: center;
   margin-top: 12px;
   margin-bottom: 15px;
-  min-width: 250px;
+  width: 250px;
 }
 
 .edit-save-block span {
@@ -33,7 +34,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  min-width: 250px;
+  width: 250px;
 }
 
 .MyAccount_input-name {
@@ -99,7 +100,7 @@
 /* ///////////////////////// */
 .gender_div {
   margin-top: 24px;
-  min-width: 250px;
+  width: 250px;
 }
 .gender_div p {
   color: #121314;
@@ -130,12 +131,17 @@
   align-items: center;
   gap: 26px;
   margin-top: 34px;
-  min-width: 100px;
+  max-width: 100px;
+  cursor: pointer;
 }
 .log_out_myAccount span {
   color: #a6a6a6;
 }
 
+
+.log_out_myAccount span:hover{
+  color: #3F3D56;
+}
 
 .dropdown {
   width: 100%;
@@ -241,14 +247,14 @@
 }
 
 .profile_edit_btn_div{
-  width: 100%;
+  width: 250px;
   display: flex;
   justify-content: flex-end;
 }
 
 
 .input_div{
-  min-width: 250px;
+  width: 250px;
   position: relative;
 }
 
@@ -272,7 +278,20 @@ right: 10px;
     display: flex;
     justify-content: center;
   }
-  .MyAccount_big_div {
+  /* .MyAccount_big_div {
     width: fit-content;
+  } */
+
+
+  .input_div, .profile_edit_btn_div, .gender_div .top_inputes, .edit-save-block{
+    width: 100%;
+  }
+}
+
+
+
+@media(max-width: 480px){
+  .gender_div_inputes{
+    flex-direction: column;
   }
 }
