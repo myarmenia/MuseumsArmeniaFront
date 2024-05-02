@@ -583,6 +583,10 @@ i18n.use(initReactI18next).init({
                'և ավելի թանգարանների միասնական տոմս և ստացեք',
                'տոկոս զեղչ:',
             ],
+            notificationMessages: [
+               'Ձեր փոփոխությունները հաջողությամբ պահպանվել են։',
+               'Ձեր փոփոխություններն այս պահին չեն կարող պահպանվել:Խնդրում եմ փորձեք մի փոքր ուշ.',
+            ],
          },
       },
 
@@ -1157,6 +1161,10 @@ i18n.use(initReactI18next).init({
                'и получите единый билет в большее количество музеев',
                'процентная скидка.',
             ],
+            notificationMessages: [
+               'Ваши изменения успешно сохранены․',
+               'В настоящее время ваши изменения не могут быть сохранены.Пожалуйста, повторите попытку позже.',
+            ],
          },
       },
       en: {
@@ -1722,6 +1730,10 @@ i18n.use(initReactI18next).init({
                'Buy',
                'and get a single ticket for more museums',
                'percent discount.',
+            ],
+            notificationMessages: [
+               'Your changes have been successfully saved.',
+               'Your changes cannot be saved at this time.Please try again later.',
             ],
          },
       },

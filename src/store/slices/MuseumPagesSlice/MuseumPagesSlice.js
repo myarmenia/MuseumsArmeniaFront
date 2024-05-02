@@ -24,6 +24,7 @@ const initialState = {
       pageCount: 0,
       totalCount: 0,
    },
+   notificationStatus: null,
 };
 
 const MuseumPagesSlice = createSlice({
@@ -36,6 +37,10 @@ const MuseumPagesSlice = createSlice({
          } else {
             state.filterDataMuseum = state.dataMuseum;
          }
+      },
+
+      setNotificationStatus(state, { payload }) {
+         state.notificationStatus = payload;
       },
    },
    extraReducers: (builder) => {
@@ -124,7 +129,7 @@ const MuseumPagesSlice = createSlice({
    },
 });
 
-export const selectMuseum = (state) => state.museumPages.filterDataMuseum
+export const selectMuseum = (state) => state.museumPages.filterDataMuseum;
 
 export const MuseumPagesReducer = MuseumPagesSlice.reducer;
-export const { filterRegionMuseum } = MuseumPagesSlice.actions;
+export const { filterRegionMuseum, setNotificationStatus } = MuseumPagesSlice.actions;

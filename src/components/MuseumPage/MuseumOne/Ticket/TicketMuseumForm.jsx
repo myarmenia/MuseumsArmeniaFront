@@ -6,11 +6,13 @@ import * as yup from 'yup';
 import { selectIcon } from '../../../../iconFolder/icon';
 import { useDispatch, useSelector } from 'react-redux';
 import { postMuseumTicket } from '../../../../store/slices/MuseumTicket/MuseumTicketApi';
-
+import { customBasesUrlFunc } from '../../customBasesUrlFunc';
+import CustomNotification from '../../CustomNotification';
 import './TicketMuseumBlock.css';
 import { selectBuyTicket } from '../../../../store/slices/BuyTicketSlice/BuyTicketSlice';
 import { postBuyTicket } from '../../../../store/slices/BuyTicketSlice/BuyTicketApi';
 import { getComboTicketsData } from '../../../../store/slices/ComboTicket/ComboTicketSlice';
+import { setNotificationStatus } from '../../../../store/slices/MuseumPagesSlice/MuseumPagesSlice';
 const TicketMuseumForm = () => {
    const leng = localStorage.getItem('lang');
    const { t, i18n } = useTranslation();
@@ -59,6 +61,7 @@ const TicketMuseumForm = () => {
             postMuseumTicket({
                userToken: null,
                postData: {
+                  redirect_url: customBasesUrlFunc().baseUrl,
                   request_name: 'web',
                   person,
                   items:
@@ -78,6 +81,21 @@ const TicketMuseumForm = () => {
    };
 
    const countries = t('country', { returnObjects: true });
+
+   useEffect(() => {
+      if (ticketLoading === 'rejected' && responseMessages) {
+         dispatch(
+            setNotificationStatus({
+               params: false,
+               open: true,
+               messages: responseMessages,
+            }),
+         );
+         setTimeout(() => {
+            dispatch(setNotificationStatus(null));
+         }, 8000);
+      }
+   }, [ticketLoading]);
 
    return (
       <div className="museumTicket-formChild">
@@ -240,11 +258,11 @@ const TicketMuseumForm = () => {
                         </label>
                      </div>
 
-                     {ticketLoading === 'rejected' && (
+                     {/* {ticketLoading === 'rejected' && (
                         <div className="BuyTicketBlock-list-warning">
                            {success === false && <p>{responseMessages}</p>}
                         </div>
-                     )}
+                     )} */}
                      <button type="submit" className="register_btn">
                         {t('buy')}
                      </button>
@@ -252,6 +270,13 @@ const TicketMuseumForm = () => {
                )}
             </Formik>
          </div>
+         {/* <CustomNotification
+                        open={ticketLoading === 'rejected'}
+                        species={paramUrl?.params}
+                        messages={
+                           'Your changes cannot be saved at this time.Please try again later.'
+                        }
+                     /> */}
       </div>
    );
 };
