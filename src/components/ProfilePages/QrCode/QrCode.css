@@ -1,5 +1,5 @@
 .QrCode_all{
-  padding: 32px;
+  min-height: 100vh;
 }
 
 .QrCode_title{
@@ -7,4 +7,179 @@
   align-items: center;
   gap: 9px;
   font-weight: 600;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.QrCode_all .container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 50px;
+}
+
+.qr_code_items{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 0 80px;
+}
+.qr_code_item{
+  width: 281px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.168);
+  position: relative;
+}
+
+.qr_code_item_img_div{
+  width: 100%;
+  height: 280px;
+  padding: 30px;
+  border-bottom: 1px solid #AAAA;
+}
+
+.qr_code_item_img_div >img{
+  height: 100%;
+}
+
+.qr_code_item_info_div{
+  background-color: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qr_code_item_info_div_addres_div{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.App .qr_code_item_info_div_addres{
+  font-size: 10px;
+  color: #575757;
+}
+
+.App.small .qr_code_item_info_div_addres{
+  font-size: 12px;
+}
+
+.App.medium .qr_code_item_info_div_addres{
+  font-size: 14px;
+}
+
+.App.large .qr_code_item_info_div_addres{
+  font-size: 16px;
+}
+
+
+
+
+.App .qr_code_item_info_div_name_museum{
+  font-size: 12px;
+  color: #575757;
+}
+
+.App.small .qr_code_item_info_div_name_museum{
+  font-size: 14px;
+}
+
+.App.medium .qr_code_item_info_div_name_museum{
+  font-size: 16px;
+}
+
+.App.large .qr_code_item_info_div_name_museum{
+  font-size: 18px;
+}
+
+
+
+/* modal */
+
+
+
+
+.modal {
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* padding: 10px; */
+  box-shadow: 0px 2px 4px 0px #00000026;
+  right: 0;
+  bottom: -120px;
+
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 13px;
+  /* border: 1px solid #888; */
+  /* max-width: 80%; */
+  max-height: 70%;
+  overflow-y: auto;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.modal-content_div{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.modal-content_div_line{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  color: #9E9E9E;
+}
+/* .modal-content_div_line span {
+  width: 100%;
+} */
+.modal-content_div_line:hover{
+  color: #212121;
+  filter: brightness(0) saturate(100%) invert(11%) sepia(9%) saturate(3%) hue-rotate(359deg) brightness(96%) contrast(94%);
+}
+
+
+.price_and_openModal_div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price_and_openModal_div >span{
+  cursor: pointer;
+}
+
+@media(max-width: 768px){
+  .qr_code_items{
+    padding: 0 40px;
+  }
+}
+
+
+@media(max-width: 480px){
+  .qr_code_items{
+    padding: 0 10px;
+  }
+
+  .qr_code_item{
+    width: 260px;
+  }
 }

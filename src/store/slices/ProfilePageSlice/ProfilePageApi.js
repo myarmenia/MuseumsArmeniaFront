@@ -43,7 +43,7 @@ export const postEditUser = createAsyncThunk(
 )
 
 
-
+// ===========================================================================
 
 export const postChangeUserPass = createAsyncThunk(
   'changeUserPass/postChangeUserPass',
@@ -55,6 +55,76 @@ export const postChangeUserPass = createAsyncThunk(
           method: "post",
           url: "user/editPassword",
           data: body,
+        };
+  
+        const response = await instance(config);
+        return response?.data
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data);
+      }
+    }
+)
+
+
+
+// ============================================================================
+
+
+export const getOrders = createAsyncThunk(
+  'orders/getOrders',
+  async (_, thunkAPI) => {
+    try {
+      const config = {
+        method: 'get',
+        url: 'user/order-history',
+      };
+
+      const response = await instance(config);
+      return response?.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error.both);
+    }
+  },
+);
+
+
+
+
+// =======================================================
+
+
+
+export const getQr = createAsyncThunk(
+  'qr/getQr',
+  async (_, thunkAPI) => {
+    try {
+      const config = {
+        method: 'get',
+        url: 'user/list-active-qr',
+      };
+
+      const response = await instance(config);
+      return response?.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error.both);
+    }
+  },
+);
+
+
+// ======================================
+
+
+
+export const postQrItem = createAsyncThunk(
+  'qrItem/postQrItem',
+
+  async (id, thunkAPI) => {
+      try {
+
+        const config = {
+          method: "get",
+          url: `user/send-qr-to-mail/${id}`,
         };
   
         const response = await instance(config);

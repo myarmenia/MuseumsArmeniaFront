@@ -8,6 +8,7 @@ import { postChangeUserPass, postEditUser } from '../../../store/slices/ProfileP
 import * as yup from 'yup';
 import { Formik } from 'formik';
 import { eyeIcon } from '../../../iconFolder/icon';
+import { getLogOut } from '../../../store/slices/LogOutSlice/LogOutApi';
 
 function MyAccount() {
 
@@ -35,6 +36,10 @@ function MyAccount() {
 
   })
 
+  const handleLogOut = async () => {
+    dispatch(getLogOut());
+  };
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -45,7 +50,7 @@ function MyAccount() {
     setIsOpen(false);
   };
 
-  const handleChange = (e) => {
+  const IhandleChange = (e) => {
     const inpName = e.target.name;
     const inputValue = e.target.value;
 
@@ -82,19 +87,19 @@ function MyAccount() {
   return (
     <div className="MyAccount_all">
       <div className="MyAccount_big_div">
-        <p className="MyAccount_title">My Account</p>
+        <p className="MyAccount_title">{t('my_account_page.0')}</p>
         <form onSubmit={handleSubmit}>
           <div className="top_inputes">
             <input
               name='name'
               type="text"
-              className="MyAccount_input-name" placeholder='name' defaultValue={authUser?.name} onChange={handleChange} />
-            <input name='surname' type="text" className="MyAccount_input-surname" placeholder='surname' defaultValue={authUser?.surname} onChange={handleChange} />
-            <input name='phone' type="text" className="MyAccount_input-phone" placeholder='phone' defaultValue={authUser?.phone} onChange={handleChange} />
+              className="MyAccount_input-name" placeholder={t('placeholder.3')} defaultValue={authUser?.name} onChange={IhandleChange} />
+            <input name='surname' type="text" className="MyAccount_input-surname" placeholder={t('placeholder.4')}  defaultValue={authUser?.surname } onChange={IhandleChange} />
+            <input name='phone' type="text" className="MyAccount_input-phone" placeholder={t('placeholder.7')}  defaultValue={authUser?.phone} onChange={IhandleChange} />
 
             <div className={`dropdown ${isOpen ? 'menu-open' : ''}`}>
               <div className='select' onClick={toggleDropdown}>
-                <input name='country' className={`selected ${selectedOption.value ? '' : 'placeholder'}`} value={selectedOption.value || 'placeholder'} onBlur={handleChange} />
+                <input name='country' className={`selected ${selectedOption.value ? '' : 'placeholder'}`} value={selectedOption.value || 'placeholder'} placeholder={t('placeholder.9')}  onBlur={IhandleChange} onChange={() => {}} />
                 <div className={`caret ${isOpen ? 'caret-rotate' : ''}`}></div>
               </div>
               {
@@ -120,29 +125,29 @@ function MyAccount() {
               type="date"
               className="MyAccount_input-date "
               defaultValue={authUser?.birth_date}
-              onChange={handleChange}
+              onChange={IhandleChange}
             />
           </div>
           <div className="gender_div">
-            <p>Enter your Gender</p>
+            <p>{t('my_account_page.1')}</p>
             <div className="gender_div_inputes">
               <div className="gender_div_input_div">
-                <input type="radio" className="gender_div_input" name="gender" value="female" defaultChecked={authUser.gender === 'female' ? true : false} onChange={handleChange} />
-                <span>Female</span>
+                <input type="radio" className="gender_div_input" name="gender" value="male" defaultChecked={authUser.gender === 'male' ? true : false} onChange={IhandleChange} />
+                <span>{t('my_account_page.3')}</span>
               </div>
               <div className="gender_div_input_div">
-                <input type="radio" className="gender_div_input" name="gender" value="male" defaultChecked={authUser.gender === 'male' ? true : false} onChange={handleChange} />
-                <span>Male</span>
+                <input type="radio" className="gender_div_input" name="gender" value="female" defaultChecked={authUser.gender === 'female' ? true : false} onChange={IhandleChange} />
+                <span>{t('my_account_page.2')}</span>
               </div>
               <div className="gender_div_input_div">
-                <input type="radio" className="gender_div_input" name="gender" value="other" defaultChecked={authUser.gender === 'other' ? true : false} onChange={handleChange} />
-                <span>Other</span>
+                <input type="radio" className="gender_div_input" name="gender" value="other" defaultChecked={authUser.gender === 'other' ? true : false} onChange={IhandleChange} />
+                <span>{t('my_account_page.4')}</span>
               </div>
             </div>
           </div>
 
           <div className='profile_edit_btn_div'>
-            <button className='profile_edit_btn'>Save</button>
+            <button className='profile_edit_btn'>{t('my_account_page.5')}</button>
           </div>
         </form>
 
@@ -168,33 +173,33 @@ function MyAccount() {
               <form className="profile_edit_password"  onSubmit={(e) => handleChangePassword(e, handleSubmit, isValid)}>
 
                 <div className="profile_edit_password_inp input_div">
-                  <input type={viewCurrentPassword ? 'password' : 'text'} name="currentPassword" placeholder={t('placeholder.9')} value={values.email} onChange={handleChange} onBlur={handleBlur} />
+                  <input type={viewCurrentPassword ? 'password' : 'text'} name="currentPassword" placeholder={t('placeholder.9')} value={values.currentPassword} onChange={handleChange} onBlur={handleBlur} />
                   <span onClick={() => setViewCurrentPassword(!viewCurrentPassword)}>{eyeIcon}</span>
                   {touched.currentPassword && errors.currentPassword && <p className="error">{errors.currentPassword}</p>}
                 </div>
                 <div className="profile_edit_password_inp input_div">
-                  <input type={viewPassword ? 'password' : 'text'} name="password" placeholder={t('placeholder.1')} value={values.email} onChange={handleChange} onBlur={handleBlur} />
+                  <input type={viewPassword ? 'password' : 'text'} name="password" placeholder={t('placeholder.1')} value={values.password} onChange={handleChange} onBlur={handleBlur} />
                   <span onClick={() => setViewPassword(!viewPassword)}>{eyeIcon}</span>
                   {touched.password && errors.password && <p className="error">{errors.password}</p>}
                 </div>
 
                 <div className="profile_confirm-password-inp input_div">
-                  <input type={viewConfirmPassword ? 'password' : 'text'} name="confirmPassword" placeholder={t('placeholder.6')} value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur} />
+                  <input type={viewConfirmPassword ? 'password' : 'text'} name="confirmPassword" placeholder={t('placeholder.6')} value={values.confirmPassword } onChange={handleChange} onBlur={handleBlur} />
                   <span onClick={() => setConfirmViewPassword(!viewConfirmPassword)}>{eyeIcon}</span>
                   {touched.confirmPassword && errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
                 </div>
 
                 <div className='profile_edit_btn_div'>
-                  <button className='profile_edit_btn'>Save</button>
+                  <button className='profile_edit_btn'>{t('my_account_page.5')}</button>
                 </div>
 
               </form>
             )
           }
         </Formik>
-        <div className="log_out_myAccount">
+        <div className="log_out_myAccount" onClick={handleLogOut}>
           <img src={logOutGray} alt="logOutGray" />
-          <span>Log out</span>
+          <span>{t('my_account_page.6')}</span>
         </div>
       </div>
     </div>

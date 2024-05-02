@@ -1,82 +1,69 @@
 .OrderHistory_all{
   padding: 30px 0 30px 30px ;
-}
-.OrderHistory_table{
-  margin-top: 22px;
+  overflow-x: auto;
+  max-width: 80%;
 }
 
-table {
+
+.OrderHistory_all .container {
+  width: 100%;
+}
+
+.OrderHistory_table{
+  margin-top: 22px;
+  width: 100%;
+}
+
+.OrderHistory_table table {
   box-shadow: 0px 2px 3px 0px #00000026;
   border-radius: 2px;
   border-collapse: collapse;
-  /* width: 100%; */
+  overflow-x: auto;
+  width: 100%;
 }
 
-th {
-  background-color: #F0F0F080;
+
+.OrderHistory_table thead, .OrderHistory_table tbody{
+  width: 100%;
+}
+
+
+.OrderHistory_table th {
+  /* background-color: #F0F0F080; */
   color: #00000066;
   border: 1px solid #C6C4C4;
   padding: 8px;
   text-align: left;
 }
 
-td {
+.OrderHistory_table td {
   border: 1px solid #C6C4C4;
   padding: 8px;
 }
 
 
-/* /////// */
-/* Modal */
-.modal {
-  position: fixed;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* padding: 10px; */
-  box-shadow: 0px 2px 4px 0px #00000026;
 
-}
 
-.modal-content {
-  background-color: #fefefe;
-  padding: 13px;
-  /* border: 1px solid #888; */
-  /* max-width: 80%; */
-  max-height: 80%;
-  overflow-y: auto;
-}
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
+ @media(max-width: 1024px){
+  .OrderHistory_all{
+    padding: 10px;
+    /* max-width: 70%; */
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-}
+  }
+} 
 
-.modal-content_div{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
 
-.modal-content_div_line{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 12px;
-  color: #9E9E9E;
-}
-/* .modal-content_div_line span {
-  width: 100%;
+
+/* @media(max-width: 780px){
+  .OrderHistory_all{
+    max-width: 410px;
+  }
 } */
-.modal-content_div_line:hover{
-  color: #212121;
-  filter: brightness(0) saturate(100%) invert(11%) sepia(9%) saturate(3%) hue-rotate(359deg) brightness(96%) contrast(94%);
-}
+
+
+/* @media(max-width: 480px){
+  .OrderHistory_all{
+    max-width: 120px;
+  }
+}  */

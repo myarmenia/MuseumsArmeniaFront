@@ -43,3 +43,30 @@ export const ProfileSidebarArrll = () => {
     },
   ];
 };
+
+
+
+export const downloadImage = async (imageUrl) => {
+    try {
+      const response = await fetch(imageUrl);
+  
+      if (!response.ok) {
+        throw new Error('Failed to download image');
+      }
+
+      const imageBlob = await response.blob();
+  
+      const imageURL = URL.createObjectURL(imageBlob);
+  
+      const link = document.createElement('a');
+      link.href = imageURL;
+      link.download = 'image.jpg';
+  
+      document.body.appendChild(link);
+      link.click();
+
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Error downloading image:', error);
+    }
+  };

@@ -10,10 +10,10 @@
   transition: 0.5s ease-in-out;
   overflow: hidden;
 }
-.ProfileSidebar_bigDiv:hover {
+/* .ProfileSidebar_bigDiv:hover {
   width: 210px;
   cursor: pointer;
-}
+} */
 /* .profileSIdebar_divs {
   padding: 18px;
 } */
@@ -35,11 +35,11 @@
 
 
 
-.ProfileSidebar_bigDiv .line_divActive >span{
+.ProfileSidebar_all .line_divActive >span{
   display: none;
   color: #3f3d56;
 }
-.ProfileSidebar_bigDiv:hover .line_div >span{
+.ProfileSidebar_all:hover .line_div >span{
   display: block;
 }
 

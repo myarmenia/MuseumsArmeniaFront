@@ -21,7 +21,7 @@ function Notification() {
     <div className='notification_page'>
         <div className='container'>
             <h3 className='notification_page_title'>{t('profil_side_bar.4')}</h3>
-            <div className='notification_page_items'>
+            {respNotification?.length > 0 ? (<div className='notification_page_items'>
                 {
                     respNotification && respNotification.map(not => (
                         <div key={not.id} className='notification_page_item' onClick={() => navigate(`/${leng}/events/${not.event_id}`)}>
@@ -33,7 +33,7 @@ function Notification() {
                         </div>
                     ))
                 }
-            </div>
+            </div>) : (<h3 style={{fontWeight: '100'}}>{t('single_shop_page.3')}</h3>)}
         </div>
     </div>
   )

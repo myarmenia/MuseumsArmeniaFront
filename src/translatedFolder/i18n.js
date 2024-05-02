@@ -68,6 +68,7 @@ i18n.use(initReactI18next).init({
                'Գործող գաղտնաբառ',
                'Երկիր',
                'Տարիք',
+
             ],
 
             reset_password_btn: ['Մոռացել եմ գաղտնաբառը', 'Վերականգնել'],
@@ -498,6 +499,9 @@ i18n.use(initReactI18next).init({
                { discount: 'Զեղջված տոմս' },
                { free: 'Անվճար տոմս' },
                { subscription: 'Աբոնեմենտ' },
+               { united: 'Միասնական տոմս' },
+               { event: 'Միջոցառում' },
+               { product: 'Ապրանք' },
             ],
 
             Ticket_type_placeholder: [
@@ -583,10 +587,39 @@ i18n.use(initReactI18next).init({
                'և ավելի թանգարանների միասնական տոմս և ստացեք',
                'տոկոս զեղչ:',
             ],
+
+
+            my_account_page: [
+               'Իմ հաշիվը',
+               'Սեռ',
+               'Արական',
+               'Իգական',
+               'Այլ',
+               'Պահպանել',
+               'Դուրս գալ'
+            ],
+
+            order_history: [
+               'Պատվերի ID',
+               'Թանգարանի անվանումը',
+               'Ապրանք / Տոմս',
+               'Քանակ',
+               'Գնման ամսաթիվը',
+               'Գին',
+               'Կարգավիճակ',
+               'Սպասվում է',
+               'Հաստատված',
+               'Պատվերների պատմություն'
+            ],
+
+         
+
+
             notificationMessages: [
                'Ձեր փոփոխությունները հաջողությամբ պահպանվել են։',
                'Ձեր փոփոխություններն այս պահին չեն կարող պահպանվել:Խնդրում եմ փորձեք մի փոքր ուշ.',
             ],
+
          },
       },
 
@@ -655,6 +688,7 @@ i18n.use(initReactI18next).init({
                'Действующий пароль.',
                'Страна',
                'Возраст',
+
             ],
 
             reset_password_btn: ['Я забыл пароль', ' Восстановить'],
@@ -1089,6 +1123,9 @@ i18n.use(initReactI18next).init({
                { discount: 'Билет со скидкой' },
                { free: 'Бесплатный билет' },
                { subscription: 'Абонемент' },
+               { united: 'Единый билет' },
+               { event: 'Событие' },
+               { product: 'Продукт' },
             ],
 
             Ticket_type_placeholder: [
@@ -1157,14 +1194,44 @@ i18n.use(initReactI18next).init({
             profil_side_bar: ['Мой аккаунт', 'Сообщения', 'Заказы', 'QR код', 'Уведомления'],
 
             section_united_ticket: [
-               'Купить',
-               'и получите единый билет в большее количество музеев',
-               'процентная скидка.',
+               'Купить ЕДИНЫЙ БИЛЕТ НА',
+               'МУЗЕЕВ И ПОЛУЧИТЕ СКИДКУ',
+               'ПРОЦЕНТОВ.',
             ],
+
+            my_account_page: [
+               'Мой аккаунт',
+               'Пол',
+               'Мужской',
+               'Женский',
+               'Другой',
+               'Сохранять',
+               'Выйти'
+            ],
+
+
+            order_history: [
+               'Номер заказа',
+               'Название музея',
+               'Продукт/Билет',
+               'Количество',
+               'Дата покупки',
+               'Цена',
+               'Положение дел',
+               'Ожидается',
+               'Подтвержденный',
+               'История заказов'
+            ],
+
+
+
+
+
             notificationMessages: [
                'Ваши изменения успешно сохранены․',
                'В настоящее время ваши изменения не могут быть сохранены.Пожалуйста, повторите попытку позже.',
             ],
+
          },
       },
       en: {
@@ -1232,6 +1299,7 @@ i18n.use(initReactI18next).init({
                'A valid password',
                'Country',
                'Age',
+
             ],
 
             reset_password_btn: ['I forgot my password', 'Restore'],
@@ -1659,6 +1727,9 @@ i18n.use(initReactI18next).init({
                { discount: 'Discounted Ticket' },
                { free: 'Free ticket' },
                { subscription: 'Abonement' },
+               { united: 'United ticket' },
+               { event: 'Event' },
+               { product: 'Product' },
             ],
 
             Ticket_type_placeholder: [
@@ -1724,17 +1795,44 @@ i18n.use(initReactI18next).init({
                'Fill in the fields to buy a ticket',
             ],
 
+
+            section_united_ticket:[
+               'BUY A UNITED TICKET FOR',
+               'OR MORE MUSEUMS AND GET',
+               'PERCENT DISCOUNT',
+            ],
+
+            my_account_page: [
+               'My Account',
+               'Gender',
+               'Male',
+               'Female',
+               'Other',
+               'Save',
+               'Log out'
+            ],
+
+            order_history: [
+               'Order Id',
+               'Name of museum',
+               'Product / Ticket',
+               'Count',
+               'Purchase date',
+               'Price',
+               'Status',
+               'Pending',
+               'Confirmed',
+               'Order History'
+            ]
+
             profil_side_bar: ['My account', 'Messages', 'Orders', 'QR code', 'Notifications'],
 
-            section_united_ticket: [
-               'Buy',
-               'and get a single ticket for more museums',
-               'percent discount.',
-            ],
+            
             notificationMessages: [
                'Your changes have been successfully saved.',
                'Your changes cannot be saved at this time.Please try again later.',
             ],
+
          },
       },
    },

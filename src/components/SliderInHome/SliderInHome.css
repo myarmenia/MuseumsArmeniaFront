@@ -148,15 +148,15 @@
     transform: scale(1);
   }
  }
- /* @media(max-width: 720px){
+ @media(max-width: 720px){
   .slide_h1{
-    font-size: 30px;
+    font-size: 30px !important;
   }
  }
 
 
  @media(max-width: 720px){
   .slide_h1{
-    font-size: 25px;
+    font-size: 25px !important;
   }
- } */
+ }

@@ -206,9 +206,10 @@ function PrivateUnitedTicket() {
         if(isAuth){
             await dispatch(postBuyTicket({
             request_name: "web",
+            redirect_url: window.location.href,
             items: [{
                 type: typeTicket,
-                museum_ids: [9,8],
+                museum_ids: museumId,
                 quantity: ticketCount
             }]
         })).then(res => {

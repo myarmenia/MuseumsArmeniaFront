@@ -247,6 +247,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
         if (isAuth) {
             await dispatch(postBuyTicket({
                 request_name: "web",
+                redirect_url: window.location.href,
                 items: museumItem.tickets.map(el => {
                     return el.type === 'standart' && ticketCountStandart !== 0
                         ? {
