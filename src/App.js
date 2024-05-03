@@ -1,8 +1,11 @@
+import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { customBasesUrlFunc } from './components/MuseumPage/customBasesUrlFunc';
 import './App.css';
 import HomeWraper from './page/HomeWraper';
 import HomePage from './components/HomePage/HomePage';
-import { useEffect, useState } from 'react';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import Newses from './components/Newses/Newses';
@@ -20,6 +23,7 @@ import {
    MuseumPage,
    MuseumOne,
    MuseumOneBranchOne,
+   CustomNotification,
 } from '../src/components/MuseumPage/index';
 import SaleTicketPage from './components/SaleTicketPage/SaleTicketPage';
 import Shop from './components/Shop/Shop';
@@ -37,11 +41,13 @@ import ContactWithUs from './components/contactWithUs/contactWithUs';
 import ChatProfile from './components/ProfilePages/ChatProfile/ChatProfile';
 import QrCode from './components/ProfilePages/QrCode/QrCode';
 import Notification from './components/Notification/Notification';
+import { setNotificationStatus } from './store/slices/MuseumPagesSlice/MuseumPagesSlice';
 
 function App() {
    const [changeFonSize, setChangeFonSize] = useState('');
+   const { t, i18n } = useTranslation();
    const respTemp = useSelector(getIsTemp);
-
+   const dispatch = useDispatch();
    const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
 
    const navigate = useNavigate();
@@ -54,6 +60,27 @@ function App() {
          navigate(`/${leng}/login`);
          localStorage.removeItem('token');
          localStorage.removeItem('isAuth');
+      }
+   }, []);
+
+   useEffect(() => {
+      const params = customBasesUrlFunc();
+      if (params?.result) {
+         setTimeout(() => {
+            dispatch(
+               setNotificationStatus({
+                  species: params.result === 'OK',
+                  open: true,
+                  messages:
+                     params.result === 'OK'
+                        ? t(`notificationMessages.0`)
+                        : t(`notificationMessages.1`),
+               }),
+            );
+         }, 3000);
+         setTimeout(() => {
+            dispatch(setNotificationStatus(null));
+         }, 8000);
       }
    }, []);
 
@@ -217,92 +244,87 @@ function App() {
                      />
                   </Route>
 
+                  <Route
+                     path="profilePage"
+                     element={
+                        <PrivateRoute>
+                           <ProfilePage />
+                        </PrivateRoute>
+                     }>
+                     <Route
+                        index
+                        element={
+                           <PrivateRoute>
+                              <MyAccount />
+                           </PrivateRoute>
+                        }
+                     />
+                     <Route
+                        path="myaccount"
+                        element={
+                           <PrivateRoute>
+                              <MyAccount />
+                           </PrivateRoute>
+                        }
+                     />
+                     <Route
+                        path="chat"
+                        element={
+                           <PrivateRoute>
+                              <ChatProfile />
+                           </PrivateRoute>
+                        }
+                     />
+                     <Route
+                        path="orderhistory"
+                        element={
+                           <PrivateRoute>
+                              <OrderHistory />
+                           </PrivateRoute>
+                        }
+                     />
+                     <Route
+                        path="qrcode"
+                        element={
+                           <PrivateRoute>
+                              <QrCode />
+                           </PrivateRoute>
+                        }
+                     />
 
-            <Route
-              path="profilePage"
-              element={
-                <PrivateRoute>
-                  <ProfilePage />
-                </PrivateRoute>
-              }>
-              <Route
-                index
-                element={
-                  <PrivateRoute>
-                    <MyAccount />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="myaccount"
-                element={
-                  <PrivateRoute>
-                    <MyAccount />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="chat"
-                element={
-                  <PrivateRoute>
-                    <ChatProfile />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="orderhistory"
-                element={
-                  <PrivateRoute>
-                    <OrderHistory />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="qrcode"
-                element={
-                  <PrivateRoute>
-                    <QrCode />
-                  </PrivateRoute>
-                }
-              />
+                     <Route
+                        path="notification"
+                        element={
+                           <PrivateRoute>
+                              <Notification />
+                           </PrivateRoute>
+                        }
+                     />
+                  </Route>
 
-              <Route
-                path="notification"
-                element={
-                  <PrivateRoute>
-                    <Notification />
-                  </PrivateRoute>
-                }
-              />
+                  <Route
+                     path="comboticket"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <ComboTicket />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
 
+                  <Route
+                     path="contact"
+                     element={
+                        <PrivateRouteForOutSider>
+                           <ContactWithUs />
+                        </PrivateRouteForOutSider>
+                     }
+                  />
+               </Route>
             </Route>
-
-
-            <Route
-              path="comboticket"
-              element={
-                <PrivateRouteForOutSider>
-                  <ComboTicket />
-                </PrivateRouteForOutSider>
-              }
-            />
-
-
-              <Route
-                path="contact"
-                element={
-                  <PrivateRouteForOutSider>
-                    <ContactWithUs />
-                  </PrivateRouteForOutSider>
-                }
-              />
-              
-          </Route>
-        </Route>
-      </Routes>
-    </div>
-  );
-
+         </Routes>
+         <CustomNotification />
+      </div>
+   );
 }
 
 export default App;

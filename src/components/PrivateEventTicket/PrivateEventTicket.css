@@ -21,7 +21,7 @@
 }
 
 .private_tickets_events >input:focus{
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.208);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.055);
 }
 
 .private_tickets_events_list{

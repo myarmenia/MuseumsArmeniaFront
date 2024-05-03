@@ -4,11 +4,12 @@ import { DatePicker } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPrivateTicket } from '../../store/slices/PrivateTicketSlice/PrivateTicketApi';
 import { selectprivateTicket } from '../../store/slices/PrivateTicketSlice/PrivateTicketSlice';
+import { useTranslation } from 'react-i18next';
 
 const { RangePicker } = DatePicker;
 
 function DualCalendar({museum, setStartDate, setEndDate, startDate, endDate, museumItem, setEventLineCalendar}) {
-  const respStandartTicket = useSelector(selectprivateTicket)
+  const {t, i18n} = useTranslation()
 
   const dispatch = useDispatch()
   const handleDateChange = (dates) => {
@@ -38,7 +39,7 @@ function DualCalendar({museum, setStartDate, setEndDate, startDate, endDate, mus
     <div>
       <RangePicker onChange={handleDateChange}
       onClick={(e) => handleCalendarClick(e)}
-      placeholder={['Start Date', 'End Date']}
+      placeholder={[t('start_date'), t('end_date')]}
        />
     </div>
   );

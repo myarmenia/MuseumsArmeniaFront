@@ -656,7 +656,7 @@
    top: 100px;
    right: 50px;
    background-color: aliceblue;
-   transition: 1s;
+   transition: 800ms;
    transform: translateX(400px);
    z-index: 9999999;
 }

@@ -60,7 +60,7 @@ function ProfilePage() {
       }
       
       else{
-        rightDivRef.current.style.width = '100%'
+        rightDivRef.current.style.width = '85%'
       }
    };
    window.addEventListener('resize', handleResize);
