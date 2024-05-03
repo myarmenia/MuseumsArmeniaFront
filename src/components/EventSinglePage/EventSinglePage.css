@@ -152,6 +152,7 @@
     display: flex;
     align-items: flex-start;
     gap: 15px;
+    position: relative;
 }
 
 .event_single_page_item_img_div_info_div_info_invite_txt{

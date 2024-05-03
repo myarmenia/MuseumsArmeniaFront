@@ -1,19 +1,22 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ButtonSecond from '../ButtonSecond/ButtonSecond';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import './ContactUsSection.css';
-import { MailIcon, TelIcon, LocationIcon, footeremailIcon, footerTelIcon, footerLocationIcon } from '../../iconFolder/icon';
+import {footeremailIcon, footerTelIcon, footerLocationIcon } from '../../iconFolder/icon';
 
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { postContactUsData } from '../../store/slices/ContactUs/ContactUsApi';
+import { getMessage } from '../../store/slices/ContactUs/ContactUsSlice';
 
 function ContactUsSection() {
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const [textValue, setTextValue] = useState('');
-
+  const [activeMessage, setActiveMessage] = useState('');
+  const respMessageContact = useSelector(getMessage)
+  
   const validationSchema = yup.object().shape({
     name: yup.string().required(t('validation_inp.1')),
     phone: yup
@@ -26,7 +29,7 @@ function ContactUsSection() {
   const handleTextareaChange = (event) => {
     setTextValue(event.target.value);
   };
-  console.log('teaxtAreaVal', textValue);
+  
 
   const handleFeedback = (e, handleSubmit, isValid) => {
     handleSubmit()
@@ -44,10 +47,18 @@ function ContactUsSection() {
       e.target[1].value = '';
       e.target[2].value = '';
       e.target[3].value = '';
-      // setTextValue('');
-      console.log('ayo');
+      setTextValue('');
     }
   };
+
+
+  useEffect(() => {
+    setActiveMessage(true)
+    setTimeout(() => {
+      setActiveMessage(false)
+    }, 4000);
+    
+  }, [respMessageContact])
   return (
     <div className="contact_us_section">
       <div className="container">
@@ -143,6 +154,8 @@ function ContactUsSection() {
                     value={textValue}
                     onChange={handleTextareaChange}></textarea>
                 </div>
+
+                {respMessageContact?.success && activeMessage && <span style={{color: 'green'}}>{respMessageContact?.message}</span>}
 
                 <ButtonSecond txt="2" />
               </form>

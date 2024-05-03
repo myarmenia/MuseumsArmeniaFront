@@ -249,8 +249,11 @@
 .profile_edit_btn_div{
   width: 250px;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  gap: 15px;
+  align-items:end;
 }
+
 
 
 .input_div{

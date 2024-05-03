@@ -295,16 +295,7 @@ function Shop() {
                         <div className="shop-box_img">
                           <img src={el.image} alt={el.image} />
                           <div className="souvenir_item_add_cart_div">
-                            {/* <ButtonSecond
-                            txt="3"
-                            onClick={handleClickOpenModal(
-                              el.id,
-                              el.image,
-                              el.name,
-                              el.price,
-                              el.museum_name,
-                            )}
-                          /> */}
+                           
                             <div
                               className="shop-box_button"
                               onClick={handleClickOpenModal(

@@ -9,7 +9,7 @@ import { postTicketCart } from '../../store/slices/Shop/ShopApi'
 import './PrivateUnitedTicket.css'
 import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice'
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
-import { locationIcon, minusIcon, museumIcon, plusIcon, privateTicketIcon } from '../../iconFolder/icon'
+import { locationIcon, MinusButtonIcons, minusIcon, museumIcon, PlusButtonIcons, plusIcon, privateTicketIcon } from '../../iconFolder/icon'
 import { postBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketApi'
 import { selectBuyTicket, setObj } from '../../store/slices/BuyTicketSlice/BuyTicketSlice'
 import { setModalTicketIsOpen, setTicketType } from '../../store/slices/MuseumTicket/MuseumTicketSlice'
@@ -344,9 +344,9 @@ function PrivateUnitedTicket() {
                         }
 
                         <div className='packet_div_count'>
-                            <span onClick={() => packetCount('-')}>{minusIcon}</span>
+                            <span onClick={() => packetCount('-')}><MinusButtonIcons width='25' height='25'/></span>
                             <span style={{color: ticketCount > 0 ? 'black' : 'gray'}}>{ticketCount}</span>
-                            <span onClick={() => packetCount('+')}>{plusIcon}</span>
+                            <span onClick={() => packetCount('+')}><PlusButtonIcons width='25' height='25'/></span>
                         </div>
 
                         <div className='private_standart_ticket_museums_private_block_ticket_types_full_value'>

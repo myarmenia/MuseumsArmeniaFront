@@ -614,6 +614,18 @@ i18n.use(initReactI18next).init({
                'Ձեր փոփոխությունները հաջողությամբ պահպանվել են։',
                'Ձեր փոփոխություններն այս պահին չեն կարող պահպանվել:Խնդրում եմ փորձեք մի փոքր ուշ.',
             ],
+
+
+            start_date: 'Սկիզբ',
+            end_date: 'Ավարտ',
+
+
+            qr_modal: [
+               'Ներբեռնել',
+               'Տպել',
+               'Ուղարկել նամակ'
+            ]
+
          },
       },
 
@@ -1219,6 +1231,18 @@ i18n.use(initReactI18next).init({
                'Ваши изменения успешно сохранены․',
                'В настоящее время ваши изменения не могут быть сохранены.Пожалуйста, повторите попытку позже.',
             ],
+
+
+            start_date: 'Дата начала',
+            end_date: 'Дата окончания',
+
+            qr_modal: [
+               'Скачать',
+               'Печать',
+               'Отправить письмо'
+            ],
+
+
          },
       },
       en: {
@@ -1799,7 +1823,8 @@ i18n.use(initReactI18next).init({
                'Status',
                'Pending',
                'Confirmed',
-               'Order History',
+               'Order History'
+
             ],
 
             profil_side_bar: ['My account', 'Messages', 'Orders', 'QR code', 'Notifications'],
@@ -1808,6 +1833,18 @@ i18n.use(initReactI18next).init({
                'Your changes have been successfully saved.',
                'Your changes cannot be saved at this time.Please try again later.',
             ],
+
+
+            start_date: 'Start date',
+            end_date: 'End date',
+
+            qr_modal: [
+               'Download',
+               'Print',
+               'Send email'
+            ],
+
+
          },
       },
    },

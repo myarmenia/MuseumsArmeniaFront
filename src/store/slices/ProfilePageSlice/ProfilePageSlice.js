@@ -63,6 +63,7 @@ export const profilePageSlice = createSlice({
 
       .addCase(postChangeUserPass.rejected, (state, action) => {
         state.loading = 'rejected'
+        state.editPassword = action.payload
       })
 
 
@@ -94,6 +95,7 @@ export const profilePageSlice = createSlice({
 
       .addCase(getQr.rejected, (state, action) => {
         state.loading = 'rejected'
+
       });
   },
 });
@@ -107,6 +109,8 @@ export const selectNotification = (state) => state.profilePage.notification
 export const selectOrders = (state) => state.profilePage.orderHistory
 export const selectQrData = (state) => state.profilePage.qrData
 export const selectSideBar = (state) => state.profilePage.activeSideBar
+export const selectEditUser = (state) => state.profilePage.editUser
+export const selectEditUserPass = (state) => state.profilePage.editPassword
 
 export const {
   setSideBar
