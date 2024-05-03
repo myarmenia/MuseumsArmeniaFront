@@ -68,7 +68,6 @@ i18n.use(initReactI18next).init({
                'Գործող գաղտնաբառ',
                'Երկիր',
                'Տարիք',
-
             ],
 
             reset_password_btn: ['Մոռացել եմ գաղտնաբառը', 'Վերականգնել'],
@@ -588,7 +587,6 @@ i18n.use(initReactI18next).init({
                'տոկոս զեղչ:',
             ],
 
-
             my_account_page: [
                'Իմ հաշիվը',
                'Սեռ',
@@ -596,7 +594,7 @@ i18n.use(initReactI18next).init({
                'Իգական',
                'Այլ',
                'Պահպանել',
-               'Դուրս գալ'
+               'Դուրս գալ',
             ],
 
             order_history: [
@@ -609,17 +607,13 @@ i18n.use(initReactI18next).init({
                'Կարգավիճակ',
                'Սպասվում է',
                'Հաստատված',
-               'Պատվերների պատմություն'
+               'Պատվերների պատմություն',
             ],
-
-         
-
 
             notificationMessages: [
                'Ձեր փոփոխությունները հաջողությամբ պահպանվել են։',
                'Ձեր փոփոխություններն այս պահին չեն կարող պահպանվել:Խնդրում եմ փորձեք մի փոքր ուշ.',
             ],
-
          },
       },
 
@@ -688,7 +682,6 @@ i18n.use(initReactI18next).init({
                'Действующий пароль.',
                'Страна',
                'Возраст',
-
             ],
 
             reset_password_btn: ['Я забыл пароль', ' Восстановить'],
@@ -1206,9 +1199,8 @@ i18n.use(initReactI18next).init({
                'Женский',
                'Другой',
                'Сохранять',
-               'Выйти'
+               'Выйти',
             ],
-
 
             order_history: [
                'Номер заказа',
@@ -1220,18 +1212,13 @@ i18n.use(initReactI18next).init({
                'Положение дел',
                'Ожидается',
                'Подтвержденный',
-               'История заказов'
+               'История заказов',
             ],
-
-
-
-
 
             notificationMessages: [
                'Ваши изменения успешно сохранены․',
                'В настоящее время ваши изменения не могут быть сохранены.Пожалуйста, повторите попытку позже.',
             ],
-
          },
       },
       en: {
@@ -1299,7 +1286,6 @@ i18n.use(initReactI18next).init({
                'A valid password',
                'Country',
                'Age',
-
             ],
 
             reset_password_btn: ['I forgot my password', 'Restore'],
@@ -1795,22 +1781,13 @@ i18n.use(initReactI18next).init({
                'Fill in the fields to buy a ticket',
             ],
 
-
-            section_united_ticket:[
+            section_united_ticket: [
                'BUY A UNITED TICKET FOR',
                'OR MORE MUSEUMS AND GET',
                'PERCENT DISCOUNT',
             ],
 
-            my_account_page: [
-               'My Account',
-               'Gender',
-               'Male',
-               'Female',
-               'Other',
-               'Save',
-               'Log out'
-            ],
+            my_account_page: ['My Account', 'Gender', 'Male', 'Female', 'Other', 'Save', 'Log out'],
 
             order_history: [
                'Order Id',
@@ -1822,17 +1799,15 @@ i18n.use(initReactI18next).init({
                'Status',
                'Pending',
                'Confirmed',
-               'Order History'
-            ]
+               'Order History',
+            ],
 
             profil_side_bar: ['My account', 'Messages', 'Orders', 'QR code', 'Notifications'],
 
-            
             notificationMessages: [
                'Your changes have been successfully saved.',
                'Your changes cannot be saved at this time.Please try again later.',
             ],
-
          },
       },
    },
