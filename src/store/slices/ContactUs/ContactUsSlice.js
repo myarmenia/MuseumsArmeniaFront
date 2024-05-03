@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { postContactUsData } from './ContactUsApi';
 
 const initialState = {
-
+message: ''
 };
 
 export const ContactUsSlice = createSlice({
@@ -18,6 +18,7 @@ export const ContactUsSlice = createSlice({
     builder
       .addCase(postContactUsData.fulfilled, (state, action) => {
         console.log("ContactUsSlice -- fulfilled");
+        state.message = action.payload
       })
       .addCase(postContactUsData.pending, (state, action) => {
         console.log('pending');
@@ -35,5 +36,6 @@ export const ContactUsSlice = createSlice({
 
 
 export const getSingleNewsDate = (state) => state.newses.SingleNewsData;
+export const getMessage = (state) => state.contactus.message;
 
 export const ContactUsReducer = ContactUsSlice.reducer;

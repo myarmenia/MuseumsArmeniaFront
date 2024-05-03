@@ -344,7 +344,7 @@ function PrivateEventTicket({changeTicketType}) {
                 {eventLineEvent && <div className='line_ticket'></div>}
             </div>
 
-            <div ref={privateRef} className='private_standart_ticket_museums_private_block' onClick={handlePrivateBlockClick} style={{boxShadow: ticketTypesBlock ?'10px 0 40px rgba(0, 0, 0, 0.168)' : 'none'}}>
+            <div ref={privateRef} className='private_standart_ticket_museums_private_block' onClick={handlePrivateBlockClick} style={{boxShadow: ticketTypesBlock ?'0 0 20px rgba(0, 0, 0, 0.055)' : 'none'}}>
                 <div className='placeholder_div_ticket'>
                         <span>{privateTicketIcon}</span>
                         <p>{t('Ticket_type_placeholder.6')}</p>

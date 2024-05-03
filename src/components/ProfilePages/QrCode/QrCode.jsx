@@ -99,13 +99,13 @@ function QrCode() {
                         <div className="modal-content_div">
                           <div className="modal-content_div_line" onClick={() => downloadImage(qrItem.path)}>
                               <img src={download} alt="download" />
-                              <span>Dawnload</span>
+                              <span>{t('qr_modal.0')}</span>
                           </div>
                           <div className="modal-content_div_line" onClick={() => dispatch(postQrItem(qrItem.id))}>
-                            <img src={sendEmail} alt="sendEmail" /> <span>Send email</span>
+                            <img src={sendEmail} alt="sendEmail" /> <span>{t('qr_modal.2')}</span>
                           </div>
                           <div className="modal-content_div_line" onClick={() => window.print()}>
-                            <img src={printer} alt="printer" /> <span>Print</span>
+                            <img src={printer} alt="printer" /> <span>{t('qr_modal.1')}</span>
                           </div>
                         </div>
                       </div>

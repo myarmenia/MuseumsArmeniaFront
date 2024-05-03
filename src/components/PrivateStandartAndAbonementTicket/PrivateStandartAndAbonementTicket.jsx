@@ -8,7 +8,7 @@ import { selectprivateTicket } from '../../store/slices/PrivateTicketSlice/Priva
 import { postTicketCart } from '../../store/slices/Shop/ShopApi'
 import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice'
 import { getIsAuth } from '../../store/slices/Auth/AuthSlice'
-import { locationIcon, minusIcon, museumIcon, plusIcon, privateTicketIcon } from '../../iconFolder/icon'
+import { locationIcon, MinusButtonIcons, minusIcon, museumIcon, PlusButtonIcons, plusIcon, privateTicketIcon } from '../../iconFolder/icon'
 import { getPrivateTicket } from '../../store/slices/PrivateTicketSlice/PrivateTicketApi'
 import { postBuyTicket } from '../../store/slices/BuyTicketSlice/BuyTicketApi'
 import { selectBuyTicket, setObj } from '../../store/slices/BuyTicketSlice/BuyTicketSlice'
@@ -447,9 +447,9 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
                                                 <span className='packet_div_price'>{el.price} AMD</span>
 
                                                 <div className='packet_div_count'>
-                                                    <span onClick={() => packetCount('-', el.type, el.max, el.price)}>{minusIcon}</span>
+                                                    <span onClick={() => packetCount('-', el.type, el.max, el.price)}><MinusButtonIcons width='25' height='25'/></span>
                                                     <span className={`count_span ${(ticketCountStandart && index === 0 && 'color') || (ticketCountDicounted && index === 1 && 'color') || (index === 2 && ticketCountFree && 'color') || (index === 0 && ticketCountSub && 'color')} `}>{el.type === 'standart' ? ticketCountStandart : el.type === 'discount' ? ticketCountDicounted : el.type === 'subscription' ? ticketCountSub : ticketCountFree}</span>
-                                                    <span onClick={() => packetCount('+', el.type, el.max, el.price)}>{plusIcon}</span>
+                                                    <span onClick={() => packetCount('+', el.type, el.max, el.price)}><PlusButtonIcons width='25' height='25'/></span>
                                                 </div>
                                             </div>
                                         </div>)
