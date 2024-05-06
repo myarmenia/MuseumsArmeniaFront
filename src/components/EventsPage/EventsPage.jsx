@@ -101,7 +101,7 @@ function EventsPage() {
     return (
         <div className='events_page'>
             {
-                loading === 'pending' ? <LoadSpinner /> : (
+                loading === 'pending' ? <LoadSpinner fullBackColor="white"/>: (
                     <div className='container'>
                         <div className='lines_div_event'>
                             <div>

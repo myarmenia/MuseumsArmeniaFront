@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAuthUser, getIsAuth } from '../store/slices/Auth/AuthSlice';
 import { getCurrentUser } from '../store/slices/Auth/AuthApi';
 import './PrivateRoute.css';
+import LoadSpinner from '../components/LoadSpinner/LoadSpinner';
 
 const PrivateRouteForOutSider = ({ children }) => {
    const dispatch = useDispatch();
@@ -23,12 +24,7 @@ const PrivateRouteForOutSider = ({ children }) => {
 
    if (loading) {
       return (
-         <div className="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-         </div>
+         <LoadSpinner fullBackColor="white"/>
       );
    }
 
