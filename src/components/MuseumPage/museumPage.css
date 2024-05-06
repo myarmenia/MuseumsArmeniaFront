@@ -659,6 +659,7 @@
    transition: 800ms;
    transform: translateX(400px);
    z-index: 9999999;
+   overflow: auto;
 }
 .CustomNotification-block_left {
    height: 100%;
