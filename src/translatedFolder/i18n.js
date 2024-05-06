@@ -159,7 +159,6 @@ i18n.use(initReactI18next).init({
                { ar: 'Արգենտինա' },
                { at: 'Ավստրիա' },
                { au: 'Ավստրալիա' },
-               { az: 'Ադրբեջան' },
                { ba: 'Բոսնիա և Հերցեգովինա' },
                { bb: 'Բարբադոս' },
                { bd: 'Բանգլադեշ' },
@@ -381,8 +380,8 @@ i18n.use(initReactI18next).init({
             ///////////////////shop/////////////////////////
             shop_page_data: [
                'ԽԱՆՈՒԹ',
-               'ըստ կատեգորիաների',
-               'ըստ թանգարանների',
+               'Ըստ կատեգորիաների',
+               'Ըստ թանգարանների',
                'Տվյալներ չեն գտնվել',
             ],
             single_shop_page: ['դրամ', 'ԿԱՏԳՈՐԻԱ', 'ՆՄԱՆԱՏԻՊ ԱՊՐԱՆՔՆԵՐ', 'Տվյալներ չեն գտնվել'],
@@ -624,7 +623,42 @@ i18n.use(initReactI18next).init({
                'Ներբեռնել',
                'Տպել',
                'Ուղարկել նամակ'
-            ]
+            ],
+
+            shop_page_title: [
+               'ԽԱՆՈՒԹ',
+               'Հայաստանի բոլոր թանգարանների արտադրանքը'
+            ],
+
+            shop_search: 'Որոնում',
+
+            shop_product_category: [
+               { book: 'Գիրք' },
+               { souvenir: 'Հուշանվեր' },
+               { clothes: 'Հագուստ' },
+               { other: 'Այլ' },
+            ],
+
+            shop_all_category: 'Բոլոր կատեգորիաները',
+            shop_all_Museums: 'Բոլոր Թանգարանները',
+
+            news_titles:[
+               'Նորություններ',
+               'Հայկական մշակութային նորություններ',
+               'Որոնում'
+            ],
+
+            contactUsPage: [
+               'ԿԱՊ ՄԵԶ ՀԵՏ',
+               'Կրթության, գիտության, մշակույթի և սպորտի նախարարություն',
+               'ՀԱՍՑԵ',
+               'ՀՀ, Երևան 0010, Վազգեն Սարգսյան 3 Կառավարական տուն 2',
+               'ՀԵՌԱԽՈՍԻ ՀԱՄԱՐ',
+               'ԷԼ․ՓՈՍՏ',             
+            ],
+
+            united_ticketPage_title: 'Միասնական տոմսը ուժի մեջ է 365 օր և վերադարձման ենթակա չէ'
+
 
          },
       },
@@ -788,7 +822,6 @@ i18n.use(initReactI18next).init({
                { ar: 'Аргентина' },
                { au: 'Австралия' },
                { at: 'Австрия' },
-               { az: 'Азербайджан' },
                { bs: 'Багамские Острова' },
                { bh: 'Бахрейн' },
                { bd: 'Бангладеш' },
@@ -1016,7 +1049,7 @@ i18n.use(initReactI18next).init({
             /////////////////////news////////////////
             newses_page_data: ['НОВОСТИ', 'Поиск'],
             ///////////////////shop/////////////////////////
-            shop_page_data: ['МАГАЗИН', 'по категориям', 'по музеям', 'Данные не найдены'],
+            shop_page_data: ['МАГАЗИН', 'По категориям', 'По музеям', 'Данные не найдены'],
             single_shop_page: ['АМД', 'КАТЕГОРИЯ', 'ПОХОЖИЕ ПРОДУКТЫ', 'Данные не найдены'],
             privacyPolisyTitle: 'Политика конфиденциальности',
 
@@ -1243,6 +1276,44 @@ i18n.use(initReactI18next).init({
             ],
 
 
+            shop_page_title: [
+               'МАГАЗИН',
+               'Товары всех музеев Армении'
+            ],
+
+            shop_search: 'Поиск',
+
+
+            shop_product_category: [
+               {book: 'Книга' },
+               {souvenir: 'Сувенир' },
+               {clothes: 'Одежда' },
+               {other: 'Другой' },
+            ],
+
+            shop_all_category: 'Все категории',
+
+            shop_all_Museums: 'Все музеи',
+
+            news_titles:[
+               'Новости',
+               'Новости армянской культуры',
+               'Поиск'
+            ],
+
+            contactUsPage: [
+               'СВЯЗАТЬСЯ С НАМИ',
+               'Министерство образования, науки, культуры и спорта',
+               'АДРЕС:',
+               'РА, Ереван 0010, Вазгена Саргсяна 3 Дом Правительства 2:',
+               'Номер телефона',
+               'ЭЛ. АДРЕС:',             
+            ],
+
+            united_ticketPage_title: 'Единый билет действителен в течение 365 дней и не подлежит возврату.'
+
+
+
          },
       },
       en: {
@@ -1401,7 +1472,6 @@ i18n.use(initReactI18next).init({
                { ar: 'Argentina' },
                { au: 'Australia' },
                { at: 'Austria' },
-               { az: 'Azerbaijan' },
                { bs: 'Bahamas' },
                { bh: 'Bahrain' },
                { bd: 'Bangladesh' },
@@ -1624,7 +1694,7 @@ i18n.use(initReactI18next).init({
             /////////////////////news////////////////
             newses_page_data: ['NEWS', 'Search'],
             ///////////////////shop/////////////////////////
-            shop_page_data: ['SHOP', 'by categories', 'by museums', 'No data found'],
+            shop_page_data: ['SHOP', 'By categories', 'By museums', 'No data found'],
             single_shop_page: ['AMD', 'CATEGORY', 'SIMILAR PRODUCTS', 'No data found'],
 
             privacyPolisyTitle: 'Privacy Policy',
@@ -1843,6 +1913,44 @@ i18n.use(initReactI18next).init({
                'Print',
                'Send email'
             ],
+
+
+            shop_page_title: [
+               'SHOP',
+               'Products of all museums in Armenia'
+            ],
+
+            shop_search: 'Search',
+            
+
+            shop_product_category: [
+               {book: 'Book' },
+               {souvenir: 'Souvenir' },
+               {clothes: 'Clothes' },
+               {other: 'other' },
+            ],
+
+            shop_all_category: 'All Categories',
+
+            shop_all_Museums: "All Museums",
+
+            news_titles:[
+               'News',
+               'Armenian cultural news',
+               'Search'
+            ],
+
+            contactUsPage: [
+               "CONTACT WITH US",
+               "Ministry of Education, Science, Culture and Sports",
+               'ADDRESS',
+               "Government House 2, Vazgen Sargsyan 3, Yerevan 0010, Armenia",
+               'Phone number',
+               "E-mail",
+            ],
+
+            united_ticketPage_title: "The single ticket is valid for 365 days and is non-refundable."
+
 
 
          },

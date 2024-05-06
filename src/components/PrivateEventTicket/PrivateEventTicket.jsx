@@ -133,6 +133,7 @@ function PrivateEventTicket({changeTicketType}) {
             setSelectedMuseum(museum.name)
             setMuseumItem(museum)
             setFullValueTicket(0)
+            setEventInpVal('')
             dispatch(getEvents({museumId: museum.id, start_date: startDate, end_date: endDate}))
         }
 
@@ -361,7 +362,7 @@ function PrivateEventTicket({changeTicketType}) {
                                     <span>{currentEvent.name}</span>
                                     <div className='events_ticket_block_event_time_div'>
                                         <span>{item. day}</span>
-                                        <span>{item.start_time}</span>
+                                        <span>{item.start_time.slice(0,5)}</span>
                                     </div>
 
                                     <TicketCountDiv max={item.tickets.max} min={item.tickets.min} price={item.tickets.price} setFullValueTicket={setFullValueTicket} setQuantityEvent={setQuantityEvent} quantityEvent={quantityEvent} item= {item}/>

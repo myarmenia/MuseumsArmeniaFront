@@ -123,16 +123,15 @@ function SingleShop() {
       ) : (
         <div className="all_singleShopp">
           <div className="container">
-            <div className="shop_top_titels">
-              <div className="lines_div">
-                <img className="border_1" src={require('../../images/Line 106.png')} alt="" />
-                <h2 style={{ textTransform: 'uppercase' }}>SHOPE</h2>
-                <img className="border_2" src={require('../../images/Line 106.png')} alt="" />
+
+          <div className='lines_div_event'>
+              <div>
+                <img src={require('../../images/Line 106.png')} alt="" />
+                <h2>{t('shop_page_title.0')}</h2>
+                <img src={require('../../images/Line 106.png')} alt="" />
               </div>
-              <p style={{ textAlign: 'center', color: 'white', marginTop: '20px' }}>
-                All Armenia museums products
-              </p>
             </div>
+
             <div className="singleShop_All">
               {/* <div className={errorText ? 'shop_error_text' : 'shop_error_text_none'}>
               zambyuxic ogtvelu hamar petq e grancvel{' '}

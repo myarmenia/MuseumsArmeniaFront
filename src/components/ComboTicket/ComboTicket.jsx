@@ -21,8 +21,10 @@ import { postComboTickets } from '../../store/slices/Shop/ShopApi';
 import { useNavigate } from 'react-router-dom';
 import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice';
 import CardModal from '../Shop/CardModal';
+import { useTranslation } from 'react-i18next';
 
 function ComboTicket() {
+  const {t, i18n} = useTranslation()
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
@@ -33,6 +35,7 @@ function ComboTicket() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [count, setCount] = useState(1);
   const [btnColor, setBtnColor] = useState(false)
+  const privateTicketRegions = t('privateTicketRegions', { returnObjects: true })
   const [ticketObj, setObj] = useState({
     museum_ids: [],
     type: null,
@@ -91,7 +94,7 @@ function ComboTicket() {
   };
 
   useEffect(() => {
-    setObj({...ticketObj, quantity:count});
+    setObj({ ...ticketObj, quantity: count });
   }, [count]);
 
   const addMuseumTickets = () => {
@@ -101,13 +104,13 @@ function ComboTicket() {
       if (IsAuth) {
         console.log('paymenti ej');
         let token = localStorage.getItem('token')
-          dispatch(postMuseumTicket({
-            userToken: token,
-            postData: {
-              request_name: "web",
-              items: [ticketObj]
-            }
-          }))
+        dispatch(postMuseumTicket({
+          userToken: token,
+          postData: {
+            request_name: "web",
+            items: [ticketObj]
+          }
+        }))
       } else {
         dispatch(setModalTicketIsOpen(true));
         dispatch(
@@ -127,7 +130,7 @@ function ComboTicket() {
     if (resFind) {
       const newArr = ticketObj.museum_ids.filter((el) => el !== obj.id);
       // console.log(newArr, 599999955);
-      setObj({...ticketObj, museum_ids: newArr});
+      setObj({ ...ticketObj, museum_ids: newArr });
     } else {
       setObj({
         museum_ids: [...ticketObj.museum_ids, obj.id],
@@ -137,11 +140,11 @@ function ComboTicket() {
     }
   };
 
-  const addMuseumTicketsToBasket = () =>{
+  const addMuseumTicketsToBasket = () => {
     if (IsAuth) {
       dispatch(setModalIsOpenShop(true));
       dispatch(postComboTickets({
-        selectedItemIds:selectedItemIds,
+        selectedItemIds: selectedItemIds,
         count: count
       }))
     } else {
@@ -172,7 +175,7 @@ function ComboTicket() {
                   src={require('../../images/LineGold.png')}
                   alt="LineGold"
                 />
-                <h2 className="ComboTicket_topDiv_div_title">Combo ticket</h2>
+                <h2 className="ComboTicket_topDiv_div_title">{t('ticketsType.2')}</h2>
                 <img
                   className="border_2"
                   src={require('../../images/LineGold.png')}
@@ -180,8 +183,9 @@ function ComboTicket() {
                 />
               </div>
               <div className="ComboTicket_topDiv_text">
-                Buy a combo ticket, choose {ComboTickets.params.min_museum_quantity} or more museums
-                and gea {ComboTickets.params.discount_percent} percent discount
+                <p>{t('section_united_ticket.0')} {ComboTickets.params.min_museum_quantity} {t('section_united_ticket.1')} {ComboTickets.params.discount_percent} {t('section_united_ticket.2')}</p>
+
+                <span>{t('united_ticketPage_title')}</span>
               </div>
             </div>
 
@@ -207,10 +211,10 @@ function ComboTicket() {
                     <p>{totalPrice} AMD</p>
                   </div>
                   <div className="ticketBuyCard_bottom">
-                    <div className="ticketBuyCard_bottom_btn"  onClick={addMuseumTickets}>
-                      Check out now
+                    <div className="ticketBuyCard_bottom_btn" onClick={addMuseumTickets}>
+                     {t('buttons.9')}
                     </div>
-                    <div className="ticketBuyCard_bottom_btn" onClick={addMuseumTicketsToBasket}>Аdd to cart</div>
+                    <div className="ticketBuyCard_bottom_btn" onClick={addMuseumTicketsToBasket}>{t('buttons.3')}</div>
                   </div>
                 </div>
               </div>
@@ -222,9 +226,8 @@ function ComboTicket() {
               {ComboTickets.data.map((el, index) => (
                 <div
                   key={index}
-                  className={`ComboTickets_bottom ${
-                    selectedItemIds.includes(el.id) ? 'selected' : ''
-                  }`}
+                  className={`ComboTickets_bottom ${selectedItemIds.includes(el.id) ? 'selected' : ''
+                    }`}
                   onClick={() => {
                     handleItemClick(el.id, el.tickets[0].price);
                     test(el);
@@ -234,11 +237,15 @@ function ComboTicket() {
                   </div>
                   <div className="ComboTickets_bottom_location">
                     <img src={location} alt="location" />
-                    <p>Armenia , {el.region_name}</p>
+                    {/* <p>Armenia , {el.region_name}</p> */}
+
+                    {
+                      privateTicketRegions.map((item, index) => Object.keys(item)[0] === el.region_name ? <span key={index}> {Object.values(item)[0]}</span> : '')
+                    }
                   </div>
                   <div className="ComboTickets_bottom_blueBox">
                     <div className="ComboTickets_bottom_blueBox_div">
-                      <p>{el.name}</p>
+                      <p style={{width: '250px'}}>{el.name}</p>
                       <div className="ComboTickets_bottom_blueBox_div_round"></div>
                     </div>
                     <p className="ComboTickets_bottom_blueBox_price">{el.tickets[0].price} AMD</p>

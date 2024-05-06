@@ -96,7 +96,7 @@
   .contact_us_section_block {
     flex-direction: column;
     gap: 50px;
-    height: 700px;
+    height: 800px;
   }
   .phone_email_div {
     flex-direction: column;
@@ -111,7 +111,7 @@
   }
 
   .contact_us_section {
-    height: 850px;
+    height: 950px;
   }
 
   .contact_us_section_block_contact_div {
@@ -153,6 +153,6 @@
   }
 
   .contact_us_section{
-    height: 900px;
+    height: 1050px;
   }
 }

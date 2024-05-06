@@ -97,11 +97,14 @@ span.desc_news_box{
   position: relative;
   cursor: pointer;
   box-shadow: 0px 6px 15px #949494;
-  height: 334px;
 }
 
 .news_box_image{
-  height: 100% !important;
+ height: 223px;
+}
+
+.news_box_image >img{
+  height: 100%;
 }
 
 
