@@ -111,7 +111,7 @@ import './VerificationEmailComponent.css'
                     <span className='verification_code_message'>{errMessage?.data?.message}</span>
 
 
-                <button type='submit' className='verification_btn'>Send</button>
+                <button type='submit' className='verification_btn'>{t('buttons.2')}</button>
             </div>}
         </form>
 

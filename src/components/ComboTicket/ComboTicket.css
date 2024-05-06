@@ -22,6 +22,10 @@
   padding: 16px 8px;
   border-radius: 6px;
   box-shadow: 0px 2px 3px 0px #00000014;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 /* ///////////////////////////// */
@@ -92,6 +96,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 9px;
+  height: 60px;
 }
 
 .ComboTickets_bottom_blueBox_div_round {

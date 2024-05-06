@@ -7,12 +7,12 @@ const CustomSectionTitle = ({ text, text2 = '', color = '#cea670', colorSvg = '#
       <div className="museumPage_section-title">
          <div className="museumPage_section-title-lines_div">
             <LineeIcons fill={colorSvg} />
-            <h2 style={{ color: color }}>{text}</h2>
+            <h2 style={{ color: color , }}>{text}</h2>
             <LineeIcons fill={colorSvg} />
          </div>
-         <p className="museumPage_section-title-text2" style={{ color: color }}>
+         <h3 className="museumPage_section-title-text2" style={{ color: color }}>
             {text2}
-         </p>
+         </h3>
       </div>
    );
 };

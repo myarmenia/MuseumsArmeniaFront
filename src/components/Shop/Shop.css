@@ -1,15 +1,14 @@
 .shop_all {
   min-height: 100vh;
   position: relative;
-  background-image: url('../../images/shopBackPhoto.png');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 100px 0;
+  background-image: url('../../images/abouteUsBack.jpg');
+    background-position: top;
+    background-size: cover;
+  padding: 80px 0;
 }
-.shop_top_titels{
-  margin-bottom: 80px;
-}
+/* .shop_top_titels{
+  margin-bottom: 0px;
+} */
 
 .backImage_shop {
   background-image: url('./../../images/shop.jpg');
@@ -84,20 +83,7 @@
   height: 20px; /* Adjust height of the arrow image */
   height: fit-content;
 }
-.custom-select-container::after {
-  content: '🢓'; 
-  position: absolute;
-  color: #A3A3A3;
-  font-size: 30px;
-  height: 27px;
-  top: 50%;
-  right: 12px; 
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-/* .custom-select:hover {
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-} */
+
 
 .custom-select:focus {
   color: #3f3d3d;
@@ -191,17 +177,19 @@
   margin-left: 30px;
 }
 
-.shop-box_img {
-  height: 227px;
+
+.shop-box{
   width: 256px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 }
+
 .shop-box_img {
   padding: 32px 25px;
   height: 273px;
   background-color: #D9D9D94D;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
   position: relative;
 }
 .shop-box_img img {
@@ -282,9 +270,60 @@
 
 .all_Shop_Content{
   background-color: #FFFFFF;
-  padding: 50px;
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.shop_all .container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+    padding-bottom: 100px;
+    padding-left: 86px;
+    padding-right: 86px;
+    gap: 32px;
+}
+
+
+
+.shop_museum_filter, .shop_category_filter{
+  width: 225px;
+    height: 40px;
+    border-radius: 6px;
+    position: relative;
+}
+
+
+.shop_museum_filter_inp_div, .shop_category_filter_inp_div{
+  position: relative;
   width: 100%;
 }
+
+
+.shop_museum_filter_inp_div >span, .shop_category_filter_inp_div >span{
+  position: absolute;
+  top: 13px;
+  right: 15px;
+}
+
+.shop_museum_filter_inp_div >input, .shop_category_filter_inp_div >input{
+  width: 100%;
+    height: 100%;
+    padding: 10px 16px;
+    outline: none;
+    border: 1px solid#DADADA;
+    border-radius: 6px;
+}
+
+.category_filter_item_p{
+  height: 100%;
+  width: 100%;
+}
+
 @media screen and (max-width: 1180px) {
   .input_and_filteres {
     display: flex;
@@ -302,14 +341,7 @@
 /* ========================== */
 
 
-.shop_all .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-    padding-bottom: 100px;
-    padding-left: 86px;
-    padding-right: 86px;
-}
+
 @media screen and (max-width: 910px) {
   .shopess_start {
     display: flex;

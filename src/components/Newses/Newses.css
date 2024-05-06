@@ -4,23 +4,25 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 100px 0;
+  padding: 80px 0;
 }
 
 .all_news_contain{
-  /* background-color: rgb(141, 7, 7); */
   background-color: #FFFFFF;
-  padding: 50px;
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 .news-box_texts_div {
-  margin: 8px 0 8px;
-  text-align: start;
+  width: 100%;
 }
 
 .input-search-buttonn_news{
   background-color: #D5AA72;
   color: #FFFFFF;
-  padding: 10px 16px;
+  padding: 7px 16px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
@@ -58,6 +60,8 @@
 .form_input {
   padding: 7px;
   min-width: 25%;
+  border: 1px solid #AAAA;
+  border-radius: 5px;
 }
 .form_input:focus {
   outline: none;
@@ -66,14 +70,13 @@
 /* //////////////////////////////// */
 
 .newsess {
-  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  column-gap: 30px;
-  row-gap: 130px;
-  margin-bottom: 180px;
-  padding: 10px;
+  gap: 40px;
+  /* margin-top: 70px; */
+  margin-bottom: 60px;
+  /* padding: 20px; */
 }
 .newsess_start {
   display: flex;
@@ -84,26 +87,57 @@
   margin-bottom: 180px;
   margin-left: 35px;
 }
-.news_box {
-  width: 300px;
-  height: 260px;
-  position: relative;
-  cursor: pointer;
-  box-shadow: 0px 6px 15px #949494;
+.news_box{
+  width: 256px;
 }
 
-.news_box:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.485);
+
+.news_box:hover .news_page_navigate_div{
+  display: flex;
 }
-.news_box_image {
+
+.news_box-image{
+  padding: 32px 25px;
+  height: 273px;
+  background-color: #D9D9D94D;
+  display: flex;
   width: 100%;
-  height: 260px;
+  flex-direction: column;
+  gap: 20px;
   position: relative;
 }
-.news_box_image img {
+
+
+
+.news_box-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.news_page_navigate_div{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d973;
+  display: none;
+  transition: all 1s;
+}
+
+
+.news_page_navigate_div_btn{
+  background-color: #D5AA72;
+  padding: 10px 30px;
+  color: white;
+  border: none;
+}
+
+.event_page_item_navigate_div_btn:hover{
+  background-color: #B28851;
 }
 
 .news_box_title {
@@ -169,4 +203,16 @@
 }
 .page-link {
   padding: 6px 2px;
+}
+
+.all_news .container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+    padding-bottom: 100px;
+    padding-left: 86px;
+    padding-right: 86px;
+    gap: 32px;
+  
 }

@@ -19,9 +19,9 @@ const MuseumPage = () => {
    return (
       <>
          {loadingStatus === 'loading' ? (
-            <LoadSpinner />
+            <LoadSpinner fullBackColor="white"/>
          ) : loadingStatus === 'fulfilled' ? (
-            <div style={{ minHeight: '100vh', backgroundImage: `url(${abouteUsBack})` }}>
+            <div style={{ minHeight: '100vh', backgroundImage: `url(${abouteUsBack})`, padding: "60px 0"}}>
                {/* <MuseumPageHeader headerImg={headerImg} title={t(`navMenuItems.1`)} /> */}
                <div className="museumPage_section">
                   <CustomSectionTitle

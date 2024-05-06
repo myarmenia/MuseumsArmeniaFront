@@ -26,7 +26,7 @@ const PrivateRouteForRegAndLog = ({ children }) => {
     }, []);
   
     if (loading) {
-      return <LoadSpinner/>
+      return <LoadSpinner fullBackColor="white"/>
     }
     
     return !isAuth ? children : <Navigate to={`/${lang}/`} />;

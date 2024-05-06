@@ -102,7 +102,7 @@ import { postRepeatVerifyCode } from '../../store/slices/RepeatVerifyCodeSlice/R
                     {<span>{errMessage?.message}</span>}
 
 
-                <button type='submit' className='verification_btn'>Send</button>
+                <button type='submit' className='verification_btn'>{t('buttons.2')}</button>
             </div>}
         </form>
 

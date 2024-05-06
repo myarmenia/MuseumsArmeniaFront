@@ -97,7 +97,7 @@ import { selectLogin, selectLoginLoading } from '../../store/slices/LoginSlice/L
                     {<span>{errMessage?.message}</span>}
 
 
-                <button type='submit' className='verification_btn'>Send</button>
+                <button type='submit' className='verification_btn'>{t('buttons.2')}</button>
             </div>}
         </form>
 
