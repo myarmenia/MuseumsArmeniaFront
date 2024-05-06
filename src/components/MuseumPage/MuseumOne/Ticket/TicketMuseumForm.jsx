@@ -16,7 +16,7 @@ import { setNotificationStatus } from '../../../../store/slices/MuseumPagesSlice
 const TicketMuseumForm = () => {
    const leng = localStorage.getItem('lang');
    const { t, i18n } = useTranslation();
-   const [countryVal, setCountryVal] = useState('');
+   const [countryVal, setCountryVal] = useState({});
    const dispatch = useDispatch();
    const ComboTicketsData = useSelector(getComboTicketsData);
 
@@ -45,13 +45,13 @@ const TicketMuseumForm = () => {
             person.phone = phone.value;
          }
          if (age.value) {
-            person.birth_date = age.value;
+            person.age = age.value;
          }
          if (surname.value) {
             person.surname = surname.value;
          }
          if (country.value) {
-            person.country_id = country.value;
+            person.country_id = countryVal.key;
          }
          if (gender.value) {
             person.gender = gender.value;
@@ -76,13 +76,17 @@ const TicketMuseumForm = () => {
       }
    };
 
-   const handleChangeCountry = (val, type) => {
-      setCountryVal(val);
-      console.log(val, 4444);
+   const handleChangeCountry = (val) => {
+      setCountryVal({
+         key: Object.keys(val)[0],
+         values: Object.values(val)[0],
+      });
+      // Object.values(value)[0],
+      // Object.keys(value)[0],
+      console.log(Object.values(val)[0], 4444);
    };
 
    const countries = t('country', { returnObjects: true });
-   console.log(countryVal, 888);
    useEffect(() => {
       if (ticketLoading === 'rejected' && responseMessages) {
          dispatch(
@@ -202,21 +206,14 @@ const TicketMuseumForm = () => {
                               type="text"
                               name="country"
                               placeholder={t('placeholder.10')}
-                              value={countryVal}
+                              value={countryVal?.values}
                               onChange={handleChange}
                               onBlur={handleBlur}
                               className="formChild-inbut"
                            />
                            <div className="country_div">
                               {countries.map((value, index) => (
-                                 <div
-                                    key={index}
-                                    onClick={() =>
-                                       handleChangeCountry(
-                                          Object.values(value)[0],
-                                          Object.keys(value)[0],
-                                       )
-                                    }>
+                                 <div key={index} onClick={() => handleChangeCountry(value)}>
                                     {Object.values(value)[0]}
                                  </div>
                               ))}
