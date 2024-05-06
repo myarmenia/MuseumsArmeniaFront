@@ -78,10 +78,11 @@ const TicketMuseumForm = () => {
 
    const handleChangeCountry = (val, type) => {
       setCountryVal(val);
+      console.log(val, 4444);
    };
 
    const countries = t('country', { returnObjects: true });
-
+   console.log(countryVal, 888);
    useEffect(() => {
       if (ticketLoading === 'rejected' && responseMessages) {
          dispatch(
