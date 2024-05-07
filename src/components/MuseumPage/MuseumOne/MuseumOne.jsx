@@ -144,9 +144,6 @@ const MuseumOne = () => {
                               />
                            )}
 
-                        {/* {loadingMuseumProducts === 'fulfilled' && (
-                           <MuseumOneShop dataMuseumProducts={dataMuseumProducts}  museumId={id} />
-                        )} */}
                         <MuseumOneShop dataMuseumProducts={dataMuseumProducts} museumId={id} />
 
                         {dataMuseumOne.links?.virtual_tour && (
@@ -170,4 +167,4 @@ const MuseumOne = () => {
    );
 };
 
-export default MuseumOne;
+export default React.memo(MuseumOne);

@@ -50,12 +50,7 @@ const MuseumOnecontact = ({
          {working_days && (
             <div>
                <h4>{t(`working_hours`)}</h4>
-               <p className="par-contactMinBlock">
-                  {/* <span>
-                  <LocationIcon />
-               </span> */}
-                  {working_days}
-               </p>
+               <p className="par-contactMinBlock">{working_days}</p>
             </div>
          )}
          {address && (
@@ -158,4 +153,4 @@ const MuseumOnecontact = ({
    );
 };
 
-export default MuseumOnecontact;
+export default React.memo(MuseumOnecontact);

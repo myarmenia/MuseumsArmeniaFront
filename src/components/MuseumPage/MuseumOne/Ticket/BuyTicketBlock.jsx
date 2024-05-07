@@ -55,16 +55,10 @@ const BuyTicketBlock = ({ hendleClickItems }) => {
                         ),
                   )
                ) : (
-                  // <div>
-                  //    <p>{t(`isWrong.1`)}</p>
-                  // </div>
                   <IsWrong text={t(`isWrong.1`)} height={'auto'} />
                )}
             </div>
-            {/* <div className="BuyTicketBlock-list-priceOne">
-               <p>standart <span>1000 {t(`single_shop_page.0`)}</span></p>
-               <p>discounted <span>500 {t(`single_shop_page.0`)}</span></p>
-            </div> */}
+
             <div className="BuyTicketBlock-list-price">
                {dataMuseumOne.guide && (
                   <div>

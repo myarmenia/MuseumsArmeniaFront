@@ -5,7 +5,6 @@ import { CrossIcon, CheckMarkIcon } from '../../iconFolder/icon';
 
 const CustomNotification = () => {
    const { notificationStatus } = useSelector((state) => state.museumPages);
-   // const { open = false, species = true, messages = '' } = notificationStatus;
    return (
       <div
          className="CustomNotification-par"
@@ -24,4 +23,4 @@ const CustomNotification = () => {
    );
 };
 
-export default CustomNotification;
+export default React.memo(CustomNotification);
