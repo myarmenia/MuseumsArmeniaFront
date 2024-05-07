@@ -71,4 +71,4 @@ const MuseumOneDescription = ({
    );
 };
 
-export default MuseumOneDescription;
+export default React.memo(MuseumOneDescription);

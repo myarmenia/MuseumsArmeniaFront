@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -7,22 +6,21 @@ import { selectIcon } from '../../../../iconFolder/icon';
 import { useDispatch, useSelector } from 'react-redux';
 import { postMuseumTicket } from '../../../../store/slices/MuseumTicket/MuseumTicketApi';
 import { customBasesUrlFunc } from '../../customBasesUrlFunc';
-import CustomNotification from '../../CustomNotification';
 import './TicketMuseumBlock.css';
 import { selectBuyTicket } from '../../../../store/slices/BuyTicketSlice/BuyTicketSlice';
-import { postBuyTicket } from '../../../../store/slices/BuyTicketSlice/BuyTicketApi';
 import { getComboTicketsData } from '../../../../store/slices/ComboTicket/ComboTicketSlice';
 import { setNotificationStatus } from '../../../../store/slices/MuseumPagesSlice/MuseumPagesSlice';
 const TicketMuseumForm = () => {
    const leng = localStorage.getItem('lang');
    const { t, i18n } = useTranslation();
-   const [countryVal, setCountryVal] = useState('');
+   const [countryVal, setCountryVal] = useState({});
    const dispatch = useDispatch();
    const ComboTicketsData = useSelector(getComboTicketsData);
 
    const respBuyTicket = useSelector(selectBuyTicket);
-   const { dataItems, ticketLoading, success, responseMessages, paymentsUrl, ticketType } =
-      useSelector((state) => state.museumTicket);
+   const { dataItems, ticketLoading, responseMessages, ticketType } = useSelector(
+      (state) => state.museumTicket,
+   );
 
    const validationSchema = yup.object().shape({
       email: yup.string().email(t('validation_inp.0')).required(t('validation_inp.1')),
@@ -45,13 +43,13 @@ const TicketMuseumForm = () => {
             person.phone = phone.value;
          }
          if (age.value) {
-            person.birth_date = age.value;
+            person.age = age.value;
          }
          if (surname.value) {
             person.surname = surname.value;
          }
          if (country.value) {
-            person.country_id = country.value;
+            person.country_id = countryVal.key;
          }
          if (gender.value) {
             person.gender = gender.value;
@@ -76,13 +74,14 @@ const TicketMuseumForm = () => {
       }
    };
 
-   const handleChangeCountry = (val, type) => {
-      setCountryVal(val);
-      console.log(val, 4444);
+   const handleChangeCountry = (val) => {
+      setCountryVal({
+         key: Object.keys(val)[0],
+         values: Object.values(val)[0],
+      });
    };
 
    const countries = t('country', { returnObjects: true });
-   console.log(countryVal, 888);
    useEffect(() => {
       if (ticketLoading === 'rejected' && responseMessages) {
          dispatch(
@@ -202,21 +201,14 @@ const TicketMuseumForm = () => {
                               type="text"
                               name="country"
                               placeholder={t('placeholder.10')}
-                              value={countryVal}
+                              value={countryVal?.values}
                               onChange={handleChange}
                               onBlur={handleBlur}
                               className="formChild-inbut"
                            />
                            <div className="country_div">
                               {countries.map((value, index) => (
-                                 <div
-                                    key={index}
-                                    onClick={() =>
-                                       handleChangeCountry(
-                                          Object.values(value)[0],
-                                          Object.keys(value)[0],
-                                       )
-                                    }>
+                                 <div key={index} onClick={() => handleChangeCountry(value)}>
                                     {Object.values(value)[0]}
                                  </div>
                               ))}
@@ -259,11 +251,6 @@ const TicketMuseumForm = () => {
                         </label>
                      </div>
 
-                     {/* {ticketLoading === 'rejected' && (
-                        <div className="BuyTicketBlock-list-warning">
-                           {success === false && <p>{responseMessages}</p>}
-                        </div>
-                     )} */}
                      <button type="submit" className="register_btn">
                         {t('buy')}
                      </button>
@@ -271,13 +258,6 @@ const TicketMuseumForm = () => {
                )}
             </Formik>
          </div>
-         {/* <CustomNotification
-                        open={ticketLoading === 'rejected'}
-                        species={paramUrl?.params}
-                        messages={
-                           'Your changes cannot be saved at this time.Please try again later.'
-                        }
-                     /> */}
       </div>
    );
 };
