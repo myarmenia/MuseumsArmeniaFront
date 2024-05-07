@@ -15,19 +15,11 @@ const MuseumMinBlock = ({ id, name, photo, region }) => {
                      className="MuseumMinBlock_img"
                      style={{
                         backgroundImage: `url(${photo})`,
-                     }}>
-                     {/* <div className="MuseumMinBlock_img-parLink">
-                     <Link className="MuseumMinBlock_img-link" to={`museum/${id}`}>
-                        {t(`musseumPage_title.2`)}
-                     </Link>
-                  </div> */}
-                  </div>
+                     }}></div>
                </div>
                <div className="par_MuseumMinBlock-description">
                   <div className="block-description">
                      <h5 className="museum_name">{name}</h5>
-
-                     {/* <p className="museum_description">{description.slice(0, 40)}...</p> */}
                      <p className="museum_region">
                         <LocationIcon width={10} height={14} fill={'#575757'} />
                         {t(`${region}`)}

@@ -1,4 +1,4 @@
-import React, { useCallback, memo, useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
@@ -25,10 +25,6 @@ const TicketMuseumBlock = () => {
       if (success) {
          window.location.assign(`${paymentsUrl}`);
       }
-      return () => {
-         // dispatch(setModalTicketIsOpen(false));
-         // dispatch(setResetDataItems());
-      };
    }, [success]);
 
    return (

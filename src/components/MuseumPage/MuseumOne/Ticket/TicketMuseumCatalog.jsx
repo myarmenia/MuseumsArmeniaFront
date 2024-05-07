@@ -5,13 +5,11 @@ import { useTranslation } from 'react-i18next';
 import {
    setDataItems,
    setTicketType,
-   setStatusInfoModal,
    setModalTicketIsOpen,
    setResetDataItems,
 } from '../../../../store/slices/MuseumTicket/MuseumTicketSlice';
 import { customBasesUrlFunc } from '../../customBasesUrlFunc';
 import { setModalIsOpenShop } from '../../../../store/slices/Shop/ShopSlice';
-import { getShopIconBasketDatas } from '../../../../store/slices/Shop/ShopApi';
 import { postMuseumTicket } from '../../../../store/slices/MuseumTicket/MuseumTicketApi';
 import { postTicketCart } from '../../../../store/slices/Shop/ShopApi';
 import { BuyTicketBlock, AbonementTicketBlock } from './index';
@@ -60,10 +58,6 @@ const TicketMuseumCatalog = () => {
             dispatch(setResetDataItems());
 
             dispatch(setModalIsOpenShop(true));
-
-            // dispatch(getShopIconBasketDatas());
-            // dispatch(setStatusInfoModal({ status: true, text: t(`isWrong.2`) }));
-            // setTimeout(() => dispatch(setStatusInfoModal({ status: false, text: '' })), 2000);
          } else {
             navigate(`/${leng}/login`);
          }
