@@ -133,7 +133,7 @@ function LoginPage() {
                            </NavLink>
                         </p>
 
-                        {/* <GoogleLogin
+                        <GoogleLogin
                            onSuccess={(credentialResponse) => {
                               const decodedHeader = jwtDecode(credentialResponse.credential);
 
@@ -147,7 +147,7 @@ function LoginPage() {
                            onError={() => {
                               console.log('Login Failed');
                            }}
-                        /> */}
+                        />
                      </form>
                   )}
                </Formik>
