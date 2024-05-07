@@ -79,7 +79,6 @@ const TicketMuseumForm = () => {
          key: Object.keys(val)[0],
          values: Object.values(val)[0],
       });
-      console.log(Object.values(val)[0], 4444);
    };
 
    const countries = t('country', { returnObjects: true });
