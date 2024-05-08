@@ -627,7 +627,7 @@ i18n.use(initReactI18next).init({
 
             shop_page_title: [
                'ԽԱՆՈՒԹ',
-               'Հայաստանի բոլոր թանգարանների արտադրանքը'
+               'Հայաստանի թանգարանների ապրանքները'
             ],
 
             shop_search: 'Որոնում',
@@ -644,7 +644,7 @@ i18n.use(initReactI18next).init({
 
             news_titles:[
                'Նորություններ',
-               'Հայկական մշակութային նորություններ',
+               'ԿԳՄՍ նախարարության նորություններ',
                'Որոնում'
             ],
 
@@ -1297,7 +1297,7 @@ i18n.use(initReactI18next).init({
 
             news_titles:[
                'Новости',
-               'Новости армянской культуры',
+               'Новости МОНКС',
                'Поиск'
             ],
 
@@ -1936,7 +1936,7 @@ i18n.use(initReactI18next).init({
 
             news_titles:[
                'News',
-               'Armenian cultural news',
+               'News of MESCS',
                'Search'
             ],
 
