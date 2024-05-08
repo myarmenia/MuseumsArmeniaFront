@@ -192,7 +192,8 @@ function MyAccount() {
           </div>
         </form>
 
-        <Formik
+        {
+          authUser.google_id === null  && <Formik
           initialValues={{
             confirmPassword: '',
             password: '',
@@ -239,6 +240,7 @@ function MyAccount() {
             )
           }
         </Formik>
+        }
         <div className="log_out_myAccount" onClick={handleLogOut}>
           <img src={logOutGray} alt="logOutGray" />
           <span>{t('my_account_page.6')}</span>
