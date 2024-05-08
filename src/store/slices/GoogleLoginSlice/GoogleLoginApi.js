@@ -22,7 +22,7 @@ export const postGoogleLogin = createAsyncThunk(
           }
           return response?.data
         } catch (error) {
-          return thunkAPI.rejectWithValue(error.response.data.error);
+          return thunkAPI.rejectWithValue(error.response.data);
         }
       }
 )

@@ -3,16 +3,18 @@ import { Formik } from "formik";
 import * as yup from 'yup';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './ResetSendEmailPage.css'
 import VerificationEmailComponent from '../VerificationEmailComponent/VerificationEmailComponent';
 import { postResetPasswordWithEmail } from '../../store/slices/ResetPasswordWithEmailSlice/ResetPasswordWithEmailApi';
+import { selectResetPasswordWithEmail } from '../../store/slices/ResetPasswordWithEmailSlice/ResetPasswordWithEmailSlice';
 
 function ResetSendEmailPage() {
     const leng = localStorage.getItem('lang')
     const [openVerifyModal, setOpenVerifyModal] = useState(false)
     const {t, i18n} = useTranslation()
     const emailRef = useRef(null)
+    const respForgotPass = useSelector(selectResetPasswordWithEmail)
 
 
     const dispatch = useDispatch()
@@ -67,6 +69,8 @@ function ResetSendEmailPage() {
                                                 <input  ref={emailRef} type="email" name="email" placeholder={t('placeholder.0')} value={values.email} onChange={handleChange} onBlur={handleBlur} />
                                                 {touched.email && errors.email && <p className="error">{errors.email}</p>}
                                             </div>
+
+                                            {respForgotPass.data.error && <p className="login_error_message">{respForgotPass.data.error.message}</p>}
 
 
                                         <button className='reset_password_send_email_btn'>{t('buttons.2')}</button>

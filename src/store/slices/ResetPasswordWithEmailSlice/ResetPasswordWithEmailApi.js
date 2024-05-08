@@ -16,7 +16,7 @@ export const postResetPasswordWithEmail = createAsyncThunk(
           const response = await instance(config);
           return response?.data
         } catch (error) {
-          return thunkAPI.rejectWithValue(error.response.data.error);
+          return thunkAPI.rejectWithValue(error.response.data);
         }
       }
 )
