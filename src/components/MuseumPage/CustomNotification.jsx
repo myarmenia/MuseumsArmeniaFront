@@ -7,10 +7,24 @@ import { CrossIcon, CheckMarkIcon } from '../../iconFolder/icon';
 const CustomNotification = () => {
    const { notificationStatus } = useSelector((state) => state.museumPages);
    const dispatch = useDispatch();
+
+   const notificationStatusRef = React.useRef(notificationStatus);
+
    React.useEffect(() => {
-      setTimeout(() => {
-         dispatch(setNotificationStatus(null));
+      notificationStatusRef.current = notificationStatus;
+   }, [notificationStatus]);
+
+   React.useEffect(() => {
+      const timeoutId = setTimeout(() => {
+         dispatch(
+            setNotificationStatus({
+               open: false,
+               species: notificationStatusRef.current?.species,
+               messages: notificationStatusRef?.messages,
+            }),
+         );
       }, 8000);
+      return () => clearTimeout(timeoutId);
    }, []);
    return (
       <div
