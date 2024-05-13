@@ -13,7 +13,6 @@ const MessagesBotBlock = ({ messagesUser, resetMessages }) => {
    const { t, i18n } = useTranslation();
 
    const dispatch = useDispatch();
-
    const { dataEducationalPrograms } = useSelector((store) => store.museumPages);
    const { messagesType, educationProgramType } = useSelector((store) => store.messagesBot);
 

@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import instance from '../../../axios';
 
-
 export const postUserMessages = createAsyncThunk(
    'NewMessages/postAuthUserMessages',
 
@@ -13,9 +12,9 @@ export const postUserMessages = createAsyncThunk(
             data: body,
          };
 
-         const {data} = await instance(config);
+         const { data } = await instance(config);
 
-          return data;
+         return data;
       } catch (error) {
          console.log(error, 'error');
          return thunkAPI.rejectWithValue(error.response.data.error.both);
@@ -37,15 +36,12 @@ export const getAuthUserAllMessages = createAsyncThunk(
    },
 );
 
-
-
 export const deleteMuseumMessages = createAsyncThunk(
    'NewMessages/deleteMuseumMessages',
 
    async (body, thunkAPI) => {
       try {
          const response = await instance(`chat/delete-chat/${body}`);
-         console.log(response, 'responseeeee');
 
          //  return response?.data;
       } catch (error) {
@@ -54,9 +50,6 @@ export const deleteMuseumMessages = createAsyncThunk(
       }
    },
 );
-
-
-
 
 export const postMessageProfile = createAsyncThunk(
    'messageProfile/postMessageProfile',
@@ -69,10 +62,9 @@ export const postMessageProfile = createAsyncThunk(
             data: body,
          };
 
-         const {data} = await instance(config);
+         const { data } = await instance(config);
 
-          return data.message;
-
+         return data.message;
       } catch (error) {
          console.log(error, 'error');
          return thunkAPI.rejectWithValue(error.response.data);

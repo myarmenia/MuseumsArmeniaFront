@@ -94,7 +94,7 @@ const MessagesBlock = ({ dataMuseumMessages, authUser }) => {
             dispatch(postUserMessages(newMessages));
          }
       },
-      [messagesType, dataMuseumMessages.title, educationProgramType],
+      [messagesType, dataMuseumMessages.title, educationProgramType, messagesUser],
    );
 
    return (
