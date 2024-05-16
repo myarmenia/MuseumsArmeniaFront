@@ -25,6 +25,7 @@ const TicketMuseumBlock = () => {
       if (success) {
          window.location.assign(`${paymentsUrl}`);
       }
+      return () => handleClickCloseModal();
    }, [success]);
 
    return (

@@ -14,6 +14,9 @@ const TicketMuseumForm = () => {
    const leng = localStorage.getItem('lang');
    const { t, i18n } = useTranslation();
    const [countryVal, setCountryVal] = useState({});
+   const [region, setRegion] = useState('');
+   const [statusRegion, setStatusRegion] = useState(false);
+
    const dispatch = useDispatch();
    const ComboTicketsData = useSelector(getComboTicketsData);
 
@@ -21,11 +24,9 @@ const TicketMuseumForm = () => {
    const { dataItems, ticketLoading, responseMessages, ticketType } = useSelector(
       (state) => state.museumTicket,
    );
-
    const validationSchema = yup.object().shape({
       email: yup.string().email(t('validation_inp.0')).required(t('validation_inp.1')),
    });
-
    const handleRegister = (e, handleSubmit, isValid) => {
       handleSubmit();
       e.preventDefault();
@@ -74,25 +75,53 @@ const TicketMuseumForm = () => {
       }
    };
 
-   const handleChangeCountry = (val) => {
+   const handleChangeCountry = React.useCallback((val) => {
       setCountryVal({
          key: Object.keys(val)[0],
          values: Object.values(val)[0],
       });
-   };
+   }, []);
 
    const countries = t('country', { returnObjects: true });
+   const resSearchCountries = countries
+      .filter((obj) => {
+         if (Object.values(obj)[0].toLowerCase().includes(region.toLowerCase())) {
+            return true;
+         }
+         return false;
+      })
+      .map((el) => el);
+
+   const searchValue = React.useCallback(
+      (e) => {
+         const res = countries.filter(
+            (obj) => Object.values(obj)[0].toLowerCase() === e.target.value.toLowerCase(),
+         );
+         if (res.length) {
+            setCountryVal({
+               key: Object.keys(res[0])[0],
+               values: Object.values(res[0])[0],
+            });
+         }
+         setRegion(e.target.value);
+         setStatusRegion(true);
+      },
+      [countries],
+   );
+
    useEffect(() => {
       if (ticketLoading === 'rejected' && responseMessages) {
          dispatch(
             setNotificationStatus({
-               params: false,
+               species: false,
                open: true,
                messages: responseMessages,
             }),
          );
          setTimeout(() => {
-            dispatch(setNotificationStatus(null));
+            dispatch(
+               setNotificationStatus({ species: false, open: false, messages: responseMessages }),
+            );
          }, 8000);
       }
    }, [ticketLoading]);
@@ -201,14 +230,23 @@ const TicketMuseumForm = () => {
                               type="text"
                               name="country"
                               placeholder={t('placeholder.10')}
-                              value={countryVal?.values}
-                              onChange={handleChange}
+                              // placeholder={Object.values(countries[0])[0]}
+                              value={statusRegion ? region : countryVal?.values}
+                              onChange={(e) => {
+                                 handleChange(e);
+                                 searchValue(e);
+                              }}
                               onBlur={handleBlur}
                               className="formChild-inbut"
                            />
                            <div className="country_div">
-                              {countries.map((value, index) => (
-                                 <div key={index} onClick={() => handleChangeCountry(value)}>
+                              {resSearchCountries.map((value, index) => (
+                                 <div
+                                    key={index}
+                                    onClick={() => {
+                                       handleChangeCountry(value);
+                                       setStatusRegion(false);
+                                    }}>
                                     {Object.values(value)[0]}
                                  </div>
                               ))}
