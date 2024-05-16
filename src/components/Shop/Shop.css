@@ -200,6 +200,7 @@
 .shop-box_texts_div {
   margin: 8px 0 8px;
   text-align: start;
+  cursor: pointer;
 }
 .shop-box-price {
   color: #D5AA72;

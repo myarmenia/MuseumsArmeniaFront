@@ -163,7 +163,7 @@ function LoginPage() {
          </div>
          {openVerifyModal && <VerificationLogin email={emailRef} {...{setOpenVerifyModal}}/>}
 
-         
+        
       </div>
    );
 }
