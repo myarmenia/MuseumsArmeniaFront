@@ -276,7 +276,7 @@ useEffect(() => {
                     <div
                       className="shop-box"
                       key={index}
-                      onClick={() => navigate(`/${leng}/store/${el.id}`)}>
+                      >
                       <div className="shop-box_img">
                         <img src={el.image} alt={el.image} />
                         <div className="souvenir_item_add_cart_div">
@@ -294,7 +294,7 @@ useEffect(() => {
                           </div>
                         </div>
                       </div>
-                      <div className="shop-box_texts_div">
+                      <div className="shop-box_texts_div" onClick={() => navigate(`/${leng}/store/${el.id}`)}>
                         <p>{el.museum_name}</p>
                         <span className="shop-box-title">
                           {el.name?.length > 45 ? el.name.slice(0, 45) + '...' : el.name}

@@ -11,12 +11,14 @@ import { postLogin } from '../../store/slices/LoginSlice/LoginApi';
 import { postGoogleLogin } from '../../store/slices/GoogleLoginSlice/GoogleLoginApi';
 import { selectLogin } from '../../store/slices/LoginSlice/LoginSlice';
 import VerificationLogin from '../VerificationLogin/VerificationLogin';
+import { selectgoogleLogin } from '../../store/slices/GoogleLoginSlice/GoogleLoginSlice';
 
 function LoginPage() {
    const [openVerifyModal, setOpenVerifyModal] = useState(false)
    const leng = localStorage.getItem('lang');
    const { t, i18n } = useTranslation();
    const respLogin = useSelector(selectLogin);
+   const respGoogleLogin = useSelector(selectgoogleLogin);
    const emailRef = useRef(null)
    const dispatch = useDispatch();
 
@@ -148,6 +150,9 @@ function LoginPage() {
                               console.log('Login Failed');
                            }}
                         />
+
+                        {respGoogleLogin.data.error && <p className="login_error_message">{respGoogleLogin.data.error.message}</p>}
+                        
                      </form>
                   )}
                </Formik>
@@ -158,7 +163,7 @@ function LoginPage() {
          </div>
          {openVerifyModal && <VerificationLogin email={emailRef} {...{setOpenVerifyModal}}/>}
 
-         
+        
       </div>
    );
 }

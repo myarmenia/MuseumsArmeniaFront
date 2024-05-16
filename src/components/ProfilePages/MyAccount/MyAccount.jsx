@@ -98,7 +98,7 @@ function MyAccount() {
     setTimeout(() => {
       setEditProfilErrorMessage(false);
     }, 4000);
-    
+
   }, [respEditUser])
 
 
@@ -107,8 +107,12 @@ function MyAccount() {
     setTimeout(() => {
       setEditProfilErrorPass(false)
     }, 4000);
-    
+
   }, [respEditUserPass])
+
+  const foundCountry = countries.find(
+    item => authUser?.country_key === Object.keys(item)[0]
+  );
 
   return (
     <div className="MyAccount_all">
@@ -125,7 +129,17 @@ function MyAccount() {
 
             <div className={`dropdown ${isOpen ? 'menu-open' : ''}`}>
               <div className='select' onClick={toggleDropdown}>
-                <input name='country' className={`selected ${selectedOption.value ? '' : 'placeholder'}`} value={selectedOption.value || countries.find(item => authUser?.country_key === Object.keys(item)[0] ? Object.values(item)[0] : '')[authUser?.country_key]} placeholder={t('placeholder.10')} onBlur={IhandleChange} onChange={() => { }} />
+                {/* prev line */}
+                {/* <input name='country' className={`selected ${selectedOption.value ? '' : 'placeholder'}`} value={selectedOption.value || countries.find(item => authUser?.country_key === Object.keys(item)[0] ? Object.values(item)[0] : '')[authUser?.country_key]} placeholder={t('placeholder.10')} onBlur={IhandleChange} onChange={() => { }} /> */}
+
+                <input
+                  name='country'
+                  className={`selected ${selectedOption.value ? '' : 'placeholder'}`}
+                  value={selectedOption.value || (foundCountry ? Object.values(foundCountry)[0] : "")}
+                  placeholder={t('placeholder.10')}
+                  onBlur={IhandleChange}
+                  onChange={() => { }}
+                />
                 <div className={`caret ${isOpen ? 'caret-rotate' : ''}`}></div>
               </div>
               {
@@ -178,7 +192,8 @@ function MyAccount() {
           </div>
         </form>
 
-        <Formik
+        {
+          authUser.google_id === null  && <Formik
           initialValues={{
             confirmPassword: '',
             password: '',
@@ -217,7 +232,7 @@ function MyAccount() {
                 </div>
 
                 <div className='profile_edit_btn_div'>
-                {respEditUserPass?.message && editProfilErrorPass && <span style={{ color: respEditUserPass?.success ? 'green' : 'red' }} >{respEditUserPass?.message}</span>}
+                  {respEditUserPass?.message && editProfilErrorPass && <span style={{ color: respEditUserPass?.success ? 'green' : 'red' }} >{respEditUserPass?.message}</span>}
                   <button className='profile_edit_btn'>{t('my_account_page.5')}</button>
                 </div>
 
@@ -225,6 +240,7 @@ function MyAccount() {
             )
           }
         </Formik>
+        }
         <div className="log_out_myAccount" onClick={handleLogOut}>
           <img src={logOutGray} alt="logOutGray" />
           <span>{t('my_account_page.6')}</span>

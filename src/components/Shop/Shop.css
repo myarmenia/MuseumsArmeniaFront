@@ -200,6 +200,7 @@
 .shop-box_texts_div {
   margin: 8px 0 8px;
   text-align: start;
+  cursor: pointer;
 }
 .shop-box-price {
   color: #D5AA72;
@@ -270,7 +271,7 @@
 
 .all_Shop_Content{
   background-color: #FFFFFF;
-  padding: 30px;
+  padding: 50px;
   width: 100%;
   display: flex;
   flex-direction: column;

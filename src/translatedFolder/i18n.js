@@ -35,7 +35,7 @@ i18n.use(initReactI18next).init({
                'Գնել տոմս',
                'Աբոնեմենտ',
                'Գրեք մեզ',
-               'Զամբյուղում',
+               'Զամբյուղ',
             ],
 
             footer_title: 'ՀՀ Կրթության Գիտության Մշակույթի և Սպորտի նախարարություն',
@@ -619,7 +619,18 @@ i18n.use(initReactI18next).init({
 
             qr_modal: ['Ներբեռնել', 'Տպել', 'Ուղարկել նամակ'],
 
-            shop_page_title: ['ԽԱՆՈՒԹ', 'Հայաստանի բոլոր թանգարանների արտադրանքը'],
+
+            qr_modal: [
+               'Ներբեռնել',
+               'Տպել',
+               'Ուղարկել նամակ'
+            ],
+
+            shop_page_title: [
+               'ԽԱՆՈՒԹ',
+               'Հայաստանի թանգարանների ապրանքները'
+            ],
+
 
             shop_search: 'Որոնում',
 
@@ -633,7 +644,12 @@ i18n.use(initReactI18next).init({
             shop_all_category: 'Բոլոր կատեգորիաները',
             shop_all_Museums: 'Բոլոր Թանգարանները',
 
-            news_titles: ['Նորություններ', 'Հայկական մշակութային նորություններ', 'Որոնում'],
+
+            news_titles:[
+               'Նորություններ',
+               'ԿԳՄՍ նախարարության նորություններ',
+               'Որոնում'
+            ],
 
             contactUsPage: [
                'ԿԱՊ ՄԵԶ ՀԵՏ',
@@ -1260,17 +1276,25 @@ i18n.use(initReactI18next).init({
             shop_search: 'Поиск',
 
             shop_product_category: [
-               { book: 'Книга' },
-               { souvenir: 'Сувенир' },
-               { clothes: 'Одежда' },
-               { other: 'Другой' },
+
+               {book: 'Книга' },
+               {souvenir: 'Сувенир' },
+               {clothes: 'Одежда' },
+               {other: 'Другое' },
+
             ],
 
             shop_all_category: 'Все категории',
 
             shop_all_Museums: 'Все музеи',
 
-            news_titles: ['Новости', 'Новости армянской культуры', 'Поиск'],
+
+            news_titles:[
+               'Новости',
+               'Новости МОНКС',
+               'Поиск'
+            ],
+
 
             contactUsPage: [
                'СВЯЗАТЬСЯ С НАМИ',
@@ -1892,7 +1916,13 @@ i18n.use(initReactI18next).init({
 
             shop_all_Museums: 'All Museums',
 
-            news_titles: ['News', 'Armenian cultural news', 'Search'],
+
+            news_titles:[
+               'News',
+               'News of MESCS',
+               'Search'
+            ],
+
 
             contactUsPage: [
                'CONTACT WITH US',
