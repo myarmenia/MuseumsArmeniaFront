@@ -610,13 +610,14 @@ i18n.use(initReactI18next).init({
             ],
 
             notificationMessages: [
-               'Ձեր փոփոխությունները հաջողությամբ պահպանվել են։',
-               'Ձեր փոփոխություններն այս պահին չեն կարող պահպանվել:Խնդրում եմ փորձեք մի փոքր ուշ.',
+               'Ձեր վճարումը հաջողությամբ կատարվեց: Ստուգեք Ձեր էլ.փոստը:',
+               'Ձեր վճարումը ձախողվել է:Խնդրում եմ փորձեք մի փոքր ուշ.',
             ],
-
 
             start_date: 'Սկիզբ',
             end_date: 'Ավարտ',
+
+            qr_modal: ['Ներբեռնել', 'Տպել', 'Ուղարկել նամակ'],
 
 
             qr_modal: [
@@ -630,6 +631,7 @@ i18n.use(initReactI18next).init({
                'Հայաստանի թանգարանների ապրանքները'
             ],
 
+
             shop_search: 'Որոնում',
 
             shop_product_category: [
@@ -641,6 +643,7 @@ i18n.use(initReactI18next).init({
 
             shop_all_category: 'Բոլոր կատեգորիաները',
             shop_all_Museums: 'Բոլոր Թանգարանները',
+
 
             news_titles:[
                'Նորություններ',
@@ -654,12 +657,10 @@ i18n.use(initReactI18next).init({
                'ՀԱՍՑԵ',
                'ՀՀ, Երևան 0010, Վազգեն Սարգսյան 3 Կառավարական տուն 2',
                'ՀԵՌԱԽՈՍԻ ՀԱՄԱՐ',
-               'ԷԼ․ՓՈՍՏ',             
+               'ԷԼ․ՓՈՍՏ',
             ],
 
-            united_ticketPage_title: 'Միասնական տոմսը ուժի մեջ է 365 օր և վերադարձման ենթակա չէ'
-
-
+            united_ticketPage_title: 'Միասնական տոմսը ուժի մեջ է 365 օր և վերադարձման ենթակա չէ',
          },
       },
 
@@ -1265,35 +1266,28 @@ i18n.use(initReactI18next).init({
                'В настоящее время ваши изменения не могут быть сохранены.Пожалуйста, повторите попытку позже.',
             ],
 
-
             start_date: 'Дата начала',
             end_date: 'Дата окончания',
 
-            qr_modal: [
-               'Скачать',
-               'Печать',
-               'Отправить письмо'
-            ],
+            qr_modal: ['Скачать', 'Печать', 'Отправить письмо'],
 
-
-            shop_page_title: [
-               'МАГАЗИН',
-               'Товары всех музеев Армении'
-            ],
+            shop_page_title: ['МАГАЗИН', 'Товары всех музеев Армении'],
 
             shop_search: 'Поиск',
 
-
             shop_product_category: [
+
                {book: 'Книга' },
                {souvenir: 'Сувенир' },
                {clothes: 'Одежда' },
                {other: 'Другое' },
+
             ],
 
             shop_all_category: 'Все категории',
 
             shop_all_Museums: 'Все музеи',
+
 
             news_titles:[
                'Новости',
@@ -1301,19 +1295,18 @@ i18n.use(initReactI18next).init({
                'Поиск'
             ],
 
+
             contactUsPage: [
                'СВЯЗАТЬСЯ С НАМИ',
                'Министерство образования, науки, культуры и спорта',
                'АДРЕС:',
                'РА, Ереван 0010, Вазгена Саргсяна 3 Дом Правительства 2:',
                'Номер телефона',
-               'ЭЛ. АДРЕС:',             
+               'ЭЛ. АДРЕС:',
             ],
 
-            united_ticketPage_title: 'Единый билет действителен в течение 365 дней и не подлежит возврату.'
-
-
-
+            united_ticketPage_title:
+               'Единый билет действителен в течение 365 дней и не подлежит возврату.',
          },
       },
       en: {
@@ -1893,8 +1886,7 @@ i18n.use(initReactI18next).init({
                'Status',
                'Pending',
                'Confirmed',
-               'Order History'
-
+               'Order History',
             ],
 
             profil_side_bar: ['My account', 'Messages', 'Orders', 'QR code', 'Notifications'],
@@ -1904,35 +1896,26 @@ i18n.use(initReactI18next).init({
                'Your changes cannot be saved at this time.Please try again later.',
             ],
 
-
             start_date: 'Start date',
             end_date: 'End date',
 
-            qr_modal: [
-               'Download',
-               'Print',
-               'Send email'
-            ],
+            qr_modal: ['Download', 'Print', 'Send email'],
 
-
-            shop_page_title: [
-               'SHOP',
-               'Products of all museums in Armenia'
-            ],
+            shop_page_title: ['SHOP', 'Products of all museums in Armenia'],
 
             shop_search: 'Search',
-            
 
             shop_product_category: [
-               {book: 'Book' },
-               {souvenir: 'Souvenir' },
-               {clothes: 'Clothes' },
-               {other: 'other' },
+               { book: 'Book' },
+               { souvenir: 'Souvenir' },
+               { clothes: 'Clothes' },
+               { other: 'other' },
             ],
 
             shop_all_category: 'All Categories',
 
-            shop_all_Museums: "All Museums",
+            shop_all_Museums: 'All Museums',
+
 
             news_titles:[
                'News',
@@ -1940,19 +1923,18 @@ i18n.use(initReactI18next).init({
                'Search'
             ],
 
+
             contactUsPage: [
-               "CONTACT WITH US",
-               "Ministry of Education, Science, Culture and Sports",
+               'CONTACT WITH US',
+               'Ministry of Education, Science, Culture and Sports',
                'ADDRESS',
-               "Government House 2, Vazgen Sargsyan 3, Yerevan 0010, Armenia",
+               'Government House 2, Vazgen Sargsyan 3, Yerevan 0010, Armenia',
                'Phone number',
-               "E-mail",
+               'E-mail',
             ],
 
-            united_ticketPage_title: "The single ticket is valid for 365 days and is non-refundable."
-
-
-
+            united_ticketPage_title:
+               'The single ticket is valid for 365 days and is non-refundable.',
          },
       },
    },

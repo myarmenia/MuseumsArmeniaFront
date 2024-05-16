@@ -77,10 +77,7 @@ function App() {
                         : t(`notificationMessages.1`),
                }),
             );
-         }, 3000);
-         setTimeout(() => {
-            dispatch(setNotificationStatus(null));
-         }, 8000);
+         }, 2000);
       }
    }, []);
 

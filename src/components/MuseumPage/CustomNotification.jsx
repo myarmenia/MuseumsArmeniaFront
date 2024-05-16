@@ -1,10 +1,31 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNotificationStatus } from '../../store/slices/MuseumPagesSlice/MuseumPagesSlice';
 
 import { CrossIcon, CheckMarkIcon } from '../../iconFolder/icon';
 
 const CustomNotification = () => {
    const { notificationStatus } = useSelector((state) => state.museumPages);
+   const dispatch = useDispatch();
+
+   const notificationStatusRef = React.useRef(notificationStatus);
+
+   React.useEffect(() => {
+      notificationStatusRef.current = notificationStatus;
+   }, [notificationStatus]);
+
+   React.useEffect(() => {
+      const timeoutId = setTimeout(() => {
+         dispatch(
+            setNotificationStatus({
+               open: false,
+               species: notificationStatusRef.current?.species,
+               messages: notificationStatusRef?.messages,
+            }),
+         );
+      }, 8000);
+      return () => clearTimeout(timeoutId);
+   }, []);
    return (
       <div
          className="CustomNotification-par"
