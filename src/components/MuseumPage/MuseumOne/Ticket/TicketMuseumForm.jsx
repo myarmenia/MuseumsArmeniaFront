@@ -24,11 +24,9 @@ const TicketMuseumForm = () => {
    const { dataItems, ticketLoading, responseMessages, ticketType } = useSelector(
       (state) => state.museumTicket,
    );
-
    const validationSchema = yup.object().shape({
       email: yup.string().email(t('validation_inp.0')).required(t('validation_inp.1')),
    });
-
    const handleRegister = (e, handleSubmit, isValid) => {
       handleSubmit();
       e.preventDefault();
