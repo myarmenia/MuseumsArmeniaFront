@@ -124,7 +124,7 @@ function SingleShop() {
         <div className="all_singleShopp">
           <div className="container">
 
-          <div className='lines_div_event'>
+            <div className='lines_div_event'>
               <div>
                 <img src={require('../../images/Line 106.png')} alt="" />
                 <h2>{t('shop_page_title.0')}</h2>
@@ -144,7 +144,7 @@ function SingleShop() {
                 />
                 <div className="singleShop_top_right">
                   <h2>{singleShopDatas.name}</h2>
-                  <p style={{ color: '#00000080' }}>առկա է - {singleShopDatas.quantity}</p>
+                  <p style={{ color: '#00000080' }}>{t('single_shop.0')} {singleShopDatas.quantity}</p>
                   <div className="number_and_button">
                     <p className="singleShop_top_right_kategoria">
                       {t('single_shop_page.1')}: {singleShopDatas.product_category_id}
@@ -182,7 +182,7 @@ function SingleShop() {
                     </div>
                   </div> */}
                     <p className="singleShop_top_right_price">
-                      Price{' '}
+                      {t('single_shop.1')}{' '}
                       <span className="price_color">
                         {singleShopDatas.price} {t('single_shop_page.0')}
                       </span>
@@ -197,7 +197,8 @@ function SingleShop() {
                         singleShopDatas.museum_name,
                         number,
                       )}>
-                      Add to card
+                      {t('buttons.3')}
+
                     </div>
                     {/* <ButtonSecond
                     txt={3}
@@ -218,15 +219,15 @@ function SingleShop() {
                 <div className="singleShop_bottom_divs">
                   {singleShopDatas?.similar_products && singleShopDatas.similar_products.length != 0
                     ? singleShopDatas.similar_products.map((el, index) => (
-                        <div
-                          className="shop-box-singleShop"
-                          key={index}
-                          onClick={() => SinglePage(el.id)}>
-                          <div className="shop-box_img_singleShop">
-                            <img src={el.image} alt={el.image} />
+                      <div
+                        className="shop-box-singleShop"
+                        key={index}
+                        onClick={() => SinglePage(el.id)}>
+                        <div className="shop-box_img_singleShop">
+                          <img src={el.image} alt={el.image} />
 
-                            <div className="souvenir_item_add_cart_div">
-                              {/* <ButtonSecond
+                          <div className="souvenir_item_add_cart_div">
+                            {/* <ButtonSecond
                                 txt="3"
                                 onClick={handleClickOpenModal(
                                   el.id,
@@ -236,28 +237,28 @@ function SingleShop() {
                                   el.museum_name,
                                 )}
                               /> */}
-                              <div
-                                className="shop-box_button"
-                                onClick={handleClickOpenModal(
-                                  el.id,
-                                  el.image,
-                                  el.name,
-                                  el.price,
-                                  el.museum_name,
-                                )}>
-                                Add to card
-                              </div>
+                            <div
+                              className="shop-box_button"
+                              onClick={handleClickOpenModal(
+                                el.id,
+                                el.image,
+                                el.name,
+                                el.price,
+                                el.museum_name,
+                              )}>
+                              {t('buttons.3')}
                             </div>
                           </div>
-
-                          <div className="shop-box_texts_div">
-                            <p className="shop-box-title">
-                              {el.name?.length > 35 ? el.name.slice(0, 35) + '...' : el.name}
-                            </p>
-                            <p className="shop-box-price">{el.price}</p>
-                          </div>
                         </div>
-                      ))
+
+                        <div className="shop-box_texts_div">
+                          <p className="shop-box-title">
+                            {el.name?.length > 35 ? el.name.slice(0, 35) + '...' : el.name}
+                          </p>
+                          <p className="shop-box-price">{el.price}</p>
+                        </div>
+                      </div>
+                    ))
                     : t('single_shop_page.3')}
                 </div>
               </div>
