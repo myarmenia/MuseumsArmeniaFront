@@ -20,6 +20,7 @@ import {
    postAllBasketDataDoingPurchase,
 } from '../../store/slices/Shop/ShopApi';
 import Trash from '../../images/Trash.svg';
+import { customBasesUrlFunc } from '../MuseumPage/customBasesUrlFunc';
 
 const customStyles = {
    content: {
@@ -94,19 +95,21 @@ function CardModal() {
             quantity: el.quantity,
          });
       });
-      console.log('arr', arr);
+
       let sendObj = {
          request_type: 'cart',
          request_name: 'web',
+         redirect_url: customBasesUrlFunc().baseUrl,
          items: arr,
       };
-      console.log('sendObj', sendObj);
-      dispatch(postAllBasketDataDoingPurchase(sendObj)).then((res) => {
-         if (res.meta.requestStatus === 'fulfilled') {
-            // console.log('RedirectUrl', res.payload.data.redirect_url);
-            window.location.href = res.payload.data.redirect_url;
-         }
-      });
+
+      dispatch(postAllBasketDataDoingPurchase(sendObj));
+      // .then((res) => {
+      //    if (res.meta.requestStatus === 'fulfilled') {
+      //       // console.log('RedirectUrl', res.payload.data.redirect_url);
+      //       window.location.href = res.payload.data.redirect_url;
+      //    }
+      // });
    };
 
    /////////////shop length/////////////////
@@ -234,7 +237,7 @@ function CardModal() {
                {/* <p>total {countProductBasket}</p> */}
             </div>
             <div className="checkout_btn" onClick={sendBakstAllDataPayment}>
-               Checkout
+               Checkout ...
             </div>
          </div>
       </Modal>
