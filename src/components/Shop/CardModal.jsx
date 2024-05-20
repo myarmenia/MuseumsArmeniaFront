@@ -56,7 +56,7 @@ function CardModal() {
    const AllBasketData = useSelector(getSetAllBasketData);
    const productLength = useSelector(getProductLength);
    const RedirectUrl = useSelector(getRedirectUrl);
-
+   console.log(AllBasketData, 9999);
    useEffect(() => {
       document.body.style.overflow = ModalIsOpenShop ? 'hidden' : 'auto';
       return () => (document.body.style.overflow = 'auto');
@@ -89,11 +89,20 @@ function CardModal() {
          });
       });
       AllBasketData.tickets.map((el, index) => {
-         arr.push({
-            type: el.type,
-            id: el.ticket_id,
-            quantity: el.quantity,
-         });
+         if (el.type === 'united') {
+            arr.push({
+               type: el.type,
+               id: el.ticket_id,
+               quantity: el.quantity,
+               museum_ids: el.museum_ids,
+            });
+         } else {
+            arr.push({
+               type: el.type,
+               id: el.ticket_id,
+               quantity: el.quantity,
+            });
+         }
       });
 
       let sendObj = {
