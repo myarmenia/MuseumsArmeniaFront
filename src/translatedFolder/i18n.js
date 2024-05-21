@@ -661,6 +661,11 @@ i18n.use(initReactI18next).init({
             ],
 
             united_ticketPage_title: 'Միասնական տոմսը ուժի մեջ է 365 օր և վերադարձման ենթակա չէ',
+
+            single_shop: [
+               'առկա է - ',
+               'Գին '
+            ],
          },
       },
 
@@ -1307,6 +1312,11 @@ i18n.use(initReactI18next).init({
 
             united_ticketPage_title:
                'Единый билет действителен в течение 365 дней и не подлежит возврату.',
+
+               single_shop: [
+                  'доступен -',
+                  'Цена '
+               ],
          },
       },
       en: {
@@ -1935,6 +1945,11 @@ i18n.use(initReactI18next).init({
 
             united_ticketPage_title:
                'The single ticket is valid for 365 days and is non-refundable.',
+
+               single_shop: [
+                  'is available - ',
+                  'Price '
+               ],
          },
       },
    },
