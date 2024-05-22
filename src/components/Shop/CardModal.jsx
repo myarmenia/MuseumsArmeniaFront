@@ -112,13 +112,12 @@ function CardModal() {
          items: arr,
       };
 
-      dispatch(postAllBasketDataDoingPurchase(sendObj));
-      // .then((res) => {
-      //    if (res.meta.requestStatus === 'fulfilled') {
-      //       // console.log('RedirectUrl', res.payload.data.redirect_url);
-      //       window.location.href = res.payload.data.redirect_url;
-      //    }
-      // });
+      dispatch(postAllBasketDataDoingPurchase(sendObj)).then((res) => {
+         if (res.meta.requestStatus === 'fulfilled') {
+            // console.log('RedirectUrl', res.payload.data.redirect_url);
+            window.location.href = res.payload.data.redirect_url;
+         }
+      });
    };
 
    /////////////shop length/////////////////
