@@ -6,6 +6,7 @@ import Card from '../../images/Card.svg';
 import Notificationn from '../../images/Notificationn.svg';
 import { chatIcon, myAccountIcon, notficationIcon, orderHistoryIcon, qrCodeIcon } from '../../iconFolder/icon';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 
 export const ProfileSidebarArrll = () => {
   const { t } = useTranslation();
@@ -45,28 +46,22 @@ export const ProfileSidebarArrll = () => {
 };
 
 
+export function downloadImage(path) {
+  axios({
+      url: path,
+      method: 'GET',
+      responseType: 'blob'
+  })
+      .then((response) => {
+          const url = window.URL
+              .createObjectURL(new Blob([response.data]));
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', 'image.jpg');
+          document.body.appendChild(link);
+          link.click();
+      })
+}
 
-export const downloadImage = async (imageUrl) => {
-    try {
-      const response = await fetch(imageUrl);
   
-      if (!response.ok) {
-        throw new Error('Failed to download image');
-      }
 
-      const imageBlob = await response.blob();
-  
-      const imageURL = URL.createObjectURL(imageBlob);
-  
-      const link = document.createElement('a');
-      link.href = imageURL;
-      link.download = 'image.jpg';
-  
-      document.body.appendChild(link);
-      link.click();
-
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error('Error downloading image:', error);
-    }
-  };
