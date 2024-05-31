@@ -604,7 +604,7 @@ i18n.use(initReactI18next).init({
                'Գնման ամսաթիվը',
                'Գին',
                'Կարգավիճակ',
-               'Սպասվում է',
+               'Ձախողվել է',
                'Հաստատված',
                'Պատվերների պատմություն',
             ],
@@ -666,6 +666,8 @@ i18n.use(initReactI18next).init({
                'առկա է - ',
                'Գին '
             ],
+
+            chat_empty_message: 'Դուք դեռ հաղորդագրություններ չունեք։'
          },
       },
 
@@ -1261,7 +1263,7 @@ i18n.use(initReactI18next).init({
                'Дата покупки',
                'Цена',
                'Положение дел',
-               'Ожидается',
+               'Неуспешный',
                'Подтвержденный',
                'История заказов',
             ],
@@ -1276,7 +1278,7 @@ i18n.use(initReactI18next).init({
 
             qr_modal: ['Скачать', 'Печать', 'Отправить письмо'],
 
-            shop_page_title: ['МАГАЗИН', 'Товары всех музеев Армении'],
+            shop_page_title: ['МАГАЗИН', 'Товары  музеев Армении'],
 
             shop_search: 'Поиск',
 
@@ -1317,6 +1319,8 @@ i18n.use(initReactI18next).init({
                   'доступен -',
                   'Цена '
                ],
+
+               chat_empty_message: 'У вас пока нет сообщений.'
          },
       },
       en: {
@@ -1894,7 +1898,7 @@ i18n.use(initReactI18next).init({
                'Purchase date',
                'Price',
                'Status',
-               'Pending',
+               'Failed',
                'Confirmed',
                'Order History',
             ],
@@ -1911,7 +1915,7 @@ i18n.use(initReactI18next).init({
 
             qr_modal: ['Download', 'Print', 'Send email'],
 
-            shop_page_title: ['SHOP', 'Products of all museums in Armenia'],
+            shop_page_title: ['SHOP', 'Products of museums in Armenia'],
 
             shop_search: 'Search',
 
@@ -1950,6 +1954,8 @@ i18n.use(initReactI18next).init({
                   'is available - ',
                   'Price '
                ],
+
+               chat_empty_message: 'You have no messages yet.'
          },
       },
    },

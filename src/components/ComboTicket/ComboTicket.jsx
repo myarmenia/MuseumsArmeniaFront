@@ -22,6 +22,7 @@ import { useNavigate } from 'react-router-dom';
 import { setModalIsOpenShop } from '../../store/slices/Shop/ShopSlice';
 import CardModal from '../Shop/CardModal';
 import { useTranslation } from 'react-i18next';
+import LoadSpinner from '../LoadSpinner/LoadSpinner';
 
 function ComboTicket() {
    const { t, i18n } = useTranslation();
@@ -41,14 +42,17 @@ function ComboTicket() {
       type: null,
       quantity: null,
    });
-   // const initialTotalPriceRef = useRef(totalPrice);
 
    useEffect(() => {
       dispatch(getComboTickets());
+      
+      window.scrollTo({
+         top: 0,
+         left: 100,
+       });
    }, []);
 
    useEffect(() => {
-      // Calculate the total price based on the selected items
       const newTotalPrice = selectedItemIds.reduce((acc, itemId) => {
          const selectedItem = ComboTickets.data.find((el) => el.id === itemId);
          if (selectedItem) {
@@ -57,7 +61,6 @@ function ComboTicket() {
          return acc;
       }, 0);
 
-      // Update the total price state
       setTotalPrice(newTotalPrice);
    }, [selectedItemIds, ComboTickets.data, count]);
 
@@ -77,11 +80,7 @@ function ComboTicket() {
    const plusButton = () => {
       setCount((prevCount) => {
          if (prevCount < ComboTickets.params.max_ticket_quantity) {
-            // Increment the count
             const newCount = prevCount + 1;
-            // console.log("initialTotalPrice.current",initialTotalPriceRef.current);
-            // Update the total price by multiplying with the initial total price
-            // setTotalPrice(initialTotalPriceRef.current * newCount);
             return newCount;
          } else {
             return ComboTickets.params.max_ticket_quantity;
@@ -167,7 +166,7 @@ function ComboTicket() {
       <>
          {loading ? (
             <div style={{ display: 'flex', justifyContent: 'center', minHeight: '100vh' }}>
-               loading...
+               <LoadSpinner fullBackColor="white"/>
             </div>
          ) : (
             <div className="ComboTicket_all">

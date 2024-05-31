@@ -182,7 +182,7 @@ function RegisterPage() {
                                             <div className='age_and_country_div'>
                                                 <span>{t('register_text.4')}</span>
                                                 <div className="country-inp">
-                                                    <input type="text" name="country" placeholder={t('placeholder.9')} value={countryVal} onChange={handleChange} onBlur={handleBlur} />
+                                                    <input type="text" name="country" placeholder={t('placeholder.10')} value={countryVal}  onChange={handleChange} onBlur={handleBlur} />
                                                     <div className='country_div'>
                                                             
                                                             {

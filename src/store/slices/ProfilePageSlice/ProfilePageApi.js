@@ -3,15 +3,15 @@ import instance from '../../../axios';
 
 export const getNotification = createAsyncThunk(
   'notification/getNotification',
-  async (_, thunkAPI) => {
+  async (page, thunkAPI) => {
     try {
       const config = {
         method: 'get',
-        url: 'auth/notification/unread',
+        url: `auth/notification/unread?page=${page}`,
       };
 
       const response = await instance(config);
-      return response?.data.data;
+      return response?.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.error.both);
     }

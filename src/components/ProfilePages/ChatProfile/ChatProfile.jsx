@@ -174,7 +174,7 @@ function ChatProfile() {
                               src={require('../../../images/message_img.png')}
                               alt="empty message"
                            />
-                           <h2>Դուք չունեք հաղոորթագրություններ</h2>
+                           <h2>{t('chat_empty_message')}</h2>
                         </div>
                      ) : (
                         <div className="empty_messages">
@@ -257,7 +257,7 @@ function ChatProfile() {
                ) : chatProfileDates.every((el) => el.messages.length == 0) ? (
                   <div className="empty_messages">
                      <img src={require('../../../images/message_img.png')} alt="empty message" />
-                     <h2>Դուք չունեք հաղոորթագրություններ</h2>
+                     <h2>{t('chat_empty_message')}</h2>
                   </div>
                ) : (
                   <div className="empty_messages">

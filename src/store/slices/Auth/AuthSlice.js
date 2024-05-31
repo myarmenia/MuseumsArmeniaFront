@@ -18,15 +18,15 @@ export const authSlice = createSlice({
     },
     setIsAuth: (state, action) => {
       state.isAuth = action.payload;
+      
     },
   },
 
   extraReducers: (builder) => {
     builder
       .addCase(postLogin.fulfilled, (state, action) => {
-        state.authUser = action.payload.authUser;
+        state.authUser = action.payload.authUser; 
         state.isAuth = true;
-        console.log(state.isAuth,'janjan');
       })
       
     .addCase(getCurrentUser.fulfilled, (state, action) => {
