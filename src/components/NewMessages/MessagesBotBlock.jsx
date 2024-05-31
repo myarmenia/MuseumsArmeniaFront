@@ -59,7 +59,7 @@ const MessagesBotBlock = ({ messagesUser, resetMessages }) => {
                                  : '',
                         }}
                         className="">
-                        {idx + 1}.{t(`${item}`)}
+                        - {t(`${item}`)}
                      </span>
                   ))}
                </li>
