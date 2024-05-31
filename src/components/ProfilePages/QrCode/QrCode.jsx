@@ -5,17 +5,20 @@ import download from '../../../images/download.svg';
 import sendEmail from '../../../images/sendEmail.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { getQr, postQrItem } from '../../../store/slices/ProfilePageSlice/ProfilePageApi';
-import { selectQrData } from '../../../store/slices/ProfilePageSlice/ProfilePageSlice';
+import { selectQrData, selectQrResult } from '../../../store/slices/ProfilePageSlice/ProfilePageSlice';
 import { LocationIcon, setingIcon } from '../../../iconFolder/icon';
 import { useTranslation } from 'react-i18next';
 import { downloadImage } from '../../../helper/ProfileSidebarHelp/ProfileSidebarHelp';
 import { Link } from 'react-router-dom';
+import OutSideErrorModal from '../../OutSideErrorModal/OutSideErrorModal';
 
 function QrCode() {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const respQrData = useSelector(selectQrData);
+  const respQrResult = useSelector(selectQrResult)
   const [modalOpen, setModalOpen] = useState(false);
+  const [qrMessage, setQrMessage] = useState(false);
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -46,6 +49,15 @@ function QrCode() {
   };
 
   const ticketsType_for_private = t('ticketsType_for_private', { returnObjects: true });
+
+  useEffect(()=> {
+    if(respQrResult.success) {
+      setQrMessage(true);
+    setTimeout(() => {
+        setQrMessage(false);
+      }, 4000); 
+    }
+  },[respQrResult])
 
   return (
     <div className="QrCode_all">
@@ -97,6 +109,8 @@ function QrCode() {
           ))}
         </div>
       </div>
+      { respQrResult.success && qrMessage && <OutSideErrorModal txt={respQrResult.message} shadow={true}/>}
+      {console.log(respQrResult, '55', qrMessage)}
     </div>
   );
 }

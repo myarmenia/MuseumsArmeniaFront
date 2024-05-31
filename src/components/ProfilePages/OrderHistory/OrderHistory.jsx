@@ -105,6 +105,7 @@ function OrderHistory() {
           </div>) : <h3 style={{ fontWeight: '100' }}>{t('single_shop_page.3')}</h3>}
         </div>
       </div>
+      
     </>
   );
 }

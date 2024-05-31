@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './MyAccount.css';
 import logOutGray from '../../../images/logOutGray.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAuthUser } from '../../../store/slices/Auth/AuthSlice';
+import { getAuthUser, setAuth } from '../../../store/slices/Auth/AuthSlice';
 import { useTranslation } from 'react-i18next';
 import { postChangeUserPass, postEditUser } from '../../../store/slices/ProfilePageSlice/ProfilePageApi';
 import * as yup from 'yup';
@@ -27,8 +27,6 @@ function MyAccount() {
   const [viewConfirmPassword, setConfirmViewPassword] = useState(true)
   const [viewCurrentPassword, setViewCurrentPassword] = useState(true)
 
-
-  console.log(respEditUser, 'ggg');
   const dispatch = useDispatch()
 
   const validationSchema = yup.object().shape({
@@ -60,7 +58,6 @@ function MyAccount() {
   const IhandleChange = (e) => {
     const inpName = e.target.name;
     const inputValue = e.target.value;
-    console.log(inputValue, 'ayo');
     if (inpName !== 'country') {
       setNewInfo({ ...newInfo, [inpName]: inputValue });
     }
@@ -72,8 +69,12 @@ function MyAccount() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    newInfo && dispatch(postEditUser(newInfo))
+    newInfo &&  dispatch(postEditUser(newInfo))
   }
+
+  useEffect(() => {
+    respEditUser.user &&  dispatch(setAuth(respEditUser.user))
+  }, [newInfo, respEditUser])
 
 
   const handleChangePassword = (e, handleSubmit, isValid) => {
@@ -193,7 +194,8 @@ function MyAccount() {
         </form>
 
         {
-          authUser.google_id === null  && <Formik
+          
+          authUser.google_id == null ? <Formik
           initialValues={{
             confirmPassword: '',
             password: '',
@@ -239,7 +241,8 @@ function MyAccount() {
               </form>
             )
           }
-        </Formik>
+        </Formik> : ''
+        
         }
         <div className="log_out_myAccount" onClick={handleLogOut}>
           <img src={logOutGray} alt="logOutGray" />
