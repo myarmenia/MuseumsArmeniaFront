@@ -45,7 +45,6 @@ function ComboTicket() {
 
    useEffect(() => {
       dispatch(getComboTickets());
-      
       window.scrollTo({
          top: 0,
          left: 100,

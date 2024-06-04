@@ -83,7 +83,7 @@ function OrderHistory() {
                         {
                           ticketsType_for_private.map(ticket => {
                             if (Object.keys(ticket)[0] === order.type) {
-                              return <span key={order.id}>{Object.values(ticket)[0]}</span>
+                              return <span key={order.id}>{Object.values(ticket)[0]}  {order.product_name && ('/ ' + order.product_name) }</span>
                             }
                           })
                         }
