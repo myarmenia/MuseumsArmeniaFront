@@ -219,18 +219,18 @@ function MyAccount() {
                 <div className="profile_edit_password_inp input_div">
                   <input type={viewCurrentPassword ? 'password' : 'text'} name="currentPassword" placeholder={t('placeholder.9')} value={values.currentPassword} onChange={handleChange} onBlur={handleBlur} />
                   <span onClick={() => setViewCurrentPassword(!viewCurrentPassword)}>{eyeIcon}</span>
-                  {touched.currentPassword && errors.currentPassword && <p className="error">{errors.currentPassword}</p>}
+                  {touched.currentPassword && errors.currentPassword && <p className="error_formik">{errors.currentPassword}</p>}
                 </div>
                 <div className="profile_edit_password_inp input_div">
                   <input type={viewPassword ? 'password' : 'text'} name="password" placeholder={t('placeholder.1')} value={values.password} onChange={handleChange} onBlur={handleBlur} />
                   <span onClick={() => setViewPassword(!viewPassword)}>{eyeIcon}</span>
-                  {touched.password && errors.password && <p className="error">{errors.password}</p>}
+                  {touched.password && errors.password && <p className="error_formik">{errors.password}</p>}
                 </div>
 
                 <div className="profile_confirm-password-inp input_div">
                   <input type={viewConfirmPassword ? 'password' : 'text'} name="confirmPassword" placeholder={t('placeholder.6')} value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur} />
                   <span onClick={() => setConfirmViewPassword(!viewConfirmPassword)}>{eyeIcon}</span>
-                  {touched.confirmPassword && errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
+                  {touched.confirmPassword && errors.confirmPassword && <p className="error_formik">{errors.confirmPassword}</p>}
                 </div>
 
                 <div className='profile_edit_btn_div'>

@@ -67,7 +67,7 @@ function ResetSendEmailPage() {
                                             </div>
                                             <div className="email-inp">
                                                 <input  ref={emailRef} type="email" name="email" placeholder={t('placeholder.0')} value={values.email} onChange={handleChange} onBlur={handleBlur} />
-                                                {touched.email && errors.email && <p className="error">{errors.email}</p>}
+                                                {touched.email && errors.email && <p className="error_formik">{errors.email}</p>}
                                             </div>
 
                                             {respForgotPass.data.error && <p className="login_error_message">{respForgotPass.data.error.message}</p>}

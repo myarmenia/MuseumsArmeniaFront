@@ -39,7 +39,7 @@ const MuseumOneDescription = ({
 
    return (
       <div className="museumOne_pageStyle">
-         {openBtn && (
+         {/* {openBtn && (
             <ButtonSecond
                txt="9"
                minWidth="210px"
@@ -49,7 +49,7 @@ const MuseumOneDescription = ({
                onClick={() => handleClickTicket('ticket', 'Buy Ticket')}
                newClass="newStyleBtn"
             />
-         )}
+         )} */}
          {/* <h4 className="museumOne_title">{t(`description_museum`)}...</h4> */}
          <p>{description}</p>
          {photos.length > 0 && (

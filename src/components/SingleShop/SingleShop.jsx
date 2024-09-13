@@ -29,10 +29,8 @@ function SingleShop() {
   const params = useParams();
   const dispatch = useDispatch();
   const singleShopDatas = useSelector(getSingleShopDatas);
-  // const loading = useSelector(getSingleShopLoading);
   const loading = useSelector(getSingleShopLoading);
-  // const [errorText, setErrorText] = useState(false);
-  // const [deactivate, setDeactivate] = useState(false);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -55,13 +53,8 @@ function SingleShop() {
   const handleDecrement = () => {
     setNumber((prevNumber) => (prevNumber > 1 ? prevNumber - 1 : prevNumber));
   };
-  // console.log(singleShopDatas.similar_products.length, 5555555);
   console.log('numbernumber', number);
-  /////////////////////////////////
-  // const handleClickOpenModal = useCallback((e) => {
-  //   e.stopPropagation();
-  //   dispatch(setModalIsOpenShop(true));
-  // }, []);
+
   const handleClickOpenModal = useCallback(
     (id, image, name, price, museumName, productCount) => {
       return (e) => {
@@ -75,39 +68,7 @@ function SingleShop() {
           // setErrorText(true);
           navigate(`/${leng}/login`);
         }
-        //       dispatch(
-        //   setBasketData({ id: id, image: image, name: name, price: price, museumName: museumName,productCount:productCount }),
-        // );
-        // Check if CardArray already exists in localStorage
-        // let CardArray = JSON.parse(localStorage.getItem('CardArray'));
-
-        // if (!CardArray) {
-        //   // If CardArray doesn't exist, initialize it as an array with the current id
-        //   CardArray = [{ id, image, name, price, museumName ,productCount}];
-        //   localStorage.setItem('CardArray', JSON.stringify(CardArray));
-        //   dispatch(
-        //     setBasketData({ id: id, image: image, name: name, price: price, museumName: museumName,productCount:productCount }),
-        //   );
-        //   console.log(CardArray.length, 'CardArra22222222222222222y');
-        // } else {
-        //   // If CardArray already exists, push the new id into it
-        //   if (CardArray.find((el) => el.id === id)) {
-        //   } else {
-        //     console.log(CardArray.length, 'CardArrayCardArrayCardArray');
-        //     CardArray.push({ id, image, name, price, museumName,productCount });
-        //     localStorage.setItem('CardArray', JSON.stringify(CardArray));
-        //     dispatch(
-        //       setBasketData({
-        //         id: id,
-        //         image: image,
-        //         name: name,
-        //         price: price,
-        //         museumName: museumName,
-        //         productCount:productCount
-        //       }),
-        //     );
-        //   }
-        // }
+        
       };
     },
     [IsAuth],
@@ -133,9 +94,7 @@ function SingleShop() {
             </div>
 
             <div className="singleShop_All">
-              {/* <div className={errorText ? 'shop_error_text' : 'shop_error_text_none'}>
-              zambyuxic ogtvelu hamar petq e grancvel{' '}
-            </div> */}
+             
               <div className="singleShop_top">
                 <img
                   src={singleShopDatas.image}
@@ -144,6 +103,7 @@ function SingleShop() {
                 />
                 <div className="singleShop_top_right">
                   <h2>{singleShopDatas.name}</h2>
+                  <p>{singleShopDatas.museum_name}</p>
                   <p style={{ color: '#00000080' }}>{t('single_shop.0')} {singleShopDatas.quantity}</p>
                   <div className="number_and_button">
                     <p className="singleShop_top_right_kategoria">
@@ -164,23 +124,7 @@ function SingleShop() {
                         onClick={handleIncrement}
                       />
                     </div>
-                    {/* <div className="number-box">
-                    <input
-                      type="number"
-                      min="1"
-                      max="100"
-                      value={number}
-                      onChange={(e) => setNumber(parseInt(e.target.value))}
-                    />
-                    <div className="arrows">
-                      <span className="arrow" onClick={handleIncrement}>
-                        &#9650;
-                      </span>
-                      <span className="arrow" onClick={handleDecrement}>
-                        &#9660;
-                      </span>
-                    </div>
-                  </div> */}
+                   
                     <p className="singleShop_top_right_price">
                       {t('single_shop.1')}{' '}
                       <span className="price_color">
@@ -200,17 +144,7 @@ function SingleShop() {
                       {t('buttons.3')}
 
                     </div>
-                    {/* <ButtonSecond
-                    txt={3}
-                    onClick={handleClickOpenModal(
-                      singleShopDatas.id,
-                      singleShopDatas.image,
-                      singleShopDatas.name,
-                      singleShopDatas.price,
-                      singleShopDatas.museum_name,
-                      number,
-                    )}
-                  /> */}
+                   
                   </div>
                 </div>
               </div>
@@ -227,16 +161,6 @@ function SingleShop() {
                           <img src={el.image} alt={el.image} />
 
                           <div className="souvenir_item_add_cart_div">
-                            {/* <ButtonSecond
-                                txt="3"
-                                onClick={handleClickOpenModal(
-                                  el.id,
-                                  el.image,
-                                  el.name,
-                                  el.price,
-                                  el.museum_name,
-                                )}
-                              /> */}
                             <div
                               className="shop-box_button"
                               onClick={handleClickOpenModal(

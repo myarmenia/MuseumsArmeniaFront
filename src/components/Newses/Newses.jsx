@@ -126,8 +126,8 @@ function Newses() {
                   DataAllNews.length !== 0 && !newsSearch ? 'pagination' : 'pagination_none'
                 }>
                 <ReactPaginate
-                  previousLabel={'<'}
-                  nextLabel={'>'}
+                  previousLabel={paginateLength > 1 && '<'}
+                  nextLabel={ paginateLength > 1 && '>'}
                   breakLabel={'...'}
                   pageCount={paginateLength !== null ? paginateLength : ''}
                   marginPagesDisplayed={3}

@@ -32,6 +32,10 @@ ul,ol{
     background-color: var(--second_font_color) !important;
 }
 
+.ReactModal__Overlay {
+    z-index: 9999999999 !important;
+}
+
 
 
 :root {
@@ -63,7 +67,7 @@ ul,ol{
 }
 
 .App p{
-    font-size: 14px ;
+    font-size: 16px ;
 }
 
 .App  span{
@@ -90,6 +94,11 @@ ul,ol{
 .App li {
     font-size: 16px;
 }
+
+.error_formik{
+    color: red;
+    font-size: 12px !important;
+   }
   /* ============================================================================= */
 
 
@@ -234,6 +243,21 @@ ul,ol{
    
    .App.small li{
        font-size: 18px ;
+   }
+
+   .App.medium p.error_formik{
+    color: red;
+    font-size: 12px;
+   }
+
+   .App.large p.error_formik{
+    color: red;
+    font-size: 12px;
+   }
+
+   .App.small p.error_formik{
+    color: red;
+    font-size: 12px;
    }
    /* =================================== */
 

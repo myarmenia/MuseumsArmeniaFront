@@ -189,7 +189,7 @@ export const postTicketCart = createAsyncThunk(
       console.log(response);
       return response?.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.error.both);
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   },
 );
@@ -227,7 +227,7 @@ export const postAllBasketDataDoingPurchase = createAsyncThunk(
       console.log(response);
       return response?.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.error.both);
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   },
 );
@@ -258,7 +258,7 @@ export const postComboTickets = createAsyncThunk(
       console.log(response);
       return response?.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.error.both);
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   },
 );

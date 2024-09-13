@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -11,6 +11,7 @@ import {
    getSetModalIsOpenShop,
    getStorageProductId,
    removeElemBasket,
+   setCardErrorModal,
    setModalIsOpenShop,
 } from '../../store/slices/Shop/ShopSlice';
 import './CardModal.css'; // Import CSS file for modal styles
@@ -101,6 +102,7 @@ function CardModal() {
                type: el.type,
                id: el.ticket_id,
                quantity: el.quantity,
+               ...(el.sub_type  && { sub_type: el.sub_type  }),
             });
          }
       });
@@ -115,7 +117,10 @@ function CardModal() {
       dispatch(postAllBasketDataDoingPurchase(sendObj)).then((res) => {
          if (res.meta.requestStatus === 'fulfilled') {
             // console.log('RedirectUrl', res.payload.data.redirect_url);
-            window.location.href = res.payload.data.redirect_url;
+            window.location.href = res.payload.data.redirect_url; 
+         }
+         else if (res.meta.requestStatus === 'rejected') {
+            dispatch(setCardErrorModal(true));
          }
       });
    };
@@ -133,6 +138,25 @@ function CardModal() {
    // console.log('AllBasketData', Array.isArray(AllBasketData.products));
    // console.log('AllBasketData', AllBasketData);
    // console.log('AllBasketData.products.length', AllBasketData.products.length);
+
+   const ticketsType_for_private = t('ticketsType_for_private', { returnObjects: true })
+
+   const totalCount = useMemo(() => {
+      const productsTotal = (AllBasketData?.products || []).reduce(
+          (acc, item) => acc + ((item?.total_price || 0)),
+          0
+      );
+  
+      const ticketsTotal = (AllBasketData?.tickets || []).reduce(
+          (acc, item) => acc + ((item?.total_price || 0)),
+          0
+      );
+  
+      return productsTotal + ticketsTotal;
+  }, [AllBasketData]);
+
+   console.log(AllBasketData,666);
+   
 
    return (
       <Modal
@@ -164,7 +188,7 @@ function CardModal() {
                      </svg>
                      <p className="shop_icon_count">{productLength}</p>
                   </div>
-                  <p style={{ fontSize: '20px' }}>Your Cart</p>
+                  <p style={{ fontSize: '20px' }}>{t('yourCartTitle')}</p>
                </div>
                <p onClick={closeModal} className="closeBtn_basket">
                   <svg
@@ -190,9 +214,6 @@ function CardModal() {
                                     {/* <b>{el.name.length > 15 ? el.name.slice(0, 15) + '...' : el.name}</b> */}
                                     <b className="basket_box_div_name">{el.name}</b>
                                  </p>
-                                 <i>
-                                    <b>Тangaran:</b>
-                                 </i>
                                  <p className="museumName">{el.museum_name}</p>
                                  <p>{el.quantity + '|' + el.total_price + ' AMD'}</p>
                               </div>
@@ -214,10 +235,28 @@ function CardModal() {
                      {AllBasketData.tickets?.map((el, index) => (
                         <div key={index} className="basket_box_ticket">
                            <div>
-                              <p>{el.type}</p>
-                              <i>
-                                 <b>Тangaran:</b>
-                              </i>
+                              {
+                                 ticketsType_for_private.map(ticket => {
+                                    if (Object.keys(ticket)[0] === el.type) {
+                                       return <p key={el.id}>{Object.values(ticket)[0]} {el.name && '/ ' + el.name}</p>
+                                    }
+                                    else if (el.type === 'event-config' && Object.keys(ticket)[0] === 'event_config') {
+                                       return <p key={el.id}>{Object.values(ticket)[0]} {el.name && '/ ' + el.name}</p>
+                                    }
+
+                                 })
+
+                              }
+
+                              {
+                                 ticketsType_for_private.map(ticket => {
+                                    if (Object.keys(ticket)[0] === el.sub_type) {
+                                       return <p key={el.id}>{Object.values(ticket)[0]}</p>
+                                    }
+
+                                 })
+
+                              }
                               <p className="museumName">{el.museum_name}</p>
                               <p>{el.date}</p>
                               <p>{el.quantity + '|' + el.total_price + ' AMD'}</p>
@@ -242,10 +281,11 @@ function CardModal() {
                      {t('shop_page_data.3')}
                   </div>
                )}
-               {/* <p>total {countProductBasket}</p> */}
+               <p style={{ textAlign: 'center' }}>{t('infoBuyTicket.4')} {totalCount} AMD</p>
             </div>
-            <div className="checkout_btn" onClick={sendBakstAllDataPayment}>
-               Checkout ...
+            <div className='checkout_delete_block'>
+               <div className="checkout_btn" onClick={sendBakstAllDataPayment}>{t('cardCheckout')}</div>
+               <button onClick={() => dispatch(getDelateProductBasket('all_items'))}>{t('cardDelte')}</button>
             </div>
          </div>
       </Modal>

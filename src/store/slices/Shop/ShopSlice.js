@@ -14,6 +14,7 @@ import {
   postSingleShopCardData,
   postTicketCart,
 } from './ShopApi';
+import { message } from 'antd';
 
 const initialState = {
   shopAllData: [],
@@ -27,6 +28,8 @@ const initialState = {
   basketAllData: [],
   productLength: 0,
   redirectShopUrl: '',
+  message: '',
+  cardErrorModal: false,
   // searchCountLengthShop: 0,
   // storageProductId: localStorage.getItem('CardArray')
   //   ? JSON.parse(localStorage.getItem('CardArray'))
@@ -44,6 +47,10 @@ export const ShopSlice = createSlice({
     setModalIsOpenShop(state, { payload }) {
       state.modalIsOpenShop = payload;
     },
+
+    setCardErrorModal(state, { payload }) {
+      state.cardErrorModal = payload;
+    }
     // setBasketData(state, { payload }) {
     //   state.basketData = [...state.basketData, payload];
     //   // state.totalPrice = state.basketData.reduce((total, obj) => total + obj.price, 0);
@@ -125,9 +132,16 @@ export const ShopSlice = createSlice({
         state.basketAllData.products = state.basketAllData.products.filter(
           (product) => product.id !== id,
         );
-        state.basketAllData.tickets = state.basketAllData.tickets.filter(
-          (ticket) => ticket.id !== id,
-        );
+        if (action.payload.data.id !== null) {
+          state.basketAllData.tickets = state.basketAllData.tickets.filter(
+            (ticket) => ticket.id !== id,
+          );
+        }
+        else {
+          state.basketAllData.tickets = []
+          state.productLength = 0
+        }
+        
       })
       .addCase(getShopIconBasketDatas.fulfilled, (state, action) => {
         console.log('a11111111');
@@ -142,7 +156,14 @@ export const ShopSlice = createSlice({
       })
       .addCase(postAllBasketDataDoingPurchase.fulfilled, (state, action) => {
         state.redirectShopUrl = action.payload.data.redirect_url;
+      })
+
+      
+
+      .addCase(postAllBasketDataDoingPurchase.rejected, (state, action) => {
+          state.message = action.payload
       });
+
   },
 });
 
@@ -160,9 +181,11 @@ export const getSetModalIsOpenShop = (state) => state.shop.modalIsOpenShop;
 export const getProductLength = (state) => state.shop.productLength;
 export const getSetAllBasketData = (state) => state.shop.basketAllData;
 export const getRedirectUrl = (state) => state.shop.redirectShopUrl;
+export const getErrorMessage = (state) => state.shop.message
+export const getCardErrorModal = (state) => state.shop.cardErrorModal
 // export const getSearchLengthShop = (state) => state.shop.searchCountLengthShop;
 
-export const { setModalIsOpenShop, setBasketData, removeElemBasket, totalPriceBasket } =
+export const { setModalIsOpenShop, setBasketData, removeElemBasket, totalPriceBasket, setCardErrorModal } =
   ShopSlice.actions;
 
 export const ShopReducer = ShopSlice.reducer;

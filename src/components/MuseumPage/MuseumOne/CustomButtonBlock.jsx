@@ -18,7 +18,8 @@ const CustomButtonBlock = ({ icon='', background='', color='', boxShadow='', tit
                justifyContent: 'center',
                alignItems: 'center',
             }}>
-            <ButtonSecond txt={textBtn} minWidth="210px" background={background} color={color} boxShadow={boxShadow} newClass={newClass}/>
+           {textBtn && <ButtonSecond txt={textBtn} minWidth="210px" background={background} color={color} boxShadow={boxShadow} newClass={newClass}/>}
+           {/* <ButtonSecond txt={textBtn} minWidth="210px" background={background} color={color} boxShadow={boxShadow} newClass={newClass}/> */}
          </div>
       </div>
    );

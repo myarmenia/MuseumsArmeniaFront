@@ -377,7 +377,7 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
         <>
             <div className='private_standart_ticket'>
                  {cartErrorMessage && <OutSideErrorModal txt={t('Ticket_type_placeholder.8')}/>}
-                <div className='private_standart_ticket_regions' ref={regionRef} onClick={(e) => handleRegionInpFocus(e)}>
+                <div className='private_standart_ticket_regions regions_input_div' ref={regionRef} onClick={(e) => handleRegionInpFocus(e)}>
                     <input type="text" onKeyDown={handleKeyDown} onClick={() => setopenModal(!openModal)} value={selectedRegion.value} onChange={() => { }} placeholder={t('Ticket_type_placeholder.0')} />
                     <div className='placeholder_div'>
                         <span>{locationIcon}</span>
@@ -446,11 +446,11 @@ function PrivateStandartAndAbonementTicket({ changeTicketType }) {
                                                 }
                                                 <span className='packet_div_price'>{el.price} AMD</span>
 
-                                                <div className='packet_div_count'>
+                                                {el?.type !== 'free' ? <div className='packet_div_count'>
                                                     <span onClick={() => packetCount('-', el.type, el.max, el.price)}><MinusButtonIcons width='25' height='25'/></span>
                                                     <span className={`count_span ${(ticketCountStandart && index === 0 && 'color') || (ticketCountDicounted && index === 1 && 'color') || (index === 2 && ticketCountFree && 'color') || (index === 0 && ticketCountSub && 'color')} `}>{el.type === 'standart' ? ticketCountStandart : el.type === 'discount' ? ticketCountDicounted : el.type === 'subscription' ? ticketCountSub : ticketCountFree}</span>
                                                     <span onClick={() => packetCount('+', el.type, el.max, el.price)}><PlusButtonIcons width='25' height='25'/></span>
-                                                </div>
+                                                </div> : <span style={{width: '100px'}}>{t('infoBuyTicket.0')}</span>}
                                             </div>
                                         </div>)
                                 }

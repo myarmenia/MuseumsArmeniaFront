@@ -86,7 +86,7 @@ function LoginPage() {
                      <form
                         className="login"
                         onSubmit={(e) => handleLogin(e, handleSubmit, isValid)}>
-                        <span>{t('login_btn')}</span>
+                        <h4 style={{fontWeight:'300'}}>{t('login_btn')}</h4>
                         <div className="email-inp">
                            <input
                               ref = {emailRef}
@@ -98,7 +98,7 @@ function LoginPage() {
                               onBlur={handleBlur}
                            />
                            {touched.email && errors.email && (
-                              <p className="error">{errors.email}</p>
+                              <p className="error_formik">{errors.email}</p>
                            )}
                         </div>
 
@@ -112,7 +112,7 @@ function LoginPage() {
                               onBlur={handleBlur}
                            />
                            {touched.password && errors.password && (
-                              <p className="error">{errors.password}</p>
+                              <p className="error_formik">{errors.password}</p>
                            )}
                         </div>
 
@@ -142,7 +142,6 @@ function LoginPage() {
                               const loginWithGoogleObj = {
                                  token: credentialResponse.credential,
                               };
-                              console.log(credentialResponse);
 
                               dispatch(postGoogleLogin(loginWithGoogleObj));
                            }}

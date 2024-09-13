@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getSingleEvent } from '../../store/slices/SingleEventSlice/SingleEventApi'
 import { useNavigate, useParams } from 'react-router-dom'
-import { selectSingleEvent, selectSingleEventLoading } from '../../store/slices/SingleEventSlice/SingleEventSlice'
+import { selectSingleEvent, selectSingleEventIsActiveModal, selectSingleEventLoading, setIsActiveModal } from '../../store/slices/SingleEventSlice/SingleEventSlice'
 import { useTranslation } from 'react-i18next'
 import './EventSinglePage.css'
 import { dateICon, InvateIcons, inviteIcon, locationIcon, priceIcon, telIcon } from '../../iconFolder/icon'
@@ -23,6 +23,7 @@ function EventSinglePage() {
     const [cartErrorMessage, setCartErrorMessage] = useState(false);
    const [copySuccess, setCopySuccess] = useState(false);
     const loading = useSelector(selectSingleEventLoading)
+    const isActiveModal = useSelector(selectSingleEventIsActiveModal)
     const privateTicketRegions = t('privateTicketRegions', { returnObjects: true })
 
 
@@ -106,7 +107,7 @@ const copyToClipboard = React.useCallback(() => {
 
                                 <div className='event_single_page_item_img_div_info_div'>
                                     <div className='event_single_page_item_img_div_info_div_description'>
-                                        <button onClick={() => setOpenConfigModal(true)}>{t('event_single_page.1')}</button>
+                                        <button onClick={() => dispatch(setIsActiveModal(true))}>{t('event_single_page.1')}</button>
                                         <h3>{t('event_single_page.2')}</h3>
                                         <p>{respSingleEvent?.data.description}</p>
                                     </div>
@@ -179,7 +180,7 @@ const copyToClipboard = React.useCallback(() => {
                             </div>
 
                             <div className='more_events'>
-                                <h3>{t('more_events')}</h3>
+                                {events.length > 0 && <h3>{t('more_events')}</h3>}
                                 <div className="events_items">
                                     <Carousel
                                         showDots={true}
@@ -196,7 +197,7 @@ const copyToClipboard = React.useCallback(() => {
                                 </div>
                             </div>
                         </div>
-                        {respSingleEvent?.data.event_configs.length > 0 && openConfigModal && <SingleEventModal {...{ setOpenConfigModal, cartErrorMessage, setCartErrorMessage }} />}
+                        {isActiveModal && <SingleEventModal {...{cartErrorMessage, setCartErrorMessage }}  currentItem={respSingleEvent?.data}/>}
                     </div>
                 )
             }

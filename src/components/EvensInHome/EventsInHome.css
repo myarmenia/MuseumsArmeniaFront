@@ -36,9 +36,18 @@
     text-align: center;
 }
 
-
+.lines_div_events >h1{
+    text-align: center;
+}
 @media(max-width: 1024px){
     .events_in_home_block .lines_div_events >img{
         display: none;
+    }
+}
+
+
+@media(max-width: 480px){
+    .events_in_home_block{
+        padding-top: 50px;
     }
 }

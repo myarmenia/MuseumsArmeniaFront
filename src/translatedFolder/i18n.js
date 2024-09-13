@@ -33,7 +33,7 @@ i18n.use(initReactI18next).init({
                'Ոչ',
                'Սկսեք զրուցել',
                'Գնել տոմս',
-               'Աբոնեմենտ',
+               'Անդամակցության քարտ',
                'Գրեք մեզ',
                'Զամբյուղ',
             ],
@@ -427,8 +427,8 @@ i18n.use(initReactI18next).init({
                'Միասնական տոմսը դա մի քանի թանգարանների տոմսերի փաթեթն է, որը գնելիս կստանաք զեղչ:',
                'Տոմս գնելիս, ինչպե՞ս կարող եմ ստանալ իմ տոմսը:',
                'Կայքից տոմս գնելու դեպքում, դուք ձեր էլեկտրոնային հասցեին կստանաք տոմսը և QR կոդը, որով և կարող եք այցելել թանգարան:',
-               ' Ի՞նչ է նշանակում Աբոնեմենտ:',
-               'Աբոնեմենտը դա մեկ թանգարանի անսահմա-նափակ քանակությամբ մուտքի տոմսն է, որը գործում է 365 օր:',
+               ' Ի՞նչ է նշանակում Անդամակցության քարտ:',
+               'Անդամակցության քարտը դա մեկ թանգարանի անսահմա-նափակ քանակությամբ մուտքի տոմսն է, որը գործում է 365 օր:',
             ],
 
             faq_free_tickets_title: 'Անվճար տոմսեր',
@@ -490,16 +490,17 @@ i18n.use(initReactI18next).init({
                'Բարև Ուրախ եմ տեսնել ձեզ այստեղ: Սեղմելով «Սկսել զրույց» կոճակը, դուք համաձայնում եք, որ ձեր անձնական տվյալները մշակվեն, ինչպես նկարագրված է մեր Գաղտնիության քաղաքականության մեջ:',
             ],
 
-            ticketsType: ['Ստանդարտ Տոմս', 'Աբոնեմենտ', 'Միասնական Տոմս', 'Միջոցառումներ'],
+            ticketsType: ['Մշտական ցուցադրություն', 'Անդամակցության քարտ', 'Միասնական Տոմս', ' Ժամանակավոր ցուցադրություններ'],
 
             ticketsType_for_private: [
                { standart: 'Ստանդարտ տոմս' },
-               { discount: 'Զեղջված տոմս' },
+               { discount: 'Զեղչված տոմս' },
                { free: 'Անվճար տոմս' },
-               { subscription: 'Աբոնեմենտ' },
+               { subscription: 'Անդամակցության քարտ' },
                { united: 'Միասնական տոմս' },
-               { event: 'Միջոցառում' },
+               { event: 'Ցուցադրություն' },
                { product: 'Ապրանք' },
+               { event_config: 'Միջոցառում'}
             ],
 
             Ticket_type_placeholder: [
@@ -515,9 +516,9 @@ i18n.use(initReactI18next).init({
             ],
 
             musseumPage_title: ['ՀԱՅԱՍՏԱՆԻ ԹԱՆԳԱՐԱՆՆԵՐ', 'Զտել', 'Կարդալ ավելին'],
-            webSideMusum: ['ՎԵԲ ԿԱՅՔ', 'հրավիրել', 'Թանգարանի Աբոնեմենտ', 'Պատճենված է'],
+            webSideMusum: ['ՎԵԲ ԿԱՅՔ', 'հրավիրել', 'Թանգարանի Անդամակցության քարտ', 'Պատճենված է'],
             ButtonBlock: [
-               'Գնելով Աբոնեմենտ կարող եք 365 օրվա ընթացքում անսահմանափակ անգամ այցելել թանգարան:',
+               'Գնելով Անդամակցության քարտ կարող եք 365 օրվա ընթացքում անսահմանափակ անգամ այցելել թանգարան:',
                'Զբոսավարի, կրթական ծրագրերի և այլ հարցերի համար գրեք',
             ],
 
@@ -526,7 +527,7 @@ i18n.use(initReactI18next).init({
             free: 'Անվճար',
 
             infoBuyTicket: [
-               'իմանալ ավելին',
+               'Անվճար տոմսի համար մոտեցեք թանգարան',
                'Էքսկուրսավար հայերեն լեզվով',
                'Էքսկուրսավար օտար լեզվով',
                'Էքսկուրսավարի ծառայությունից օգտվելու համար անհրաժեշտ է նախապես ամրագրել։',
@@ -534,6 +535,7 @@ i18n.use(initReactI18next).init({
                'Գնել տոմս',
                'Աբոնիմենտ տոմս',
                'Աբոնիմենտ տոմսը անսահմանափակ մուտք է 365 օր:',
+               'Զեղչված տոմսի համար մոտեցեք թանգարան',
             ],
             selectCategory: 'Ընտրեք կատեգորիա',
             book: 'Գիրք',
@@ -552,12 +554,15 @@ i18n.use(initReactI18next).init({
 
             event_single_page: ['Տեսնել ավելին', 'Գնել տոմս', 'Նկարագրություն', 'Հրավիրել'],
 
-            event_single_page_modal: ['Ամսաթիվ', 'Ժամանակ', 'Գին', 'Հասանելի տոմսերի քանակը'],
+            event_single_page_modal: ['Ամսաթիվ', 'Ժամանակ', 'Գին', 'Հասանելի տոմսերի քանակը', 'Զեղչված գին'],
             more_events: 'Նմանատիպ միջոցառումներ',
 
             mintitle: 'Հայաստանի թանգարանները մեկ հարթակում',
-            educationTitle:
-               'Կապվեք թանգարանի հետ ՝ կրթական ծրագրերի Տոմսեր պատվիրելու համար ՝ հաղորդագրություն ուղարկելով կամ զանգահարելով:',
+            educationTitle: [
+               'Կապվեք թանգարանի հետ ՝ կրթական ծրագրերի Տոմսեր պատվիրելու համար ՝',
+               'հաղորդագրություն ուղարկելով',
+               'կամ զանգահարելով:'
+            ],
             thisMuseum: 'Այս թանգարանի խանութը',
             buy: 'Գնել',
             productsErrorMessages: 'Ապրանքներ չեն գտնվել',
@@ -667,7 +672,30 @@ i18n.use(initReactI18next).init({
                'Գին '
             ],
 
-            chat_empty_message: 'Դուք դեռ հաղորդագրություններ չունեք։'
+            chat_empty_message: 'Դուք դեռ հաղորդագրություններ չունեք։',
+
+            yourCartTitle: 'Զամբյուղ',
+
+            invalidPage: [
+               'Վերադառնալ Գլխավոր էջ',
+               'Էջը չի գտնվել'
+            ],
+
+            storeErrorPage: 'Էջը ժամանակավորապես չի գործում',
+
+            eventTypes: [
+               'Միջոցառում',
+               'Ժամանակավոր ցուցադրում',
+            ],
+
+            cardCheckout: 'Վճարել',
+
+            cardDelte: 'Ջնջել Բոլորը',
+
+            otherServices: 'Այլ Ծառայություններ',
+
+            otherServicesSubTitle: 'Այստեղ կարող եք տեսնել թանգարանի այլ ծառայությունները:',
+
          },
       },
 
@@ -701,7 +729,7 @@ i18n.use(initReactI18next).init({
                'нет',
                'Начать Чат',
                'Купить билет',
-               'Абонементный',
+               'Карточка участника',
                'Напишите нам',
                'В корзину',
             ],
@@ -1094,8 +1122,8 @@ i18n.use(initReactI18next).init({
                'Единый билет — это пакет билетов в несколько музеев, на который вы получите скидку.',
                'При покупке билета, как мне его получить?',
                'Если вы купите билет на сайте, вы получите билет и QR-код на свой адрес электронной почты, с помощью которого вы сможете посетить музей.',
-               'Что означает Абонемент?',
-               'Абонемент — это безлимитный входной билет в один музей, действительный в течение 365 дней.',
+               'Что означает карточка участника?',
+               'Карточка участника — это безлимитный входной билет в один музей, действительный в течение 365 дней.',
             ],
 
             faq_free_tickets_title: 'Бесплатные билеты',
@@ -1156,19 +1184,19 @@ i18n.use(initReactI18next).init({
                'Привет. Приятно видеть тебя здесь. Нажимая кнопку «Начать чат», вы соглашаетесь на обработку ваших персональных данных, как описано в нашей Политике конфиденциальности.',
             ],
             musseumPage_title: ['МУЗЕИ АРМЕНИИ', 'Фильтр', 'Читать далее'],
-            webSideMusum: ['ВЕБ-САЙТ', 'приглашать', 'Музейный абонемент', 'Сылка скопирована'],
+            webSideMusum: ['ВЕБ-САЙТ', 'приглашать', 'Карточка участника', 'Сылка скопирована'],
             ButtonBlock: [
-               'Купив абонемент, вы можете посещать музей неограниченное количество раз в течение 365 дней:',
+               'Купив карточка участника, вы можете посещать музей неограниченное количество раз в течение 365 дней:',
                'Напишите нам для бронирования гида, образовательных программ и по другим вопросам.',
             ],
 
-            ticketsType: ['Стандартный билет', 'Абонемент', 'Единый билет', 'События'],
+            ticketsType: ['Постоянный показ', 'Карточка участника', 'Единый билет', 'Временные выставки'],
 
             ticketsType_for_private: [
                { standart: 'Стандартный билет' },
                { discount: 'Билет со скидкой' },
                { free: 'Бесплатный билет' },
-               { subscription: 'Абонемент' },
+               { subscription: 'Карточка участника' },
                { united: 'Единый билет' },
                { event: 'Событие' },
                { product: 'Продукт' },
@@ -1190,14 +1218,15 @@ i18n.use(initReactI18next).init({
             free: 'Бесплатно',
 
             infoBuyTicket: [
-               'узнать больше',
+               'Приходите в музей за бесплатным билетом',
                'Гид на армянском языке',
                'Гид на иностранном языке',
                'Чтобы воспользоваться услугой экскурсовода, необходимо заранее забронировать место.',
                'Общий',
                'Купить билет',
-               'Абонементный билет',
-               'Абонементный билет — это безлимитный доступ на 365 дней.',
+               'Карточка участника',
+               'Карточка участника — это безлимитный доступ на 365 дней.',
+               'Зайдите в музей и купите билет со скидкой.',
             ],
             selectCategory: 'Выберите категорию',
             book: 'Книга',
@@ -1216,13 +1245,16 @@ i18n.use(initReactI18next).init({
 
             event_single_page: ['Узнать больше', 'Купить билет', 'Описание', 'Приглашать'],
 
-            event_single_page_modal: ['Дата', 'Время', 'Цена', 'Количество доступных билетов'],
+            event_single_page_modal: ['Дата', 'Время', 'Цена', 'Количество доступных билетов', 'Цена со скидкой'],
 
             more_events: 'Подобные события',
 
             mintitle: 'Музеи Армении на одной платформе',
-            educationTitle:
-               'Свяжитесь с музеем, чтобы заказать билеты на образовательные программы, отправив сообщение или позвонив по телефону.',
+            educationTitle: [
+               'Свяжитесь с музеем, чтобы заказать билеты на образовательные программы, ',
+               'отправив сообщение',
+               'или позвонив по телефону.',
+            ],
             thisMuseum: 'Магазин этого музея',
             buy: 'Купить',
             productsErrorMessages: 'Продукты не найдены',
@@ -1320,7 +1352,30 @@ i18n.use(initReactI18next).init({
                   'Цена '
                ],
 
-               chat_empty_message: 'У вас пока нет сообщений.'
+               chat_empty_message: 'У вас пока нет сообщений.',
+
+            yourCartTitle: 'Корзина',
+
+            invalidPage: [
+               'Вернуться на главную страницу',
+               'Страница не найдена'
+            ],
+
+            storeErrorPage: 'Страница временно недоступна',
+
+            eventTypes: [
+               'Мероприятие',
+               'Временный показ',
+            ],
+
+            cardCheckout: 'Платить',
+            
+            cardDelte: 'Удалить все',
+
+            otherServices: 'Другие услуги',
+
+            otherServicesSubTitle: 'Ознакомиться с другими услугами музея можно здесь.',
+
          },
       },
       en: {
@@ -1353,7 +1408,7 @@ i18n.use(initReactI18next).init({
                'No',
                'Start Chat',
                'Buy Ticket',
-               'Abonement',
+               'Membership card',
                'Write to us',
                'Add to cart',
             ],
@@ -1802,18 +1857,18 @@ i18n.use(initReactI18next).init({
                'Hello. Nice to see you here. By clicking the Start Chat button, you agree to the processing of your personal data as described in our Privacy Policy.',
             ],
             musseumPage_title: ['MUSEUMS OF ARMENIA', 'Filter', 'Read more'],
-            webSideMusum: ['WEB SITE', 'invate', 'Museum abonement', 'Link copied to clipboard'],
+            webSideMusum: ['WEB SITE', 'invate', 'Museum membership card', 'Link copied to clipboard'],
             ButtonBlock: [
                'By purchasing a subscription, you can visit the museum an unlimited number of times for 365 days:',
                'Write for tour guide, educational programs and other questions',
             ],
-            ticketsType: ['Standard ticket', 'Abonement', 'United ticket', 'Events'],
+            ticketsType: ['Permanent display', 'Membership card', 'United ticket', 'Temporary exhibitions'],
 
             ticketsType_for_private: [
                { standart: 'Standart ticket' },
                { discount: 'Discounted Ticket' },
                { free: 'Free ticket' },
-               { subscription: 'Abonement' },
+               { subscription: 'Membership card' },
                { united: 'United ticket' },
                { event: 'Event' },
                { product: 'Product' },
@@ -1835,14 +1890,15 @@ i18n.use(initReactI18next).init({
             free: 'Free',
 
             infoBuyTicket: [
-               'know more',
+               'Come to the museum for a free ticket',
                'Tour guide in Armenian language',
                'Tour guide in a foreign language',
                'To use the service of a tour guide, you need to make a reservation in advance.',
                'Total',
                'Buy Ticket',
-               'Abonement ticket',
-               'Abonement ticket is unlimited access for 365 days.',
+               'Membership card',
+               'Membership card is unlimited access for 365 days.',
+               'Come by the museum for a discounted ticket'
             ],
             selectCategory: 'Select  category',
             book: 'Book',
@@ -1861,13 +1917,17 @@ i18n.use(initReactI18next).init({
 
             event_single_page: ['See more', 'Buy ticket', 'Description', 'Invite'],
 
-            event_single_page_modal: ['Date', 'Time', 'Price', 'Number of tickets available'],
+            event_single_page_modal: ['Date', 'Time', 'Price', 'Number of tickets available', 'Discount Price'],
 
             more_events: 'Similar events',
 
             mintitle: 'Museums of Armenia on one platform',
-            educationTitle:
-               'Contact the museum to order tickets for educational programs by message or call.',
+            educationTitle: [
+               'Contact the museum to order tickets for educational programs by ',
+               'message',
+               'or call.'
+            ],
+            
             thisMuseum: 'Shop of this museum',
             buy: 'Buy',
             productsErrorMessages: 'No products found',
@@ -1955,7 +2015,29 @@ i18n.use(initReactI18next).init({
                   'Price '
                ],
 
-               chat_empty_message: 'You have no messages yet.'
+               chat_empty_message: 'You have no messages yet.',
+
+            yourCartTitle: 'Cart',
+
+            invalidPage: [
+               'Back to Home Page',
+               'Page not found'
+            ],
+
+            storeErrorPage: 'Page is temporarily unavailable',
+
+            eventTypes: [
+               'Event',
+               'Temporary exhibition',
+            ],
+
+            cardCheckout: 'Pay',
+
+            cardDelte: 'Delete all',
+
+            otherServices: 'Other services',
+
+            otherServicesSubTitle: 'You can see other museum services here.',
          },
       },
    },

@@ -6,6 +6,7 @@ import {
    educationalPrograms,
    getMuseumOneEvents,
    getMuseumOneProducts,
+   getOtherServices,
 } from '../../../store/slices/MuseumPagesSlice/MuseumPagesApi';
 import { getAuthUserAllMessages } from '../../../store/slices/NewMessagesSlice/NewMessagesSliceApi';
 import { useTranslation } from 'react-i18next';
@@ -31,6 +32,7 @@ import CustomButtonBlock from './CustomButtonBlock';
 import { MuseumAbonementIcons } from '../../../iconFolder/icon';
 import { TicketMuseumBlock } from './Ticket';
 import OutSideErrorModal from '../../OutSideErrorModal/OutSideErrorModal';
+import { selectOtherServices } from '../../../store/slices/MuseumPagesSlice/MuseumPagesSlice';
 
 const MuseumOne = () => {
    const { t, i18n } = useTranslation();
@@ -39,6 +41,10 @@ const MuseumOne = () => {
    const [openAboniment, setOpenAboniment] = useState(null);
    const { isAuth } = useSelector((store) => store.auth);
    const { statusInfoModal, ticketType } = useSelector((state) => state.museumTicket);
+   const otherServices = useSelector(selectOtherServices);
+
+   console.log(otherServices, 'otherServices');
+
    const {
       loadingdataMuseumOne,
       dataMuseumOne,
@@ -73,6 +79,10 @@ const MuseumOne = () => {
          setOpenAboniment(dataMuseumOne?.tickets.find((el) => el.type.includes('subscription')));
       }
    }, [dataMuseumOne]);
+
+   useEffect(() => {
+      dispatch(getOtherServices(id));
+   }, []);
 
    return (
       <>
@@ -112,7 +122,7 @@ const MuseumOne = () => {
                                           : '#D5AA72'
                                     }
                                     color={'#FFFFFF'}
-                                    textBtn="10"
+                                    // textBtn="10"
                                     onClick={() => handleClickTicket('ticket', 'Abonement ticket')}
                                     newClass="newStyleBtn"
                                  />
@@ -144,7 +154,25 @@ const MuseumOne = () => {
                               />
                            )}
 
-                        <MuseumOneShop dataMuseumProducts={dataMuseumProducts} museumId={id} />
+                        {otherServices?.data?.length > 0 && <div className="museum_otherservices">
+                           <div className='museum_otherservices_header'>
+                              <h4 className='museum_otherservices_title'>{t('otherServices')}</h4>
+                              <p className='museum_otherservices_sub_title'>{t('otherServicesSubTitle')}</p>
+                           </div>
+
+                           <div className='otherServices_items'>
+                              {
+                                 otherServices.data?.map((item) => (
+                                    <div className="oneService">
+                                       <p className='oneService_name' title={item.name}>{item.name}</p>
+                                       <p className='oneService_price'>{item.price} AMD</p>
+                                    </div>
+                                 ))
+                              }
+                           </div>
+                        </div>}
+
+                        {/* <MuseumOneShop dataMuseumProducts={dataMuseumProducts} museumId={id} /> */}
 
                         {dataMuseumOne.links?.virtual_tour && (
                            <MuseumOneVirtualTour virtual_tour={dataMuseumOne.links.virtual_tour} />
@@ -155,14 +183,20 @@ const MuseumOne = () => {
                         )}
                      </div>
 
+
                      <TicketMuseumBlock />
                      <MuseumPageMessages museumId={id} />
+
+
                   </div>
+
                </div>
+
             </div>
          ) : (
             <IsWrong text={t(`isWrong.0`)} />
          )}
+
       </>
    );
 };

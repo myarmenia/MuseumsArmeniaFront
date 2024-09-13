@@ -34,7 +34,7 @@ function MuseumSectionSliderInHome() {
                 </div>
 
                 <div className='museum_section_item_info_div'>
-                    <p>{item.name}</p>
+                    <p className='museum_name'>{item.name}</p>
                     <div>
                         <span>{locationIcon}</span>
                         {

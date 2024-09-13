@@ -5,6 +5,7 @@ import {
    educationalPrograms,
    getMuseumOneEvents,
    getMuseumOneProducts,
+   getOtherServices,
 } from './MuseumPagesApi';
 const initialState = {
    loadingStatus: 'loading',
@@ -25,6 +26,7 @@ const initialState = {
       totalCount: 0,
    },
    notificationStatus: null,
+   otherServices: [],
 };
 
 const MuseumPagesSlice = createSlice({
@@ -125,11 +127,27 @@ const MuseumPagesSlice = createSlice({
             state.dataMuseumProducts.products_category = [];
             state.dataMuseumProducts.pageCount = 0;
             state.dataMuseumProducts.totalCount = 0;
-         });
+         })
+
+         // =================================
+
+
+         .addCase(getOtherServices.pending, (state) => {
+            console.log('pending');
+            
+         })
+         .addCase(getOtherServices.fulfilled, (state, { payload }) => {
+            state.otherServices = payload 
+
+         })
+         .addCase(getOtherServices.rejected, (state, action) => {
+            console.log('rejected');
+         })
    },
 });
 
 export const selectMuseum = (state) => state.museumPages.filterDataMuseum;
+export const selectOtherServices = (state) => state.museumPages.otherServices;
 
 export const MuseumPagesReducer = MuseumPagesSlice.reducer;
 export const { filterRegionMuseum, setNotificationStatus } = MuseumPagesSlice.actions;

@@ -110,7 +110,7 @@ const NotUserMessagesBlock = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                      />
-                     {touched.email && errors.email && <p className="error">{errors.email}</p>}
+                     {touched.email && errors.email && <p className="error_formik">{errors.email}</p>}
                   </div>
 
                   <div style={{ position: 'relative' }}>

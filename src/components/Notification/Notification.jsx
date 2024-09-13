@@ -44,7 +44,7 @@ function Notification() {
                         respNotification && respNotification.data.map(not => (
                             <div key={not.id} className='notification_page_item' onClick={() => navigate(`/${leng}/events/${not.event_id}`)}>
                                 <div className='notification_page_item_img_div'>
-                                    <img src={not.image.path} alt={not.event_name} />
+                                    <img src={not?.image?.path} alt={not.event_name} />
                                     <span>{not.event_name}</span>
                                 </div>
                                 <span>{rightArowIcon}</span>

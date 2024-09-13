@@ -40,6 +40,7 @@ function PrivateEventTicket({changeTicketType}) {
     const [eventLineCalendar, setEventLineCalendar] = useState(true)
     const [eventLineEvent, setEventLineEvent] = useState(true)
     const [errorMessageTicket, setErrorMessageTicket] = useState(false)
+    const [totalTicketCount, setTotalTicketCount] = useState([]);
     const regionRef = useRef(null)
     const museumRef = useRef(null)
     const privateRef = useRef(null)
@@ -49,6 +50,8 @@ function PrivateEventTicket({changeTicketType}) {
     const respEvent = useSelector(getEventsTicket)
     const isAuth = useSelector(getIsAuth)
     const respBuyTicket = useSelector(selectBuyTicket)
+    const totalValuesRef = useRef({});
+
 
 
 
@@ -151,25 +154,37 @@ function PrivateEventTicket({changeTicketType}) {
         setEventInpVal('')
    }
         
-
+   console.log(currentEvent,'ggghhhh');
+   
        const addCart = async(e) => {
         e.stopPropagation()
-         if (isAuth) {
-            await  dispatch(postTicketCart({
-                items: currentEvent.event_configs.map(el => ({
-                    type: 'event',
-                    id: el.id,
-                    quantity: sessionStorage.getItem(`quantity${el.id}`)
-                })).filter(el => el.quantity > 0)
-   
-            }))
-
-            currentEvent.event_configs.map(item => {
-                sessionStorage.removeItem(`quantity${item.id}`)
-            })
-            
+        if (isAuth) {
+            if (currentEvent?.style === "basic") {
+                await dispatch(postTicketCart({
+                    items: currentEvent?.event_configs.map(el => {
+                        return currentEvent?.all_prices.map(priceObj => ({
+                            type: 'event-config',
+                            id: el.id,
+                            sub_type: priceObj.sub_type,
+                            // price: priceObj.price,
+                            quantity: sessionStorage.getItem(`quantity${el.id + priceObj.sub_type}`)
+                        }));
+                    }).flat().filter(el => el.quantity > 0)
+                }));
+            } 
+            else  {
+                await dispatch(postTicketCart({
+                    items: currentEvent?.all_prices.map(priceObj => ({
+                        type: 'event',
+                        id: currentEvent.id,
+                        sub_type: priceObj.sub_type,
+                        // price: priceObj.price,
+                        quantity: sessionStorage.getItem(`quantity${currentEvent.id + priceObj.sub_type}`)
+                    })).flat().filter(el => el.quantity > 0)
+                }));
+            }
             dispatch(setModalIsOpenShop(true));
-         }
+        }
          else{
             setCartErrorMessage(true);
             setTimeout(() => {
@@ -186,21 +201,41 @@ function PrivateEventTicket({changeTicketType}) {
             e.preventDefault()
 
             if(isAuth){
-                await  dispatch(postBuyTicket({
-                    redirect_url: window.location.href,
-                    request_name: "web",
-                    items: currentEvent.event_configs.map(el => ({
-                        type: 'event',
-                        id: el.id,
-                        quantity: sessionStorage.getItem(`quantity${el.id}`)
-                    })).filter(el => el.quantity > 0)
-       
+                if (currentEvent?.style === "basic") {
+                await dispatch(postBuyTicket({
+                    items: currentEvent?.event_configs.map(el => {
+                        return currentEvent?.all_prices.map(priceObj => ({
+                            type: 'event-config',
+                            id: el.id,
+                            sub_type: priceObj.sub_type,
+                            // price: priceObj.price,
+                            quantity: sessionStorage.getItem(`quantity${el.id + priceObj.sub_type}`)
+                        }));
+                    }).flat().filter(el => el.quantity > 0)
                 }))
-                .then(res => {
-                    if(res.meta.requestStatus === "fulfilled"){
-                        window.location.href = res.payload.data.redirect_url
-                    }   
-               })
+                    .then(res => {
+                        if (res.meta.requestStatus === "fulfilled") {
+                            window.location.href = res.payload.data.redirect_url;
+                        }
+                    });
+            }
+
+                else {
+                    await dispatch(postBuyTicket({
+                        items: currentEvent?.all_prices.map(priceObj => ({
+                            type: 'event',
+                            id: currentEvent.id,
+                            sub_type: priceObj.sub_type,
+                            // price: priceObj.price,
+                            quantity: sessionStorage.getItem(`quantity${currentEvent.id + priceObj.sub_type}`)
+                        })).flat().filter(el => el.quantity > 0)
+                    }))
+                        .then(res => {
+                            if (res.meta.requestStatus === "fulfilled") {
+                                window.location.href = res.payload.data.redirect_url;
+                            }
+                        });
+                }
     
                 // currentEvent.event_configs.map(item => {
                 //     sessionStorage.removeItem(`quantity${item.id}`)
@@ -208,25 +243,56 @@ function PrivateEventTicket({changeTicketType}) {
             }
             else{
                 
-                await dispatch(setObj({
-                    items: currentEvent.event_configs.map(el => ({
-                        type: 'event',
-                        id: el.id,
-                        quantity: sessionStorage.getItem(`quantity${el.id}`)
-                    })).filter(el => {
-                        if(el.quantity > 0){
-                            dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket', ticketType: 'standart'}))
-                            dispatch(setModalTicketIsOpen(true))
-                            setErrorMessageTicket(false)
-                            
-                            return el
-                        }
-                        else{
-                            setErrorMessageTicket(true)
-                        }
-                    })
-       
-                }))
+                if (currentEvent.style === 'basic') {
+                    await dispatch(setObj({
+                        items: currentEvent?.event_configs.map(el => {
+                            return currentEvent?.all_prices.map(priceObj => ({
+                                type: 'event-config',
+                                id: el.id,
+                                sub_type: priceObj.sub_type,
+                                // price: priceObj.price,
+                                quantity: sessionStorage.getItem(`quantity${el.id + priceObj.sub_type}`)
+                            }));
+                        }).flat().filter(el => {
+                            if(el.quantity > 0){
+                                dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket', ticketType: 'standart'}))
+                                dispatch(setModalTicketIsOpen(true))
+                                setErrorMessageTicket(false)
+                                
+                                return el
+                            }
+                            else{
+                                setErrorMessageTicket(true)
+                            }
+                        })
+           
+                    }))
+                }
+                else {
+                    await dispatch(setObj({
+                        items: currentEvent?.all_prices.map(priceObj => ({
+                            type: 'event',
+                            id: currentEvent.id,
+                            sub_type: priceObj.sub_type,
+                            // price: priceObj.price,
+                            quantity: sessionStorage.getItem(`quantity${currentEvent.id + priceObj.sub_type}`)
+                        })).flat().filter(el => {
+                            if(el.quantity > 0){
+                                dispatch(setTicketType({kindOf: 'form', type: 'Buy Ticket', ticketType: 'standart'}))
+                                dispatch(setModalTicketIsOpen(true))
+                                setErrorMessageTicket(false)
+                                
+                                return el
+                            }
+                            else{
+                                setErrorMessageTicket(true)
+                            }
+                        })
+                    }))
+
+                    console.log('tandz');
+                    
+                }
 
 
             }
@@ -268,6 +334,15 @@ function PrivateEventTicket({changeTicketType}) {
             setopenModalEvent(false)
 
         }
+
+        const updateTotalValue = (key, value) => {
+            totalValuesRef.current[key] = value;
+            const total = Object.values(totalValuesRef.current).reduce((acc, curr) => acc + curr, 0);
+            setFullValueTicket(total);
+        };
+
+   const ticketsType_for_private = t('ticketsType_for_private', { returnObjects: true })
+
 
     return (
         <>
@@ -357,17 +432,71 @@ function PrivateEventTicket({changeTicketType}) {
                     
                     <div className='events_ticket_block'>
                         {
-                            currentEvent?.event_configs.map(item => 
+                           currentEvent?.style === 'basic' ? currentEvent?.event_configs.map(item => 
                                 <div className='events_ticket_block_event' key={item.id}>
                                     <span>{currentEvent.name}</span>
                                     <div className='events_ticket_block_event_time_div'>
-                                        <span>{item. day}</span>
+                                        <span>{item.day}</span>
                                         <span>{item.start_time.slice(0,5)}</span>
                                     </div>
 
-                                    <TicketCountDiv max={item.tickets.max} min={item.tickets.min} price={item.tickets.price} setFullValueTicket={setFullValueTicket} setQuantityEvent={setQuantityEvent} quantityEvent={quantityEvent} item= {item}/>
+                                    <div className='events_ticket_block_event_price'>
+                                        {
+                                            currentEvent?.all_prices.map(el => (
+                                                <div className='events_ticket_block_event_price_div'>
+                                                    {
+                                                        ticketsType_for_private.map(ticket => {
+                                                            if (Object.keys(ticket)[0] === el.sub_type) {
+                                                               return <span className='events_ticket_block_event_price_div_span' key={el.id}>{Object.values(ticket)[0]}</span>
+                                                            }
+                        
+                                                         })
+                                                    }
+                                                    <TicketCountDiv max={10} min={0} price={el.price} setFullValueTicket={setFullValueTicket} setQuantityEvent={setQuantityEvent} quantityEvent={quantityEvent} item= {item} updateTotalValue={updateTotalValue} type={el.sub_type} totalTicketCount={totalTicketCount}
+                                                    setTotalTicketCount={setTotalTicketCount}/>
+                                                </div>
+                                                
+                                            ))
+                                            
+                                        }
+                                    </div>
+                                        <div className='events_ticket_block_event_limit'>
+                                            <span>{t('event_single_page_modal.3')}</span>
+                                            <span className='events_ticket_block_event_limit_span'>{item?.visitors_quantity_limitation}</span>
+                                        </div>
                                 </div>
-                            )
+                            ) : <div className='events_ticket_block_event'>
+                                <span>{currentEvent.name}</span>
+                                <div className='events_ticket_block_event_time_div'>
+                                    <span>{currentEvent.start_date + ' - ' + currentEvent.end_date}</span>
+                                    {/* <span>{currentEvent.start_time.slice(0,5)}</span> */}
+                                </div>
+
+                                                            
+                                {/* <TicketCountDiv max={10} min={0} price={currentEvent.price} setFullValueTicket={setFullValueTicket} setQuantityEvent={setQuantityEvent} quantityEvent={quantityEvent} item= {currentEvent} /> */}
+
+                                <div className='events_ticket_block_event_price'>
+                                        {
+                                            currentEvent?.all_prices.map(el => (
+                                                <div className='events_ticket_block_event_price_div'>
+                                                    {
+                                                        ticketsType_for_private.map(ticket => {
+                                                            if (Object.keys(ticket)[0] === el.sub_type) {
+                                                               return <span className='events_ticket_block_event_price_div_span' key={el.id}>{Object.values(ticket)[0]}</span>
+                                                            }
+                        
+                                                         })
+                                                    }
+                                                    <TicketCountDiv max={10} min={0} price={el.price} setFullValueTicket={setFullValueTicket} setQuantityEvent={setQuantityEvent} quantityEvent={quantityEvent} item= {currentEvent} updateTotalValue={updateTotalValue} type={el.sub_type} totalTicketCount={totalTicketCount}
+                                                    setTotalTicketCount={setTotalTicketCount}/>
+                                                </div>
+                                                
+                                            ))
+                                            
+                                        }
+                                    </div>
+
+                            </div>
                         }
                     </div>
                     <div className='private_standart_ticket_museums_private_block_ticket_types_full_value'>
@@ -380,8 +509,8 @@ function PrivateEventTicket({changeTicketType}) {
 
                     <div className='private_standart_ticket_museums_private_block_ticket_types_buy_div'>
                         
-                            <button className='bay_ticket_btn' onClick={buyTicket}>{t('buttons.0')}</button>
-                            <button className='add_cart_btn' onClick={addCart}>{t('buttons.3')}</button>
+                            <button disabled={!fullValueTicket} className='bay_ticket_btn' onClick={buyTicket}>{t('buttons.0')}</button>
+                            <button disabled={!isAuth || !fullValueTicket} className='add_cart_btn' onClick={addCart}>{t('buttons.3')}</button>
                     </div>
                  </div>
                 )}

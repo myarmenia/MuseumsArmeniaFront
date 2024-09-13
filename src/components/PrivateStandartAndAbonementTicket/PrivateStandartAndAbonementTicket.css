@@ -10,11 +10,15 @@
 
 
 .private_standart_ticket >div{
-    width: 33.3% ;
+    width: 40% ;
     height: 100%;
 }
 .private_standart_ticket_regions{
     position: relative;
+}
+
+div.regions_input_div{
+    width: 20%;
 }
 
 .private_standart_ticket_regions > input:hover +ul{

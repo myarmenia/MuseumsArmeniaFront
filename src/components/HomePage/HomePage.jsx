@@ -10,20 +10,22 @@ import ContactUsSection from '../ContactUsSection/ContactUsSection';
 import PrivateTicket from '../PrivateTicket/PrivateTicket';
 import CardModal from '../Shop/CardModal';
 import EventsInHome from '../EvensInHome/EventsInHome';
+import axios from 'axios';
 
 
 function HomePage({ changeFonSize, changeFont }) {
 
+
   return (
     <div className="home_page">
       <SliderInHome />
-      <PrivateTicket />
+      {/* <PrivateTicket /> */}
       <NewsSectionInHome />
       <MuseumSectionSliderInHome />
       <SingleTicketSection />
       <EventsInHome/>
       <SectionAboteUs />
-      <SouvenirsSection />
+      {/* <SouvenirsSection /> */}
       <ContactUsSection />
       <CardModal />
     </div>

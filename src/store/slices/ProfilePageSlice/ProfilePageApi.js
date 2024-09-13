@@ -72,11 +72,11 @@ export const postChangeUserPass = createAsyncThunk(
 
 export const getOrders = createAsyncThunk(
   'orders/getOrders',
-  async (_, thunkAPI) => {
+  async (page, thunkAPI) => {
     try {
       const config = {
         method: 'get',
-        url: 'user/order-history',
+        url: `user/order-history?page=${page}`,
       };
 
       const response = await instance(config);

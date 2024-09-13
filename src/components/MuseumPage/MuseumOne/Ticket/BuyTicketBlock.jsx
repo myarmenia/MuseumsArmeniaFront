@@ -33,14 +33,16 @@ const BuyTicketBlock = ({ hendleClickItems }) => {
                                     </span>
                                  </p>
 
-                                 {items.type !== 'standart' && (
+                                 {items.type == 'free' && (
                                     <p className="attention">
                                        <AttentionIcons />
                                        <span>{t(`infoBuyTicket.0`)}</span>
                                     </p>
                                  )}
                               </div>
-                              <div className="BuyTicketBlock-list-Button">
+                              {
+                                 items.type !== 'free' && (
+                                    <div className="BuyTicketBlock-list-Button">
                                  <span onClick={() => hendleClickItems('down', items)}>
                                     <MinusButtonIcons width="40" height="40" />
                                  </span>
@@ -51,6 +53,8 @@ const BuyTicketBlock = ({ hendleClickItems }) => {
                                     <PlusButtonIcons width="40" height="40" />
                                  </span>
                               </div>
+                                 )
+                              }
                            </div>
                         ),
                   )

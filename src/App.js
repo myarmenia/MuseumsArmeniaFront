@@ -42,6 +42,8 @@ import ChatProfile from './components/ProfilePages/ChatProfile/ChatProfile';
 import QrCode from './components/ProfilePages/QrCode/QrCode';
 import Notification from './components/Notification/Notification';
 import { setNotificationStatus } from './store/slices/MuseumPagesSlice/MuseumPagesSlice';
+import InvalidPage from './components/InvalidPage/InvalidPage';
+import { setObj } from './store/slices/BuyTicketSlice/BuyTicketSlice';
 
 function App() {
    const [changeFonSize, setChangeFonSize] = useState('');
@@ -62,6 +64,8 @@ function App() {
          localStorage.removeItem('isAuth');
       }
    }, []);
+
+  
 
    useEffect(() => {
       const params = customBasesUrlFunc();
@@ -84,6 +88,25 @@ function App() {
    const changeFont = (type) => {
       setChangeFonSize(type);
    };
+
+
+   useEffect(() => {
+      const handlePageShow = (event) => {
+        if (event.persisted || window.performance.navigation.type === 2) {
+          window.location.reload();
+          console.log('page reload');
+          
+        }
+      };
+  
+      window.addEventListener('pageshow', handlePageShow);
+  
+      return () => {
+        window.removeEventListener('pageshow', handlePageShow);
+      };
+    }, []);
+
+
 
    return (
       <div className={`App  ${changeFonSize}`}>
@@ -181,15 +204,16 @@ function App() {
                      }
                   />
                   <Route path="privacy-policy" element={<PrivacyPolicy />} />
-                  <Route
+                   {/* <Route
                      path="store"
                      element={
                         <PrivateRouteForOutSider>
                            <Shop />
                         </PrivateRouteForOutSider>
                      }
-                  />
-                  <Route
+                  /> */}
+                  <Route path="store" element={<div style={{ height: '100vh', display:'flex', justifyContent: 'center', paddingTop: '120px'}}><h3 style={{textAlign: 'center', fontSize: '30px', color: 'var(--second_font_color)'}}>{t('storeErrorPage')}</h3></div>} />
+                  <Route 
                      path="store/:id"
                      element={
                         <PrivateRouteForOutSider>
@@ -318,6 +342,8 @@ function App() {
                   />
                </Route>
             </Route>
+
+            <Route path="*" element={<InvalidPage />} />
          </Routes>
          <CustomNotification />
       </div>

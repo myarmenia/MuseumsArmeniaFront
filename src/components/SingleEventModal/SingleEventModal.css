@@ -1,6 +1,6 @@
 .single_event_modal{
     position: fixed;
-    z-index: 999999;
+    z-index: 999999999;
     top: 0;
     left: 0;
     width: 100vw;
@@ -38,7 +38,8 @@
 .single_event_modal_item{
     width: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    /* flex-direction: column; */
     padding: 10px;
     -webkit-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.1);
     -moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.1);
@@ -49,6 +50,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
 }
 
 .single_event_modal_item_left_date_and_time{
@@ -60,6 +62,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 100%;
 }
 
 .single_event_modal_item_left_date_and_time >div{
@@ -117,12 +120,53 @@
     background-color: #3F3D56;
 }
 
-.single_event_modal_block_xMark{
+span.single_event_modal_block_xMark{
     position: absolute;
     right: 10px;
     top: 10px;
     font-family: monospace;
     cursor: pointer;
     color: var(--second_font_color);
-    font-size: 14px;
+    font-size: 22px;
+}
+
+
+.single_event_modal_bay_ticket_btn:disabled, .single_event_modal_add_cart_btn:disabled{
+    background-color: #d9d9d9;
+    cursor: not-allowed;
+}
+
+
+.single_event_modal_item_left_price_and_count_standart{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.single_event_modal_item_left_block{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+}
+
+
+.single_event_modal_item_2{
+    width: 100%;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    padding: 10px;
+    -webkit-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.1);
+    gap: 10px;
+}
+
+.single_event_modal_item_left_block_items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
 }

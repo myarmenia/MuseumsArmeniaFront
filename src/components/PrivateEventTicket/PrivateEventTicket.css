@@ -120,8 +120,20 @@
 .private_tickets_events > input::placeholder{
     color: gray;
 }
+.events_ticket_block_event_price{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
-.Events_ticket_price p{
+.private_standart_ticket .Events_ticket_price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 70%;
+}
+.private_standart_ticket .Events_ticket_price p{
     color: var(--second_font_color);
     font-weight: bold;
 }
@@ -133,4 +145,32 @@
 
 .private_event_ticket_museums .private_standart_ticket_museum_list{
     min-width: 160% ;
+}
+
+.events_ticket_block_event_price_div{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.events_ticket_block_event_price_div_span{
+    width: 120px;
+    text-align: left !important;
+}
+
+
+.events_ticket_block_event_limit{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+
+.events_ticket_block_event_limit_span {
+    color: var(--second_font_color);
+}
+
+.bay_ticket_btn:disabled, .add_cart_btn:disabled{
+    background-color: #d9d9d9;
+    cursor: not-allowed;
 }

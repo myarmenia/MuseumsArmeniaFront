@@ -7,9 +7,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postMuseumTicket } from '../../../../store/slices/MuseumTicket/MuseumTicketApi';
 import { customBasesUrlFunc } from '../../customBasesUrlFunc';
 import './TicketMuseumBlock.css';
-import { selectBuyTicket } from '../../../../store/slices/BuyTicketSlice/BuyTicketSlice';
+import { selectBuyTicket, setObj } from '../../../../store/slices/BuyTicketSlice/BuyTicketSlice';
 import { getComboTicketsData } from '../../../../store/slices/ComboTicket/ComboTicketSlice';
 import { setNotificationStatus } from '../../../../store/slices/MuseumPagesSlice/MuseumPagesSlice';
+import { setIsActiveModal } from '../../../../store/slices/SingleEventSlice/SingleEventSlice';
 const TicketMuseumForm = () => {
    const leng = localStorage.getItem('lang');
    const { t, i18n } = useTranslation();
@@ -27,7 +28,7 @@ const TicketMuseumForm = () => {
    const validationSchema = yup.object().shape({
       email: yup.string().email(t('validation_inp.0')).required(t('validation_inp.1')),
    });
-   const handleRegister = (e, handleSubmit, isValid) => {
+   const handleRegister = async(e, handleSubmit, isValid) => {
       handleSubmit();
       e.preventDefault();
 
@@ -56,7 +57,7 @@ const TicketMuseumForm = () => {
             person.gender = gender.value;
          }
 
-         dispatch(
+        await dispatch(
             postMuseumTicket({
                userToken: null,
                postData: {
@@ -71,7 +72,16 @@ const TicketMuseumForm = () => {
                         : dataItems,
                },
             }),
-         );
+         ).then((res) => {
+            if(res.payload?.success){
+               // dispatch(setIsActiveModal(false));
+               console.log('tnadz');
+               
+            }
+            
+         })
+
+         // dispatch(setObj({}));
       }
    };
 
@@ -178,7 +188,7 @@ const TicketMuseumForm = () => {
                            className="formChild-inbut"
                         />
                         {touched.email && errors.email && (
-                           <p className="error" style={{ color: 'red' }}>
+                           <p className="error_formik" style={{ color: 'red' }}>
                               {errors.email}
                            </p>
                         )}
@@ -193,7 +203,7 @@ const TicketMuseumForm = () => {
                            onBlur={handleBlur}
                            className="formChild-inbut"
                         />
-                        {touched.name && errors.name && <p className="error">{errors.name}</p>}
+                        {touched.name && errors.name && <p className="error_formik">{errors.name}</p>}
                      </div>
 
                      <div className="museumTicket-formChild-inbut">
@@ -207,7 +217,7 @@ const TicketMuseumForm = () => {
                            className="formChild-inbut"
                         />
                         {touched.surname && errors.surname && (
-                           <p className="error">{errors.surname}</p>
+                           <p className="error_formik">{errors.surname}</p>
                         )}
                      </div>
 
@@ -221,7 +231,7 @@ const TicketMuseumForm = () => {
                            onBlur={handleBlur}
                            className="formChild-inbut"
                         />
-                        {touched.phone && errors.phone && <p className="error">{errors.phone}</p>}
+                        {touched.phone && errors.phone && <p className="error_formik">{errors.phone}</p>}
                      </div>
 
                      <div className="museumTicket-formChild-inbut">
@@ -252,7 +262,7 @@ const TicketMuseumForm = () => {
                               ))}
                            </div>
                            {touched.country && errors.country && (
-                              <p className="error">{errors.country}</p>
+                              <p className="error_formik">{errors.country}</p>
                            )}
 
                            <span className="museumTicket-selectIcon">{selectIcon}</span>
@@ -269,7 +279,7 @@ const TicketMuseumForm = () => {
                            onBlur={handleBlur}
                            className="formChild-inbut"
                         />
-                        {touched.age && errors.age && <p className="error">{errors.age}</p>}
+                        {touched.age && errors.age && <p className="error_formik">{errors.age}</p>}
                      </div>
 
                      <div className="ticketForm-blockradio">

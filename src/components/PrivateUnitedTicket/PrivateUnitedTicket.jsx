@@ -266,7 +266,7 @@ function PrivateUnitedTicket() {
         <>
         <div className='private_standart_ticket'>
             {cartErrorMessage && <OutSideErrorModal txt={t('Ticket_type_placeholder.8')}/>}
-            <div className='private_standart_ticket_regions' ref={regionRef} onClick={(e)=> handleRegionInpFocus(e)}>
+            <div className='private_standart_ticket_regions regions_input_div' ref={regionRef} onClick={(e)=> handleRegionInpFocus(e)}>
                 <input type="text" onKeyDown={handleKeyDown} onClick={() => setopenModal(!openModal)} value={selectedRegion.value || ''} onChange={() => { }} placeholder={t('Ticket_type_placeholder.0')}/>
 
                 <div className='placeholder_div'>

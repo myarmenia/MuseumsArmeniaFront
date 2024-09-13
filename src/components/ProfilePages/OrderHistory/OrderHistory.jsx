@@ -4,51 +4,39 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getOrders } from '../../../store/slices/ProfilePageSlice/ProfilePageApi';
 import { useTranslation } from 'react-i18next';
 import { selectOrders, selectSideBar } from '../../../store/slices/ProfilePageSlice/ProfilePageSlice';
+import { leftPaginationIcon, rightPaginationIcon } from '../../../iconFolder/icon';
+import LoadSpinner from '../../LoadSpinner/LoadSpinner';
 
 function OrderHistory() {
   const { t, i18n } = useTranslation()
-  
+
   const dispatch = useDispatch()
   const respOreders = useSelector(selectOrders)
   const ticketsType_for_private = t('ticketsType_for_private', { returnObjects: true })
   const respSideBar = useSelector(selectSideBar)
   const orderRef = useRef(null)
-  const [f, setF] = useState('1000px')
+  const [page, setPage] = useState({ i: 1 })
 
 
   useEffect(() => {
-    dispatch(getOrders())
-  }, [])
-
-  
+    dispatch(getOrders(page.i))
+  }, [dispatch, page])
 
 
 
 
-  // const openModal = (event) => {
-  //   event.preventDefault();
-  //   const imgRect = event.target.getBoundingClientRect();
-  //   const modalLeft = imgRect.right + 50; // Adjust the offset as needed
-  //   const modalTop = imgRect.top - 15;
-  //   setModalPosition({ top: modalTop, left: modalLeft });
-  //   setModalOpen(true);
-  // };
-
-  // const closeModal = () => {
-  //   setModalOpen(false);
-  // };
-
-  // const handleModalClick = (event) => {
-  //   event.stopPropagation();
-  // };
-
-
-
-
-
-
-
-
+  const pagination = () => {
+    if (respOreders.params && typeof respOreders.params.page_count !== 'undefined') {
+      const paginationList = [];
+      for (let i = 1; i <= respOreders.params.page_count; i++) {
+        paginationList.push(<li key={i} onClick={() => setPage({ i })} style={{ color: i === page.i ? 'var(--second_font_color)' : 'black' }} >{i}</li>);
+      }
+      return paginationList;
+    }
+    else {
+      return <LoadSpinner />
+    }
+  }
   return (
     <>
       <div className='container'>
@@ -83,8 +71,11 @@ function OrderHistory() {
                         {
                           ticketsType_for_private.map(ticket => {
                             if (Object.keys(ticket)[0] === order.type) {
-                              return <span key={order.id}>{Object.values(ticket)[0]}  {order.product_name && ('/ ' + order.product_name) }</span>
+                              return <span key={order.id}>{Object.values(ticket)[0]}  {order.product_name && ('/ ' + order.product_name)}</span>
                             }
+                            else if (order.type === 'event-config' && Object.keys(ticket)[0] === 'event_config') {
+                              return <span key={order.id}>{Object.values(ticket)[0]} {order.product_name && '/ ' + order.product_name}</span>
+                           }
                           })
                         }
                       </td>
@@ -101,11 +92,20 @@ function OrderHistory() {
                 }
               </tbody>
             </table>
-            
+
+            {respOreders?.params?.page_count > 1 && <ul className='pagination_ul'>
+              <li onClick={() => page.i > 1 && setPage({ i: page.i - 1 })}>{leftPaginationIcon}</li>
+
+              {
+                pagination()
+              }
+              <li onClick={() => respOreders?.params?.page_count > page.i && setPage({ i: page.i + 1 })}>{rightPaginationIcon}</li>
+            </ul>}
+
           </div>) : <h3 style={{ fontWeight: '100' }}>{t('single_shop_page.3')}</h3>}
         </div>
       </div>
-      
+
     </>
   );
 }

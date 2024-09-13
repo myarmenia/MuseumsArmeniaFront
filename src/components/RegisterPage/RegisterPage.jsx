@@ -144,12 +144,12 @@ function RegisterPage() {
                                                 <span>{t('register_text.1')}</span>
                                                 <div className="name-inp">
                                                     <input type="text" name="name" placeholder={t('placeholder.3')} value={values.name} onChange={handleChange} onBlur={handleBlur} />
-                                                    {touched.name && errors.name && <p className="error">{errors.name}</p>}
+                                                    {touched.name && errors.name && <p className="error_formik">{errors.name}</p>}
                                                 </div>
 
                                                 <div className="lastName-inp">
                                                     <input type="text" name="lastName" placeholder={t('placeholder.4')} value={values.lastName} onChange={handleChange} onBlur={handleBlur} />
-                                                    {touched.lastName && errors.lastName && <p className="error">{errors.lastName}</p>}
+                                                    {touched.lastName && errors.lastName && <p className="error_formik">{errors.lastName}</p>}
                                                 </div>
                                             </div>
 
@@ -157,18 +157,18 @@ function RegisterPage() {
                                                 <span>{t('register_text.2')}</span>
                                                 <div className="email-inp">
                                                     <input ref={emailRef} type="email" name="email" placeholder={t('placeholder.5')} value={values.email} onChange={handleChange} onBlur={handleBlur} />
-                                                    {touched.email && errors.email && <p className="error">{errors.email}</p>}
+                                                    {touched.email && errors.email && <p className="error_formik">{errors.email}</p>}
                                                 </div>
 
                                                 <div className="password">
                                                     <input type="password" name="password" placeholder={t('placeholder.1')} value={values.password} onChange={handleChange} onBlur={handleBlur}/>
-                                                    {touched.password && errors.password && <p className="error">{errors.password}</p>}
+                                                    {touched.password && errors.password && <p className="error_formik">{errors.password}</p>}
 
                                                 </div>
 
                                                 <div className="confirmPassword">
                                                     <input type="password" name="confirmPassword" placeholder={t('placeholder.6')} value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur}/>
-                                                    {touched.confirmPassword && errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
+                                                    {touched.confirmPassword && errors.confirmPassword && <p className="error_formik">{errors.confirmPassword}</p>}
                                                     
                                                 </div>
                                             </div>
@@ -176,7 +176,7 @@ function RegisterPage() {
                                             <div className="phone-inp">
                                                 <span>{t('register_text.3')}</span>
                                                 <input type="text" name="phone" placeholder={t('placeholder.7')} value={values.phone} onChange={handleChange} onBlur={handleBlur} />
-                                                {touched.phone && errors.phone && <p className="error">{errors.phone}</p>}
+                                                {touched.phone && errors.phone && <p className="error_formik">{errors.phone}</p>}
                                             </div>
 
                                             <div className='age_and_country_div'>
@@ -195,14 +195,14 @@ function RegisterPage() {
                                                                 }
                                                                 
                                                     </div>
-                                                    {touched.country && errors.country && <p className="error">{errors.country}</p>}
+                                                    {touched.country && errors.country && <p className="error_formik">{errors.country}</p>}
 
                                                     <span className='selectIcon'>{selectIcon}</span>
                                                 </div>
 
                                                 <div className="age-inp">
                                                     <input type="date" name="age" placeholder="age" value={values.age} onChange={handleChange} onBlur={handleBlur} />
-                                                    {touched.age && errors.age && <p className="error">{errors.age}</p>}
+                                                    {touched.age && errors.age && <p className="error_formik">{errors.age}</p>}
                                                 </div>
                                             </div>
 

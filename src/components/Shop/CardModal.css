@@ -75,6 +75,7 @@
   font-style: italic;
   font-size: 15px;
   font-weight: 100;
+  width: 300px;
 }
 .basket_box_div_name {
   font-weight: 600;
@@ -133,9 +134,7 @@
   color: #ffffff;
   border: 2px solid #ffffff;
   padding: 10px 20px;
-  margin: 0 25px 0 25px;
   cursor: pointer;
-  margin-top: 13px;
 }
 
 .checkout_btn:hover {
@@ -143,4 +142,21 @@
   background-color: #ffffff;
   color: #000000;
   border: 2px solid #d5aa72;
+}
+
+
+.checkout_delete_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkout_delete_block button {
+  text-align: center;
+  background-color: red;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
 }

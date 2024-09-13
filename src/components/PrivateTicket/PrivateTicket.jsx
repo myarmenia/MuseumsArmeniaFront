@@ -66,6 +66,7 @@ function PrivateTicket() {
                 {changeTicketType === '3' && <PrivateUnitedTicket/>}
                 {changeTicketType === '4' && <PrivateEventTicket/>}
         </div>
+
     </div>
   )
 }

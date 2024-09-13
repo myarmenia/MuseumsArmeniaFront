@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { CustomSearshBlock } from '../../index';
@@ -10,6 +10,7 @@ import CustopPagination from '../../CustopPagination';
 import './museumOneShop.css';
 const MuseumOneShop = ({ museumId }) => {
    const { t, i18n } = useTranslation();
+   const needToShow = useRef(0)
    const dispatch = useDispatch();
    const [activCategoru, setActivCategoru] = React.useState({
       name: t(`selectCategory`),
@@ -33,11 +34,21 @@ const MuseumOneShop = ({ museumId }) => {
          getMuseumOneProducts({ museumId: museumId, productId: activCategoru.id, pageCount }),
       );
    }, [pageCount, activCategoru]);
+
+
+   useEffect(() => {
+      if (dataMuseumProducts.dataProducts.length) {
+         needToShow.current = needToShow.current + 1
+      }
+   }, [dataMuseumProducts.dataProducts.length])
+
+
+
    return (
       <div className="museumOne_pageStyle">
          {loadingMuseumProducts === 'fulfilled' ? (
             <div className="MuseumOneShop-par">
-               <div className="MuseumOneShop-parHeader">
+               {(dataMuseumProducts.dataProducts.length > 0 || needToShow.current) && <div className="MuseumOneShop-parHeader">
                   <div>
                      <h4 className="museumOne_title">{t(`thisMuseum`)}</h4>
                      <p>
@@ -52,8 +63,8 @@ const MuseumOneShop = ({ museumId }) => {
                      fun={filter}
                      translationtxt={['selectCategory', 'allMussseum']}
                   />
-               </div>
-               {dataMuseumProducts.dataProducts.length > 0 ? (
+               </div>}
+               {dataMuseumProducts.dataProducts.length > 0 && (
                   <>
                      <div className="MuseumOneShop-parProducts">
                         {dataMuseumProducts.dataProducts.map((item) => (
@@ -70,11 +81,13 @@ const MuseumOneShop = ({ museumId }) => {
                         </div>
                      )}
                   </>
-               ) : (
-                  <div className="productsErrorMessages">
-                     <p>{t(`productsErrorMessages`)}</p>
-                  </div>
-               )}
+               )
+                  // : (
+                  //    <div className="productsErrorMessages">
+                  //       <p>{t(`productsErrorMessages`)}</p>
+                  //    </div>
+                  // )
+               }
             </div>
          ) : loadingMuseumProducts === 'loading' ? (
             <LoadSpinner />

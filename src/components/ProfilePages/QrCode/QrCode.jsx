@@ -81,8 +81,11 @@ function QrCode() {
                 )}
                 {ticketsType_for_private.map(ticket => {
                   if (Object.keys(ticket)[0] === qrItem.type) {
-                    return <span key={qrItem.id}>{Object.values(ticket)[0]}</span>;
-                  }
+                              return <span key={qrItem.id}>{Object.values(ticket)[0]}</span>
+                            }
+                            else if (qrItem.type === 'event-config' && Object.keys(ticket)[0] === 'event_config') {
+                              return <span key={qrItem.id}>{Object.values(ticket)[0]}</span>
+                           }
                 })}
                 <div className='price_and_openModal_div'>
                   <p>{qrItem.price} AMD</p>

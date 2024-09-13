@@ -41,7 +41,7 @@ function SingleTicketSection() {
               <p>{singleTicketData.txt}</p>
               <img src={require('../../images/Line 108.png')} alt="" />
             </div>
-            <Button txt="0" onClick={() => navigate(`/${leng}/comboticket`)} />
+            {/* <Button txt="0" onClick={() => navigate(`/${leng}/comboticket`)} /> */}
           </div>
         </div>
       </div>

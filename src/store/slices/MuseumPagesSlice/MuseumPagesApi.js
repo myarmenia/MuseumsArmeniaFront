@@ -73,3 +73,21 @@ export const getMuseumOneProducts = createAsyncThunk(
       }
    },
 );
+
+
+
+
+export const getOtherServices = createAsyncThunk(
+   'otherServices/getOtherServices',
+   async (id, thunkAPI) => {
+      try {
+         const { data } = await instance(`other-service/list/${id}`);
+
+         return data 
+      } catch (error) {
+         console.log(error);
+         return thunkAPI.rejectWithValue(error.response.data.error);
+      }
+   },
+);
+

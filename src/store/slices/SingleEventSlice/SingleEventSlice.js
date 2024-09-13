@@ -5,13 +5,16 @@ const initialState = {
    data: {},
    status: 'idle',
    loading: 'pending',
+   isActiveModal: false
    };
 
 const singleEventSlice = createSlice({
     name: 'singleEvent',
     initialState,
     reducers: {
-      
+       setIsActiveModal: (state, action) => {
+          state.isActiveModal = action.payload
+       }
     },
  
    
@@ -42,8 +45,9 @@ export const selectSingleEvent = (state) => state.singleEvent
 
 export const selectSingleEventLoading = (state) => state.singleEvent.loading
 
+export const selectSingleEventIsActiveModal = (state) => state.singleEvent.isActiveModal
 
- export const {} = singleEventSlice.actions
+ export const {setIsActiveModal} = singleEventSlice.actions
 
 
 export const singleEventReducer =  singleEventSlice.reducer

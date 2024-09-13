@@ -106,13 +106,13 @@ function ResetPasswordPage() {
                                         <div className="reset-password-inp inp_div">
                                             <input type={viewPassword ? 'password' : 'text'} name="password" placeholder={t('placeholder.1')} value={values.email} onChange={handleChange} onBlur={handleBlur} />
                                             <span onClick={() => setViewPassword(!viewPassword)}>{eyeIcon}</span>
-                                            {touched.password && errors.password && <p className="error">{errors.password}</p>}
+                                            {touched.password && errors.password && <p className="error_formik">{errors.password}</p>}
                                         </div>
 
                                         <div className="confirm-password-inp inp_div">
                                             <input type={viewConfirmPassword ? 'password' : 'text'} name="confirmPassword" placeholder={t('placeholder.6')} value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur} />
                                             <span onClick={() => setConfirmViewPassword(!viewConfirmPassword)}>{eyeIcon}</span>
-                                            {touched.confirmPassword && errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
+                                            {touched.confirmPassword && errors.confirmPassword && <p className="error_formik">{errors.confirmPassword}</p>}
                                         </div>
 
                                         <button className='reset_password'>{t('buttons.2')}</button>

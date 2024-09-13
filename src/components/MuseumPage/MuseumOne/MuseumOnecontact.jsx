@@ -64,6 +64,7 @@ const MuseumOnecontact = ({
             </div>
          )}
 
+
          {email && (
             <div>
                <div className="blockRigth_styles-parPhone">
@@ -89,7 +90,7 @@ const MuseumOnecontact = ({
                <div className="blockRigth_styles-parPhone">
                   <WebSideIcons width={17} />
                   <p className="par-contactMinBlock">
-                     <a href={`${links?.web_site}`} rel="noopener noreferrer" target="_blank">
+                     <a href={links?.web_site} rel="noopener noreferrer" target="_blank">
                         {getBaseUrl(links?.web_site)}
                      </a>
                   </p>

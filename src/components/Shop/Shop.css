@@ -240,10 +240,12 @@
 
 .shop-box_button{
   background-color: #D5AA72;
-    padding: 10px 30px;
     color: white;
     border: none;
     cursor: pointer;
+    width: 150px;
+    padding: 10px 0;
+    text-align: center;
 }
 
 .shop-box_button:hover{

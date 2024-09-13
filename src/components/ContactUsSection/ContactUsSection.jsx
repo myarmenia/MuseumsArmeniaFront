@@ -117,7 +117,7 @@ function ContactUsSection() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                  {touched.name && errors.name && <p className="error">{errors.name}</p>}
+                  {touched.name && errors.name && <p className="error_formik">{errors.name}</p>}
                 </div>
 
                 <div className="phone_email_div">
@@ -130,7 +130,7 @@ function ContactUsSection() {
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
-                    {touched.phone && errors.phone && <p className="error">{errors.phone}</p>}
+                    {touched.phone && errors.phone && <p className="error_formik">{errors.phone}</p>}
                   </div>
 
                   <div className="email-inp">
@@ -142,7 +142,7 @@ function ContactUsSection() {
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
-                    {touched.email && errors.email && <p className="error">{errors.email}</p>}
+                    {touched.email && errors.email && <p className="error_formik">{errors.email}</p>}
                   </div>
                 </div>
                 <div>
