@@ -727,6 +727,12 @@
    width: 715px;
 }
 
+.otherServices_item{
+   display: flex;
+   gap: 10px;
+   align-items: start;
+}
+
 
 .oneService{
    display: flex;
@@ -782,6 +788,15 @@ p.oneService_price{
    color: var(--second_font_color);
 }
 
+
+p.museumTicket_formChild_header_span{
+   font-family: globalFont;
+   font-weight: 400;
+   line-height: 19px;
+   font-size: 13px;
+   color: var(--second_font_color);
+   text-align: center;
+}
 /*   CustomNotification end****************** */
 
 @media (max-width: 1400px) {

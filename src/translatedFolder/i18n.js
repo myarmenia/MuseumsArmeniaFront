@@ -575,6 +575,7 @@ i18n.use(initReactI18next).init({
                'Այս պահին տոմսեր չկան',
                'Ապրանքներ ավելացված են զամբյուղում',
                'Տոմս գնելու համար լրացրեք դաշտերը',
+               'Գնված էլեկտրոնային տոմսերը կուղարկվեն Ձեր նշած էլեկտրոնային փոստին'
             ],
 
             profil_side_bar: [
@@ -1267,6 +1268,7 @@ i18n.use(initReactI18next).init({
                'На данный момент билетов нет в наличии',
                'Товары добавлены в корзину',
                'Заполните поля, чтобы купить билет',
+               'Купленные электронные билеты будут отправлены на указанную вами электронную почту.'
             ],
 
             profil_side_bar: ['Мой аккаунт', 'Сообщения', 'Заказы', 'QR код', 'Уведомления'],
@@ -1940,6 +1942,7 @@ i18n.use(initReactI18next).init({
                'There are currently no tickets available',
                'Products added to cart',
                'Fill in the fields to buy a ticket',
+               'Purchased e-tickets will be sent to the e-mail you specified'
             ],
 
             section_united_ticket: [

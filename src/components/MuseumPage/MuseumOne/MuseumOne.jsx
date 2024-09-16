@@ -162,10 +162,13 @@ const MuseumOne = () => {
 
                            <div className='otherServices_items'>
                               {
-                                 otherServices.data?.map((item) => (
-                                    <div className="oneService">
-                                       <p className='oneService_name' title={item.name}>{item.name}</p>
-                                       <p className='oneService_price'>{item.price} AMD</p>
+                                 otherServices.data?.map((item, index) => (
+                                    <div className='otherServices_item'>
+                                       <p>{index+1})</p>
+                                       <div className="oneService">
+                                          <p className='oneService_name' title={item.name}>{item.name}</p>
+                                          <p className='oneService_price'>{item.price} AMD</p>
+                                       </div>
                                     </div>
                                  ))
                               }

@@ -140,6 +140,7 @@ const TicketMuseumForm = () => {
       <div className="museumTicket-formChild">
          <div className="museumTicket-formChild-header">
             <p>{t(`isWrong.3`)}</p>
+            <p className='museumTicket_formChild_header_span'>{t(`isWrong.4`)}</p>
          </div>
          <div className="museumTicket-formChild-block">
             <Formik
