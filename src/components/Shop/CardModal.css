@@ -1,0 +1,162 @@
+.xxx {
+  background-color: #f8f9fa;
+  height: 100vh;
+  width: 100%;
+  transition: all 0.8s ease;
+  transform: rotateY(0deg);
+  transform-origin: right;
+  animation-name: anim;
+  animation-duration: 1s;
+  overflow: auto;
+  color: black;
+  /* animation-delay: 0.5s; */
+}
+
+@keyframes anim {
+  from {
+    transform: rotateY(90deg);
+  }
+  to {
+    transform: rotateY(0);
+  }
+}
+
+/* ///////////////////////////////// */
+.closeBtn_basket {
+  text-align: end;
+  font-size: 18px;
+  padding-right: 14px;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  cursor: pointer;
+  filter: invert(50%) sepia(10%) saturate(10000%) hue-rotate(20deg) brightness(80%) contrast(90%);
+}
+.all_baskets {
+  background-color: #f8f9fa;
+  overflow: auto;
+  height: 72%;
+}
+.all_baskets_height {
+  background-color: #f8f9fa;
+  overflow: auto;
+  height: 82%;
+}
+.basket_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 45px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 2px #00000005;
+}
+.basket_box_img {
+  width: 63px;
+  height: 63px;
+  border-radius: 6px;
+  object-fit: fill;
+}
+
+.trash_icon:hover {
+  filter: invert(50%) sepia(10%) saturate(10000%) hue-rotate(20deg) brightness(80%) contrast(90%);
+}
+.delate_button {
+  cursor: pointer;
+  color: red;
+  font-size: 22px;
+}
+
+.basket_box_div {
+  width: 170px;
+}
+
+.museumName {
+  font-style: italic;
+  font-size: 15px;
+  font-weight: 100;
+  width: 300px;
+}
+.basket_box_div_name {
+  font-weight: 600;
+}
+.left_div_basket_box {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_top_all_baskets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.card_top_all_baskets > p {
+  font-size: 22px;
+}
+.all_baskets_top_card {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 110px;
+  margin-top: 10px;
+}
+
+.shop_icon_with_count {
+  position: relative;
+}
+.shop_icon_count {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b26705;
+}
+
+.basket_box_ticket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 2px #00000005;
+}
+
+.checkout_btn {
+  text-align: center;
+  background-color: #d5aa72;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.checkout_btn:hover {
+  text-align: center;
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #d5aa72;
+}
+
+
+.checkout_delete_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkout_delete_block button {
+  text-align: center;
+  background-color: red;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
+}

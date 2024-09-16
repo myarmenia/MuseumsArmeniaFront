@@ -3,7 +3,7 @@ import { postRegister } from "./RegisterApi";
 
 const initialState = {
    data: {
-      succes: false,
+      success: false,
       message: null,
    },
    status: 'idle',
@@ -24,16 +24,18 @@ const registerSlice = createSlice({
        builder
           .addCase(postRegister.pending, (state) => {
             state.status = 'loading';
+            state.loading = 'pending'
           })
           .addCase(postRegister.fulfilled, (state, action) => {
-               state.data.message = action.payload.message
-            state.loading = false
+               state.data = action.payload
+               state.loading = 'fulfilled'
              state.status = 'succes';
           })
           .addCase(postRegister.rejected, (state, action) => {
-               state.data.message = action.payload
+               state.data.message = action.payload.email[0]
+               state.data.success = false
                state.error = true
-               state.loading = false
+               state.loading = 'rejected'
                state.status = 'failed';
           });
     },
@@ -41,6 +43,7 @@ const registerSlice = createSlice({
  
 
 export const selectRegister = (state) => state.register
+export const selectRegisterData = (state) => state.register.data
 export const selectRegisterLoading = (state) => state.register.loading
 export const selectRegisterError = (state) => state.register.error
 

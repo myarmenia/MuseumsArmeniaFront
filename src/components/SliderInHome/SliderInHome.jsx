@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from "react";
 import './SliderInHome.css';
-import { hmoePageTopSlide } from "../../data/data";
+import { useDispatch, useSelector } from "react-redux";
+import { selectBanner } from "../../store/slices/BanerSlice/BanerSlice";
+import { getBanner } from "../../store/slices/BanerSlice/BanerApi";
 
 const SliderInHome = () => {
   const [active, setActive] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
-  const max = hmoePageTopSlide.length;
+  const bannerResp = useSelector(selectBanner)
+  const max = bannerResp?.data.length;
+  const dispatch = useDispatch()
+
+  
+
+  useEffect(()=>{
+     dispatch(getBanner())
+  },[])
+
+
 
   const intervalBetweenSlides = () => {
     if (autoplay) {
@@ -35,14 +47,15 @@ const SliderInHome = () => {
   };
 
   const renderSlides = () =>
-    hmoePageTopSlide.map((item, index) => (
-      <div className={`each-slide ${isActive(index)}`} key={index} style={{ backgroundImage: `url(${item.img})` }}>
-        <h1 className="slide_h1">{item.txt}</h1>
+  bannerResp?.data.map((item, index) => (
+      <div className={`each-slide ${isActive(index)}`} key={item.id} >
+        <img src={item.image} alt="" />
+        <h1 className="slide_h1">{item.text}</h1>
       </div>
     ));
 
   const renderDots = () =>
-    hmoePageTopSlide.map((slide, index) => (
+  bannerResp?.data.map((slide, index) => (
       <li className={`dots ${isActive(index)}`} key={index}>
         <button onClick={() => setActive(index)}>
           <span>&#9679;</span>
