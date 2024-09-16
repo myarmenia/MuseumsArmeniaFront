@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './SelectLng.css'
 import { useTranslation } from 'react-i18next'
 import '../..//translatedFolder/i18n';
+import { globIcon } from '../../iconFolder/icon';
 
 function SelectLng() {
-    const leng = localStorage.getItem('lang')
+  const leng = localStorage.getItem('lang')
     const [defaultLng, setDefaultLng] = useState('')
     const {t, i18n} = useTranslation()
 
@@ -17,6 +18,12 @@ function SelectLng() {
 
         window.location.href = result
       };
+
+        useEffect(()=> {
+          if (leng === null) {
+             localStorage.setItem('lang', 'am')
+          }
+       },[leng])
 
 
     useEffect(()=>{
@@ -34,7 +41,7 @@ function SelectLng() {
 
   return (
     <div className='select-lng'>
-       <span>{defaultLng}</span>
+       <span>{globIcon}</span>
        <ul className='lng-list'>
           {defaultLng !== 'Հայ' && <li id="am" onClick={(e) => changeLanguage(e.target.id)}>Հայ</li>}
           {defaultLng !== 'Рус' && <li id="ru" onClick={(e) => changeLanguage(e.target.id)}>Рус</li>}
