@@ -1908,3 +1908,10 @@ export const CheckMarkIcon = ({ width = '25', height = '25', fill = '#58C34D' })
 export const eventTopArrow = <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="var(--second_font_color)" className="bi bi-arrow-up-left" viewBox="0 0 16 16">
   <path fillRule="evenodd" d="M2 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1H3.707l10.147 10.146a.5.5 0 0 1-.708.708L3 3.707V8.5a.5.5 0 0 1-1 0z" />
 </svg>
+
+
+
+export const dawnloadIcon = <svg xmlns="http://www.w3.org/2000/svg" width={30} height={30} fill="gray" className="bi bi-box-arrow-down" viewBox="0 0 16 16">
+  <path fillRule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1z" />
+  <path fillRule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708z" />
+</svg>

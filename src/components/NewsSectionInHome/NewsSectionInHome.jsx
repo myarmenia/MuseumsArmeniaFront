@@ -39,7 +39,7 @@ function NewsSectionInHome() {
                     key={index}
                     onClick={() => navigate(`/${lang}/news/${el.id}`)}>
                     <div className="news_box_image">
-                      <img src={el.image} alt={el.title} />
+                      <img src={el.image} alt={el.title} loading="lazy" />
                     </div>
                     <div className="news_box_title">
                       <span className='created_at_news_box'>{el.created_at}</span>

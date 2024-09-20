@@ -30,7 +30,7 @@ function MuseumSectionSliderInHome() {
 
             return <div key={item.id} className='museum_section_item' onClick={() => navigate(`/${leng}/museums/museum/${item.id}`)}>
                 <div className='museum_section_item_img_div'>
-                    <img src={item.photo} alt="news" />
+                    <img src={item.photo} alt="news"  loading='lazy'/>
                 </div>
 
                 <div className='museum_section_item_info_div'>
