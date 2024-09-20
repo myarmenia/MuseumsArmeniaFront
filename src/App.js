@@ -95,7 +95,7 @@ function App() {
             }, 2000);
          }
       }
-   }, []);
+   }, [isAuth]);
 
    const changeFont = (type) => {
       setChangeFonSize(type);
