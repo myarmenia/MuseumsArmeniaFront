@@ -34,7 +34,7 @@ import ProfilePage from './components/ProfilePages/ProfilePage';
 import MyAccount from './components/ProfilePages/MyAccount/MyAccount';
 import OrderHistory from './components/ProfilePages/OrderHistory/OrderHistory';
 import { useSelector } from 'react-redux';
-import { getIsTemp } from './store/slices/Auth/AuthSlice';
+import { getIsAuth, getIsTemp } from './store/slices/Auth/AuthSlice';
 import EventSinglePage from './components/EventSinglePage/EventSinglePage';
 import ComboTicket from './components/ComboTicket/ComboTicket';
 import ContactWithUs from './components/contactWithUs/contactWithUs';
@@ -51,6 +51,8 @@ function App() {
    const respTemp = useSelector(getIsTemp);
    const dispatch = useDispatch();
    const leng = localStorage.getItem('lang') != null ? localStorage.getItem('lang') : 'am';
+   const isAuth = useSelector(getIsAuth);
+
 
    const navigate = useNavigate();
 
@@ -66,22 +68,32 @@ function App() {
    }, []);
 
   
-
+   console.log(isAuth, 55555);
+   
    useEffect(() => {
       const params = customBasesUrlFunc();
+      console.log(params,888);
+      
       if (params?.result) {
-         setTimeout(() => {
+         if (params.result === 'OK') {
             dispatch(
                setNotificationStatus({
-                  species: params.result === 'OK',
+                  species: true,
                   open: true,
-                  messages:
-                     params.result === 'OK'
-                        ? t(`notificationMessages.0`)
-                        : t(`notificationMessages.1`),
-               }),
+                  messages: isAuth ? t(`notificationMessages.3`) : t(`notificationMessages.0`),
+               })
             );
-         }, 2000);
+         } else {
+            setTimeout(() => {
+               dispatch(
+                  setNotificationStatus({
+                     species: false,
+                     open: true,
+                     messages: t(`notificationMessages.1`),
+                  })
+               );
+            }, 2000);
+         }
       }
    }, []);
 

@@ -49,7 +49,7 @@ const SliderInHome = () => {
   const renderSlides = () =>
   bannerResp?.data.map((item, index) => (
       <div className={`each-slide ${isActive(index)}`} key={item.id} >
-        <img src={item.image} alt="" />
+        <img src={item.image} alt="slide"  loading="lazy" />
         <h1 className="slide_h1">{item.text}</h1>
       </div>
     ));

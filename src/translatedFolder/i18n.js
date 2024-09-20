@@ -618,6 +618,8 @@ i18n.use(initReactI18next).init({
             notificationMessages: [
                'Ձեր վճարումը հաջողությամբ կատարվեց: Ստուգեք Ձեր էլ.փոստը:',
                'Ձեր վճարումը ձախողվել է:Խնդրում եմ փորձեք մի փոքր ուշ.',
+               'Այստեղ կարող եք բեռնել ձեր տոմսերը',
+               'Ձեր վճարումը հաջողությամբ կատարվեց: Ստուգեք Ձեր էլ.փոստը կամ անձնական էջը։'
             ],
 
             start_date: 'Սկիզբ',
@@ -1305,6 +1307,8 @@ i18n.use(initReactI18next).init({
             notificationMessages: [
                'Ваши изменения успешно сохранены․',
                'В настоящее время ваши изменения не могут быть сохранены.Пожалуйста, повторите попытку позже.',
+               'Вы можете скачать билеты здесь',
+               'Ваш платеж прошел успешно. Проверьте свою электронную почту или личную страницу.'
             ],
 
             start_date: 'Дата начала',
@@ -1971,6 +1975,8 @@ i18n.use(initReactI18next).init({
             notificationMessages: [
                'Your changes have been successfully saved.',
                'Your changes cannot be saved at this time.Please try again later.',
+               'You can download your tickets here',
+               'Your payment was successful. Check your email or personal page.'
             ],
 
             start_date: 'Start date',
